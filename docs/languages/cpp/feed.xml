@@ -1,0 +1,1040 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – C&#43;&#43;</title>
+    <link>https://Joevaen.github.io/docs/languages/cpp/</link>
+    <description>Recent content in C&#43;&#43; on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/languages/cpp/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Quick start</title>
+      <link>https://Joevaen.github.io/docs/languages/cpp/quickstart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/cpp/quickstart/</guid>
+      <description>
+        
+        
+        &lt;p&gt;In the C++ world, there&amp;rsquo;s no universally accepted standard for managing project
+dependencies. You need to build and install gRPC before building and running
+this quick start&amp;rsquo;s Hello World example.&lt;/p&gt;
+&lt;h3 id=&#34;install-grpc&#34;&gt;Build and locally install gRPC and Protocol Buffers&lt;/h3&gt;
+&lt;p&gt;The steps in the section explain how to build and locally install gRPC and
+Protocol Buffers using &lt;code&gt;cmake&lt;/code&gt;. If you&amp;rsquo;d rather use &lt;a href=&#34;https://www.bazel.build&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;bazel&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, see &lt;a href=&#34;https://github.com/grpc/grpc/blob/master/BUILDING.md#build-from-source&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Building
+from source&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;setup&#34;&gt;Setup&lt;/h4&gt;
+&lt;p&gt;Choose a directory to hold locally installed packages. This page assumes that
+the environment variable &lt;code&gt;MY_INSTALL_DIR&lt;/code&gt; holds this directory path. For
+example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ &lt;span style=&#34;color:#366&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;MY_INSTALL_DIR&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$HOME&lt;/span&gt;/.local
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Ensure that the directory exists:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ mkdir -p &lt;span style=&#34;color:#033&#34;&gt;$MY_INSTALL_DIR&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Add the local &lt;code&gt;bin&lt;/code&gt; folder to your path variable, for example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ &lt;span style=&#34;color:#366&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#033&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$MY_INSTALL_DIR&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;/bin:&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$PATH&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;install-cmake&#34;&gt;Install cmake&lt;/h4&gt;
+&lt;p&gt;You need version 3.13 or later of &lt;code&gt;cmake&lt;/code&gt;. Install it by
+following these instructions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Linux&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ sudo apt install -y cmake
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;macOS:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ brew install cmake
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;For general &lt;code&gt;cmake&lt;/code&gt; installation instructions, see &lt;a href=&#34;https://cmake.org/install&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Installing CMake&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Check the version of &lt;code&gt;cmake&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cmake --version
+cmake version 3.19.6
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Under Linux, the version of the system-wide &lt;code&gt;cmake&lt;/code&gt; can often be too old. You
+can install a more recent version into your local installation directory as
+follows:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ wget -q -O cmake-linux.sh https://github.com/Kitware/CMake/releases/download/v3.19.6/cmake-3.19.6-Linux-x86_64.sh
+$ sh cmake-linux.sh -- --skip-license --prefix&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$MY_INSTALL_DIR&lt;/span&gt;
+$ rm cmake-linux.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;install-other-required-tools&#34;&gt;Install other required tools&lt;/h4&gt;
+&lt;p&gt;Install the basic tools required to build gRPC:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Linux&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ sudo apt install -y build-essential autoconf libtool pkg-config
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;macOS:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ brew install autoconf automake libtool pkg-config
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;clone-the-grpc-repo&#34;&gt;Clone the &lt;code&gt;grpc&lt;/code&gt; repo&lt;/h4&gt;
+&lt;p&gt;Clone the &lt;code&gt;grpc&lt;/code&gt; repo and its submodules:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ git clone --recurse-submodules -b v1.37.1 https://github.com/grpc/grpc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;build-and-install-grpc-protocol-buffers-and-abseil&#34;&gt;Build and install gRPC, Protocol Buffers, and Abseil&lt;/h4&gt;
+&lt;p&gt;While not mandatory, gRPC applications usually leverage &lt;a href=&#34;https://developers.google.com/protocol-buffers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Protocol Buffers&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;
+for service definitions and data serialization, and the example code uses
+&lt;a href=&#34;https://developers.google.com/protocol-buffers/docs/proto3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;proto3&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;gRPC uses the &lt;a href=&#34;https://github.com/abseil/abseil-cpp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Abseil C++ library&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, so it needs to be installed as well.&lt;/p&gt;
+&lt;p&gt;The following commands build and locally install gRPC, Protocol Buffers, and Abseil:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ &lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; grpc
+$ mkdir -p cmake/build
+$ &lt;span style=&#34;color:#366&#34;&gt;pushd&lt;/span&gt; cmake/build
+$ cmake -DgRPC_INSTALL&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;ON &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;      -DgRPC_BUILD_TESTS&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;OFF &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;      -DCMAKE_INSTALL_PREFIX&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$MY_INSTALL_DIR&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;      ../..
+$ make -j
+$ make install
+$ &lt;span style=&#34;color:#366&#34;&gt;popd&lt;/span&gt;
+$ mkdir -p third_party/abseil-cpp/cmake/build
+$ &lt;span style=&#34;color:#366&#34;&gt;pushd&lt;/span&gt; third_party/abseil-cpp/cmake/build
+$ cmake -DCMAKE_INSTALL_PREFIX&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$MY_INSTALL_DIR&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;      -DCMAKE_POSITION_INDEPENDENT_CODE&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;TRUE &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;      ../..
+$ make -j
+$ make install
+$ &lt;span style=&#34;color:#366&#34;&gt;popd&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Important&lt;/h4&gt;
+
+    We &lt;strong&gt;strongly&lt;/strong&gt; encourage you to install gRPC &lt;em&gt;locally&lt;/em&gt; — using an
+appropriately set &lt;code&gt;CMAKE_INSTALL_PREFIX&lt;/code&gt; — because there is no easy way
+to uninstall gRPC after you&amp;rsquo;ve installed it globally.
+
+&lt;/div&gt;
+
+&lt;p&gt;More information:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You can find a complete set of instructions for building gRPC C++ in &lt;a href=&#34;https://github.com/grpc/grpc/blob/master/BUILDING.md#build-from-source&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Building
+from source&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;For general instructions on how to add gRPC as a dependency to your C++
+project, see &lt;a href=&#34;https://github.com/grpc/grpc/tree/master/src/cpp#to-start-using-grpc-c&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Start using gRPC C++&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;build-the-example&#34;&gt;Build the example&lt;/h3&gt;
+&lt;p&gt;The example code is part of the &lt;code&gt;grpc&lt;/code&gt; repo source, which you cloned as part of
+the steps of the previous section.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Change to the example&amp;rsquo;s directory:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ &lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; examples/cpp/helloworld
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Build the example using &lt;code&gt;cmake&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ mkdir -p cmake/build
+$ &lt;span style=&#34;color:#366&#34;&gt;pushd&lt;/span&gt; cmake/build
+$ cmake -DCMAKE_PREFIX_PATH&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$MY_INSTALL_DIR&lt;/span&gt; ../..
+$ make -j
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
+
+    &lt;strong&gt;Getting build failures?&lt;/strong&gt; Most issues, at this point, are a result of a
+faulty installation. Ensure that the have the right versions of &lt;code&gt;cmake&lt;/code&gt;, and
+carefully recheck your installation.
+
+&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;try-it&#34;&gt;Try it!&lt;/h3&gt;
+&lt;p&gt;Run the example from the example &lt;strong&gt;build&lt;/strong&gt; directory
+&lt;code&gt;examples/cpp/helloworld/cmake/build&lt;/code&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Run the server:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ ./greeter_server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;From a different terminal, run the client and see the client output:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ ./greeter_client
+Greeter received: Hello world
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Congratulations! You&amp;rsquo;ve just run a client-server application with gRPC.&lt;/p&gt;
+&lt;h3 id=&#34;update-the-grpc-service&#34;&gt;Update the gRPC service&lt;/h3&gt;
+&lt;p&gt;Now let&amp;rsquo;s look at how to update the application with an extra method on the
+server for the client to call. Our gRPC service is defined using protocol
+buffers; you can find out lots more about how to define a service in a &lt;code&gt;.proto&lt;/code&gt;
+file in &lt;a href=&#34;https://Joevaen.github.io/docs/what-is-grpc/introduction/&#34;&gt;Introduction to gRPC&lt;/a&gt; and &lt;a href=&#34;../basics/&#34;&gt;Basics
+tutorial&lt;/a&gt;. For now all you need to know is that both the
+server and the client stub have a &lt;code&gt;SayHello()&lt;/code&gt; RPC method that takes a
+&lt;code&gt;HelloRequest&lt;/code&gt; parameter from the client and returns a &lt;code&gt;HelloResponse&lt;/code&gt; from the
+server, and that this method is defined like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-protobuf&#34; data-lang=&#34;protobuf&#34;&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// The greeting service definition.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;service&lt;/span&gt; Greeter {&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Sends a greeting
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;rpc&lt;/span&gt; SayHello (HelloRequest) &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;returns&lt;/span&gt; (HelloReply) {}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// The request message containing the user&amp;#39;s name.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#0a8;font-weight:bold&#34;&gt;HelloRequest&lt;/span&gt; {&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;string&lt;/span&gt; name &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// The response message containing the greetings
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#0a8;font-weight:bold&#34;&gt;HelloReply&lt;/span&gt; {&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Open &lt;a href=&#34;https://github.com/grpc/grpc/blob/v1.37.1/examples/protos/helloworld.proto&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;examples/protos/helloworld.proto&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; and add a new &lt;code&gt;SayHelloAgain()&lt;/code&gt; method, with the
+same request and response types:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-protobuf&#34; data-lang=&#34;protobuf&#34;&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// The greeting service definition.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;service&lt;/span&gt; Greeter {&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Sends a greeting
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;rpc&lt;/span&gt; SayHello (HelloRequest) &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;returns&lt;/span&gt; (HelloReply) {}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Sends another greeting
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;rpc&lt;/span&gt; SayHelloAgain (HelloRequest) &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;returns&lt;/span&gt; (HelloReply) {}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// The request message containing the user&amp;#39;s name.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#0a8;font-weight:bold&#34;&gt;HelloRequest&lt;/span&gt; {&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;string&lt;/span&gt; name &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// The response message containing the greetings
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#0a8;font-weight:bold&#34;&gt;HelloReply&lt;/span&gt; {&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Remember to save the file!&lt;/p&gt;
+&lt;h3 id=&#34;regenerate-grpc-code&#34;&gt;Regenerate gRPC code&lt;/h3&gt;
+&lt;p&gt;Before you can use the new service method, you need to recompile the updated
+proto file.&lt;/p&gt;
+&lt;p&gt;From the example &lt;strong&gt;build&lt;/strong&gt; directory &lt;code&gt;examples/cpp/helloworld/cmake/build&lt;/code&gt;, run:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ make -j
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This regenerates &lt;code&gt;helloworld.pb.{h,cc}&lt;/code&gt; and &lt;code&gt;helloworld.grpc.pb.{h,cc}&lt;/code&gt;, which
+contains the generated client and server classes, as well as classes for
+populating, serializing, and retrieving our request and response types.&lt;/p&gt;
+&lt;h3 id=&#34;update-and-run-the-application&#34;&gt;Update and run the application&lt;/h3&gt;
+&lt;p&gt;You have new generated server and client code, but you still need to implement
+and call the new method in the human-written parts of our example application.&lt;/p&gt;
+&lt;h4 id=&#34;update-the-server&#34;&gt;Update the server&lt;/h4&gt;
+&lt;p&gt;Open &lt;code&gt;greeter_server.cc&lt;/code&gt; from the example&amp;rsquo;s root directory. Implement the new
+method like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#0a8;font-weight:bold&#34;&gt;GreeterServiceImpl&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;final&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;public&lt;/span&gt; Greeter&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;Service {
+  Status &lt;span style=&#34;color:#c0f&#34;&gt;SayHello&lt;/span&gt;(ServerContext&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt; context, &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;const&lt;/span&gt; HelloRequest&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt; request,
+                  HelloReply&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt; reply) &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;override&lt;/span&gt; {
+     &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// ...
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;  }
+
+  Status &lt;span style=&#34;color:#c0f&#34;&gt;SayHelloAgain&lt;/span&gt;(ServerContext&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt; context, &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;const&lt;/span&gt; HelloRequest&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt; request,
+                       HelloReply&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt; reply) &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;override&lt;/span&gt; {
+    std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;string prefix(&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;Hello again &amp;#34;&lt;/span&gt;);
+    reply&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;set_message(prefix &lt;span style=&#34;color:#555&#34;&gt;+&lt;/span&gt; request&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;name());
+    &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;return&lt;/span&gt; Status&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;OK;
+  }
+};
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;update-the-client&#34;&gt;Update the client&lt;/h4&gt;
+&lt;p&gt;A new &lt;code&gt;SayHelloAgain()&lt;/code&gt; method is now available in the stub. We&amp;rsquo;ll follow the
+same pattern as for the already present &lt;code&gt;SayHello()&lt;/code&gt; and add a new
+&lt;code&gt;SayHelloAgain()&lt;/code&gt; method to &lt;code&gt;GreeterClient&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#0a8;font-weight:bold&#34;&gt;GreeterClient&lt;/span&gt; {
+ &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;public&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;:&lt;/span&gt;
+  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// ...
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;  std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;string SayHello(&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;const&lt;/span&gt; std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;string&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt; user) {
+     &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// ...
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;  }
+
+  std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;string SayHelloAgain(&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;const&lt;/span&gt; std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;string&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt; user) {
+    &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Follows the same pattern as SayHello.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;    HelloRequest request;
+    request.set_name(user);
+    HelloReply reply;
+    ClientContext context;
+
+    &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Here we can use the stub&amp;#39;s newly available method we just added.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;    Status status &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; stub_&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;SayHelloAgain(&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;context, request, &lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;reply);
+    &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;if&lt;/span&gt; (status.ok()) {
+      &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;return&lt;/span&gt; reply.message();
+    } &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;else&lt;/span&gt; {
+      std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;cout &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; status.error_code() &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;: &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; status.error_message()
+                &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;endl;
+      &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;RPC failed&amp;#34;&lt;/span&gt;;
+    }
+  }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Finally, invoke this new method in &lt;code&gt;main()&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#c0f&#34;&gt;main&lt;/span&gt;(&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;int&lt;/span&gt; argc, &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;char&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;**&lt;/span&gt; argv) {
+  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// ...
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;  std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;string reply &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; greeter.SayHello(user);
+  std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;cout &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;Greeter received: &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; reply &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;endl;
+
+  reply &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; greeter.SayHelloAgain(user);
+  std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;cout &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;Greeter received: &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; reply &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;endl;
+
+  &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;0&lt;/span&gt;;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;run&#34;&gt;Run!&lt;/h4&gt;
+&lt;p&gt;Run the client and server like you did before. Execute the following commands
+from the example &lt;strong&gt;build&lt;/strong&gt; directory &lt;code&gt;examples/cpp/helloworld/cmake/build&lt;/code&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Build the client and server after having made changes:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ make -j
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the server:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ ./greeter_server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;On a different terminal, run the client:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ ./greeter_client
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You&amp;rsquo;ll see the following output:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-nocode&#34; data-lang=&#34;nocode&#34;&gt;Greeter received: Hello world
+Greeter received: Hello again world
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
+
+    Interested in an &lt;strong&gt;asynchronous&lt;/strong&gt; version of the client and server?
+You&amp;rsquo;ll find the &lt;code&gt;greeter_async_{client,server}.cc&lt;/code&gt; files in the
+&lt;a href=&#34;https://github.com/grpc/grpc/tree/master/examples/cpp/helloworld&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;example&amp;rsquo;s source directory&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.
+
+&lt;/div&gt;
+
+&lt;h3 id=&#34;whats-next&#34;&gt;What&amp;rsquo;s next&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Learn how gRPC works in &lt;a href=&#34;https://Joevaen.github.io/docs/what-is-grpc/introduction/&#34;&gt;Introduction to gRPC&lt;/a&gt;
+and &lt;a href=&#34;https://Joevaen.github.io/docs/what-is-grpc/core-concepts/&#34;&gt;Core concepts&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Work through the &lt;a href=&#34;../basics/&#34;&gt;Basics tutorial&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Explore the &lt;a href=&#34;../api&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;API reference&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Basics tutorial</title>
+      <link>https://Joevaen.github.io/docs/languages/cpp/basics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/cpp/basics/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This tutorial provides a basic C++ programmer&amp;rsquo;s introduction to working with gRPC.&lt;/p&gt;
+&lt;p&gt;By walking through this example you&amp;rsquo;ll learn how to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Define a service in a .proto file.&lt;/li&gt;
+&lt;li&gt;Generate server and client code using the protocol buffer compiler.&lt;/li&gt;
+&lt;li&gt;Use the C++ gRPC API to write a simple client and server for your service.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It assumes that you have read the &lt;a href=&#34;https://Joevaen.github.io/docs/what-is-grpc/introduction/&#34;&gt;Introduction to gRPC&lt;/a&gt; and are familiar
+with &lt;a href=&#34;https://developers.google.com/protocol-buffers/docs/overview&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;protocol
+buffers&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;. Note
+that the example in this tutorial uses the proto3 version of the protocol
+buffers language: you can find out more in
+the &lt;a href=&#34;https://developers.google.com/protocol-buffers/docs/proto3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;proto3 language
+guide&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; and &lt;a href=&#34;https://developers.google.com/protocol-buffers/docs/reference/cpp-generated&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;C++
+generated code
+guide&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;why-use-grpc&#34;&gt;Why use gRPC?&lt;/h3&gt;
+&lt;p&gt;Our example is a simple route mapping application that lets clients get
+information about features on their route, create a summary of their route, and
+exchange route information such as traffic updates with the server and other
+clients.&lt;/p&gt;
+&lt;p&gt;With gRPC we can define our service once in a &lt;code&gt;.proto&lt;/code&gt; file and generate clients
+and servers in any of gRPC&amp;rsquo;s supported languages, which in turn can be run in
+environments ranging from servers inside a large data center to your own tablet —
+all the complexity of communication between different languages and environments is
+handled for you by gRPC. We also get all the advantages of working with protocol
+buffers, including efficient serialization, a simple IDL, and easy interface
+updating.&lt;/p&gt;
+
+&lt;h3 id=&#34;example-code-and-setup&#34;&gt;Example code and setup&lt;/h3&gt;
+&lt;p&gt;The example code is part of the &lt;code&gt;grpc&lt;/code&gt; repo under &lt;a href=&#34;https://github.com/grpc/grpc/tree/v1.37.1/examples/cpp/route_guide&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;examples/cpp/route_guide&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.
+Get the example code and build gRPC:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Follow the Quick start instructions to &lt;a href=&#34;https://Joevaen.github.io/docs/languages/cpp/quickstart/#install-grpc&#34;&gt;build and locally install gRPC from
+source&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;From the repo folder, change to the route guide example directory:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ &lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; examples/cpp/route_guide
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run &lt;code&gt;cmake&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ mkdir -p cmake/build
+$ &lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; cmake/build
+$ cmake -DCMAKE_PREFIX_PATH&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$MY_INSTALL_DIR&lt;/span&gt; ../..
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;defining-the-service&#34;&gt;Defining the service&lt;/h3&gt;
+&lt;p&gt;Our first step (as you&amp;rsquo;ll know from the &lt;a href=&#34;https://Joevaen.github.io/docs/what-is-grpc/introduction/&#34;&gt;Introduction to gRPC&lt;/a&gt;) is to
+define the gRPC &lt;em&gt;service&lt;/em&gt; and the method &lt;em&gt;request&lt;/em&gt; and &lt;em&gt;response&lt;/em&gt; types using
+&lt;a href=&#34;https://developers.google.com/protocol-buffers/docs/overview&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;protocol buffers&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.
+You can see the complete .proto file in
+&lt;a href=&#34;https://github.com/grpc/grpc/blob/v1.37.1/examples/protos/route_guide.proto&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;examples/protos/route_guide.proto&lt;/code&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To define a service, you specify a named &lt;code&gt;service&lt;/code&gt; in your .proto file:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-protobuf&#34; data-lang=&#34;protobuf&#34;&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;service&lt;/span&gt; RouteGuide {&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;   &lt;span style=&#34;color:#555&#34;&gt;...&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then you define &lt;code&gt;rpc&lt;/code&gt; methods inside your service definition, specifying their
+request and response types. gRPC lets you define four kinds of service method,
+all of which are used in the &lt;code&gt;RouteGuide&lt;/code&gt; service:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A &lt;em&gt;simple RPC&lt;/em&gt; where the client sends a request to the server using the stub
+and waits for a response to come back, just like a normal function call.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-protobuf&#34; data-lang=&#34;protobuf&#34;&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Obtains the feature at a given position.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;rpc&lt;/span&gt; GetFeature(Point) &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;returns&lt;/span&gt; (Feature) {}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A &lt;em&gt;server-side streaming RPC&lt;/em&gt; where the client sends a request to the server
+and gets a stream to read a sequence of messages back. The client reads from
+the returned stream until there are no more messages. As you can see in our
+example, you specify a server-side streaming method by placing the &lt;code&gt;stream&lt;/code&gt;
+keyword before the &lt;em&gt;response&lt;/em&gt; type.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-protobuf&#34; data-lang=&#34;protobuf&#34;&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Obtains the Features available within the given Rectangle.  Results are
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// streamed rather than returned at once (e.g. in a response message with a
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// repeated field), as the rectangle may cover a large area and contain a
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// huge number of features.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;rpc&lt;/span&gt; ListFeatures(Rectangle) &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;returns&lt;/span&gt; (stream Feature) {}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A &lt;em&gt;client-side streaming RPC&lt;/em&gt; where the client writes a sequence of messages
+and sends them to the server, again using a provided stream. Once the client
+has finished writing the messages, it waits for the server to read them all
+and return its response. You specify a client-side streaming method by placing
+the &lt;code&gt;stream&lt;/code&gt; keyword before the &lt;em&gt;request&lt;/em&gt; type.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-protobuf&#34; data-lang=&#34;protobuf&#34;&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Accepts a stream of Points on a route being traversed, returning a
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// RouteSummary when traversal is completed.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;rpc&lt;/span&gt; RecordRoute(stream Point) &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;returns&lt;/span&gt; (RouteSummary) {}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A &lt;em&gt;bidirectional streaming RPC&lt;/em&gt; where both sides send a sequence of messages
+using a read-write stream. The two streams operate independently, so clients
+and servers can read and write in whatever order they like: for example, the
+server could wait to receive all the client messages before writing its
+responses, or it could alternately read a message then write a message, or
+some other combination of reads and writes. The order of messages in each
+stream is preserved. You specify this type of method by placing the &lt;code&gt;stream&lt;/code&gt;
+keyword before both the request and the response.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-protobuf&#34; data-lang=&#34;protobuf&#34;&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Accepts a stream of RouteNotes sent while a route is being traversed,
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// while receiving other RouteNotes (e.g. from other users).
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;rpc&lt;/span&gt; RouteChat(stream RouteNote) &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;returns&lt;/span&gt; (stream RouteNote) {}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Our &lt;code&gt;.proto&lt;/code&gt; file also contains protocol buffer message type definitions for all
+the request and response types used in our service methods - for example, here&amp;rsquo;s
+the &lt;code&gt;Point&lt;/code&gt; message type:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-protobuf&#34; data-lang=&#34;protobuf&#34;&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Points are represented as latitude-longitude pairs in the E7 representation
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// (degrees multiplied by 10**7 and rounded to the nearest integer).
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Latitudes should be in the range +/- 90 degrees and longitude should be in
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// the range +/- 180 degrees (inclusive).
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#0a8;font-weight:bold&#34;&gt;Point&lt;/span&gt; {&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;int32&lt;/span&gt; latitude &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;int32&lt;/span&gt; longitude &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;2&lt;/span&gt;;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;generating-client-and-server-code&#34;&gt;Generating client and server code&lt;/h3&gt;
+&lt;p&gt;Next we need to generate the gRPC client and server interfaces from our .proto
+service definition. We do this using the protocol buffer compiler &lt;code&gt;protoc&lt;/code&gt; with
+a special gRPC C++ plugin.&lt;/p&gt;
+&lt;p&gt;For simplicity, we&amp;rsquo;ve provided a &lt;a href=&#34;https://github.com/grpc/grpc/blob/v1.37.1/examples/cpp/route_guide/CMakeLists.txt&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CMakeLists.txt&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;
+that runs &lt;code&gt;protoc&lt;/code&gt; for you with the appropriate plugin, input, and output (if
+you want to run this yourself, make sure you&amp;rsquo;ve installed protoc and followed
+the gRPC code &lt;a href=&#34;https://github.com/grpc/grpc/blob/v1.37.1/src/cpp/README.md#cmake&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;installation instructions&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; first):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ make route_guide.grpc.pb.o
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;which actually runs:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ protoc -I ../../protos --grpc_out&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;. --plugin&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;protoc-gen-grpc&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;`&lt;/span&gt;which grpc_cpp_plugin&lt;span style=&#34;color:#c30&#34;&gt;`&lt;/span&gt; ../../protos/route_guide.proto
+$ protoc -I ../../protos --cpp_out&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;. ../../protos/route_guide.proto
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Running this command generates the following files in your current directory:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;route_guide.pb.h&lt;/code&gt;, the header which declares your generated message classes&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;route_guide.pb.cc&lt;/code&gt;, which contains the implementation of your message classes&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;route_guide.grpc.pb.h&lt;/code&gt;, the header which declares your generated service
+classes&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;route_guide.grpc.pb.cc&lt;/code&gt;, which contains the implementation of your service
+classes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These contain:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;All the protocol buffer code to populate, serialize, and retrieve our request
+and response message types&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A class called &lt;code&gt;RouteGuide&lt;/code&gt; that contains&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a remote interface type (or &lt;em&gt;stub&lt;/em&gt;) for clients to call with the methods
+defined in the &lt;code&gt;RouteGuide&lt;/code&gt; service.&lt;/li&gt;
+&lt;li&gt;two abstract interfaces for servers to implement, also with the methods
+defined in the &lt;code&gt;RouteGuide&lt;/code&gt; service.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;server&#34;&gt;Creating the server&lt;/h3&gt;
+&lt;p&gt;First let&amp;rsquo;s look at how we create a &lt;code&gt;RouteGuide&lt;/code&gt; server. If you&amp;rsquo;re only
+interested in creating gRPC clients, you can skip this section and go straight
+to &lt;a href=&#34;#client&#34;&gt;Creating the client&lt;/a&gt; (though you might find it interesting
+anyway!).&lt;/p&gt;
+&lt;p&gt;There are two parts to making our &lt;code&gt;RouteGuide&lt;/code&gt; service do its job:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Implementing the service interface generated from our service definition:
+doing the actual &amp;ldquo;work&amp;rdquo; of our service.&lt;/li&gt;
+&lt;li&gt;Running a gRPC server to listen for requests from clients and return the
+service responses.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can find our example &lt;code&gt;RouteGuide&lt;/code&gt; server in
+&lt;a href=&#34;https://github.com/grpc/grpc/blob/v1.37.1/examples/cpp/route_guide/route_guide_server.cc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;examples/cpp/route_guide/route_guide_server.cc&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.
+Let&amp;rsquo;s take a closer look at how it works.&lt;/p&gt;
+&lt;h4 id=&#34;implementing-routeguide&#34;&gt;Implementing RouteGuide&lt;/h4&gt;
+&lt;p&gt;As you can see, our server has a &lt;code&gt;RouteGuideImpl&lt;/code&gt; class that implements the
+generated &lt;code&gt;RouteGuide::Service&lt;/code&gt; interface:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#0a8;font-weight:bold&#34;&gt;RouteGuideImpl&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;final&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;public&lt;/span&gt; RouteGuide&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;Service {
+...
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In this case we&amp;rsquo;re implementing the &lt;em&gt;synchronous&lt;/em&gt; version of &lt;code&gt;RouteGuide&lt;/code&gt;, which
+provides our default gRPC server behaviour. It&amp;rsquo;s also possible to implement an
+asynchronous interface, &lt;code&gt;RouteGuide::AsyncService&lt;/code&gt;, which allows you to further
+customize your server&amp;rsquo;s threading behaviour, though we won&amp;rsquo;t look at this in
+this tutorial.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;RouteGuideImpl&lt;/code&gt; implements all our service methods. Let&amp;rsquo;s look at the simplest
+type first, &lt;code&gt;GetFeature&lt;/code&gt;, which just gets a &lt;code&gt;Point&lt;/code&gt; from the client and returns
+the corresponding feature information from its database in a &lt;code&gt;Feature&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;Status &lt;span style=&#34;color:#c0f&#34;&gt;GetFeature&lt;/span&gt;(ServerContext&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt; context, &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;const&lt;/span&gt; Point&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt; point,
+                  Feature&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt; feature) &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;override&lt;/span&gt; {
+  feature&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;set_name(GetFeatureName(&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt;point, feature_list_));
+  feature&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;mutable_location()&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;CopyFrom(&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt;point);
+  &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;return&lt;/span&gt; Status&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;OK;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The method is passed a context object for the RPC, the client&amp;rsquo;s &lt;code&gt;Point&lt;/code&gt; protocol
+buffer request, and a &lt;code&gt;Feature&lt;/code&gt; protocol buffer to fill in with the response
+information. In the method we populate the &lt;code&gt;Feature&lt;/code&gt; with the appropriate
+information, and then &lt;code&gt;return&lt;/code&gt; with an &lt;code&gt;OK&lt;/code&gt; status to tell gRPC that we&amp;rsquo;ve
+finished dealing with the RPC and that the &lt;code&gt;Feature&lt;/code&gt; can be returned to the
+client.&lt;/p&gt;
+&lt;p&gt;Note that all service methods can (and will!) be called from multiple threads at
+the same time. You have to make sure that your method implementations are
+thread safe. In our example, &lt;code&gt;feature_list_&lt;/code&gt; is never changed after
+construction, so it is safe by design. But if &lt;code&gt;feature_list_&lt;/code&gt; would change during
+the lifetime of the service, we would need to synchronize access to this member.&lt;/p&gt;
+&lt;p&gt;Now let&amp;rsquo;s look at something a bit more complicated - a streaming RPC.
+&lt;code&gt;ListFeatures&lt;/code&gt; is a server-side streaming RPC, so we need to send back multiple
+&lt;code&gt;Feature&lt;/code&gt;s to our client.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;Status &lt;span style=&#34;color:#c0f&#34;&gt;ListFeatures&lt;/span&gt;(ServerContext&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt; context, &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;const&lt;/span&gt; Rectangle&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt; rectangle,
+                    ServerWriter&lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&lt;/span&gt;Feature&lt;span style=&#34;color:#555&#34;&gt;&amp;gt;*&lt;/span&gt; writer) &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;override&lt;/span&gt; {
+  &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;auto&lt;/span&gt; lo &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; rectangle&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;lo();
+  &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;auto&lt;/span&gt; hi &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; rectangle&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;hi();
+  &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;long&lt;/span&gt; left &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;min(lo.longitude(), hi.longitude());
+  &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;long&lt;/span&gt; right &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;max(lo.longitude(), hi.longitude());
+  &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;long&lt;/span&gt; top &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;max(lo.latitude(), hi.latitude());
+  &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;long&lt;/span&gt; bottom &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;min(lo.latitude(), hi.latitude());
+  &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;const&lt;/span&gt; Feature&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#99f&#34;&gt;f&lt;/span&gt; : feature_list_) {
+    &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;if&lt;/span&gt; (f.location().longitude() &lt;span style=&#34;color:#555&#34;&gt;&amp;gt;=&lt;/span&gt; left &lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+        f.location().longitude() &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;=&lt;/span&gt; right &lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+        f.location().latitude() &lt;span style=&#34;color:#555&#34;&gt;&amp;gt;=&lt;/span&gt; bottom &lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+        f.location().latitude() &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;=&lt;/span&gt; top) {
+      writer&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;Write(f);
+    }
+  }
+  &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;return&lt;/span&gt; Status&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;OK;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As you can see, instead of getting simple request and response objects in our
+method parameters, this time we get a request object (the &lt;code&gt;Rectangle&lt;/code&gt; in which
+our client wants to find &lt;code&gt;Feature&lt;/code&gt;s) and a special &lt;code&gt;ServerWriter&lt;/code&gt; object. In the
+method, we populate as many &lt;code&gt;Feature&lt;/code&gt; objects as we need to return, writing them
+to the &lt;code&gt;ServerWriter&lt;/code&gt; using its &lt;code&gt;Write()&lt;/code&gt; method. Finally, as in our simple RPC,
+we &lt;code&gt;return Status::OK&lt;/code&gt; to tell gRPC that we&amp;rsquo;ve finished writing responses.&lt;/p&gt;
+&lt;p&gt;If you look at the client-side streaming method &lt;code&gt;RecordRoute&lt;/code&gt; you&amp;rsquo;ll see it&amp;rsquo;s
+quite similar, except this time we get a &lt;code&gt;ServerReader&lt;/code&gt; instead of a request
+object and a single response. We use the &lt;code&gt;ServerReader&lt;/code&gt;s &lt;code&gt;Read()&lt;/code&gt; method to
+repeatedly read in our client&amp;rsquo;s requests to a request object (in this case a
+&lt;code&gt;Point&lt;/code&gt;) until there are no more messages: the server needs to check the return
+value of &lt;code&gt;Read()&lt;/code&gt; after each call. If &lt;code&gt;true&lt;/code&gt;, the stream is still good and it
+can continue reading; if &lt;code&gt;false&lt;/code&gt; the message stream has ended.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;while&lt;/span&gt; (stream&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;Read(&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;point)) {
+  ...&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;//process client input
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Finally, let&amp;rsquo;s look at our bidirectional streaming RPC &lt;code&gt;RouteChat()&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;Status &lt;span style=&#34;color:#c0f&#34;&gt;RouteChat&lt;/span&gt;(ServerContext&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt; context,
+                 ServerReaderWriter&lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&lt;/span&gt;RouteNote, RouteNote&lt;span style=&#34;color:#555&#34;&gt;&amp;gt;*&lt;/span&gt; stream) &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;override&lt;/span&gt; {
+  std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;vector&lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&lt;/span&gt;RouteNote&lt;span style=&#34;color:#555&#34;&gt;&amp;gt;&lt;/span&gt; received_notes;
+  RouteNote note;
+  &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;while&lt;/span&gt; (stream&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;Read(&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;note)) {
+    &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;const&lt;/span&gt; RouteNote&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#99f&#34;&gt;n&lt;/span&gt; : received_notes) {
+      &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;if&lt;/span&gt; (n.location().latitude() &lt;span style=&#34;color:#555&#34;&gt;==&lt;/span&gt; note.location().latitude() &lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+          n.location().longitude() &lt;span style=&#34;color:#555&#34;&gt;==&lt;/span&gt; note.location().longitude()) {
+        stream&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;Write(n);
+      }
+    }
+    received_notes.push_back(note);
+  }
+
+  &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;return&lt;/span&gt; Status&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;OK;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This time we get a &lt;code&gt;ServerReaderWriter&lt;/code&gt; that can be used to read &lt;em&gt;and&lt;/em&gt; write
+messages. The syntax for reading and writing here is exactly the same as for our
+client-streaming and server-streaming methods. Although each side will always
+get the other&amp;rsquo;s messages in the order they were written, both the client and
+server can read and write in any order — the streams operate completely
+independently.&lt;/p&gt;
+&lt;h4 id=&#34;starting-the-server&#34;&gt;Starting the server&lt;/h4&gt;
+&lt;p&gt;Once we&amp;rsquo;ve implemented all our methods, we also need to start up a gRPC server
+so that clients can actually use our service. The following snippet shows how we
+do this for our &lt;code&gt;RouteGuide&lt;/code&gt; service:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#c0f&#34;&gt;RunServer&lt;/span&gt;(&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;const&lt;/span&gt; std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;string&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt; db_path) {
+  std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;string server_address(&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;0.0.0.0:50051&amp;#34;&lt;/span&gt;);
+  RouteGuideImpl service(db_path);
+
+  ServerBuilder builder;
+  builder.AddListeningPort(server_address, grpc&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;InsecureServerCredentials());
+  builder.RegisterService(&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;service);
+  std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;unique_ptr&lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&lt;/span&gt;Server&lt;span style=&#34;color:#555&#34;&gt;&amp;gt;&lt;/span&gt; server(builder.BuildAndStart());
+  std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;cout &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;Server listening on &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; server_address &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;endl;
+  server&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;Wait();
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As you can see, we build and start our server using a &lt;code&gt;ServerBuilder&lt;/code&gt;. To do this, we:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create an instance of our service implementation class &lt;code&gt;RouteGuideImpl&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Create an instance of the factory &lt;code&gt;ServerBuilder&lt;/code&gt; class.&lt;/li&gt;
+&lt;li&gt;Specify the address and port we want to use to listen for client requests
+using the builder&amp;rsquo;s &lt;code&gt;AddListeningPort()&lt;/code&gt; method.&lt;/li&gt;
+&lt;li&gt;Register our service implementation with the builder.&lt;/li&gt;
+&lt;li&gt;Call &lt;code&gt;BuildAndStart()&lt;/code&gt; on the builder to create and start an RPC server for
+our service.&lt;/li&gt;
+&lt;li&gt;Call &lt;code&gt;Wait()&lt;/code&gt; on the server to do a blocking wait until process is killed or
+&lt;code&gt;Shutdown()&lt;/code&gt; is called.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;client&#34;&gt;Creating the client&lt;/h3&gt;
+&lt;p&gt;In this section, we&amp;rsquo;ll look at creating a C++ client for our &lt;code&gt;RouteGuide&lt;/code&gt;
+service. You can see our complete example client code in
+&lt;a href=&#34;https://github.com/grpc/grpc/blob/v1.37.1/examples/cpp/route_guide/route_guide_client.cc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;examples/cpp/route_guide/route_guide_client.cc&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;creating-a-stub&#34;&gt;Creating a stub&lt;/h4&gt;
+&lt;p&gt;To call service methods, we first need to create a &lt;em&gt;stub&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;First we need to create a gRPC &lt;em&gt;channel&lt;/em&gt; for our stub, specifying the server
+address and port we want to connect to - in our case we&amp;rsquo;ll use no SSL:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;grpc&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;CreateChannel(&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;localhost:50051&amp;#34;&lt;/span&gt;, grpc&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;InsecureChannelCredentials());
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
+
+    In order to set additional options for the &lt;em&gt;channel&lt;/em&gt;, use the &lt;code&gt;grpc::CreateCustomChannel()&lt;/code&gt; api with any special channel arguments - &lt;code&gt;grpc::ChannelArguments&lt;/code&gt;.
+
+&lt;/div&gt;
+
+&lt;p&gt;Now we can use the channel to create our stub using the &lt;code&gt;NewStub&lt;/code&gt; method provided in the &lt;code&gt;RouteGuide&lt;/code&gt; class we generated from our .proto.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;public&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;:&lt;/span&gt;
+ RouteGuideClient(std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;shared_ptr&lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&lt;/span&gt;ChannelInterface&lt;span style=&#34;color:#555&#34;&gt;&amp;gt;&lt;/span&gt; channel,
+                  &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;const&lt;/span&gt; std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;string&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt; db)
+     &lt;span style=&#34;color:#555&#34;&gt;:&lt;/span&gt; stub_(RouteGuide&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;NewStub(channel)) {
+   ...
+ }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;calling-service-methods&#34;&gt;Calling service methods&lt;/h4&gt;
+&lt;p&gt;Now let&amp;rsquo;s look at how we call our service methods. Note that in this tutorial
+we&amp;rsquo;re calling the &lt;em&gt;blocking/synchronous&lt;/em&gt; versions of each method: this means
+that the RPC call waits for the server to respond, and will either return a
+response or raise an exception.&lt;/p&gt;
+&lt;h5 id=&#34;simple-rpc&#34;&gt;Simple RPC&lt;/h5&gt;
+&lt;p&gt;Calling the simple RPC &lt;code&gt;GetFeature&lt;/code&gt; is nearly as straightforward as calling a
+local method.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;Point point;
+Feature feature;
+point &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; MakePoint(&lt;span style=&#34;color:#f60&#34;&gt;409146138&lt;/span&gt;, &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;746188906&lt;/span&gt;);
+GetOneFeature(point, &lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;feature);
+
+...
+
+&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;bool&lt;/span&gt; GetOneFeature(&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;const&lt;/span&gt; Point&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt; point, Feature&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt; feature) {
+  ClientContext context;
+  Status status &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; stub_&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;GetFeature(&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;context, point, feature);
+  ...
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As you can see, we create and populate a request protocol buffer object (in our
+case &lt;code&gt;Point&lt;/code&gt;), and create a response protocol buffer object for the server to
+fill in. We also create a &lt;code&gt;ClientContext&lt;/code&gt; object for our call - you can
+optionally set RPC configuration values on this object, such as deadlines,
+though for now we&amp;rsquo;ll use the default settings. Note that you cannot reuse this
+object between calls. Finally, we call the method on the stub, passing it the
+context, request, and response. If the method returns &lt;code&gt;OK&lt;/code&gt;, then we can read the
+response information from the server from our response object.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;cout &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;Found feature called &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; feature&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;name()  &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34; at &amp;#34;&lt;/span&gt;
+          &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; feature&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;location().latitude()&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;kCoordFactor_ &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;, &amp;#34;&lt;/span&gt;
+          &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; feature&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;location().longitude()&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;kCoordFactor_ &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;endl;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;streaming-rpcs&#34;&gt;Streaming RPCs&lt;/h5&gt;
+&lt;p&gt;Now let&amp;rsquo;s look at our streaming methods. If you&amp;rsquo;ve already read &lt;a href=&#34;#server&#34;&gt;Creating the
+server&lt;/a&gt; some of this may look very familiar - streaming RPCs are
+implemented in a similar way on both sides. Here&amp;rsquo;s where we call the server-side
+streaming method &lt;code&gt;ListFeatures&lt;/code&gt;, which returns a stream of geographical
+&lt;code&gt;Feature&lt;/code&gt;s:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;unique_ptr&lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&lt;/span&gt;ClientReader&lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&lt;/span&gt;Feature&lt;span style=&#34;color:#555&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;&amp;gt;&lt;/span&gt; reader(
+    stub_&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;ListFeatures(&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;context, rect));
+&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;while&lt;/span&gt; (reader&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;Read(&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;feature)) {
+  std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;cout &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;Found feature called &amp;#34;&lt;/span&gt;
+            &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; feature.name() &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34; at &amp;#34;&lt;/span&gt;
+            &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; feature.location().latitude()&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;kCoordFactor_ &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;, &amp;#34;&lt;/span&gt;
+            &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; feature.location().longitude()&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;kCoordFactor_ &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;endl;
+}
+Status status &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; reader&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;Finish();
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Instead of passing the method a context, request, and response, we pass it a
+context and request and get a &lt;code&gt;ClientReader&lt;/code&gt; object back. The client can use the
+&lt;code&gt;ClientReader&lt;/code&gt; to read the server&amp;rsquo;s responses. We use the &lt;code&gt;ClientReader&lt;/code&gt;s
+&lt;code&gt;Read()&lt;/code&gt; method to repeatedly read in the server&amp;rsquo;s responses to a response
+protocol buffer object (in this case a &lt;code&gt;Feature&lt;/code&gt;) until there are no more
+messages: the client needs to check the return value of &lt;code&gt;Read()&lt;/code&gt; after each
+call. If &lt;code&gt;true&lt;/code&gt;, the stream is still good and it can continue reading; if
+&lt;code&gt;false&lt;/code&gt; the message stream has ended. Finally, we call &lt;code&gt;Finish()&lt;/code&gt; on the stream
+to complete the call and get our RPC status.&lt;/p&gt;
+&lt;p&gt;The client-side streaming method &lt;code&gt;RecordRoute&lt;/code&gt; is similar, except there we pass
+the method a context and response object and get back a &lt;code&gt;ClientWriter&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;unique_ptr&lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&lt;/span&gt;ClientWriter&lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&lt;/span&gt;Point&lt;span style=&#34;color:#555&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;&amp;gt;&lt;/span&gt; writer(
+    stub_&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;RecordRoute(&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;context, &lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;stats));
+&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;0&lt;/span&gt;; i &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&lt;/span&gt; kPoints; i&lt;span style=&#34;color:#555&#34;&gt;++&lt;/span&gt;) {
+  &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;const&lt;/span&gt; Feature&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt; f &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; feature_list_[feature_distribution(generator)];
+  std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;cout &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;Visiting point &amp;#34;&lt;/span&gt;
+            &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; f.location().latitude()&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;kCoordFactor_ &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;, &amp;#34;&lt;/span&gt;
+            &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; f.location().longitude()&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;kCoordFactor_ &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;endl;
+  &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#555&#34;&gt;!&lt;/span&gt;writer&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;Write(f.location())) {
+    &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Broken stream.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;break&lt;/span&gt;;
+  }
+  std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;this_thread&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;sleep_for(std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;chrono&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;milliseconds(
+      delay_distribution(generator)));
+}
+writer&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;WritesDone();
+Status status &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; writer&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;Finish();
+&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;if&lt;/span&gt; (status.IsOk()) {
+  std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;cout &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;Finished trip with &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; stats.point_count() &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34; points&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;&lt;/span&gt;
+            &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;Passed &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; stats.feature_count() &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34; features&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;&lt;/span&gt;
+            &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;Travelled &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; stats.distance() &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34; meters&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;&lt;/span&gt;
+            &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;It took &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; stats.elapsed_time() &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34; seconds&amp;#34;&lt;/span&gt;
+            &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;endl;
+} &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;else&lt;/span&gt; {
+  std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;cout &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;RecordRoute rpc failed.&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;endl;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once we&amp;rsquo;ve finished writing our client&amp;rsquo;s requests to the stream using &lt;code&gt;Write()&lt;/code&gt;,
+we need to call &lt;code&gt;WritesDone()&lt;/code&gt; on the stream to let gRPC know that we&amp;rsquo;ve
+finished writing, then &lt;code&gt;Finish()&lt;/code&gt; to complete the call and get our RPC status.
+If the status is &lt;code&gt;OK&lt;/code&gt;, our response object that we initially passed to
+&lt;code&gt;RecordRoute()&lt;/code&gt; will be populated with the server&amp;rsquo;s response.&lt;/p&gt;
+&lt;p&gt;Finally, let&amp;rsquo;s look at our bidirectional streaming RPC &lt;code&gt;RouteChat()&lt;/code&gt;. In this
+case, we just pass a context to the method and get back a &lt;code&gt;ClientReaderWriter&lt;/code&gt;,
+which we can use to both write and read messages.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;shared_ptr&lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&lt;/span&gt;ClientReaderWriter&lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&lt;/span&gt;RouteNote, RouteNote&lt;span style=&#34;color:#555&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;&amp;gt;&lt;/span&gt; stream(
+    stub_&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;RouteChat(&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;context));
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The syntax for reading and writing here is exactly the same as for our
+client-streaming and server-streaming methods. Although each side will always
+get the other&amp;rsquo;s messages in the order they were written, both the client and
+server can read and write in any order — the streams operate completely
+independently.&lt;/p&gt;
+&lt;h3 id=&#34;try-it-out&#34;&gt;Try it out!&lt;/h3&gt;
+&lt;p&gt;Build the client and server:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ make
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Run the server:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ ./route_guide_server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;From a different terminal, run the client:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ ./route_guide_client
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Asynchronous-API tutorial</title>
+      <link>https://Joevaen.github.io/docs/languages/cpp/async/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/cpp/async/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This tutorial shows you how to write a simple server and client in C++ using
+gRPC&amp;rsquo;s asynchronous/non-blocking APIs. It assumes you are already familiar with
+writing simple synchronous gRPC code, as described in &lt;a href=&#34;https://Joevaen.github.io/docs/languages/cpp/basics/&#34;&gt;Basics
+tutorial&lt;/a&gt;. The example used in this tutorial follows
+from the basic &lt;a href=&#34;https://github.com/grpc/grpc/tree/v1.37.1/examples/cpp/helloworld&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Greeter example&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; used in the
+&lt;a href=&#34;https://Joevaen.github.io/docs/languages/cpp/quickstart/&#34;&gt;quick start&lt;/a&gt;. You&amp;rsquo;ll find it along with installation
+instructions in
+&lt;a href=&#34;https://github.com/grpc/grpc/tree/v1.37.1/examples/cpp/helloworld&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;grpc/examples/cpp/helloworld&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;overview&#34;&gt;Overview&lt;/h3&gt;
+&lt;p&gt;gRPC uses the
+&lt;a href=&#34;https://Joevaen.github.io/grpc/cpp/classgrpc_1_1_completion_queue.html&#34;&gt;CompletionQueue&lt;/a&gt;
+API for asynchronous operations. The basic work flow
+is as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;bind a &lt;code&gt;CompletionQueue&lt;/code&gt; to an RPC call&lt;/li&gt;
+&lt;li&gt;do something like a read or write, present with a unique &lt;code&gt;void*&lt;/code&gt; tag&lt;/li&gt;
+&lt;li&gt;call &lt;code&gt;CompletionQueue::Next&lt;/code&gt; to wait for operations to complete. If a tag
+appears, it indicates that the corresponding operation is complete.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;async-client&#34;&gt;Async client&lt;/h3&gt;
+&lt;p&gt;To use an asynchronous client to call a remote method, you first create a
+channel and stub, just as you do in a &lt;a href=&#34;https://github.com/grpc/grpc/blob/v1.37.1/examples/cpp/helloworld/greeter_client.cc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;synchronous
+client&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;. Once you have your stub, you do
+the following to make an asynchronous call:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Initiate the RPC and create a handle for it. Bind the RPC to a
+&lt;code&gt;CompletionQueue&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;CompletionQueue cq;
+std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;unique_ptr&lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&lt;/span&gt;ClientAsyncResponseReader&lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&lt;/span&gt;HelloReply&lt;span style=&#34;color:#555&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;&amp;gt;&lt;/span&gt; rpc(
+    stub_&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;AsyncSayHello(&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;context, request, &lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;cq));
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ask for the reply and final status, with a unique tag&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;Status status;
+rpc&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;Finish(&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;reply, &lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;status, (&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;void&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt;)&lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Wait for the completion queue to return the next tag. The reply and status are
+ready once the tag passed into the corresponding &lt;code&gt;Finish()&lt;/code&gt; call is returned.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;void&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt; got_tag;
+&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;bool&lt;/span&gt; ok &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;false&lt;/span&gt;;
+cq.Next(&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;got_tag, &lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;ok);
+&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;if&lt;/span&gt; (ok &lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; got_tag &lt;span style=&#34;color:#555&#34;&gt;==&lt;/span&gt; (&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;void&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt;)&lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;) {
+  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// check reply and status
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can see the complete client example in
+&lt;a href=&#34;https://github.com/grpc/grpc/blob/v1.37.1/examples/cpp/helloworld/greeter_async_client.cc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;greeter_async_client.cc&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;async-server&#34;&gt;Async server&lt;/h3&gt;
+&lt;p&gt;The server implementation requests an RPC call with a tag and then waits for the
+completion queue to return the tag. The basic flow for handling an RPC
+asynchronously is:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Build a server exporting the async service&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;helloworld&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;Greeter&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;AsyncService service;
+ServerBuilder builder;
+builder.AddListeningPort(&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;0.0.0.0:50051&amp;#34;&lt;/span&gt;, InsecureServerCredentials());
+builder.RegisterAsyncService(&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;service);
+&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;auto&lt;/span&gt; cq &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; builder.AddCompletionQueue();
+&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;auto&lt;/span&gt; server &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; builder.BuildAndStart();
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Request one RPC, providing a unique tag&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;ServerContext context;
+HelloRequest request;
+ServerAsyncResponseWriter&lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&lt;/span&gt;HelloReply&lt;span style=&#34;color:#555&#34;&gt;&amp;gt;&lt;/span&gt; responder;
+service.RequestSayHello(&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;context, &lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;request, &lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;responder, &lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;cq, &lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;cq, (&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;void&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt;)&lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Wait for the completion queue to return the tag. The context, request and
+responder are ready once the tag is retrieved.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;HelloReply reply;
+Status status;
+&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;void&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt; got_tag;
+&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;bool&lt;/span&gt; ok &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;false&lt;/span&gt;;
+cq.Next(&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;got_tag, &lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;ok);
+&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;if&lt;/span&gt; (ok &lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; got_tag &lt;span style=&#34;color:#555&#34;&gt;==&lt;/span&gt; (&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;void&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt;)&lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;) {
+  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// set reply and status
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;  responder.Finish(reply, status, (&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;void&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt;)&lt;span style=&#34;color:#f60&#34;&gt;2&lt;/span&gt;);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Wait for the completion queue to return the tag. The RPC is finished when the
+tag is back.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;void&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt; got_tag;
+&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;bool&lt;/span&gt; ok &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;false&lt;/span&gt;;
+cq.Next(&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;got_tag, &lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;ok);
+&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;if&lt;/span&gt; (ok &lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; got_tag &lt;span style=&#34;color:#555&#34;&gt;==&lt;/span&gt; (&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;void&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt;)&lt;span style=&#34;color:#f60&#34;&gt;2&lt;/span&gt;) {
+  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// clean up
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This basic flow, however, doesn&amp;rsquo;t take into account the server handling multiple
+requests concurrently. To deal with this, our complete async server example uses
+a &lt;code&gt;CallData&lt;/code&gt; object to maintain the state of each RPC, and uses the address of
+this object as the unique tag for the call.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;class CallData {
+&lt;span style=&#34;color:#99f&#34;&gt;public&lt;/span&gt;:
+  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Take in the &amp;#34;service&amp;#34; instance (in this case representing an asynchronous
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// server) and the completion queue &amp;#34;cq&amp;#34; used for asynchronous communication
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// with the gRPC runtime.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;  CallData(Greeter&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;AsyncService&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt; service, ServerCompletionQueue&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt; cq)
+      &lt;span style=&#34;color:#555&#34;&gt;:&lt;/span&gt; service_(service), cq_(cq), responder_(&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;ctx_), status_(CREATE) {
+    &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Invoke the serving logic right away.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;    Proceed();
+  }
+
+  &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;void&lt;/span&gt; Proceed() {
+    &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;if&lt;/span&gt; (status_ &lt;span style=&#34;color:#555&#34;&gt;==&lt;/span&gt; CREATE) {
+      &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// As part of the initial CREATE state, we *request* that the system
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;      &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// start processing SayHello requests. In this request, &amp;#34;this&amp;#34; acts are
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;      &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// the tag uniquely identifying the request (so that different CallData
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;      &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// instances can serve different requests concurrently), in this case
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;      &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// the memory address of this CallData instance.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;      service_&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;RequestSayHello(&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;ctx_, &lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;request_, &lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;responder_, cq_, cq_,
+                                this);
+      &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Make this instance progress to the PROCESS state.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;      status_ &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; PROCESS;
+    } &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;if&lt;/span&gt; (status_ &lt;span style=&#34;color:#555&#34;&gt;==&lt;/span&gt; PROCESS) {
+      &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Spawn a new CallData instance to serve new clients while we process
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;      &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// the one for this CallData. The instance will deallocate itself as
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;      &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// part of its FINISH state.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;      new CallData(service_, cq_);
+
+      &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// The actual processing.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;      std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;string prefix(&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;Hello &amp;#34;&lt;/span&gt;);
+      reply_.set_message(prefix &lt;span style=&#34;color:#555&#34;&gt;+&lt;/span&gt; request_.name());
+
+      &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// And we are done! Let the gRPC runtime know we&amp;#39;ve finished, using the
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;      &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// memory address of this instance as the uniquely identifying tag for
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;      &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// the event.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;      responder_.Finish(reply_, Status&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;OK, this);
+      status_ &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; FINISH;
+    } &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;else&lt;/span&gt; {
+      GPR_ASSERT(status_ &lt;span style=&#34;color:#555&#34;&gt;==&lt;/span&gt; FINISH);
+      &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Once in the FINISH state, deallocate ourselves (CallData).
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;      delete this;
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For simplicity the server only uses one completion queue for all events, and
+runs a main loop in &lt;code&gt;HandleRpcs&lt;/code&gt; to query the queue:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#c0f&#34;&gt;HandleRpcs&lt;/span&gt;() {
+  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Spawn a new CallData instance to serve new clients.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;  new CallData(&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;service_, cq_.get());
+  &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;void&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt; tag;  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// uniquely identifies a request.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;bool&lt;/span&gt; ok;
+  &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;while&lt;/span&gt; (&lt;span style=&#34;color:#366&#34;&gt;true&lt;/span&gt;) {
+    &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Block waiting to read the next event from the completion queue. The
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// event is uniquely identified by its tag, which in this case is the
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// memory address of a CallData instance.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;    cq_&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;Next(&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;tag, &lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;ok);
+    GPR_ASSERT(ok);
+    static_cast&lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&lt;/span&gt;CallData&lt;span style=&#34;color:#555&#34;&gt;*&amp;gt;&lt;/span&gt;(tag)&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;Proceed();
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;shutting-down-the-server&#34;&gt;Shutting Down the Server&lt;/h4&gt;
+&lt;p&gt;We&amp;rsquo;ve been using a completion queue to get the async notifications. Care must be
+taken to shut it down &lt;em&gt;after&lt;/em&gt; the server has also been shut down.&lt;/p&gt;
+&lt;p&gt;Remember we got our completion queue instance &lt;code&gt;cq_&lt;/code&gt; in &lt;code&gt;ServerImpl::Run()&lt;/code&gt; by
+running &lt;code&gt;cq_ = builder.AddCompletionQueue()&lt;/code&gt;. Looking at
+&lt;code&gt;ServerBuilder::AddCompletionQueue&lt;/code&gt;&amp;rsquo;s documentation we see that&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;hellip; Caller is required to shutdown the server prior to shutting down the
+returned completion queue.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Refer to &lt;code&gt;ServerBuilder::AddCompletionQueue&lt;/code&gt;&amp;rsquo;s full docstring for more details.
+What this means in our example is that &lt;code&gt;ServerImpl&#39;s&lt;/code&gt; destructor looks like:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;color:#555&#34;&gt;~&lt;/span&gt;ServerImpl() {
+  server_&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;Shutdown();
+  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Always shutdown the completion queue after the server.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;  cq_&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;Shutdown();
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can see our complete server example in
+&lt;a href=&#34;https://github.com/grpc/grpc/blob/v1.37.1/examples/cpp/helloworld/greeter_async_server.cc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;greeter_async_server.cc&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: ALTS authentication</title>
+      <link>https://Joevaen.github.io/docs/languages/cpp/alts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/cpp/alts/</guid>
+      <description>
+        
+        
+        &lt;h3 id=&#34;overview&#34;&gt;Overview&lt;/h3&gt;
+&lt;p&gt;Application Layer Transport Security (ALTS) is a mutual authentication and
+transport encryption system developed by Google. It is used for securing RPC
+communications within Google&amp;rsquo;s infrastructure. ALTS is similar to mutual TLS
+but has been designed and optimized to meet the needs of Google&amp;rsquo;s production
+environments. For more information, take a look at the
+&lt;a href=&#34;https://cloud.google.com/security/encryption-in-transit/application-layer-transport-security&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ALTS whitepaper&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;ALTS in gRPC has the following features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create gRPC servers &amp;amp; clients with ALTS as the transport security protocol.&lt;/li&gt;
+&lt;li&gt;ALTS connections are end-to-end protected with privacy and integrity.&lt;/li&gt;
+&lt;li&gt;Applications can access peer information such as the peer service account.&lt;/li&gt;
+&lt;li&gt;Client authorization and server authorization support.&lt;/li&gt;
+&lt;li&gt;Minimal code changes to enable ALTS.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;gRPC users can configure their applications to use ALTS as a transport security
+protocol with few lines of code.&lt;/p&gt;
+&lt;p&gt;Note that ALTS is fully functional if the application runs on
+&lt;a href=&#34;https://cloud.google.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Google Cloud Platform&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;. ALTS could be run on any
+platforms with a pluggable
+&lt;a href=&#34;https://github.com/grpc/grpc/blob/7e367da22a137e2e7caeae8342c239a91434ba50/src/proto/grpc/gcp/handshaker.proto#L224-L234&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ALTS handshaker service&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;grpc-client-with-alts-transport-security-protocol&#34;&gt;gRPC Client with ALTS Transport Security Protocol&lt;/h3&gt;
+&lt;p&gt;gRPC clients can use ALTS credentials to connect to servers, as illustrated in
+the following code excerpt:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;color:#099&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;&amp;lt;grpcpp/grpcpp.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#099&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#099&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;&amp;lt;grpcpp/security/credentials.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#099&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#099&#34;&gt;&lt;/span&gt;
+&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;using&lt;/span&gt; grpc&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;experimental&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;AltsCredentials;
+&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;using&lt;/span&gt; grpc&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;experimental&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;AltsCredentialsOptions;
+
+&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;auto&lt;/span&gt; creds &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; AltsCredentials(AltsCredentialsOptions());
+std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;shared_ptr&lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&lt;/span&gt;grpc&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;Channel&lt;span style=&#34;color:#555&#34;&gt;&amp;gt;&lt;/span&gt; channel &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; CreateChannel(server_address, creds);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;grpc-server-with-alts-transport-security-protocol&#34;&gt;gRPC Server with ALTS Transport Security Protocol&lt;/h3&gt;
+&lt;p&gt;gRPC servers can use ALTS credentials to allow clients to connect to them, as
+illustrated next:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;color:#099&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;&amp;lt;grpcpp/security/server_credentials.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#099&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#099&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;&amp;lt;grpcpp/server.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#099&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#099&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;&amp;lt;grpcpp/server_builder.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#099&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#099&#34;&gt;&lt;/span&gt;
+&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;using&lt;/span&gt; grpc&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;experimental&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;AltsServerCredentials;
+&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;using&lt;/span&gt; grpc&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;experimental&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;AltsServerCredentialsOptions;
+
+grpc&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;ServerBuilder builder;
+builder.RegisterService(&lt;span style=&#34;color:#555&#34;&gt;&amp;amp;&lt;/span&gt;service);
+&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;auto&lt;/span&gt; creds &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; AltsServerCredentials(AltsServerCredentialsOptions());
+builder.AddListeningPort(&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;[::]:&amp;lt;port&amp;gt;&amp;#34;&lt;/span&gt;, creds);
+std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;unique_ptr&lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&lt;/span&gt;Server&lt;span style=&#34;color:#555&#34;&gt;&amp;gt;&lt;/span&gt; server(builder.BuildAndStart());
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;server-authorization&#34;&gt;Server Authorization&lt;/h3&gt;
+&lt;p&gt;gRPC has built-in server authorization support using ALTS. A gRPC client using
+ALTS can set the expected server service accounts prior to establishing a
+connection. Then, at the end of the handshake, server authorization guarantees
+that the server identity matches one of the service accounts specified
+by the client. Otherwise, the connection fails.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;color:#099&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;&amp;lt;grpcpp/grpcpp.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#099&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#099&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;&amp;lt;grpcpp/security/credentials.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#099&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#099&#34;&gt;&lt;/span&gt;
+&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;using&lt;/span&gt; grpc&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;experimental&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;AltsCredentials;
+&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;using&lt;/span&gt; grpc&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;experimental&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;AltsCredentialsOptions;
+
+AltsCredentialsOptions opts;
+opts.target_service_accounts.push_back(&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;expected_server_service_account1&amp;#34;&lt;/span&gt;);
+opts.target_service_accounts.push_back(&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;expected_server_service_account2&amp;#34;&lt;/span&gt;);
+&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;auto&lt;/span&gt; creds &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; AltsCredentials(opts);
+std&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;shared_ptr&lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&lt;/span&gt;grpc&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;Channel&lt;span style=&#34;color:#555&#34;&gt;&amp;gt;&lt;/span&gt; channel &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; CreateChannel(server_address, creds);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;client-authorization&#34;&gt;Client Authorization&lt;/h3&gt;
+&lt;p&gt;On a successful connection, the peer information (e.g., client’s service
+account) is stored in the &lt;a href=&#34;https://github.com/grpc/grpc/blob/master/src/proto/grpc/gcp/altscontext.proto&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AltsContext&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;. gRPC provides a utility library for
+client authorization check. Assuming that the server knows the expected client
+identity (e.g., &lt;code&gt;foo@iam.gserviceaccount.com&lt;/code&gt;), it can run the following example
+codes to authorize the incoming RPC.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;color:#099&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;&amp;lt;grpcpp/server_context.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#099&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#099&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;&amp;lt;grpcpp/security/alts_util.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#099&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#099&#34;&gt;&lt;/span&gt;
+grpc&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;ServerContext&lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt; context;
+grpc&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;Status status &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; experimental&lt;span style=&#34;color:#555&#34;&gt;::&lt;/span&gt;AltsClientAuthzCheck(
+    context&lt;span style=&#34;color:#555&#34;&gt;-&amp;gt;&lt;/span&gt;auth_context(), {&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;foo@iam.gserviceaccount.com&amp;#34;&lt;/span&gt;});
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: API reference</title>
+      <link>https://Joevaen.github.io/docs/languages/cpp/api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/cpp/api/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

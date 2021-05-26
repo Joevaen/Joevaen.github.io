@@ -1,0 +1,682 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – C#</title>
+    <link>https://Joevaen.github.io/docs/languages/csharp/</link>
+    <description>Recent content in C# on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/languages/csharp/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Quick start</title>
+      <link>https://Joevaen.github.io/docs/languages/csharp/quickstart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/csharp/quickstart/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
+
+    This page uses the &lt;a href=&#34;https://github.com/grpc/grpc/tree/master/src/csharp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gRPC C# core-library&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; implementation. For
+documentation covering gRPC for .NET, see &lt;a href=&#34;../dotnet/&#34;&gt;gRPC for .NET&lt;/a&gt;.
+
+&lt;/div&gt;
+
+&lt;h3 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h3&gt;
+&lt;p&gt;Whether you&amp;rsquo;re using Windows, OS X, or Linux, you can follow this
+example by using either an IDE and its build tools,
+or by using the the .NET Core SDK command line tools.&lt;/p&gt;
+&lt;p&gt;First, make sure you have installed the
+&lt;a href=&#34;https://github.com/grpc/grpc/blob/v1.37.1/src/csharp/README.md#prerequisites&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gRPC C# prerequisites&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.
+You will also need Git to download the sample code.&lt;/p&gt;
+&lt;h3 id=&#34;download-the-example&#34;&gt;Download the example&lt;/h3&gt;
+&lt;p&gt;You&amp;rsquo;ll need a local copy of the example code to work through this quick start.
+Download the example code from our GitHub repository (the following command
+clones the entire repository, but you just need the examples for this quick start
+and other tutorials):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# Clone the repository to get the example code:&lt;/span&gt;
+$ git clone -b v1.37.1 https://github.com/grpc/grpc
+$ &lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; grpc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This document will walk you through the &amp;ldquo;Hello World&amp;rdquo; example.
+The projects and source files can be found in the &lt;code&gt;examples/csharp/Helloworld&lt;/code&gt; directory.&lt;/p&gt;
+&lt;p&gt;The example in this walkthrough already adds the necessary
+dependencies for you (&lt;code&gt;Grpc&lt;/code&gt;, &lt;code&gt;Grpc.Tools&lt;/code&gt; and &lt;code&gt;Google.Protobuf&lt;/code&gt; NuGet packages).&lt;/p&gt;
+&lt;h3 id=&#34;build-the-example&#34;&gt;Build the example&lt;/h3&gt;
+&lt;h4 id=&#34;using-visual-studio-or-visual-studio-for-mac&#34;&gt;Using Visual Studio (or Visual Studio for Mac)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Open the solution &lt;code&gt;Greeter.sln&lt;/code&gt; with Visual Studio&lt;/li&gt;
+&lt;li&gt;Build the solution&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;using-net-core-sdk-from-the-command-line&#34;&gt;Using .NET Core SDK from the command line&lt;/h4&gt;
+&lt;p&gt;From the &lt;code&gt;examples/csharp/Helloworld&lt;/code&gt; directory:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&amp;gt; dotnet build Greeter.sln
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
+
+    If you want to use gRPC C# from a project that uses the &amp;ldquo;classic&amp;rdquo; .csproj files (supported by Visual Studio 2013, 2015 and older versions of Mono), please refer to the
+&lt;a href=&#34;https://github.com/grpc/grpc/blob/v1.37.1/examples/csharp/HelloworldLegacyCsproj/README.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Greeter using &amp;ldquo;classic&amp;rdquo; .csproj&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; example.
+
+&lt;/div&gt;
+
+&lt;h3 id=&#34;run-a-grpc-application&#34;&gt;Run a gRPC application&lt;/h3&gt;
+&lt;p&gt;From the &lt;code&gt;examples/csharp/Helloworld&lt;/code&gt; directory:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Run the server:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&amp;gt; &lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; GreeterServer
+&amp;gt; dotnet run -f netcoreapp2.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;From another terminal, run the client:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&amp;gt; &lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; GreeterClient
+&amp;gt; dotnet run -f netcoreapp2.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Congratulations! You&amp;rsquo;ve just run a client-server application with gRPC.&lt;/p&gt;
+&lt;h3 id=&#34;update-the-grpc-service&#34;&gt;Update the gRPC service&lt;/h3&gt;
+&lt;p&gt;Now let&amp;rsquo;s look at how to update the application with an extra method on the
+server for the client to call. Our gRPC service is defined using protocol
+buffers; you can find out lots more about how to define a service in a &lt;code&gt;.proto&lt;/code&gt;
+file in &lt;a href=&#34;../basics/&#34;&gt;Basics tutorial&lt;/a&gt;. For now all you need to know is that both the
+server and the client &amp;ldquo;stub&amp;rdquo; have a &lt;code&gt;SayHello&lt;/code&gt; RPC method that takes a
+&lt;code&gt;HelloRequest&lt;/code&gt; parameter from the client and returns a &lt;code&gt;HelloResponse&lt;/code&gt; from the
+server, and that this method is defined like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-proto&#34; data-lang=&#34;proto&#34;&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// The greeting service definition.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;service&lt;/span&gt; Greeter {&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Sends a greeting
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;rpc&lt;/span&gt; SayHello (HelloRequest) &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;returns&lt;/span&gt; (HelloReply) {}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// The request message containing the user&amp;#39;s name.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#0a8;font-weight:bold&#34;&gt;HelloRequest&lt;/span&gt; {&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;string&lt;/span&gt; name &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// The response message containing the greetings
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#0a8;font-weight:bold&#34;&gt;HelloReply&lt;/span&gt; {&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Let&amp;rsquo;s update this so that the &lt;code&gt;Greeter&lt;/code&gt; service has two methods. Edit
+&lt;code&gt;examples/protos/helloworld.proto&lt;/code&gt; and update it with a new &lt;code&gt;SayHelloAgain&lt;/code&gt;
+method, with the same request and response types:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-proto&#34; data-lang=&#34;proto&#34;&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// The greeting service definition.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;service&lt;/span&gt; Greeter {&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Sends a greeting
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;rpc&lt;/span&gt; SayHello (HelloRequest) &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;returns&lt;/span&gt; (HelloReply) {}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Sends another greeting
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;rpc&lt;/span&gt; SayHelloAgain (HelloRequest) &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;returns&lt;/span&gt; (HelloReply) {}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// The request message containing the user&amp;#39;s name.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#0a8;font-weight:bold&#34;&gt;HelloRequest&lt;/span&gt; {&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;string&lt;/span&gt; name &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// The response message containing the greetings
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#0a8;font-weight:bold&#34;&gt;HelloReply&lt;/span&gt; {&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Remember to save the file!&lt;/p&gt;
+&lt;h3 id=&#34;generate-grpc-code&#34;&gt;Generate gRPC code&lt;/h3&gt;
+&lt;p&gt;Next we need to update the gRPC code used by our application to use the new service definition.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;Grpc.Tools&lt;/code&gt; NuGet package contains the protoc and protobuf C# plugin binaries needed
+to generate the code. Starting from version 1.17 the package also integrates with
+MSBuild to provide &lt;a href=&#34;https://github.com/grpc/grpc/blob/master/src/csharp/BUILD-INTEGRATION.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;automatic C# code generation&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;
+from &lt;code&gt;.proto&lt;/code&gt; files.&lt;/p&gt;
+&lt;p&gt;This example project already depends on the &lt;code&gt;Grpc.Tools.1.37.1&lt;/code&gt; NuGet package so just re-building the solution
+is enough to regenerate the code from our modified &lt;code&gt;.proto&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;You can rebuild just like we first built the original
+example by running &lt;code&gt;dotnet build Greeter.sln&lt;/code&gt; or by clicking &amp;ldquo;Build&amp;rdquo; in Visual Studio.&lt;/p&gt;
+&lt;p&gt;The build regenerates the following files
+under the &lt;code&gt;Greeter/obj/Debug/TARGET_FRAMEWORK&lt;/code&gt; directory:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Helloworld.cs&lt;/code&gt; contains all the protocol buffer code to populate,
+serialize, and retrieve our request and response message types&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;HelloworldGrpc.cs&lt;/code&gt; provides generated client and server classes,
+including:
+&lt;ul&gt;
+&lt;li&gt;an abstract class &lt;code&gt;Greeter.GreeterBase&lt;/code&gt; to inherit from when defining
+Greeter service implementations&lt;/li&gt;
+&lt;li&gt;a class &lt;code&gt;Greeter.GreeterClient&lt;/code&gt; that can be used to access remote Greeter
+instances&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;update-and-run-the-application&#34;&gt;Update and run the application&lt;/h3&gt;
+&lt;p&gt;We now have new generated server and client code, but we still need to implement
+and call the new method in the human-written parts of our example application.&lt;/p&gt;
+&lt;h4 id=&#34;update-the-server&#34;&gt;Update the server&lt;/h4&gt;
+&lt;p&gt;With the &lt;code&gt;Greeter.sln&lt;/code&gt; open in your IDE, open &lt;code&gt;GreeterServer/Program.cs&lt;/code&gt;.
+Implement the new method by editing the GreeterImpl class like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#0a8;font-weight:bold&#34;&gt;GreeterImpl&lt;/span&gt; : Greeter.GreeterBase
+{
+    &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Server side handler of the SayHello RPC
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;override&lt;/span&gt; Task&amp;lt;HelloReply&amp;gt; SayHello(HelloRequest request, ServerCallContext context)
+    {
+        &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;return&lt;/span&gt; Task.FromResult(&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;new&lt;/span&gt; HelloReply { Message = &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;Hello &amp;#34;&lt;/span&gt; + request.Name });
+    }
+
+    &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Server side handler for the SayHelloAgain RPC
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;override&lt;/span&gt; Task&amp;lt;HelloReply&amp;gt; SayHelloAgain(HelloRequest request, ServerCallContext context)
+    {
+        &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;return&lt;/span&gt; Task.FromResult(&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;new&lt;/span&gt; HelloReply { Message = &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;Hello again &amp;#34;&lt;/span&gt; + request.Name });
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;update-the-client&#34;&gt;Update the client&lt;/h4&gt;
+&lt;p&gt;With the same &lt;code&gt;Greeter.sln&lt;/code&gt; open in your IDE, open &lt;code&gt;GreeterClient/Program.cs&lt;/code&gt;.
+Call the new method like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;void&lt;/span&gt; Main(&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;string&lt;/span&gt;[] args)
+{
+    Channel channel = &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;new&lt;/span&gt; Channel(&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;127.0.0.1:50051&amp;#34;&lt;/span&gt;, ChannelCredentials.Insecure);
+
+    &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;var&lt;/span&gt; client = &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;new&lt;/span&gt; Greeter.GreeterClient(channel);
+    String user = &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;you&amp;#34;&lt;/span&gt;;
+
+    &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;var&lt;/span&gt; reply = client.SayHello(&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;new&lt;/span&gt; HelloRequest { Name = user });
+    Console.WriteLine(&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;Greeting: &amp;#34;&lt;/span&gt; + reply.Message);
+
+    &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;var&lt;/span&gt; secondReply = client.SayHelloAgain(&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;new&lt;/span&gt; HelloRequest { Name = user });
+    Console.WriteLine(&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;Greeting: &amp;#34;&lt;/span&gt; + secondReply.Message);
+
+    channel.ShutdownAsync().Wait();
+    Console.WriteLine(&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;Press any key to exit...&amp;#34;&lt;/span&gt;);
+    Console.ReadKey();
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;rebuild-the-modified-example&#34;&gt;Rebuild the modified example&lt;/h4&gt;
+&lt;p&gt;Rebuild the newly modified example just like we first built the original
+example by running &lt;code&gt;dotnet build Greeter.sln&lt;/code&gt; or by clicking &amp;ldquo;Build&amp;rdquo; in Visual Studio.&lt;/p&gt;
+&lt;h4 id=&#34;run&#34;&gt;Run!&lt;/h4&gt;
+&lt;p&gt;Just like we did before, from the &lt;code&gt;examples/csharp/Helloworld&lt;/code&gt; directory:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Run the server:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&amp;gt; &lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; GreeterServer
+&amp;gt; dotnet run -f netcoreapp2.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;From another terminal, run the client:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&amp;gt; &lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; GreeterClient
+&amp;gt; dotnet run -f netcoreapp2.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;whats-next&#34;&gt;What&amp;rsquo;s next&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Learn how gRPC works in &lt;a href=&#34;https://Joevaen.github.io/docs/what-is-grpc/introduction/&#34;&gt;Introduction to gRPC&lt;/a&gt;
+and &lt;a href=&#34;https://Joevaen.github.io/docs/what-is-grpc/core-concepts/&#34;&gt;Core concepts&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Work through the &lt;a href=&#34;../basics/&#34;&gt;Basics tutorial&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Explore the &lt;a href=&#34;../api&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;API reference&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Basics tutorial</title>
+      <link>https://Joevaen.github.io/docs/languages/csharp/basics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/csharp/basics/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This tutorial provides a basic C# programmer&amp;rsquo;s introduction to working with gRPC.&lt;/p&gt;
+&lt;p&gt;By walking through this example you&amp;rsquo;ll learn how to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Define a service in a .proto file.&lt;/li&gt;
+&lt;li&gt;Generate server and client code using the protocol buffer compiler.&lt;/li&gt;
+&lt;li&gt;Use the C# gRPC API to write a simple client and server for your service.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It assumes that you have read the &lt;a href=&#34;https://Joevaen.github.io/docs/what-is-grpc/introduction/&#34;&gt;Introduction to gRPC&lt;/a&gt; and are familiar
+with &lt;a href=&#34;https://developers.google.com/protocol-buffers/docs/overview&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;protocol buffers&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;. Note that the
+example in this tutorial uses the proto3 version of the protocol buffers
+language: you can find out more in the
+&lt;a href=&#34;https://developers.google.com/protocol-buffers/docs/proto3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;proto3 language guide&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; and
+&lt;a href=&#34;https://developers.google.com/protocol-buffers/docs/reference/csharp-generated&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;C# generated code reference&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;why-use-grpc&#34;&gt;Why use gRPC?&lt;/h3&gt;
+&lt;p&gt;Our example is a simple route mapping application that lets clients get
+information about features on their route, create a summary of their route, and
+exchange route information such as traffic updates with the server and other
+clients.&lt;/p&gt;
+&lt;p&gt;With gRPC we can define our service once in a &lt;code&gt;.proto&lt;/code&gt; file and generate clients
+and servers in any of gRPC&amp;rsquo;s supported languages, which in turn can be run in
+environments ranging from servers inside a large data center to your own tablet —
+all the complexity of communication between different languages and environments is
+handled for you by gRPC. We also get all the advantages of working with protocol
+buffers, including efficient serialization, a simple IDL, and easy interface
+updating.&lt;/p&gt;
+
+&lt;h3 id=&#34;example-code-and-setup&#34;&gt;Example code and setup&lt;/h3&gt;
+&lt;p&gt;The example code for our tutorial is in
+&lt;a href=&#34;https://github.com/grpc/grpc/tree/v1.37.1/examples/csharp/RouteGuide&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;grpc/grpc/examples/csharp/RouteGuide&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;. To
+download the example, clone the &lt;code&gt;grpc&lt;/code&gt; repository by running the following
+command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ git clone -b v1.37.1 https://github.com/grpc/grpc
+$ &lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; grpc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;All the files for this tutorial are in the directory
+&lt;code&gt;examples/csharp/RouteGuide&lt;/code&gt;. Open the solution
+&lt;code&gt;examples/csharp/RouteGuide/RouteGuide.sln&lt;/code&gt; from Visual Studio (Windows or Mac) or Visual Studio Code.
+For additional installation details, see the &lt;a href=&#34;https://github.com/grpc/grpc/tree/v1.37.1/src/csharp#how-to-use&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;How to use
+instructions&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;defining-the-service&#34;&gt;Defining the service&lt;/h3&gt;
+&lt;p&gt;Our first step (as you&amp;rsquo;ll know from the &lt;a href=&#34;https://Joevaen.github.io/docs/what-is-grpc/introduction/&#34;&gt;Introduction to gRPC&lt;/a&gt;) is to
+define the gRPC &lt;em&gt;service&lt;/em&gt; and the method &lt;em&gt;request&lt;/em&gt; and &lt;em&gt;response&lt;/em&gt; types using
+&lt;a href=&#34;https://developers.google.com/protocol-buffers/docs/overview&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;protocol buffers&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.
+You can see the complete .proto file in
+&lt;a href=&#34;https://github.com/grpc/grpc/blob/v1.37.1/examples/protos/route_guide.proto&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;examples/protos/route_guide.proto&lt;/code&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To define a service, you specify a named &lt;code&gt;service&lt;/code&gt; in your .proto file:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-protobuf&#34; data-lang=&#34;protobuf&#34;&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;service&lt;/span&gt; RouteGuide {&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;   &lt;span style=&#34;color:#555&#34;&gt;...&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then you define &lt;code&gt;rpc&lt;/code&gt; methods inside your service definition, specifying their
+request and response types. gRPC lets you define four kinds of service method,
+all of which are used in the &lt;code&gt;RouteGuide&lt;/code&gt; service:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A &lt;em&gt;simple RPC&lt;/em&gt; where the client sends a request to the server using the client
+object and waits for a response to come back, just like a normal function
+call.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-protobuf&#34; data-lang=&#34;protobuf&#34;&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Obtains the feature at a given position.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;rpc&lt;/span&gt; GetFeature(Point) &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;returns&lt;/span&gt; (Feature) {}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A &lt;em&gt;server-side streaming RPC&lt;/em&gt; where the client sends a request to the server
+and gets a stream to read a sequence of messages back. The client reads from
+the returned stream until there are no more messages. As you can see in our
+example, you specify a server-side streaming method by placing the &lt;code&gt;stream&lt;/code&gt;
+keyword before the &lt;em&gt;response&lt;/em&gt; type.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-protobuf&#34; data-lang=&#34;protobuf&#34;&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Obtains the Features available within the given Rectangle.  Results are
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// streamed rather than returned at once (e.g. in a response message with a
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// repeated field), as the rectangle may cover a large area and contain a
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// huge number of features.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;rpc&lt;/span&gt; ListFeatures(Rectangle) &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;returns&lt;/span&gt; (stream Feature) {}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A &lt;em&gt;client-side streaming RPC&lt;/em&gt; where the client writes a sequence of messages
+and sends them to the server, again using a provided stream. Once the client
+has finished writing the messages, it waits for the server to read them all
+and return its response. You specify a client-side streaming method by placing
+the &lt;code&gt;stream&lt;/code&gt; keyword before the &lt;em&gt;request&lt;/em&gt; type.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-protobuf&#34; data-lang=&#34;protobuf&#34;&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Accepts a stream of Points on a route being traversed, returning a
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// RouteSummary when traversal is completed.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;rpc&lt;/span&gt; RecordRoute(stream Point) &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;returns&lt;/span&gt; (RouteSummary) {}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A &lt;em&gt;bidirectional streaming RPC&lt;/em&gt; where both sides send a sequence of messages
+using a read-write stream. The two streams operate independently, so clients
+and servers can read and write in whatever order they like: for example, the
+server could wait to receive all the client messages before writing its
+responses, or it could alternately read a message then write a message, or
+some other combination of reads and writes. The order of messages in each
+stream is preserved. You specify this type of method by placing the &lt;code&gt;stream&lt;/code&gt;
+keyword before both the request and the response.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-protobuf&#34; data-lang=&#34;protobuf&#34;&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Accepts a stream of RouteNotes sent while a route is being traversed,
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// while receiving other RouteNotes (e.g. from other users).
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;rpc&lt;/span&gt; RouteChat(stream RouteNote) &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;returns&lt;/span&gt; (stream RouteNote) {}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Our  &lt;code&gt;.proto&lt;/code&gt; file also contains protocol buffer message type definitions for all
+the request and response types used in our service methods - for example, here&amp;rsquo;s
+the &lt;code&gt;Point&lt;/code&gt; message type:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-protobuf&#34; data-lang=&#34;protobuf&#34;&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Points are represented as latitude-longitude pairs in the E7 representation
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// (degrees multiplied by 10**7 and rounded to the nearest integer).
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// Latitudes should be in the range +/- 90 degrees and longitude should be in
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// the range +/- 180 degrees (inclusive).
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#0a8;font-weight:bold&#34;&gt;Point&lt;/span&gt; {&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;int32&lt;/span&gt; latitude &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;int32&lt;/span&gt; longitude &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;2&lt;/span&gt;;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&lt;/span&gt;}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;generating-client-and-server-code&#34;&gt;Generating client and server code&lt;/h3&gt;
+&lt;p&gt;Next we need to generate the gRPC client and server interfaces from our .proto
+service definition. This can be done by invoking the protocol buffer compiler &lt;code&gt;protoc&lt;/code&gt; with
+a special gRPC C# plugin from the command line, but starting from version
+1.17 the &lt;code&gt;Grpc.Tools&lt;/code&gt; NuGet package integrates with MSBuild to provide &lt;a href=&#34;https://github.com/grpc/grpc/blob/master/src/csharp/BUILD-INTEGRATION.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;automatic C# code generation&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;
+from &lt;code&gt;.proto&lt;/code&gt; files, which gives much better developer experience by running
+the right commands for you as part of the build.&lt;/p&gt;
+&lt;p&gt;This example already has a dependency on &lt;code&gt;Grpc.Tools&lt;/code&gt; NuGet package and the
+&lt;code&gt;route_guide.proto&lt;/code&gt; has already been added to the project, so the only thing
+needed to generate the client and server code is to build the solution.
+That can be done by running &lt;code&gt;dotnet build RouteGuide.sln&lt;/code&gt; or building directly
+in Visual Studio.&lt;/p&gt;
+&lt;p&gt;The build regenerates the following files
+under the &lt;code&gt;RouteGuide/obj/Debug/TARGET_FRAMEWORK&lt;/code&gt; directory:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;RouteGuide.cs&lt;/code&gt; contains all the protocol buffer code to populate,
+serialize, and retrieve our request and response message types&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RouteGuideGrpc.cs&lt;/code&gt; provides generated client and server classes,
+including:
+&lt;ul&gt;
+&lt;li&gt;an abstract class &lt;code&gt;RouteGuide.RouteGuideBase&lt;/code&gt; to inherit from when defining
+RouteGuide service implementations&lt;/li&gt;
+&lt;li&gt;a class &lt;code&gt;RouteGuide.RouteGuideClient&lt;/code&gt; that can be used to access remote
+RouteGuide instances&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;server&#34;&gt;Creating the server&lt;/h3&gt;
+&lt;p&gt;First let&amp;rsquo;s look at how we create a &lt;code&gt;RouteGuide&lt;/code&gt; server. If you&amp;rsquo;re only
+interested in creating gRPC clients, you can skip this section and go straight
+to &lt;a href=&#34;#client&#34;&gt;Creating the client&lt;/a&gt; (though you might find it interesting
+anyway!).&lt;/p&gt;
+&lt;p&gt;There are two parts to making our &lt;code&gt;RouteGuide&lt;/code&gt; service do its job:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Implementing the service functionality by inheriting from the base class
+generated from our service definition: doing the actual &amp;ldquo;work&amp;rdquo; of our service.&lt;/li&gt;
+&lt;li&gt;Running a gRPC server to listen for requests from clients and return the
+service responses.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can find our example &lt;code&gt;RouteGuide&lt;/code&gt; server in
+&lt;a href=&#34;https://github.com/grpc/grpc/blob/v1.37.1/examples/csharp/RouteGuide/RouteGuideServer/RouteGuideImpl.cs&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;examples/csharp/RouteGuide/RouteGuideServer/RouteGuideImpl.cs&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.
+Let&amp;rsquo;s take a closer look at how it works.&lt;/p&gt;
+&lt;h4 id=&#34;implementing-routeguide&#34;&gt;Implementing RouteGuide&lt;/h4&gt;
+&lt;p&gt;As you can see, our server has a &lt;code&gt;RouteGuideImpl&lt;/code&gt; class that inherits from the
+generated &lt;code&gt;RouteGuide.RouteGuideBase&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// RouteGuideImpl provides an implementation of the RouteGuide service.
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#0a8;font-weight:bold&#34;&gt;RouteGuideImpl&lt;/span&gt; : RouteGuide.RouteGuideBase
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;simple-rpc&#34;&gt;Simple RPC&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;RouteGuideImpl&lt;/code&gt; implements all our service methods. Let&amp;rsquo;s look at the simplest
+type first, &lt;code&gt;GetFeature&lt;/code&gt;, which just gets a &lt;code&gt;Point&lt;/code&gt; from the client and returns
+the corresponding feature information from its database in a &lt;code&gt;Feature&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;override&lt;/span&gt; Task&amp;lt;Feature&amp;gt; GetFeature(Point request, Grpc.Core.ServerCallContext context)
+{
+    &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;return&lt;/span&gt; Task.FromResult(CheckFeature(request));
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The method is passed a context for the RPC (which is empty in the alpha
+release), the client&amp;rsquo;s &lt;code&gt;Point&lt;/code&gt; protocol buffer request, and returns a &lt;code&gt;Feature&lt;/code&gt;
+protocol buffer. In the method we create the &lt;code&gt;Feature&lt;/code&gt; with the appropriate
+information, and then return it. To allow asynchronous implementation, the
+method returns &lt;code&gt;Task&amp;lt;Feature&amp;gt;&lt;/code&gt; rather than just &lt;code&gt;Feature&lt;/code&gt;. You are free to
+perform your computations synchronously and return the result once you&amp;rsquo;ve
+finished, just as we do in the example.&lt;/p&gt;
+&lt;h5 id=&#34;server-side-streaming-rpc&#34;&gt;Server-side streaming RPC&lt;/h5&gt;
+&lt;p&gt;Now let&amp;rsquo;s look at something a bit more complicated - a streaming RPC.
+&lt;code&gt;ListFeatures&lt;/code&gt; is a server-side streaming RPC, so we need to send back multiple
+&lt;code&gt;Feature&lt;/code&gt; protocol buffers to our client.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// in RouteGuideImpl
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;async&lt;/span&gt; Task ListFeatures(Rectangle request,
+    Grpc.Core.IServerStreamWriter&amp;lt;Feature&amp;gt; responseStream,
+    Grpc.Core.ServerCallContext context)
+{
+    &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;var&lt;/span&gt; responses = features.FindAll( (feature) =&amp;gt; feature.Exists() &amp;amp;&amp;amp; request.Contains(feature.Location) );
+    &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;foreach&lt;/span&gt; (&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;var&lt;/span&gt; response &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;in&lt;/span&gt; responses)
+    {
+        &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;await&lt;/span&gt; responseStream.WriteAsync(response);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As you can see, here the request object is a &lt;code&gt;Rectangle&lt;/code&gt; in which our client
+wants to find &lt;code&gt;Feature&lt;/code&gt;s, but instead of returning a simple response we need to
+write responses to an asynchronous stream &lt;code&gt;IServerStreamWriter&lt;/code&gt; using async
+method &lt;code&gt;WriteAsync&lt;/code&gt;.&lt;/p&gt;
+&lt;h5 id=&#34;client-side-streaming-rpc&#34;&gt;Client-side streaming RPC&lt;/h5&gt;
+&lt;p&gt;Similarly, the client-side streaming method &lt;code&gt;RecordRoute&lt;/code&gt; uses an
+&lt;a href=&#34;https://github.com/Reactive-Extensions/Rx.NET/blob/master/Ix.NET/Source/System.Interactive.Async/IAsyncEnumerator.cs&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;IAsyncEnumerator&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;,
+to read the stream of requests using the async method &lt;code&gt;MoveNext&lt;/code&gt; and the
+&lt;code&gt;Current&lt;/code&gt; property.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;async&lt;/span&gt; Task&amp;lt;RouteSummary&amp;gt; RecordRoute(Grpc.Core.IAsyncStreamReader&amp;lt;Point&amp;gt; requestStream,
+    Grpc.Core.ServerCallContext context)
+{
+    &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;int&lt;/span&gt; pointCount = &lt;span style=&#34;color:#f60&#34;&gt;0&lt;/span&gt;;
+    &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;int&lt;/span&gt; featureCount = &lt;span style=&#34;color:#f60&#34;&gt;0&lt;/span&gt;;
+    &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;int&lt;/span&gt; distance = &lt;span style=&#34;color:#f60&#34;&gt;0&lt;/span&gt;;
+    Point previous = &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;null&lt;/span&gt;;
+    &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;var&lt;/span&gt; stopwatch = &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;new&lt;/span&gt; Stopwatch();
+    stopwatch.Start();
+
+    &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;while&lt;/span&gt; (&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;await&lt;/span&gt; requestStream.MoveNext())
+    {
+        &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;var&lt;/span&gt; point = requestStream.Current;
+        pointCount++;
+        &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;if&lt;/span&gt; (CheckFeature(point).Exists())
+        {
+            featureCount++;
+        }
+        &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;if&lt;/span&gt; (previous != &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;null&lt;/span&gt;)
+        {
+            distance += (&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;int&lt;/span&gt;) previous.GetDistance(point);
+        }
+        previous = point;
+    }
+
+    stopwatch.Stop();
+
+    &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;new&lt;/span&gt; RouteSummary
+    {
+        PointCount = pointCount,
+        FeatureCount = featureCount,
+        Distance = distance,
+        ElapsedTime = (&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;int&lt;/span&gt;)(stopwatch.ElapsedMilliseconds / &lt;span style=&#34;color:#f60&#34;&gt;1000&lt;/span&gt;)
+    };
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;bidirectional-streaming-rpc&#34;&gt;Bidirectional streaming RPC&lt;/h5&gt;
+&lt;p&gt;Finally, let&amp;rsquo;s look at our bidirectional streaming RPC &lt;code&gt;RouteChat&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;async&lt;/span&gt; Task RouteChat(Grpc.Core.IAsyncStreamReader&amp;lt;RouteNote&amp;gt; requestStream,
+    Grpc.Core.IServerStreamWriter&amp;lt;RouteNote&amp;gt; responseStream,
+    Grpc.Core.ServerCallContext context)
+{
+    &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;while&lt;/span&gt; (&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;await&lt;/span&gt; requestStream.MoveNext())
+    {
+        &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;var&lt;/span&gt; note = requestStream.Current;
+        List&amp;lt;RouteNote&amp;gt; prevNotes = AddNoteForLocation(note.Location, note);
+        &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;foreach&lt;/span&gt; (&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;var&lt;/span&gt; prevNote &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;in&lt;/span&gt; prevNotes)
+        {
+            &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;await&lt;/span&gt; responseStream.WriteAsync(prevNote);
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here the method receives both &lt;code&gt;requestStream&lt;/code&gt; and &lt;code&gt;responseStream&lt;/code&gt; arguments.
+Reading the requests is done the same way as in the client-side streaming method
+&lt;code&gt;RecordRoute&lt;/code&gt;.  Writing the responses is done the same way as in the server-side
+streaming method &lt;code&gt;ListFeatures&lt;/code&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;starting-the-server&#34;&gt;Starting the server&lt;/h4&gt;
+&lt;p&gt;Once we&amp;rsquo;ve implemented all our methods, we also need to start up a gRPC server
+so that clients can actually use our service. The following snippet shows how we
+do this for our &lt;code&gt;RouteGuide&lt;/code&gt; service:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;var&lt;/span&gt; features = RouteGuideUtil.LoadFeatures();
+
+Server server = &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;new&lt;/span&gt; Server
+{
+    Services = { RouteGuide.BindService(&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;new&lt;/span&gt; RouteGuideImpl(features)) },
+    Ports = { &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;new&lt;/span&gt; ServerPort(&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;localhost&amp;#34;&lt;/span&gt;, Port, ServerCredentials.Insecure) }
+};
+server.Start();
+
+Console.WriteLine(&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;RouteGuide server listening on port &amp;#34;&lt;/span&gt; + port);
+Console.WriteLine(&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;Press any key to stop the server...&amp;#34;&lt;/span&gt;);
+Console.ReadKey();
+
+server.ShutdownAsync().Wait();
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As you can see, we build and start our server using &lt;code&gt;Grpc.Core.Server&lt;/code&gt; class. To
+do this, we:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create an instance of &lt;code&gt;Grpc.Core.Server&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Create an instance of our service implementation class &lt;code&gt;RouteGuideImpl&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Register our service implementation by adding its service definition to the
+&lt;code&gt;Services&lt;/code&gt; collection (We obtain the service definition from the generated
+&lt;code&gt;RouteGuide.BindService&lt;/code&gt; method).&lt;/li&gt;
+&lt;li&gt;Specify the address and port we want to use to listen for client requests.
+This is done by adding &lt;code&gt;ServerPort&lt;/code&gt; to the &lt;code&gt;Ports&lt;/code&gt; collection.&lt;/li&gt;
+&lt;li&gt;Call &lt;code&gt;Start&lt;/code&gt; on the server instance to start an RPC server for our service.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;client&#34;&gt;Creating the client&lt;/h3&gt;
+&lt;p&gt;In this section, we&amp;rsquo;ll look at creating a C# client for our &lt;code&gt;RouteGuide&lt;/code&gt;
+service. You can see our complete example client code in
+&lt;a href=&#34;https://github.com/grpc/grpc/blob/v1.37.1/examples/csharp/RouteGuide/RouteGuideClient/Program.cs&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;examples/csharp/RouteGuide/RouteGuideClient/Program.cs&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;creating-a-client-object&#34;&gt;Creating a client object&lt;/h4&gt;
+&lt;p&gt;To call service methods, we first need to create a client object (also referred
+to as &lt;em&gt;stub&lt;/em&gt; for other gRPC languages).&lt;/p&gt;
+&lt;p&gt;First, we need to create a gRPC client channel that will connect to gRPC server.
+Then, we create an instance of the &lt;code&gt;RouteGuide.RouteGuideClient&lt;/code&gt; class generated
+from our .proto, passing the channel as an argument.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;Channel channel = &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;new&lt;/span&gt; Channel(&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;127.0.0.1:50052&amp;#34;&lt;/span&gt;, ChannelCredentials.Insecure);
+&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;var&lt;/span&gt; client = &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;new&lt;/span&gt; RouteGuide.RouteGuideClient(channel);
+
+&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;// YOUR CODE GOES HERE
+&lt;/span&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;&lt;/span&gt;
+channel.ShutdownAsync().Wait();
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;calling-service-methods&#34;&gt;Calling service methods&lt;/h4&gt;
+&lt;p&gt;Now let&amp;rsquo;s look at how we call our service methods. gRPC C# provides asynchronous
+versions of each of the supported method types. For convenience, gRPC C# also
+provides a synchronous method stub, but only for simple (single request/single
+response) RPCs.&lt;/p&gt;
+&lt;h5 id=&#34;simple-rpc-1&#34;&gt;Simple RPC&lt;/h5&gt;
+&lt;p&gt;Calling the simple RPC &lt;code&gt;GetFeature&lt;/code&gt; in a synchronous way is nearly as
+straightforward as calling a local method.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;Point request = &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;new&lt;/span&gt; Point { Latitude = &lt;span style=&#34;color:#f60&#34;&gt;409146138&lt;/span&gt;, Longitude = -&lt;span style=&#34;color:#f60&#34;&gt;746188906&lt;/span&gt; };
+Feature feature = client.GetFeature(request);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As you can see, we create and populate a request protocol buffer object (in our
+case &lt;code&gt;Point&lt;/code&gt;), and call the desired method on the client object, passing it the
+request. If the RPC finishes with success, the response protocol buffer (in our
+case &lt;code&gt;Feature&lt;/code&gt;) is returned. Otherwise, an exception of type &lt;code&gt;RpcException&lt;/code&gt; is
+thrown, indicating the status code of the problem.&lt;/p&gt;
+&lt;p&gt;Alternatively, if you are in an async context, you can call an asynchronous
+version of the method and use the &lt;code&gt;await&lt;/code&gt; keyword to await the result:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;Point request = &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;new&lt;/span&gt; Point { Latitude = &lt;span style=&#34;color:#f60&#34;&gt;409146138&lt;/span&gt;, Longitude = -&lt;span style=&#34;color:#f60&#34;&gt;746188906&lt;/span&gt; };
+Feature feature = &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;await&lt;/span&gt; client.GetFeatureAsync(request);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;streaming-rpcs&#34;&gt;Streaming RPCs&lt;/h5&gt;
+&lt;p&gt;Now let&amp;rsquo;s look at our streaming methods. If you&amp;rsquo;ve already read &lt;a href=&#34;#server&#34;&gt;Creating the
+server&lt;/a&gt; some of this may look very familiar - streaming RPCs are
+implemented in a similar way on both sides. The difference with respect to
+simple call is that the client methods return an instance of a call object. This
+provides access to request/response streams and/or the asynchronous result,
+depending on the streaming type you are using.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s where we call the server-side streaming method &lt;code&gt;ListFeatures&lt;/code&gt;, which has
+the property &lt;code&gt;ReponseStream&lt;/code&gt; of type &lt;code&gt;IAsyncEnumerator&amp;lt;Feature&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;using&lt;/span&gt; (&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;var&lt;/span&gt; call = client.ListFeatures(request))
+{
+    &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;while&lt;/span&gt; (&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;await&lt;/span&gt; call.ResponseStream.MoveNext())
+    {
+        Feature feature = call.ResponseStream.Current;
+        Console.WriteLine(&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;Received &amp;#34;&lt;/span&gt; + feature.ToString());
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The client-side streaming method &lt;code&gt;RecordRoute&lt;/code&gt; is similar, except we use the
+property &lt;code&gt;RequestStream&lt;/code&gt; to write the requests one by one using &lt;code&gt;WriteAsync&lt;/code&gt;,
+and eventually signal that no more requests will be sent using &lt;code&gt;CompleteAsync&lt;/code&gt;.
+The method result can be obtained through the property &lt;code&gt;ResponseAsync&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;using&lt;/span&gt; (&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;var&lt;/span&gt; call = client.RecordRoute())
+{
+    &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;foreach&lt;/span&gt; (&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;var&lt;/span&gt; point &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;in&lt;/span&gt; points)
+    {
+        &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;await&lt;/span&gt; call.RequestStream.WriteAsync(point);
+    }
+    &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;await&lt;/span&gt; call.RequestStream.CompleteAsync();
+
+    RouteSummary summary = &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;await&lt;/span&gt; call.ResponseAsync;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Finally, let&amp;rsquo;s look at our bidirectional streaming RPC &lt;code&gt;RouteChat&lt;/code&gt;. In this
+case, we write the request to &lt;code&gt;RequestStream&lt;/code&gt; and receive the responses from
+&lt;code&gt;ResponseStream&lt;/code&gt;. As you can see from the example, the streams are independent
+of each other.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;using&lt;/span&gt; (&lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;var&lt;/span&gt; call = client.RouteChat())
+{
+    &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;var&lt;/span&gt; responseReaderTask = Task.Run(&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;async&lt;/span&gt; () =&amp;gt;
+    {
+        &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;while&lt;/span&gt; (&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;await&lt;/span&gt; call.ResponseStream.MoveNext())
+        {
+            &lt;span style=&#34;color:#078;font-weight:bold&#34;&gt;var&lt;/span&gt; note = call.ResponseStream.Current;
+            Console.WriteLine(&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;Received &amp;#34;&lt;/span&gt; + note);
+        }
+    });
+
+    &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;foreach&lt;/span&gt; (RouteNote request &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;in&lt;/span&gt; requests)
+    {
+        &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;await&lt;/span&gt; call.RequestStream.WriteAsync(request);
+    }
+    &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;await&lt;/span&gt; call.RequestStream.CompleteAsync();
+    &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;await&lt;/span&gt; responseReaderTask;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;try-it-out&#34;&gt;Try it out!&lt;/h3&gt;
+&lt;p&gt;Build the client and server:&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;Using Visual Studio (or Visual Studio For Mac)&lt;/dt&gt;
+&lt;dd&gt;Open the solution &lt;code&gt;examples/csharp/RouteGuide/RouteGuide.sln&lt;/code&gt; and select &lt;strong&gt;Build&lt;/strong&gt;.&lt;/dd&gt;
+&lt;dt&gt;Using &lt;code&gt;dotnet&lt;/code&gt; command line tool&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;Run &lt;code&gt;dotnet build RouteGuide.sln&lt;/code&gt; from the &lt;code&gt;examples/csharp/RouteGuide&lt;/code&gt;
+directory. For additional instructions on building the gRPC example with the
+&lt;code&gt;dotnet&lt;/code&gt; command line tool, see &lt;a href=&#34;../quickstart/&#34;&gt;Quick start&lt;/a&gt;.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;Run the server:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&amp;gt; &lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; RouteGuideServer
+&amp;gt; dotnet run
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;From a different terminal, run the client:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&amp;gt; &lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; RouteGuideClient
+&amp;gt; dotnet run
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can also run the server and client directly from Visual Studio.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: gRPC for .NET</title>
+      <link>https://Joevaen.github.io/docs/languages/csharp/dotnet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/csharp/dotnet/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The following pages cover the C# implementation of gRPC for .NET
+(&lt;a href=&#34;https://github.com/grpc/grpc-dotnet&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;grpc-dotnet&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.microsoft.com/aspnet/core/grpc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Introduction to gRPC on .NET Core&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.microsoft.com/aspnet/core/tutorials/grpc/grpc-start&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tutorial: Create a gRPC client and server in ASP.NET Core&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;api&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;API reference&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Several sample applications are available from the &lt;a href=&#34;https://github.com/grpc/grpc-dotnet/tree/master/examples&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;examples&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; folder in the
+&lt;a href=&#34;https://github.com/grpc/grpc-dotnet&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;grpc-dotnet&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; repository.&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
+
+    Looking for gRPC C# core-library documentation?
+See the &lt;a href=&#34;..&#34;&gt;gRPC C# main page&lt;/a&gt;.
+
+&lt;/div&gt;
+
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: API reference</title>
+      <link>https://Joevaen.github.io/docs/languages/csharp/api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/csharp/api/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Daily builds</title>
+      <link>https://Joevaen.github.io/docs/languages/csharp/daily-builds/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/csharp/daily-builds/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>
