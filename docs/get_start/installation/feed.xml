@@ -1,0 +1,232 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – 2.安装工作</title>
+    <link>https://Joevaen.github.io/docs/get_start/installation/</link>
+    <description>Recent content in 2.安装工作 on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/get_start/installation/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 常规安装</title>
+      <link>https://Joevaen.github.io/docs/get_start/installation/normal_installation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/get_start/installation/normal_installation/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;如果你仅仅想在自己的base环境中进行安装的话，通过以下命令进行简易安装:
+&lt;code&gt;pip install mmdet&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;通过创建conda虚拟环境进行安装并激活：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;conda create -n open-mmlab &lt;span style=&#34;color:#033&#34;&gt;python&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;3.7 -y
+conda activate open-mmlab
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;进入pytorch的&lt;a href=&#34;https://pytorch.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;官网&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;查找命令进行安装, 比如：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;conda install pytorch torchvision -c pytorch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意: 确保CUDA的编译版本和运行版本相匹配。
+你能通过&lt;a href=&#34;https://pytorch.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;官网&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;查看pytorch和CUDA的匹配关系。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;E.g.1&lt;/code&gt; 如果你已经在/usr/local/cuda下安装有CUDA 10.1的情况下安装Pytorch 1.5，你需要安装带有预制CUDA 10.1的pytorch。命令如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;conda install pytorch &lt;span style=&#34;color:#033&#34;&gt;cudatoolkit&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;10.1 torchvision -c pytorch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;E.g. 2&lt;/code&gt; 如果你已经在/usr/local/cuda下安装有CUDA 9.2的情况下安装Pytorch 1.3.1，你需要安装带有预制CUDA 9.2的pytorch。命令如下&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;conda install &lt;span style=&#34;color:#033&#34;&gt;pytorch&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;1.3.1 &lt;span style=&#34;color:#033&#34;&gt;cudatoolkit&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;9.2 &lt;span style=&#34;color:#033&#34;&gt;torchvision&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;0.4.2 -c pytorch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果从源代码构建Pytorch而不是安装预设的Pacakge，您可以使用更多的CUDA版本，例如9.0。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果要安装MMCV-Full，我们建议您安装预构建包如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/&lt;span style=&#34;color:#555&#34;&gt;{&lt;/span&gt;cu_version&lt;span style=&#34;color:#555&#34;&gt;}&lt;/span&gt;/&lt;span style=&#34;color:#555&#34;&gt;{&lt;/span&gt;torch_version&lt;span style=&#34;color:#555&#34;&gt;}&lt;/span&gt;/index.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;请将URL中的{cu_version}和{torch_version}替换为所需的{cu_version}和{torch_version}。 例如，要使用CUDA 11和Pytorch 1.7.0安装最新的MMCV-Full，请使用以下命令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu110/torch1.7.0/index.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;请参阅&lt;a href=&#34;https://github.com/open-mmlab/mmcv#install-with-pip&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;此处&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;查看不同版本的MMCV兼容不同的Pytorch和CUDA版本。
+您也可以选择通过以下命令从源编译mmcv。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git clone https://github.com/open-mmlab/mmcv.git
+&lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; mmcv
+&lt;span style=&#34;color:#033&#34;&gt;MMCV_WITH_OPS&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt; pip install -e .  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# package mmcv-full will be installed after this step&lt;/span&gt;
+&lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; ..
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或者直接运行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;pip install mmcv-full
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;克隆MMDetection仓库。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git clone https://github.com/open-mmlab/mmdetection.git
+&lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; mmdetection
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安装构建要求，然后安装MMDetection。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;pip install -r requirements/build.txt
+pip install -v -e .  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# or &amp;#34;python setup.py develop&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;注意:&lt;/p&gt;
+&lt;p&gt;a. 按照上述说明安装之后，MMDetection安装在Dev（开发者）模式上，对代码所做的任何本地修改都将生效，而无需重新安装它。&lt;/p&gt;
+&lt;p&gt;b. 如果你想使用 &lt;code&gt;opencv-python-headless&lt;/code&gt; 来替代 &lt;code&gt;opencv-python&lt;/code&gt;,
+在安装MMCV之前进行安装。&lt;/p&gt;
+&lt;p&gt;c. 一些依赖都是可选择的。简单运行 &lt;code&gt;pip install -v -e .&lt;/code&gt; 只会安装最少的运行依赖。如果想使用例如 &lt;code&gt;albumentations&lt;/code&gt; 和 &lt;code&gt;imagecorruptions&lt;/code&gt; ，要么通过 &lt;code&gt;pip install -r requirements/optional.txt&lt;/code&gt; 进行认为安装，或者指定特定的包通过 &lt;code&gt;pip&lt;/code&gt; (e.g. &lt;code&gt;pip install -v -e .[optional]&lt;/code&gt;)进行安装。其他的有效键是: &lt;code&gt;all&lt;/code&gt;, &lt;code&gt;tests&lt;/code&gt;, &lt;code&gt;build&lt;/code&gt;, 和 &lt;code&gt;optional&lt;/code&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 仅有cpu安装</title>
+      <link>https://Joevaen.github.io/docs/get_start/installation/cpu_only_install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/get_start/installation/cpu_only_install/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;install-with-cpu-only&#34;&gt;Install with CPU only&lt;/h2&gt;
+&lt;p&gt;使用无GPU或者CUDA不可用的设备。&lt;/p&gt;
+&lt;p&gt;In CPU mode you can run the demo/webcam_demo.py for example.
+However some functionality is gone in this mode:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Deformable Convolution&lt;/li&gt;
+&lt;li&gt;Modulated Deformable Convolution&lt;/li&gt;
+&lt;li&gt;ROI pooling&lt;/li&gt;
+&lt;li&gt;Deformable ROI pooling&lt;/li&gt;
+&lt;li&gt;CARAFE: Content-Aware ReAssembly of FEatures&lt;/li&gt;
+&lt;li&gt;SyncBatchNorm&lt;/li&gt;
+&lt;li&gt;CrissCrossAttention: Criss-Cross Attention&lt;/li&gt;
+&lt;li&gt;MaskedConv2d&lt;/li&gt;
+&lt;li&gt;Temporal Interlace Shift&lt;/li&gt;
+&lt;li&gt;nms_cuda&lt;/li&gt;
+&lt;li&gt;sigmoid_focal_loss_cuda&lt;/li&gt;
+&lt;li&gt;bbox_overlaps&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So if you try to run inference with a model containing above ops you will get an error. The following table lists the related methods that cannot inference on CPU due to dependency on these operators&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Operator&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Model&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Deformable Convolution/Modulated Deformable Convolution&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DCN、Guided Anchoring、RepPoints、CentripetalNet、VFNet、CascadeRPN、NAS-FCOS、DetectoRS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;MaskedConv2d&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Guided Anchoring&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CARAFE&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CARAFE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;SyncBatchNorm&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ResNeSt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Notice&lt;/strong&gt;: MMDetection does not support training with CPU for now.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: docker镜像安装</title>
+      <link>https://Joevaen.github.io/docs/get_start/installation/docker_image_install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/get_start/installation/docker_image_install/</guid>
+      <description>
+        
+        
+        &lt;h3 id=&#34;another-option-docker-image&#34;&gt;Another option: Docker Image&lt;/h3&gt;
+&lt;p&gt;We provide a &lt;a href=&#34;https://github.com/open-mmlab/mmdetection/blob/master/docker/Dockerfile&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dockerfile&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; to build an image. Ensure that you are using &lt;a href=&#34;https://docs.docker.com/engine/install/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;docker version&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; &amp;gt;=19.03.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# build an image with PyTorch 1.6, CUDA 10.1&lt;/span&gt;
+docker build -t mmdetection docker/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Run it with&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;docker run --gpus all --shm-size&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;8g -it -v &lt;span style=&#34;color:#555&#34;&gt;{&lt;/span&gt;DATA_DIR&lt;span style=&#34;color:#555&#34;&gt;}&lt;/span&gt;:/mmdetection/data mmdetection
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 从零开始的脚本</title>
+      <link>https://Joevaen.github.io/docs/get_start/installation/from_scratch_install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/get_start/installation/from_scratch_install/</guid>
+      <description>
+        
+        
+        &lt;h3 id=&#34;a-from-scratch-setup-script&#34;&gt;A from-scratch setup script&lt;/h3&gt;
+&lt;p&gt;Assuming that you already have CUDA 10.1 installed, here is a full script for setting up MMDetection with conda.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;conda create -n open-mmlab &lt;span style=&#34;color:#033&#34;&gt;python&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;3.7 -y
+conda activate open-mmlab
+
+conda install &lt;span style=&#34;color:#033&#34;&gt;pytorch&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;==&lt;/span&gt;1.6.0 &lt;span style=&#34;color:#033&#34;&gt;torchvision&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;==&lt;/span&gt;0.7.0 &lt;span style=&#34;color:#033&#34;&gt;cudatoolkit&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;10.1 -c pytorch -y
+
+&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# install the latest mmcv&lt;/span&gt;
+pip install mmcv-full&lt;span style=&#34;color:#555&#34;&gt;==&lt;/span&gt;latest+torch1.6.0+cu101 -f https://download.openmmlab.com/mmcv/dist/index.html
+
+&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# install mmdetection&lt;/span&gt;
+git clone https://github.com/open-mmlab/mmdetection.git
+&lt;span style=&#34;color:#366&#34;&gt;cd&lt;/span&gt; mmdetection
+pip install -r requirements/build.txt
+pip install -v -e .
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 如何使用多个版本</title>
+      <link>https://Joevaen.github.io/docs/get_start/installation/muiti_version_manage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/get_start/installation/muiti_version_manage/</guid>
+      <description>
+        
+        
+        &lt;h3 id=&#34;developing-with-multiple-mmdetection-versions&#34;&gt;Developing with multiple MMDetection versions&lt;/h3&gt;
+&lt;p&gt;The train and test scripts already modify the &lt;code&gt;PYTHONPATH&lt;/code&gt; to ensure the script use the MMDetection in the current directory.&lt;/p&gt;
+&lt;p&gt;To use the default MMDetection installed in the environment rather than that you are working with, you can remove the following line in those scripts&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#033&#34;&gt;PYTHONPATH&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;$(&lt;/span&gt;dirname &lt;span style=&#34;color:#033&#34;&gt;$0&lt;/span&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;/..&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#033&#34;&gt;$PYTHONPATH&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 判断是否安装成功</title>
+      <link>https://Joevaen.github.io/docs/get_start/installation/verify/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/get_start/installation/verify/</guid>
+      <description>
+        
+        
+        &lt;p&gt;要验证是否正确安装了MMDetection和所需的环境，我们可以运行样本Python代码以初始化检测器并运行推理：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#0cf;font-weight:bold&#34;&gt;mmdet.apis&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;import&lt;/span&gt; init_detector, inference_detector
+
+config_file &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;configs/faster_rcnn/faster_rcnn_r50_fpn_1x_coco.py&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# download the checkpoint from model zoo and put it in `checkpoints/`&lt;/span&gt;
+&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# url: http://download.openmmlab.com/mmdetection/v2.0/faster_rcnn/faster_rcnn_r50_fpn_1x_coco/faster_rcnn_r50_fpn_1x_coco_20200130-047c8118.pth&lt;/span&gt;
+checkpoint_file &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;checkpoints/faster_rcnn_r50_fpn_1x_coco_20200130-047c8118.pth&amp;#39;&lt;/span&gt;
+device &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;cuda:0&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# init a detector&lt;/span&gt;
+model &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; init_detector(config_file, checkpoint_file, device&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;device)
+&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# inference the demo image&lt;/span&gt;
+inference_detector(model, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;demo/demo.jpg&amp;#39;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;上面的代码应该在完成安装后成功运行。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

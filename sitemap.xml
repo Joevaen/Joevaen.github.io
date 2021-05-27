@@ -4,8 +4,25 @@
   
     
     <url>
-      <loc>https://Joevaen.github.io/docs/what-is-grpc/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
+      <loc>https://Joevaen.github.io/docs/get_start/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/get_start/installation/normal_installation/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/get_start/prerequisites/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/get_start/installation/</loc>
     </url>
     
   
@@ -25,6 +42,18 @@
   
     
     <url>
+      <loc>https://Joevaen.github.io/docs/get_start/installation/cpu_only_install/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/get_start/installation/docker_image_install/</loc>
+    </url>
+    
+  
+    
+    <url>
       <loc>https://Joevaen.github.io/docs/guides/</loc>
       <lastmod>2020-12-16T23:13:50-08:00</lastmod>
     </url>
@@ -32,8 +61,19 @@
   
     
     <url>
-      <loc>https://Joevaen.github.io/docs/what-is-grpc/introduction/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
+      <loc>https://Joevaen.github.io/docs/get_start/installation/from_scratch_install/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/get_start/installation/muiti_version_manage/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/get_start/installation/verify/</loc>
     </url>
     
   
@@ -132,6 +172,12 @@
     <url>
       <loc>https://Joevaen.github.io/docs/platforms/web/quickstart/</loc>
       <lastmod>2021-02-10T11:10:12-05:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/get_start/practice/</loc>
     </url>
     
   
@@ -740,22 +786,8 @@
   
     
     <url>
-      <loc>https://Joevaen.github.io/docs/what-is-grpc/core-concepts/</loc>
-      <lastmod>2021-03-12T12:19:58+00:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
       <loc>https://Joevaen.github.io/docs/languages/dart/</loc>
       <lastmod>2020-12-18T09:17:10-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
     </url>
     
   
@@ -768,8 +800,7 @@
   
     
     <url>
-      <loc>https://Joevaen.github.io/docs/what-is-grpc/faq/</loc>
-      <lastmod>2021-02-08T13:14:13-08:00</lastmod>
+      <loc>https://Joevaen.github.io/docs/get_start/faq/</loc>
     </url>
     
   
@@ -805,6 +836,13 @@
     <url>
       <loc>https://Joevaen.github.io/docs/platforms/android/kotlin/</loc>
       <lastmod>2021-03-09T16:50:58-05:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/</loc>
+      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
     </url>
     
   

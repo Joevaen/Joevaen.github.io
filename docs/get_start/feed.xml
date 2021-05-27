@@ -1,0 +1,260 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – 准备工作</title>
+    <link>https://Joevaen.github.io/docs/get_start/</link>
+    <description>Recent content in 准备工作 on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/get_start/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 环境配置</title>
+      <link>https://Joevaen.github.io/docs/get_start/prerequisites/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/get_start/prerequisites/</guid>
+      <description>
+        
+        
+        &lt;ul&gt;
+&lt;li&gt;Linux or macOS (Windows当前仅提供实验支持)&lt;/li&gt;
+&lt;li&gt;Python 3.6+&lt;/li&gt;
+&lt;li&gt;PyTorch 1.3+&lt;/li&gt;
+&lt;li&gt;CUDA 9.2+ (如果你是从源编译的Pytorch，CUDA9.0也支持。)&lt;/li&gt;
+&lt;li&gt;GCC 5+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mmcv.readthedocs.io/en/latest/#installation&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MMCV&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;下面是安装MMDetection所需要的MMCV的版本，请安装表格进行安装避免产生相关环境问题。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;MMDetection version&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;MMCV version&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;master&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;mmcv-full&amp;gt;=1.3.3, &amp;lt;1.4.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2.12.0&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;mmcv-full&amp;gt;=1.3.3, &amp;lt;1.4.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2.11.0&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;mmcv-full&amp;gt;=1.2.4, &amp;lt;1.4.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2.10.0&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;mmcv-full&amp;gt;=1.2.4, &amp;lt;1.4.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2.9.0&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;mmcv-full&amp;gt;=1.2.4, &amp;lt;1.4.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2.8.0&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;mmcv-full&amp;gt;=1.2.4, &amp;lt;1.4.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2.7.0&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;mmcv-full&amp;gt;=1.1.5, &amp;lt;1.4.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2.6.0&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;mmcv-full&amp;gt;=1.1.5, &amp;lt;1.4.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2.5.0&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;mmcv-full&amp;gt;=1.1.5, &amp;lt;1.4.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2.4.0&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;mmcv-full&amp;gt;=1.1.1, &amp;lt;1.4.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2.3.0&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;mmcv-full==1.0.5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2.3.0rc0&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;mmcv-full&amp;gt;=1.0.2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2.2.1&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;mmcv==0.6.2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2.2.0&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;mmcv==0.6.2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2.1.0&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;mmcv&amp;gt;=0.5.9, &amp;lt;=0.6.1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2.0.0&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;mmcv&amp;gt;=0.5.1, &amp;lt;=0.5.8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;注意: 如果你实现安装有mmcv，你需要先运行卸载命令 &lt;code&gt;pip uninstall mmcv&lt;/code&gt;。
+如果mmcv和mmcv-full都安装有的话, 会出现&lt;code&gt;ModuleNotFoundError&lt;/code&gt;这个错误。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 2.安装工作</title>
+      <link>https://Joevaen.github.io/docs/get_start/installation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/get_start/installation/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 我的测试</title>
+      <link>https://Joevaen.github.io/docs/get_start/practice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/get_start/practice/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;我的环境&#34;&gt;我的环境&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;选项&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;版本&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;操作系统&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ubuntu 20.04&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Python版本&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;3.7.10&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Pytorch版本&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1.8.1(官网pip安装)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CUDA版本&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;11.1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;GCC版本&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;9.3.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;显卡版本&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;RTX 3090ti(24g)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;显卡驱动版本&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;460.32.03&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;MMCV版本&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;mmcv-full=1.3.5 (&lt;code&gt;pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu111/torch1.8.0/index.html&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;MMDetection版本&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2.12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: FAQ</title>
+      <link>https://Joevaen.github.io/docs/get_start/faq/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/get_start/faq/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Here are some frequently asked questions. Hope you find your answer here :-)&lt;/p&gt;
+&lt;h3 id=&#34;what-is-grpc&#34;&gt;What is gRPC?&lt;/h3&gt;
+&lt;p&gt;gRPC is a modern, open source remote procedure call (RPC) framework that can run anywhere. It enables client and server applications to communicate transparently, and makes it easier to build connected systems.&lt;/p&gt;
+&lt;p&gt;Read the longer &lt;a href=&#34;https://Joevaen.github.io/blog/principles/&#34;&gt;Motivation &amp;amp; Design Principles&lt;/a&gt; post for background on why we created gRPC.&lt;/p&gt;
+&lt;h3 id=&#34;what-does-grpc-stand-for&#34;&gt;What does gRPC stand for?&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;g&lt;/strong&gt;RPC &lt;strong&gt;R&lt;/strong&gt;emote &lt;strong&gt;P&lt;/strong&gt;rocedure &lt;strong&gt;C&lt;/strong&gt;alls, of course!&lt;/p&gt;
+&lt;h3 id=&#34;why-would-i-want-to-use-grpc&#34;&gt;Why would I want to use gRPC?&lt;/h3&gt;
+&lt;p&gt;The main usage scenarios:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Low latency, highly scalable, distributed systems.&lt;/li&gt;
+&lt;li&gt;Developing mobile clients which are communicating to a cloud server.&lt;/li&gt;
+&lt;li&gt;Designing a new protocol that needs to be accurate, efficient and language independent.&lt;/li&gt;
+&lt;li&gt;Layered design to enable extension eg. authentication, load balancing, logging and monitoring etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;whos-using-this-and-why&#34;&gt;Who&amp;rsquo;s using this and why?&lt;/h3&gt;
+&lt;p&gt;gRPC is a &lt;a href=&#34;https://cncf.io&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloud Native Computing Foundation&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; (CNCF) project.&lt;/p&gt;
+&lt;p&gt;Google has been using a lot of the underlying technologies and concepts in gRPC for a long time. The current implementation is being used in several of Google’s cloud products and Google externally facing APIs. It is also being used by &lt;a href=&#34;https://corner.squareup.com/2015/02/grpc.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Square&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, &lt;a href=&#34;https://github.com/Netflix/ribbon&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Netflix&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, &lt;a href=&#34;https://blog.gopheracademy.com/advent-2015/etcd-distributed-key-value-store-with-grpc-http2/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CoreOS&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, &lt;a href=&#34;https://blog.docker.com/2015/12/containerd-daemon-to-control-runc/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Docker&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, &lt;a href=&#34;https://github.com/cockroachdb/cockroach&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CockroachDB&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, &lt;a href=&#34;https://github.com/CiscoDevNet/grpc-getting-started&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cisco&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, &lt;a href=&#34;https://github.com/Juniper/open-nti&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Juniper Networks&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; and many other organizations and individuals.&lt;/p&gt;
+&lt;h3 id=&#34;which-programming-languages-are-supported&#34;&gt;Which programming languages are supported?&lt;/h3&gt;
+&lt;p&gt;See &lt;a href=&#34;https://Joevaen.github.io/about/#officially-supported-languages-and-platforms&#34;&gt;Officially supported languages and platforms&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;how-do-i-get-started-using-grpc&#34;&gt;How do I get started using gRPC?&lt;/h3&gt;
+&lt;p&gt;You can start with installation of gRPC by following instructions &lt;a href=&#34;https://Joevaen.github.io/docs/quickstart/&#34;&gt;here&lt;/a&gt;. Or head over to the &lt;a href=&#34;https://github.com/grpc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gRPC GitHub org page&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, pick the runtime or language you are interested in, and follow the README instructions.&lt;/p&gt;
+&lt;h3 id=&#34;which-license-is-grpc-under&#34;&gt;Which license is gRPC under?&lt;/h3&gt;
+&lt;p&gt;All implementations are licensed under &lt;a href=&#34;https://github.com/grpc/grpc/blob/master/LICENSE&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Apache 2.0&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;how-can-i-contribute&#34;&gt;How can I contribute?&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://Joevaen.github.io/contribute/&#34;&gt;Contributors&lt;/a&gt; are highly welcome and the repositories are hosted on GitHub. We look forward to community feedback, additions and bugs. Both individual contributors and corporate contributors need to sign our CLA. If you have ideas for a project around gRPC, please read guidelines and submit &lt;a href=&#34;https://github.com/grpc/grpc-contrib/blob/master/CONTRIBUTING.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;. We have a growing list of projects under the &lt;a href=&#34;https://github.com/grpc-ecosystem&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gRPC Ecosystem&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; organization on GitHub.&lt;/p&gt;
+&lt;h3 id=&#34;where-is-the-documentation&#34;&gt;Where is the documentation?&lt;/h3&gt;
+&lt;p&gt;Check out the &lt;a href=&#34;https://Joevaen.github.io/docs/&#34;&gt;documentation&lt;/a&gt; right here on grpc.io.&lt;/p&gt;
+&lt;h3 id=&#34;what-is-the-road-map&#34;&gt;What is the road map?&lt;/h3&gt;
+&lt;p&gt;The gRPC project has an RFC process, through which new features are designed and approved for implementation. They are tracked in &lt;a href=&#34;https://github.com/grpc/proposal&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this repository&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;how-long-are-grpc-releases-supported-for&#34;&gt;How long are gRPC releases supported for?&lt;/h3&gt;
+&lt;p&gt;The gRPC project does not do LTS releases. Given the rolling release model above, we support the current, latest release and the release prior to that. Support here means bug fixes and security fixes.&lt;/p&gt;
+&lt;h3 id=&#34;what-is-the-grpc-versioning-policy&#34;&gt;What is the gRPC versioning policy?&lt;/h3&gt;
+&lt;p&gt;See the gRPC versioning policy &lt;a href=&#34;https://github.com/grpc/grpc/blob/master/doc/versioning.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;what-is-the-latest-grpc-version&#34;&gt;What is the latest gRPC Version?&lt;/h3&gt;
+&lt;p&gt;The latest release tag is v1.37.1.&lt;/p&gt;
+&lt;h3 id=&#34;when-do-grpc-releases-happen&#34;&gt;When do gRPC releases happen?&lt;/h3&gt;
+&lt;p&gt;The gRPC project works in a model where the tip of the master branch is stable at all times. The project (across the various runtimes) targets to ship checkpoint releases every 6 weeks on a best effort basis. See the release schedule &lt;a href=&#34;https://github.com/grpc/grpc/blob/master/doc/grpc_release_schedule.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;how-can-i-report-a-security-vulnerability-in-grpc&#34;&gt;How can I report a security vulnerability in gRPC?&lt;/h3&gt;
+&lt;p&gt;To report a security vulnerability in gRPC, please follow the process documented &lt;a href=&#34;https://github.com/grpc/proposal/blob/master/P4-grpc-cve-process.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;can-i-use-it-in-the-browser&#34;&gt;Can I use it in the browser?&lt;/h3&gt;
+&lt;p&gt;The &lt;a href=&#34;https://github.com/grpc/grpc-web&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gRPC-Web&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; project is Generally Available.&lt;/p&gt;
+&lt;h3 id=&#34;can-i-use-grpc-with-my-favorite-data-format-json-protobuf-thrift-xml-&#34;&gt;Can I use gRPC with my favorite data format (JSON, Protobuf, Thrift, XML) ?&lt;/h3&gt;
+&lt;p&gt;Yes. gRPC is designed to be extensible to support multiple content types. The initial release contains support for Protobuf and with external support for other content types such as FlatBuffers and Thrift, at varying levels of maturity.&lt;/p&gt;
+&lt;h3 id=&#34;can-i-use-grpc-in-a-service-mesh&#34;&gt;Can I use gRPC in a service mesh?&lt;/h3&gt;
+&lt;p&gt;Yes. gRPC applications can be deployed in a service mesh like any other application. gRPC also supports &lt;a href=&#34;https://www.envoyproxy.io/docs/envoy/latest/api-docs/xds_protocol&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;xDS APIs&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; which enables deploying gRPC applications in a service mesh without sidecar proxies. The proxyless service mesh features supported in gRPC are listed &lt;a href=&#34;https://github.com/grpc/grpc/blob/master/doc/grpc_xds_features.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;how-does-grpc-help-in-mobile-application-development&#34;&gt;How does gRPC help in mobile application development?&lt;/h3&gt;
+&lt;p&gt;gRPC and Protobuf provide an easy way to precisely define a service and auto generate reliable client libraries for iOS, Android and the servers providing the back end. The clients can take advantage of advanced streaming and connection features which help save bandwidth, do more over fewer TCP connections and save CPU usage and battery life.&lt;/p&gt;
+&lt;h3 id=&#34;why-is-grpc-better-than-any-binary-blob-over-http2&#34;&gt;Why is gRPC better than any binary blob over HTTP/2?&lt;/h3&gt;
+&lt;p&gt;This is largely what gRPC is on the wire. However gRPC is also a set of libraries that will provide higher-level features consistently across platforms that common HTTP libraries typically do not. Examples of such features include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;interaction with flow-control at the application layer&lt;/li&gt;
+&lt;li&gt;cascading call-cancellation&lt;/li&gt;
+&lt;li&gt;load balancing &amp;amp; failover&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;why-is-grpc-betterworse-than-rest&#34;&gt;Why is gRPC better/worse than REST?&lt;/h3&gt;
+&lt;p&gt;gRPC largely follows HTTP semantics over HTTP/2 but we explicitly allow for full-duplex streaming. We diverge from typical REST conventions as we use static paths for performance reasons during call dispatch as parsing call parameters from paths, query parameters and payload body adds latency and complexity. We have also formalized a set of errors that we believe are more directly applicable to API use cases than the HTTP status codes.&lt;/p&gt;
+&lt;h3 id=&#34;how-do-you-pronounce-grpc&#34;&gt;How do you pronounce gRPC?&lt;/h3&gt;
+&lt;p&gt;Jee-Arr-Pee-See.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
