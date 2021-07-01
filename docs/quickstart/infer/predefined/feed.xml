@@ -1,0 +1,124 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – 在标准数据集上训练预定义模型</title>
+    <link>https://Joevaen.github.io/docs/quickstart/infer/predefined/</link>
+    <description>Recent content in 在标准数据集上训练预定义模型 on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/quickstart/infer/predefined/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 单GPU训练</title>
+      <link>https://Joevaen.github.io/docs/quickstart/infer/predefined/single_gpu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/quickstart/infer/predefined/single_gpu/</guid>
+      <description>
+        
+        
+        &lt;p&gt;We provide &lt;code&gt;tools/train.py&lt;/code&gt; to launch training jobs on a single GPU.
+The basic usage is as follows.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;python tools/train.py &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;CONFIG_FILE&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;optional arguments&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;During training, log files and checkpoints will be saved to the working directory, which is specified by &lt;code&gt;work_dir&lt;/code&gt; in the config file or via CLI argument &lt;code&gt;--work-dir&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;By default, the model is evaluated on the validation set every epoch, the evaluation interval can be specified in the config file as shown below.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# evaluate the model every 12 epoch.&lt;/span&gt;
+evaluation &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(interval&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;12&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This tool accepts several optional arguments, including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--no-validate&lt;/code&gt; (&lt;strong&gt;not suggested&lt;/strong&gt;): Disable evaluation during training.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--work-dir ${WORK_DIR}&lt;/code&gt;: Override the working directory.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--resume-from ${CHECKPOINT_FILE}&lt;/code&gt;: Resume from a previous checkpoint file.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--options &#39;Key=value&#39;&lt;/code&gt;: Overrides other settings in the used config.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;Difference between &lt;code&gt;resume-from&lt;/code&gt; and &lt;code&gt;load-from&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;resume-from&lt;/code&gt; loads both the model weights and optimizer status, and the epoch is also inherited from the specified checkpoint. It is usually used for resuming the training process that is interrupted accidentally.
+&lt;code&gt;load-from&lt;/code&gt; only loads the model weights and the training epoch starts from 0. It is usually used for finetuning.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 多GPU训练</title>
+      <link>https://Joevaen.github.io/docs/quickstart/infer/predefined/multi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/quickstart/infer/predefined/multi/</guid>
+      <description>
+        
+        
+        &lt;p&gt;We provide &lt;code&gt;tools/dist_train.sh&lt;/code&gt; to launch training on multiple GPUs.
+The basic usage is as follows.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;bash ./tools/dist_train.sh &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;CONFIG_FILE&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;GPU_NUM&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;optional arguments&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Optional arguments remain the same as stated &lt;a href=&#34;#train-with-a-single-GPU&#34;&gt;above&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 多节点训练</title>
+      <link>https://Joevaen.github.io/docs/quickstart/infer/predefined/multi_node/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/quickstart/infer/predefined/multi_node/</guid>
+      <description>
+        
+        
+        &lt;p&gt;MMDetection relies on &lt;code&gt;torch.distributed&lt;/code&gt; package for distributed training.
+Thus, as a basic usage, one can launch distributed training via PyTorch&amp;rsquo;s &lt;a href=&#34;https://pytorch.org/docs/stable/distributed.html#launch-utility&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;launch utility&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: slurm管理</title>
+      <link>https://Joevaen.github.io/docs/quickstart/infer/predefined/slurm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/quickstart/infer/predefined/slurm/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;a href=&#34;https://slurm.schedmd.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Slurm&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; is a good job scheduling system for computing clusters.
+On a cluster managed by Slurm, you can use &lt;code&gt;slurm_train.sh&lt;/code&gt; to spawn training jobs. It supports both single-node and multi-node training.&lt;/p&gt;
+&lt;p&gt;The basic usage is as follows.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;GPUS&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;GPUS&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; ./tools/slurm_train.sh &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;PARTITION&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;JOB_NAME&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;CONFIG_FILE&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;WORK_DIR&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Below is an example of using 16 GPUs to train Mask R-CNN on a Slurm partition named &lt;em&gt;dev&lt;/em&gt;, and set the work-dir to some shared file systems.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#033&#34;&gt;GPUS&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;16&lt;/span&gt; ./tools/slurm_train.sh dev mask_r50_1x configs/mask_rcnn_r50_fpn_1x_coco.py /nfs/xxxx/mask_rcnn_r50_fpn_1x
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can check &lt;a href=&#34;https://github.com/open-mmlab/mmdetection/blob/master/tools/slurm_train.sh&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the source code&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; to review full arguments and environment variables.&lt;/p&gt;
+&lt;p&gt;When using Slurm, the port option need to be set in one of the following ways:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Set the port through &lt;code&gt;--options&lt;/code&gt;. This is more recommended since it does not change the original configs.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#033&#34;&gt;CUDA_VISIBLE_DEVICES&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;0,1,2,3 &lt;span style=&#34;color:#033&#34;&gt;GPUS&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;4&lt;/span&gt; ./tools/slurm_train.sh &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;PARTITION&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;JOB_NAME&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; config1.py &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;WORK_DIR&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; --options &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;dist_params.port=29500&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color:#033&#34;&gt;CUDA_VISIBLE_DEVICES&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;4,5,6,7 &lt;span style=&#34;color:#033&#34;&gt;GPUS&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;4&lt;/span&gt; ./tools/slurm_train.sh &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;PARTITION&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;JOB_NAME&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; config2.py &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;WORK_DIR&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; --options &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;dist_params.port=29501&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Modify the config files to set different communication ports.&lt;/p&gt;
+&lt;p&gt;In &lt;code&gt;config1.py&lt;/code&gt;, set&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;dist_params &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(backend&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;nccl&amp;#39;&lt;/span&gt;, port&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;29500&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In &lt;code&gt;config2.py&lt;/code&gt;, set&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;dist_params &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(backend&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;nccl&amp;#39;&lt;/span&gt;, port&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;29501&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then you can launch two jobs with &lt;code&gt;config1.py&lt;/code&gt; and &lt;code&gt;config2.py&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#033&#34;&gt;CUDA_VISIBLE_DEVICES&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;0,1,2,3 &lt;span style=&#34;color:#033&#34;&gt;GPUS&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;4&lt;/span&gt; ./tools/slurm_train.sh &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;PARTITION&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;JOB_NAME&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; config1.py &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;WORK_DIR&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#033&#34;&gt;CUDA_VISIBLE_DEVICES&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;4,5,6,7 &lt;span style=&#34;color:#033&#34;&gt;GPUS&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;4&lt;/span&gt; ./tools/slurm_train.sh &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;PARTITION&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;JOB_NAME&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; config2.py &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;WORK_DIR&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

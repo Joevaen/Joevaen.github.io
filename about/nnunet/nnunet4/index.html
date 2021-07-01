@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.82.1" />
+
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-512x512.png" sizes="512x512">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/site.webmanifest">
+<title>nnUNet最舒服的训练教程（让我的奶奶也会用nnUNet（上）） | gRPC</title>
+<meta property="og:title" content="nnUNet最舒服的训练教程（让我的奶奶也会用nnUNet（上））" />
+<meta property="og:description" content="《Automated Design of Deep Learning Methods for Biomedical Image Segmentation》" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Joevaen.github.io/about/nnunet/nnunet4/" /><meta property="article:section" content="about" />
+
+<meta property="og:site_name" content="gRPC" />
+
+<meta itemprop="name" content="nnUNet最舒服的训练教程（让我的奶奶也会用nnUNet（上））">
+<meta itemprop="description" content="《Automated Design of Deep Learning Methods for Biomedical Image Segmentation》">
+
+<meta itemprop="wordCount" content="219">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="nnUNet最舒服的训练教程（让我的奶奶也会用nnUNet（上））"/>
+<meta name="twitter:description" content="《Automated Design of Deep Learning Methods for Biomedical Image Segmentation》"/>
+
+
+
+<link rel="preload" href="/css/style.min.e3cf82e558200e98b09736f835e12b188dca1353aad6649d3429c72923031431.css" as="style">
+<link href="/css/style.min.e3cf82e558200e98b09736f835e12b188dca1353aad6649d3429c72923031431.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163836834-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-163836834-2');
+  gtag('config', 'UA-60127042-1');
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="canonical" href="https://Joevaen.github.io/about/nnunet/nnunet4/">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@grpcio">
+<meta name="twitter:creator" content="@grpcio">
+<meta name="twitter:image" content="https://Joevaen.github.io/img/logos/grpc-icon-color.png">
+<meta name="twitter:image:alt" content="gRPC color logo">
+
+<meta property="og:url" content="https://Joevaen.github.io/about/nnunet/nnunet4/">
+<meta property="og:title" content="nnUNet最舒服的训练教程（让我的奶奶也会用nnUNet（上））">
+<meta property="og:description" content="《Automated Design of Deep Learning Methods for Biomedical Image Segmentation》">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="gRPC">
+<meta property="og:image" content="https://Joevaen.github.io/img/logos/grpc-icon-color.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="gRPC color logo">
+<meta property="og:locale" content="en_US">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-512x512.png" sizes="512x512">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/site.webmanifest">
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark  td-navbar-cover flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="672pt" height="436pt" viewBox="0 0 672 436"><g transform="translate(0.000000,436.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M3066 3659c-376-41-707-264-894-602-35-63-50-101-45-113 4-12 3-15-5-10s-10 1-5-10c5-13 9-11 23 15 9 18 19 29 22 25 4-3 4 3 1 15-4 14-1 21 9 21 8 0 27 23 42 51 119 218 360 416 607 499 96 33 250 60 337 60 551 0 1009-390 1097-933 48-296-20-597-193-847-24-36-35-56-23-46 35 32 24 2-23-61-49-64-119-128-220-198-36-26-66-49-66-51 0-10 123 74 187 128 63 53 173 174 182 201 2 7 9 19 16 27s36 58 63 110c198 373 185 786-35 1159-25 42-60 95-79 118-42 51-45 68-4 22 68-76 190-285 190-326 0-7 5-12 11-10 6 1 14-4 17-12 2-8 0-11-5-8-6 4-8-4-5-19 3-18 7-22 12-13 6 8 12-2 19-29 6-23 15-59 21-80 31-121 29-332-5-516-9-44-13-81-11-83s16 47 31 109c26 106 27 122 22 268-4 119-12 179-32 260-56 225-191 440-375 598-70 59-261 182-284 182-6 0 25-21 69-47 44-25 105-65 135-89 62-48 149-134 135-134-6 0-32 23-60 51-67 67-224 171-325 215-78 34-249 83-294 85-21 0-21 1-1 9 15 7 8 9-30 10-27 0-72 2-1e2 4-27 2-86 0-129-5z"/><path d="M36e2 3580c8-5 20-10 25-10 6 0 3 5-5 10s-19 10-25 10c-5 0-3-5 5-10z"/><path d="M3519 3276c-69-18-136-62-211-138-191-194-325-488-288-630 12-45 45-88 67-88 18 0 16 19-2 27-24 9-45 57-45 103 0 121 141 397 271 531 111 115 241 189 303 173 1e2-25 76-265-64-626l-40-105-58-13c-79-17-211-65-309-110-197-92-359-233-429-375-35-71-39-87-39-154 0-65 4-83 28-123 61-104 188-133 299-70 70 41 176 152 251 265 67 102 188 333 243 464 37 89 39 92 79 102 43 11 84 36 74 45-3 3-24-2-47-11s-45-14-48-11 15 63 41 133c126 349 145 579 49 615-33 13-68 12-125-4zm-29-794c0-4-47-102-104-218-197-398-362-594-5e2-594-68 0-124 44-151 119-85 243 203 545 645 675 93 27 110 30 110 18z"/><path d="M2081 2794c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M4291 2784c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M2071 2754c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M4302 2740c0-14 2-19 5-12 2 6 2 18 0 25-3 6-5 1-5-13z"/><path d="M2061 2714c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M2052 2660c0-14 2-19 5-12 2 6 2 18 0 25-3 6-5 1-5-13z"/><path d="M2043 2585c0-22 2-30 4-17 2 12 2 30 0 40-3 9-5-1-4-23z"/><path d="M4252 2018c-15-37-19-55-11-63 7-7 8-4 3 9-6 15-4 17 6 11 9-5 11-4 6 3-4 7-3 12 3 12s7 7 4 17c-5 12-3 14 8 8 8-4 11-5 7 0-4 4-4 13 2 19 5 7 5 17 1 24s-15-8-29-40z"/><path d="M4205 1919c-3-4 2-6 10-5 21 3 28 13 10 13-9 0-18-4-20-8z"/><path d="M4024 1668l-19-23 23 19c12 11 22 21 22 23 0 8-8 2-26-19z"/><path d="M4015 1628l-40-43 43 40c39 36 47 45 39 45-2 0-21-19-42-42z"/><path d="M3969 1613c-13-16-12-17 4-4s21 21 13 21c-2 0-10-8-17-17z"/><path d="M3919 1543c-13-16-12-17 4-4 9 7 17 15 17 17 0 8-8 3-21-13z"/><path d="M3705 1428c-11-6-23-15-26-20-3-6-9-9-13-9-19 3-27 0-22-7 7-12-61-35-75-26-8 5-9 3-4-6 6-10 3-12-13-8-14 4-20 2-15-5 4-6-2-8-15-5-12 4-20 2-17-2 3-5 0-10-7-13-7-2-2-2 12 0 39 7 179 63 194 78 7 8 16 12 18 10 3-3 5 2 5 10s-1 15-1 15c-1 0-10-6-21-12z"/><path d="M3448 1313c7-3 16-2 19 1 4 3-2 6-13 5-11 0-14-3-6-6z"/><path d="M3355 13e2c-27-7-27-8-5-8 14 0 39 4 55 8 27 7 27 8 5 8-14 0-38-4-55-8z"/><path d="M3263 1283c9-2 25-2 35 0 9 3 1 5-18 5s-27-2-17-5z"/><path d="M1810 981c0-75-4-103-15-115-17-17-20-66-4-66 6 0 24 13 40 29 29 29 29 31 29 140v111h-25c-25 0-25 0-25-99z"/><path d="M2211 1062c-51-25-73-61-74-120-1-70 33-116 101-137 36-10 28 31-13 69-26 25-35 42-35 66s9 41 35 66c19 18 35 42 35 53 0 25-5 26-49 3z"/><path d="M2290 1060c0-12 16-36 35-54 26-25 35-42 35-66s-9-41-35-66c-41-38-49-79-12-69 66 20 99 65 99 135s-33 115-99 135c-19 5-23 2-23-15z"/><path d="M2692 1053l3-28h1e2 1e2l3 28 3 27h-106-106l3-27z"/><path d="M3150 1068c0-7 23-70 52-140 48-119 53-128 78-128s30 9 78 130c29 72 52 135 52 141s-12 9-27 7c-23-2-31-13-51-63-13-33-31-76-39-95l-14-35-25 59c-13 33-24 63-24 67s15 9 33 11c27 2 32 7 32 28 0 24-3 25-72 28-55 2-73 0-73-10z"/><path d="M3724 1003c-43-93-48-128-19-128 15 0 28 17 50 63l30 62 25-62c14-35 27-66 28-70 2-5-35-8-82-8-76 0-86-2-1e2-22-8-12-13-25-10-30 7-11 261-10 268 1 3 5-19 67-49 137-48 114-57 129-80 132s-29-4-61-75z"/><path d="M4187 1073c-4-3-7-14-7-24 0-25 28-31 125-27 79 3 80 3 83 31l3 27h-99c-54 0-102-3-105-7z"/><path d="M4670 1068c0-7 43-71 96-141 77-105 99-128 117-125 21 3 22 7 25 141l3 138-28-3c-28-3-28-4-33-86l-5-83-62 85c-50 69-68 86-88 86-14 0-25-6-25-12z"/><path d="M2694 955c-14-37 2-45 89-45 88 0 114 11 101 44-9 23-182 24-190 1z"/><path d="M4184 955c-3-8-3-22 0-30 5-13 22-15 98-13 92 3 93 3 93 28s-1 25-93 28c-76 2-93 0-98-13z"/><path d="M1675 890c-10-16 4-48 32-70 32-25 40-25 48 0 13 40-60 103-80 70z"/><path d="M4670 850c0-47 2-50 25-50s25 3 25 50-2 50-25 50-25-3-25-50z"/><path d="M2694 845c-3-8-3-22 0-30 5-13 23-15 103-13 97 3 98 3 98 28s-1 25-98 28c-80 2-98 0-103-13z"/><path d="M4184 845c-15-38 1-45 106-45h101l-3 28-3 27-98 3c-80 2-98 0-103-13z"/></g></svg></span><span class="text-uppercase font-weight-bold">gRPC</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/about/" ><span>nnUNet</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/" ><span>MMDetection</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/showcase/" ><span>论文</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/blog/" ><span>Blog</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/community/" ><span>C&#43;&#43;</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-default td-outer">
+      
+      <main role="main" class="td-main">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="td-cover-block-0" class="row td-cover-block td-cover-block--height-sm js-td-cover td-overlay td-overlay--dark -bg-primary">
+  <div class="container td-overlay__inner">
+    <div class="row">
+      <div class="col-12">
+        <div class="text-center">
+          
+          
+          <div class="pt-3 lead">
+            
+                <div class="text-left">
+  <h1 class="display-1 mb-5">nnUNet最舒服的训练教程（让我的奶奶也会用nnUNet（上））</h1><h3 class="font-weight-light">《Automated Design of Deep Learning Methods for Biomedical Image Segmentation》</h3>
+  </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<div class="container l-container--padded">
+<div class="row">
+
+
+
+
+  
+    <div class="d-lg-none col-12">
+      <div class="td-toc td-toc--inline">
+  
+      
+        <a id="td-content__toc-link" class="collapsed" href="#td-content__toc" data-toggle="collapse" aria-controls="td-page-toc" aria-expanded="false" aria-label="Toggle toc navigation">
+          <span class="lead">Contents<i class="fas fa-chevron-right ml-2"></i></span>
+        </a>
+        <div id="td-content__toc" class="collapse">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-你应该配置哪些环境">1. 你应该配置哪些环境？</a></li>
+    <li><a href="#2-整理你的数据">2. 整理你的数据！</a>
+      <ul>
+        <li><a href="#-nnunet需要你把你要训练的数据做一个好好的整理初学者请务必按照我的做法等你熟练掌握以后再考虑新的姿势有些文件夹的创建时多余的但是你还是跟着我这样做最好">① nnUNet需要你把你要训练的数据做一个好好的整理，初学者请务必按照我的做法，等你熟练掌握以后再考虑新的姿势（有些文件夹的创建时多余的，但是你还是跟着我这样做最好）：</a></li>
+      </ul>
+    </li>
+    <li><a href="#3设置nnunet读取文件的路径">3.设置nnUNet读取文件的路径</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#1-转换一下你的数据集让它可以被nnunet识别">1. 转换一下你的数据集，让它可以被nnUNet识别</a></li>
+    <li><a href="#2-预处理">2. 预处理</a></li>
+    <li><a href="#3开始训练">3.开始训练</a></li>
+    <li><a href="#4简单说下配置">4.简单说下配置</a></li>
+    <li><a href="#5至于调参">5.至于调参</a></li>
+    <li><a href="#5关于预训练模型">5.关于预训练模型</a></li>
+  </ul>
+</nav>
+        </div>
+        <button id="td-content__toc-link-expanded" href="#td-content__toc" class="btn btn-small ml-1 my-2 py-0 px-3" data-toggle="collapse" aria-controls="td-docs-toc" aria-expanded="true" aria-label="Toggle toc navigation">
+        </button>
+      
+    </div>
+  </div>
+
+</div>
+<div class="row">
+<div class="col-12 col-lg-8">
+<h1 id="一写在前面">一、写在前面</h1>
+<p><strong><font face="华文琥珀" size=7  color=red>重要！！！</font></strong>
+<strong><font face="华文琥珀" size=6  color=red>各位读者有时间请务必到我<a href="https://blog.csdn.net/weixin_42061636/article/details/108520695" target="_blank" rel="noopener">第十七篇博客<i class="fas fa-external-link-alt"></i></a>查看更多的细节，包括如何使用nnUNet的残差网络、如何选择模型其中一个去训练等。更多的细节会慢慢更新，建议直接把那篇收藏了。</font></strong></p>
+<hr>
+<p><strong><font face="华文琥珀" size=5  color=purple>1.更新于8.02，添加“如何训练自己的数据集”部分。</font></strong>
+<strong><font face="华文琥珀" size=5  color=purple>2.更新于9.07，修改恶心的apex部分，新更新的torch1.6支持混合精度训练，即你不用再安装apex啦！！！</font></strong>
+<strong><font face="华文琥珀" size=5  color=purple>3.更新于9.09，修改五折交叉验证理解！以及在整理好训练的数据集以后如何自动化地生成对应的json文件。</font></strong>
+<strong><font face="华文琥珀" size=5  color=purple>3.更新于11.05，添加如何在Windows上使用nnUNet。windows的使用仍然面临很多问题，预处理是可以跑的，但是在推理或者训练的时候就会出现torch的一些环境和兼容问题，现在仍未解决，也不是目前的工作重心，有时间有能力的读者可以自己挖掘一下，非常的不好意思。</font></strong>
+<strong><font face="华文琥珀" size=5  color=purple>4.更新于21.04.20，解决windows平台无法使用nnUNet问题。</font></strong></p>
+<ul>
+<li>1.笔者对nnUNet的使用也才一个多月，真正进入医疗影像领域也才三个月。对于nnUNet的理解肯定还停留在表层，希望大家在使用的时候能抱着一种纠错的态度，我会很感谢大家的指点！</li>
+<li>2.nnUNet是德国癌症研究中心的工程师编写的框架，迄今为止依旧在维护和更新，希望大家共勉，“抄”出自己的水平的同时，协助框架的维护，也是在帮助中国医疗行业（手动狗头）。</li>
+<li>3.此框架仅在Ubuntu18.04上进行过安装，win上需要键入参数运行，框架作者的建议也是在linux系统。作者建议不在conda的环境下，但我的框架在两个服务器三台主机上都未遇到什么conda的问题。1.5.1+cu10.1</li>
+<li>4.本篇博客的目的是为了让大家在迅速上手的同时更深入的研究，如此有魅力的框架，希望大家别玩玩就浪费，好好看看原论文及代码（作者代码中已经给出了相当详细的安装教程），或者我之前的博客（有很多错误的地方，但我一有时间就会更新理解，望海涵！）</li>
+<li>5.这个教程是在本地主机进行，服务器上的操作就是对服务器进行接下来的所有操作。教程不需要修改源码中的任何成分，我会在之后的博客中对源码如何调参做说明，刚接触的铁子们先完全按照步骤走。如果服务器是看不到图形界面的，需要用ssh进入服务器进行接下来的所有操作。</li>
+<li>有点啰嗦，开始吧！有问题请添加私人微信号<strong>JoeVaen3</strong>。</li>
+</ul>
+<h1 id="二nnunet框架如何安装">二、nnUNet框架如何安装？</h1>
+<h2 id="1-你应该配置哪些环境">1. 你应该配置哪些环境？</h2>
+<ul>
+<li>① anaconda + pytorch1.5.1 + cuda10.1：
+       pytorch和anaconda的安装应该不用多说，这里着重说一下，安装torch时装上的cuda10.1为阉割版，会不利于我们接下来安装Apex，所以请安装完整版的，B乎的这个还可以<a href="https://zhuanlan.zhihu.com/p/112138261" target="_blank" rel="noopener">cuda10.1安装<i class="fas fa-external-link-alt"></i></a>。
+       当我后面想玩一下TensorRT的时候，发现TensorRT7不支持cuda10.1，所以有其他需求的，装cuda10.2也ok。</li>
+<li><strong><font face="华文琥珀" color=purple>因为支持新更新的nnunet使用了最近更新的
+pytorch1.6，所以可以使用混合精度训练而不必再使用APEX,这一步我删除了，安装变得更简单了，直接下一步。</font></strong>
+~~* ② 安装NVIDIA-Apex：
+       这是英伟达的一个用于混合精度训练的插件，请不要直接pip，跟着下面的操作来：
+       第一步：打开<a href="https://github.com/NVIDIA/apex" target="_blank" rel="noopener">Apex所在项目网站<i class="fas fa-external-link-alt"></i></a>，往下拉便可以看到QuickStart，已经很详细。
+       第二步：在你用来安装环境的目录下打开终端，<code>git clone https://github.com/NVIDIA/apex</code>；
+       第三步：<code>cd apex</code> 进入你刚才下载下来的apex文件夹里面
+       第四步：<code>pip install -v --no-cache-dir --global-option=&quot;--cpp_ext&quot; --global-option=&quot;--cuda_ext&quot; ./</code><font color=green>**【这步出现问题尝试使用 <code>python setup.py install --cuda_ext --cpp_ext</code> ，更多问题参考<a href="https://github.com/NVIDIA/apex/issues/802" target="_blank" rel="noopener">这里<i class="fas fa-external-link-alt"></i></a>】**</font>
+       当你在安装好cuda的情况下完成这四步时，应该不会有问题，我用阉割版的cuda就会出现安装失败的问题。如果有问题请在下方评论反馈。~~</li>
+<li>② 安装hiddenlayer（用来生成什么网络拓扑图？管他呢，装吧）
+<code>pip install --upgrade   git+https://github.com/nanohanno/hiddenlayer.git@bugfix/get_trace_graph#egg=hiddenlayer</code>(没有换行，这是一行代码)</li>
+<li>③ 安装心爱的nnUNet
+       第一步：在home下创建nnUNetFrame文件夹，在这个文件夹内打开终端<code>git clone https://github.com/MIC-DKFZ/nnUNet.git</code>
+       第二步：<code>cd nnUNet</code>
+       第三步：<code>pip install -e .</code>（兄弟们和集美们别忘了加  .  ）
+       当你安装完成这些以后，你的每一次对nnUNet的操作，都会在命令行里以nnUNet_开头，代表着你的nnUNet开始工作的指令。</li>
+</ul>
+<hr>
+<h2 id="2-整理你的数据">2. 整理你的数据！</h2>
+<h3 id="-nnunet需要你把你要训练的数据做一个好好的整理初学者请务必按照我的做法等你熟练掌握以后再考虑新的姿势有些文件夹的创建时多余的但是你还是跟着我这样做最好">① nnUNet需要你把你要训练的数据做一个好好的整理，初学者请务必按照我的做法，等你熟练掌握以后再考虑新的姿势（有些文件夹的创建时多余的，但是你还是跟着我这样做最好）：</h3>
+<p>       第一步：进入你之前创建的nnUNetFrame文件夹里面，创建一个名为DATASET的文件夹，现在你的nnUNetFrame文件夹下有两个文件夹，nnUNet是代码源，另一个DATASET就是我们接下来用来放数据的地方；
+       第二步：进入创建好的DATASET文件夹下面，创建下面三个文件夹
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20200728000527248.png" alt="1" id="20200728000527248" data-toggle="modal" data-target="#modal-20200728000527248"/>
+
+  <div class="modal" id="modal-20200728000527248">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20200728000527248.png" alt="1"/>
+      </div>
+  </div>
+</figure>
+
+       第二个用来存放原始的你要训练的数据，第一个用来存放原始数据预处理之后的数据，第三个用来存放训练的结果。
+       第三步：进入上面第二个文件夹nnUNet_raw，创建下面两个，右边为原始数据，左边为crop以后的数据。
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20200728000952449.png" alt="在这里插入图片描述" id="20200728000952449" data-toggle="modal" data-target="#modal-20200728000952449"/>
+
+  <div class="modal" id="modal-20200728000952449">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20200728000952449.png" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</p>
+<p>       第四步：进入右边文件夹nnUNet_raw_data，创建一个名为Task08_HepaticVessel的文件夹（<font color=red><strong>解释：这个Task08_HepaticVessel是nnUNet的作者参加的一个十项全能竞赛的子任务名，你可以对这个任务的数字ID进行任意的命名，比如你要分割心脏，你可以起名为Task01_Heart，比如你要分割肾脏，你可以起名为Task02_Kidney，前提是必须按照这种格式</strong></font>）
+       第五步：将下载好的公开数据集或者自己的数据集放在上面创建好的任务文件夹下，下面还以作者参加的Task08_HepaticVessel竞赛为例，解释下数据应该怎么存放和编辑：</p>
+<ul>
+<li>A. 进入这个<a href="https://drive.google.com/drive/folders/1HqEgzS8BV2c7xYNrZdEAnrHk7osJJ--2" target="_blank" rel="noopener">网站<i class="fas fa-external-link-alt"></i></a>下载对应的数据集（&lt;&ndash;网上学科议建&lt;&ndash;），取代上面你自己创建的Task08_HepaticVessel文件夹。</li>
+<li>B. 你会发现目录是这个样子的：json文件是对三个文件夹内容的字典呈现（关乎你的训练），imagesTr是你的训练数据集，打开后你会发现很多的有序的nii.gz的训练文件，而labelsTr里时对应这个imagesTr的标签文件，同样为nii.gz。目前只能是nii.gz文件，nii文件都不行。训练阶段的imageTs文件夹先不管，其实这个文件夹出现在任何位置都可以。（<font color=red><strong>解释：nnUNet使用的是五折交叉验证，并没有验证集</strong></font>）
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20200728002735389.png" alt="2" id="20200728002735389" data-toggle="modal" data-target="#modal-20200728002735389"/>
+
+  <div class="modal" id="modal-20200728002735389">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20200728002735389.png" alt="2"/>
+      </div>
+  </div>
+</figure>
+</li>
+</ul>
+<hr>
+<h2 id="3设置nnunet读取文件的路径">3.设置nnUNet读取文件的路径</h2>
+<p>       nnUNet是如何知道你的文件存放在哪儿呢，当然要在环境中创建一个路径，按照我的步骤，别做更改，因为到现在为止，你的路径和我的路径是一致的。
+       第一步：在home目录下按ctrl + h，显示隐藏文件；
+       第二步：找到.bashrc文件，打开（vim当然可以，但是毕竟教给我奶奶用的）；
+       第三步：在文档末尾添加下面三行，右上角保存文件，观察下面保存成功后关闭。</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">export nnUNet_raw_data_base<span style="color:#555">=</span><span style="color:#c30">&#34;/home/qiao/nnUNetFrame/DATASET/nnUNet_raw&#34;</span>
+export nnUNet_preprocessed<span style="color:#555">=</span><span style="color:#c30">&#34;/home/qiao/nnUNetFrame/DATASET/nnUNet_preprocessed&#34;</span>
+export RESULTS_FOLDER<span style="color:#555">=</span><span style="color:#c30">&#34;/home/qiao/nnUNetFrame/DATASET/nnUNet_trained_models&#34;</span>
+</code></pre></div><p>       第四步：在home下打开终端，输入<code>source .bashrc</code>来更新该文档。
+       nnUNet已经知道怎么读取你的文件了。</p>
+<hr>
+<h1 id="三在task08_hepaticvessel上进行训练">三、在Task08_HepaticVessel上进行训练！</h1>
+<h2 id="1-转换一下你的数据集让它可以被nnunet识别">1. 转换一下你的数据集，让它可以被nnUNet识别</h2>
+<p><code>nnUNet_convert_decathlon_task -i /home/qiao/nnUNetFrame/DATASET/nnUNet_raw/nnUNet_raw_data/Task08_HepaticVessel</code>
+转换之后会发现，在这个Task08_HepaticVessel文件夹旁边多了一个Task008_HepaticVessel，对的，这说明框架已经安装成功了，之后的操作要在这个文件夹上进行。
+让我们看一下这两个文件夹里面的训练文件有什么不同：
+① Task08的imagesTr和labelsTr内:
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20200728081921550.png" alt="在这里插入图片描述" id="20200728081921550" data-toggle="modal" data-target="#modal-20200728081921550"/>
+
+  <div class="modal" id="modal-20200728081921550">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20200728081921550.png" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</p>
+<p>② Task008的imagesTr和labelsTr内：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/2020072808230572.png" alt="在这里插入图片描述" id="2020072808230572" data-toggle="modal" data-target="#modal-2020072808230572"/>
+
+  <div class="modal" id="modal-2020072808230572">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/2020072808230572.png" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+可以看出文件末尾多了_0000，是的，这就是你的数据格式是否正确的标志。不仅训练需要这个格式，之后你在推理的时候，也应当把你的文件名设置为这样，后面我会详细的说。
+③ jason文件的解释：
+json文件中包含着你的训练数据信息和任务信息：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20200728083631778.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20200728083631778.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+尤其注意上图中的labels，里面有0 、1 、2三个标签，这是因为Task08的任务是分割出肝血管和肝血管瘤，三分类自然有三个标签。可以看到这个任务的训练集为303个，测试集为140个（用来进行模型训练好以后的推理测试，而不是验证！）自然，如果你需要做2分类，请自行去掉2这个标签，nnUNet会自动识别你应该做什么几分类。
+建议将数据集都下下来进行观察，有些的模态也不一样。</p>
+<h2 id="2-预处理">2. 预处理</h2>
+<p><code>nnUNet_plan_and_preprocess -t 8</code>
+因为你的任务ID为8，所以参数t为8。这个过程会消耗很多的时间，速度慢的原因在于对要进行插值等各种操作。<font color=red><strong>预处理要求你一定一定一定要在SSD【固态硬盘】上进行，Task08预处理后的数据会占据大约100多个g，请保证自己的SSD足够大，空间不够请自己筛选一部分的训练文件，不要200多套全拿来训练。</strong></font></p>
+<h2 id="3开始训练">3.开始训练</h2>
+<p><code>nnUNet_train 3d_fullres nnUNetTrainerV2 8 4</code>
+8代表你的任务ID，<font color=purple><strong>4代表五折交叉验证中的第4折（0代表分成五折后的第一折）</strong></font>。所有的任务都应当在“4”的情况下，也就是五折交叉验证中的第一折数据集下进行。<font color=red><strong>具体的参数和作用，我会在详谈训练的新博客中进行解释。</strong></font>迄今为止，我共用3d_fullres +  nnUNetTrainerV2的方式训练了十个分割模型，除了本身在论文中表现就较差的模型外，大多数的分割效果都较为理想，请相信你手中的工具。
+如果出现训练终端,你要继续训练的情况请在这行命令之后加上:
+<code>-c</code></p>
+<h2 id="4简单说下配置">4.简单说下配置</h2>
+<p>最少需要8g显存，一轮的时间很慢，在11g2080ti上时间一轮为550s，作者训练1000轮为一个实验结果，时间很慢，需要付出多一点耐心。</p>
+<h2 id="5至于调参">5.至于调参</h2>
+<p>在这个框架里，调参侠是没有尊严的，你引以为傲的各种trick，在这里并没有太大作用，这就是为什么我奶奶都能用的原因。你只需要这三行命令，然后等待1000轮结束，请在训练的时候翻翻我之前的博客，毫无疑问那才是nnUNet的魅力所在。</p>
+<h2 id="5关于预训练模型">5.关于预训练模型</h2>
+<p><a href="https://zenodo.org/record/3734294#.XyYR5mMzY5n" target="_blank" rel="noopener">这里<i class="fas fa-external-link-alt"></i></a>是预训练模型的下载地址，使用方法参见下一篇博客。</p>
+<hr>
+<h1 id="四怎么在自己的训练集上训练">四、怎么在自己的训练集上训练？</h1>
+<p><font color=purple><strong>8.02更新：</strong></font>
+所有的步骤，都是在上面训练步骤的基础上展开的，我仍然建议您对上面的训练步骤做详细的理解：</p>
+<ul>
+<li>
+<p>第一步：创建一个属于这个任务的文件夹，我们假设这个任务是要分割心脏，那么我们给这个任务赋予一个数字ID: <font color=red><strong>58</strong></font>(炮哥对不起)，这个任务名就为<font color=red><strong>Task58_Heart</strong></font>。在<code>/home/你的主机用户名/nnUNetFrame/DATASET/nnUNet_raw</code>下创建这个文件夹，并在其下添加如下三个文件夹，json文件的操作在下面解释：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20200802101912938.png" alt="3" id="20200802101912938" data-toggle="modal" data-target="#modal-20200802101912938"/>
+
+  <div class="modal" id="modal-20200802101912938">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20200802101912938.png" alt="3"/>
+      </div>
+  </div>
+</figure>
+</p>
+</li>
+<li>
+<p>第二步：整理你训练集数据和训练集标签：请整合为下图的格式并使数据和标签进行对应（heart代替pancreas，数据和标签名字均为如此）。
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20200802102556733.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="2" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20200802102556733.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="2"/>
+      </div>
+  </div>
+</figure>
+
+整合完成以后，训练集数据放在你刚刚创建的imagesTr文件夹下，训练集标签放在你刚刚创建的labelsTs文件夹下。imagesTs是我习惯存放测试集的位置（可以看下篇）。</p>
+</li>
+<li>
+<p>第三步：制作你的json文件，让训练器知道你要干些什么：
+<del>笔者的做法有些笨，因为还没在源码中找到脚本，也没自己去写生成json的脚本，数据集少的情况下，可以这样做。</del><font color=purple><strong><code>batchgenerators.utilities.file_and_folder_operations</code>里的<code>save_json()</code>函数可以生成对应你数据集的json文件</strong></font>：</p>
+<ul>
+<li>首先，将原来Task08中的json文件拷贝到Task58中对应的位置，也就是上面那个图中的json文件；</li>
+<li>然后，打开文件进行修改并保存，json文件中是一个字典，也就是字典键值对应的你要修改成自己需要的形式，请参考我针对自己的Task03_TVessel任务进行的修改（上面有Task08的图）：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20200802104019242.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="3" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20200802104019242.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="3"/>
+      </div>
+  </div>
+</figure>
+
+<font color=red><strong>两个地方是一定要注意的</strong></font>：
+       ① labels内的值：根据分类任务进行修改；
+       ② training内文件名及其数目：训练集及标签的数目、文件名都要对应正确。</li>
+</ul>
+</li>
+<li>
+<p>第四步：将你的Task58转换成Task058，正如前面所说，nnUNet只认识得到这样文件夹和以_0000结尾的文件，执行命令
+<code>nnUNet_convert_decathlon_task -i /home/你的主机用户名/nnUNetFrame/DATASET/nnUNet_raw/nnUNet_raw_data/Task58_Heart</code></p>
+</li>
+<li>
+<p>第五步：预处理文件，执行命令，等待预处理完成
+<code>nnUNet_plan_and_preprocess -t 58</code></p>
+</li>
+<li>
+<p>第六步：开始训练。</p>
+<ul>
+<li><font color=red><strong>单卡训练：</strong></font>执行<code>nnUNet_train 3d_fullres nnUNetTrainerV2 58 4</code>
+<font color=red><strong>注意：</strong></font>默认在第一块gpu（索引为0）上进行训练，如果想指定某个gpu，请先执行：
+<code>export CUDA_VISIBLE_DEVICES=X</code>，X为你指定的gpu索引。再执行上面的命令。</li>
+<li><font color=red><strong>多卡训练：</strong></font>比如我现在要在0和1两张卡上执行训练：
+<ul>
+<li>先执行 <code>export CUDA_VISIBLE_DEVICES=0,1</code></li>
+<li>再执行<code>nnUNet_train_DP 3d_fullres nnUNetTrainerV2_DP 58 4 -gpus 2</code></li>
+</ul>
+</li>
+</ul>
+<p>实验证明多卡训练速度和单卡训练速度的差别不大，只是为了减少每张卡的使用显存来弥补单卡显存不足的情况（<font color=green><strong>这里感谢张同学的测试</strong></font>）。</p>
+</li>
+</ul>
+<hr>
+<h1 id="五怎么在windows系统上使用nnunet">五、怎么在Windows系统上使用nnUNet？</h1>
+<p><font color=purple><strong>2021.4.20更新：</strong></font>
+直接到<a href="https://github.com/MRCWirtz/nnUNet-1" target="_blank" rel="noopener">这个项目<i class="fas fa-external-link-alt"></i></a>，用上述同样方法在win上进行安装，无需再进行繁琐的多线程修正。</p>
+
+
+
+      </main>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/grpcio">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Google Groups" aria-label="Google Groups">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://groups.google.com/g/grpc-io">
+      <i class="fab fa-google"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Gitter" aria-label="Gitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://gitter.im/grpc/grpc">
+      <i class="fab fa-gitter"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/grpc">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 gRPC Authors
+          
+        </small>
+        
+        
+      </div>
+    </div>
+    <div class="row text-center text-white small">
+      <div class="col-12 text-center py-2 order-sm-2">
+        <a href="https://www.linuxfoundation.org/terms" target="_blank" rel="noopener">Terms</a> |
+        <a href="https://www.linuxfoundation.org/privacy" target="_blank" rel="noopener">Privacy</a> |
+        <a href="https://www.linuxfoundation.org/trademark-usage" target="_blank" rel="noopener">Trademarks</a> |
+        <a href="https://github.com/grpc/grpc.io/blob/main/LICENSE" target="_blank" rel="noopener">License</a> |
+        <a href="/about/">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.d862e8117d34e02dff1772aeeb47caf7ed851d0f8a3a5345f7a32ccfb2f6b87f.js" integrity="sha256-2GLoEX004C3/F3Ku60fK9&#43;2FHQ&#43;KOlNF96Msz7L2uH8=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

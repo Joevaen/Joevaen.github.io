@@ -26,19 +26,15 @@
 #  /docs/languages/:lang/api  $api_path 301!                          # when $api_path starts with 'http'
 #  /docs/languages/:lang/api  https://grpc.github.io/$api_path 301!   # otherwise; 'LANG' in $api_path is replaced by :lang
 
-/docs/languages/csharp/api         https://grpc.github.io/grpc/csharp/api/Grpc.Core 301!
 /docs/languages/cpp/api            https://grpc.github.io/grpc/cpp 301!
-/docs/languages/dart/api           https://pub.dev/documentation/grpc 301!
-/docs/languages/go/api             https://pkg.go.dev/google.golang.org/grpc 301!
-/docs/languages/java/api           https://grpc.github.io/grpc-java/javadoc 301!
-/docs/languages/kotlin/api         https://javadocs.dev/io.grpc/grpc-kotlin-stub/latest 301!
+/docs/languages/csharp/api         https://grpc.github.io/grpc/csharp 301!
+/docs/languages/dart/api           https://grpc.github.io/grpc/dart 301!
+/docs/languages/go/api             https://grpc.github.io/grpc/go 301!
+/docs/languages/java/api           https://grpc.github.io/grpc/java 301!
+/docs/languages/kotlin/api         https://grpc.github.io/grpc/kotlin 301!
 /docs/languages/node/api           https://grpc.github.io/grpc/node 301!
-/docs/languages/objective-c/api    https://grpc.github.io/grpc/objc 301!
-/docs/languages/php/api            https://grpc.github.io/grpc/php/namespace_grpc 301!
-/docs/languages/python/api         https://grpc.github.io/grpc/python 301!
-/docs/languages/ruby/api           https://rubydoc.info/gems/grpc 301!
-/docs/platforms/android/java/api   https://grpc.github.io/grpc-java/javadoc 301!
-/docs/platforms/android/kotlin/api  https://javadocs.dev/io.grpc/grpc-kotlin-stub/latest 301!
+/docs/languages/objective-c/api    https://grpc.github.io/grpc/objective-c 301!
+/docs/languages/php/api            https://grpc.github.io/grpc/php 301!
 # C# .NET
 /docs/languages/csharp/dotnet/api  https://grpc.github.io/grpc/csharp-dotnet/api/Grpc.Core
 

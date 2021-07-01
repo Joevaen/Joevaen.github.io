@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.82.1" />
+
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-512x512.png" sizes="512x512">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/site.webmanifest">
+<title>nnUNet论文附录解析 | gRPC</title>
+<meta property="og:title" content="nnUNet论文附录解析" />
+<meta property="og:description" content="《Automated Design of Deep Learning Methods for Biomedical Image Segmentation》" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Joevaen.github.io/about/nnunet/nnunet3/" /><meta property="article:section" content="about" />
+
+<meta property="og:site_name" content="gRPC" />
+
+<meta itemprop="name" content="nnUNet论文附录解析">
+<meta itemprop="description" content="《Automated Design of Deep Learning Methods for Biomedical Image Segmentation》">
+
+<meta itemprop="wordCount" content="508">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="nnUNet论文附录解析"/>
+<meta name="twitter:description" content="《Automated Design of Deep Learning Methods for Biomedical Image Segmentation》"/>
+
+
+
+<link rel="preload" href="/css/style.min.e3cf82e558200e98b09736f835e12b188dca1353aad6649d3429c72923031431.css" as="style">
+<link href="/css/style.min.e3cf82e558200e98b09736f835e12b188dca1353aad6649d3429c72923031431.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163836834-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-163836834-2');
+  gtag('config', 'UA-60127042-1');
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="canonical" href="https://Joevaen.github.io/about/nnunet/nnunet3/">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@grpcio">
+<meta name="twitter:creator" content="@grpcio">
+<meta name="twitter:image" content="https://Joevaen.github.io/img/logos/grpc-icon-color.png">
+<meta name="twitter:image:alt" content="gRPC color logo">
+
+<meta property="og:url" content="https://Joevaen.github.io/about/nnunet/nnunet3/">
+<meta property="og:title" content="nnUNet论文附录解析">
+<meta property="og:description" content="《Automated Design of Deep Learning Methods for Biomedical Image Segmentation》">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="gRPC">
+<meta property="og:image" content="https://Joevaen.github.io/img/logos/grpc-icon-color.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="gRPC color logo">
+<meta property="og:locale" content="en_US">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-512x512.png" sizes="512x512">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/site.webmanifest">
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark  td-navbar-cover flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="672pt" height="436pt" viewBox="0 0 672 436"><g transform="translate(0.000000,436.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M3066 3659c-376-41-707-264-894-602-35-63-50-101-45-113 4-12 3-15-5-10s-10 1-5-10c5-13 9-11 23 15 9 18 19 29 22 25 4-3 4 3 1 15-4 14-1 21 9 21 8 0 27 23 42 51 119 218 360 416 607 499 96 33 250 60 337 60 551 0 1009-390 1097-933 48-296-20-597-193-847-24-36-35-56-23-46 35 32 24 2-23-61-49-64-119-128-220-198-36-26-66-49-66-51 0-10 123 74 187 128 63 53 173 174 182 201 2 7 9 19 16 27s36 58 63 110c198 373 185 786-35 1159-25 42-60 95-79 118-42 51-45 68-4 22 68-76 190-285 190-326 0-7 5-12 11-10 6 1 14-4 17-12 2-8 0-11-5-8-6 4-8-4-5-19 3-18 7-22 12-13 6 8 12-2 19-29 6-23 15-59 21-80 31-121 29-332-5-516-9-44-13-81-11-83s16 47 31 109c26 106 27 122 22 268-4 119-12 179-32 260-56 225-191 440-375 598-70 59-261 182-284 182-6 0 25-21 69-47 44-25 105-65 135-89 62-48 149-134 135-134-6 0-32 23-60 51-67 67-224 171-325 215-78 34-249 83-294 85-21 0-21 1-1 9 15 7 8 9-30 10-27 0-72 2-1e2 4-27 2-86 0-129-5z"/><path d="M36e2 3580c8-5 20-10 25-10 6 0 3 5-5 10s-19 10-25 10c-5 0-3-5 5-10z"/><path d="M3519 3276c-69-18-136-62-211-138-191-194-325-488-288-630 12-45 45-88 67-88 18 0 16 19-2 27-24 9-45 57-45 103 0 121 141 397 271 531 111 115 241 189 303 173 1e2-25 76-265-64-626l-40-105-58-13c-79-17-211-65-309-110-197-92-359-233-429-375-35-71-39-87-39-154 0-65 4-83 28-123 61-104 188-133 299-70 70 41 176 152 251 265 67 102 188 333 243 464 37 89 39 92 79 102 43 11 84 36 74 45-3 3-24-2-47-11s-45-14-48-11 15 63 41 133c126 349 145 579 49 615-33 13-68 12-125-4zm-29-794c0-4-47-102-104-218-197-398-362-594-5e2-594-68 0-124 44-151 119-85 243 203 545 645 675 93 27 110 30 110 18z"/><path d="M2081 2794c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M4291 2784c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M2071 2754c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M4302 2740c0-14 2-19 5-12 2 6 2 18 0 25-3 6-5 1-5-13z"/><path d="M2061 2714c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M2052 2660c0-14 2-19 5-12 2 6 2 18 0 25-3 6-5 1-5-13z"/><path d="M2043 2585c0-22 2-30 4-17 2 12 2 30 0 40-3 9-5-1-4-23z"/><path d="M4252 2018c-15-37-19-55-11-63 7-7 8-4 3 9-6 15-4 17 6 11 9-5 11-4 6 3-4 7-3 12 3 12s7 7 4 17c-5 12-3 14 8 8 8-4 11-5 7 0-4 4-4 13 2 19 5 7 5 17 1 24s-15-8-29-40z"/><path d="M4205 1919c-3-4 2-6 10-5 21 3 28 13 10 13-9 0-18-4-20-8z"/><path d="M4024 1668l-19-23 23 19c12 11 22 21 22 23 0 8-8 2-26-19z"/><path d="M4015 1628l-40-43 43 40c39 36 47 45 39 45-2 0-21-19-42-42z"/><path d="M3969 1613c-13-16-12-17 4-4s21 21 13 21c-2 0-10-8-17-17z"/><path d="M3919 1543c-13-16-12-17 4-4 9 7 17 15 17 17 0 8-8 3-21-13z"/><path d="M3705 1428c-11-6-23-15-26-20-3-6-9-9-13-9-19 3-27 0-22-7 7-12-61-35-75-26-8 5-9 3-4-6 6-10 3-12-13-8-14 4-20 2-15-5 4-6-2-8-15-5-12 4-20 2-17-2 3-5 0-10-7-13-7-2-2-2 12 0 39 7 179 63 194 78 7 8 16 12 18 10 3-3 5 2 5 10s-1 15-1 15c-1 0-10-6-21-12z"/><path d="M3448 1313c7-3 16-2 19 1 4 3-2 6-13 5-11 0-14-3-6-6z"/><path d="M3355 13e2c-27-7-27-8-5-8 14 0 39 4 55 8 27 7 27 8 5 8-14 0-38-4-55-8z"/><path d="M3263 1283c9-2 25-2 35 0 9 3 1 5-18 5s-27-2-17-5z"/><path d="M1810 981c0-75-4-103-15-115-17-17-20-66-4-66 6 0 24 13 40 29 29 29 29 31 29 140v111h-25c-25 0-25 0-25-99z"/><path d="M2211 1062c-51-25-73-61-74-120-1-70 33-116 101-137 36-10 28 31-13 69-26 25-35 42-35 66s9 41 35 66c19 18 35 42 35 53 0 25-5 26-49 3z"/><path d="M2290 1060c0-12 16-36 35-54 26-25 35-42 35-66s-9-41-35-66c-41-38-49-79-12-69 66 20 99 65 99 135s-33 115-99 135c-19 5-23 2-23-15z"/><path d="M2692 1053l3-28h1e2 1e2l3 28 3 27h-106-106l3-27z"/><path d="M3150 1068c0-7 23-70 52-140 48-119 53-128 78-128s30 9 78 130c29 72 52 135 52 141s-12 9-27 7c-23-2-31-13-51-63-13-33-31-76-39-95l-14-35-25 59c-13 33-24 63-24 67s15 9 33 11c27 2 32 7 32 28 0 24-3 25-72 28-55 2-73 0-73-10z"/><path d="M3724 1003c-43-93-48-128-19-128 15 0 28 17 50 63l30 62 25-62c14-35 27-66 28-70 2-5-35-8-82-8-76 0-86-2-1e2-22-8-12-13-25-10-30 7-11 261-10 268 1 3 5-19 67-49 137-48 114-57 129-80 132s-29-4-61-75z"/><path d="M4187 1073c-4-3-7-14-7-24 0-25 28-31 125-27 79 3 80 3 83 31l3 27h-99c-54 0-102-3-105-7z"/><path d="M4670 1068c0-7 43-71 96-141 77-105 99-128 117-125 21 3 22 7 25 141l3 138-28-3c-28-3-28-4-33-86l-5-83-62 85c-50 69-68 86-88 86-14 0-25-6-25-12z"/><path d="M2694 955c-14-37 2-45 89-45 88 0 114 11 101 44-9 23-182 24-190 1z"/><path d="M4184 955c-3-8-3-22 0-30 5-13 22-15 98-13 92 3 93 3 93 28s-1 25-93 28c-76 2-93 0-98-13z"/><path d="M1675 890c-10-16 4-48 32-70 32-25 40-25 48 0 13 40-60 103-80 70z"/><path d="M4670 850c0-47 2-50 25-50s25 3 25 50-2 50-25 50-25-3-25-50z"/><path d="M2694 845c-3-8-3-22 0-30 5-13 23-15 103-13 97 3 98 3 98 28s-1 25-98 28c-80 2-98 0-103-13z"/><path d="M4184 845c-15-38 1-45 106-45h101l-3 28-3 27-98 3c-80 2-98 0-103-13z"/></g></svg></span><span class="text-uppercase font-weight-bold">gRPC</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/about/" ><span>nnUNet</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/" ><span>MMDetection</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/showcase/" ><span>论文</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/blog/" ><span>Blog</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/community/" ><span>C&#43;&#43;</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-default td-outer">
+      
+      <main role="main" class="td-main">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="td-cover-block-0" class="row td-cover-block td-cover-block--height-sm js-td-cover td-overlay td-overlay--dark -bg-primary">
+  <div class="container td-overlay__inner">
+    <div class="row">
+      <div class="col-12">
+        <div class="text-center">
+          
+          
+          <div class="pt-3 lead">
+            
+                <div class="text-left">
+  <h1 class="display-1 mb-5">nnUNet论文附录解析</h1><h3 class="font-weight-light">《Automated Design of Deep Learning Methods for Biomedical Image Segmentation》</h3>
+  </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<div class="container l-container--padded">
+<div class="row">
+
+
+
+
+  
+    <div class="d-lg-none col-12">
+      <div class="td-toc td-toc--inline">
+  
+      
+        <a id="td-content__toc-link" class="collapsed" href="#td-content__toc" data-toggle="collapse" aria-controls="td-page-toc" aria-expanded="false" aria-label="Toggle toc navigation">
+          <span class="lead">Contents<i class="fas fa-chevron-right ml-2"></i></span>
+        </a>
+        <div id="td-content__toc" class="collapse">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#b1-蓝图参数">B.1 蓝图参数</a>
+      <ul>
+        <li><a href="#1-网络架构设计决策">1. 网络架构设计决策</a></li>
+        <li><a href="#2-选择最好的unet配置">2. 选择最好的UNet配置</a></li>
+        <li><a href="#3-训练计划">3. 训练计划</a></li>
+        <li><a href="#4-推理">4. 推理</a></li>
+      </ul>
+    </li>
+    <li><a href="#b2-推理参数">B.2 推理参数</a>
+      <ul>
+        <li><a href="#1网络动态自适应">1.网络动态自适应</a></li>
+        <li><a href="#2输入patch_size的配置">2.输入patch_size的配置</a></li>
+        <li><a href="#3-batch_size">3. batch_size</a></li>
+        <li><a href="#4目标间隔和重采样">4.目标间隔和重采样</a>
+          <ul>
+            <li><a href="#font-face华文琥珀-size5--colorpurple41-更新于727修改了对于推理中的预处理部分的理解请务必仔细看第二篇解读新增部分421来理解font"><font face="华文琥珀" size=5  color=purple>4.1： 更新于7.27，修改了对于推理中的预处理部分的理解，请务必仔细看第二篇解读新增部分4.2.1来理解。</font></a></li>
+          </ul>
+        </li>
+        <li><a href="#5强度归一化">5.强度归一化</a></li>
+      </ul>
+    </li>
+    <li><a href="#b3-经验参数">B.3 经验参数</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#c1-acdc">C.1 ACDC</a>
+      <ul>
+        <li><a href="#figure-c1是nnunet为acdc生成的管道">Figure C.1是nnUNet为ACDC生成的“管道”：</a></li>
+        <li><a href="#1-数据描述">1. 数据描述</a></li>
+        <li><a href="#2-强度归一化">2. 强度归一化</a></li>
+        <li><a href="#3-2d_unet">3. 2D_UNet</a></li>
+        <li><a href="#4-3d_unet">4. 3D_UNet</a></li>
+        <li><a href="#5-3d_unet_cascade">5. 3D_UNet_cascade</a></li>
+        <li><a href="#6-训练和后处理">6. 训练和后处理</a></li>
+      </ul>
+    </li>
+    <li><a href="#c2-lits">C.2 LiTS</a>
+      <ul>
+        <li><a href="#figure-c1是nnunet为lits生成的管道">Figure C.1是nnUNet为LiTS生成的“管道”：</a></li>
+        <li><a href="#1-数据描述-1">1. 数据描述</a></li>
+        <li><a href="#2-强度归一化-1">2. 强度归一化</a></li>
+        <li><a href="#3-2d_unet-1">3. 2D_UNet</a></li>
+        <li><a href="#4-3d_unet-1">4. 3D_UNet</a></li>
+        <li><a href="#font-colorred5-3d_unet_cascadefont"><font color=red><strong>5. 3D_UNet_cascade</strong></font></a></li>
+        <li><a href="#5训练和后处理">5.训练和后处理</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#1-一般数据增强">1. 一般数据增强</a></li>
+    <li><a href="#2-特别数据增强">2. 特别数据增强</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#g1-减少网络训练的数目">G.1 减少网络训练的数目</a></li>
+    <li><a href="#g2-减少gpu的显存">G.2 减少GPU的显存</a></li>
+  </ul>
+</nav>
+        </div>
+        <button id="td-content__toc-link-expanded" href="#td-content__toc" class="btn btn-small ml-1 my-2 py-0 px-3" data-toggle="collapse" aria-controls="td-docs-toc" aria-expanded="true" aria-label="Toggle toc navigation">
+        </button>
+      
+    </div>
+  </div>
+
+</div>
+<div class="row">
+<div class="col-12 col-lg-8">
+<p><strong>1.本文是对该论文涉及的<font face="华文琥珀" size=4  color=brown>Methods</font>进行解读和理解，参考前两篇的解读<a href="https://blog.csdn.net/weixin_42061636/article/details/107132396" target="_blank" rel="noopener">论文主题解读<i class="fas fa-external-link-alt"></i></a>和<a href="https://blog.csdn.net/weixin_42061636/article/details/107160735" target="_blank" rel="noopener">主要方法解读<i class="fas fa-external-link-alt"></i></a></strong>
+<strong><font face="华文琥珀" size=5  color=purple>1.更新于7.27，添加对于推理中的预处理部分的理解，请务必参考第二篇解读来理解。
+2.更新于7.31，添加对网络配置等的理解</font></strong></p>
+<hr>
+<h1 id="a-font-face华文琥珀-size5dataset-detailsfont">A. <font face="华文琥珀" size=5>Dataset details</font></h1>
+<p>       table A提供了包含数据集来源的手稿，这里记录的数值都是通过这些对应的数据集计算出来的。
+           1.打 * 的代表数据集中有多重标注（还没有具体看一下有什么差别）
+           2.MSD的肝脏数据集做了一些小的修改</p>
+<hr>
+<h1 id="b-font-face华文琥珀-size5--colorrednnu-net-design-principles启发式规则的设计font">B. <font face="华文琥珀" size=5  color=red>nnU-Net Design Principles（启发式规则的设计）</font></h1>
+<p>       这里提到了一些nnUNet的principles，阐述了他们的概念。可以根据网上的代码来具体了解下这些是怎么实现的。</p>
+<hr>
+<h2 id="b1-蓝图参数">B.1 蓝图参数</h2>
+<h3 id="1-网络架构设计决策">1. 网络架构设计决策</h3>
+<ul>
+<li>① 形如UNet的网络架构，只要设置足够好管道参数，就能达到SOTA水平。根据我们的经验，花里胡哨的网络结构的变异对于提升模型表现并不是必要的。</li>
+<li>② 我们的网络仅仅使用了平面的卷积、instance_normalization和Leaky_Relu，每一个采样块的操作就是卷积 &mdash;-&gt; instance_normalization &mdash;&ndash;&gt; Leaky_Relu。</li>
+<li>③ 我们在同一像素的stage（对称位置）的编码区域和解码区域都使用这个采样块（需要看下拓扑图确定有几块）</li>
+<li>④ 下采样是有步长的卷积（新的分辨率层的第一块的卷积的步长 &gt; 1）。上采样采用的是转置卷积。我们注意到，并未观察到该方法与其他方法(如最大池法、bi/ triinear上行采样法)在分割精度上的实质性差异。</li>
+</ul>
+<hr>
+<h3 id="2-选择最好的unet配置">2. 选择最好的UNet配置</h3>
+<p>       很难确切的说在某种数据集上哪种配置最好。为了达到这个目的，nnUNet设计了以下三个独立的网络配置，同时，nnUNet可以根据交叉验证（看下后面的推理参数）的结果为你自动选择一个最好的网络配置。预测什么数据集需要什么配置是未来的一个研究方向。</p>
+<ul>
+<li>① 2D_Unet：在全像素数据上运行。对于具备各向异性的数据，我们期待这个发挥更大的功效；</li>
+<li></li>
+<li>② 3D_full_resolution_Unet：在全像素数据上运行。patch_size被GPU的显存所限制，但这个基本在所有的数据上的都保证了好的表现。但是，对于一些大的数据来说，patch_size可能会有点小，不足以获得足够的上下文信息。</li>
+<li>③ 3D_low_resolution_Unet: 这部分要先训练，才能进行cascade的训练。本身这个网络也具备一定的分割能力。</li>
+<li>③ 3D_UNet_cascade：专门为一些大体积的数据而设计，首先，用一个3D_Unet在低分辨率上进行一次粗糙的图像分割，然后通过第二个3D_Unet对之前生成的分割图像进行一次在高分辨率上的操作。</li>
+</ul>
+<hr>
+<h3 id="3-训练计划">3. 训练计划</h3>
+<ul>
+<li>① 首先使epoch：所有的训练都按照初始的1000epoch在跑，每一轮要进行250次的迭代（使用nnUNet）。经验之谈，训练的时间越短可能效果越好。</li>
+<li>② 现在说一下优化阶段：经验之谈，0.01的初始学习率和nesterov动量规则会有最好的效果。训练之中使用&quot;poly_Learning_Rate&quot;来进行学习率的衰减，几乎使学习率线性下降为0。</li>
+<li>③ 数据增强：数据增强对于实现最好的效果十分有必要，但是在整个训练过程中运用动态的数据增强会更好，同时.<font color=red> with associated probabilities to obtain a never ending stream of unique examples (<font color=green><strong>参考Section D</strong></font> )</font>。</li>
+<li>④ 样本类别平衡问题：对于医学图像领域来说，这是一个棘手的问题。对于前景的过采样可以很好的解决找个问题，但是也别采样的太过分，因为网络也会注意到背景数据的一些变化。</li>
+<li>⑤ Dice损失函数对于处理样本类别平衡问题也很合适，但是也有它自己的缺点。Dice损失直接可以对评估算法进行优化，但是因为patch是基于训练的，所以实际中仅仅是近似它。而且，实验中发现类别的过采样会使得类别分布有一定的倾斜。因此，经验之谈，我们将Dice loss和CE loss进行组合，以此来增加训练的稳定性和分割的精度。</li>
+</ul>
+<hr>
+<h3 id="4-推理">4. 推理</h3>
+<ul>
+<li>① 每一折的验证集都会被这一折独立训练出来的模型进行验证。每一折训练一个模型只是为了之后做组合来预测。</li>
+<li>② 推理阶段的patch和训练阶段的patch是一致的，<font color=red>不建议使用全卷积的推理方式，因为这样会导致0填充卷积和Instance_normalization的问题</font>。</li>
+<li>③ 为了避免拼接出现的伪影，通过设置1/2的patch_size大小的距离来进行临近点预测。边缘部分的预测将更不精确，这就是为什么我们要为softmax的聚类使用<font color=red>高斯重要性加权</font>（中心点的权重比边缘的权重更高）。</li>
+</ul>
+<hr>
+<h2 id="b2-推理参数">B.2 推理参数</h2>
+<p>       这些参数在数据集中不是固定的，而是根据你自己的准备训练的数据的“数据指纹”（数据属性的低纬度表示），在训练过程中进行动态调整的。</p>
+<h3 id="1网络动态自适应">1.网络动态自适应</h3>
+<ul>
+<li>① 在训练过程中，网络结构需要自动适应输入patch的尺寸和spacing，以确保网络能接受的区域大小覆盖整个输入；</li>
+<li>② 不断的进行下采样来聚合信息，直到特征图达到最小值（4x4x4）。</li>
+<li>③ <font color=red>因为编码阶段和解码阶段的每个像素层的block的数量都是固定的，那么网络的深度就会与输入patch_size的大小相对应。网络中卷积层的总数（包括分割层）应该是
+$$
+5 * k +2,
+$$
+其中，k是下采样的次数（5 per downsampling stems from 2 convs in
+the encoder, 2 in the decoder plus the convolution transpose）</font>。</li>
+<li>④ 除了解码器的最底下两层之外，所有的解码层都用了额外的损失函数，只为让更多的梯度信息注入网络中。</li>
+<li>⑤ 对于各向异性的数据来说，池化会只在平面之间进行，<font color=red>直到轴之间的像素值匹配为止</font>。刚开始时3D卷积会使用一个1x1大小的卷积核来在平面外的轴（z）上进行卷积，通过这种方式来防止离得较远的切片产生信息的聚合。一旦这个轴越卷越小，下采样就会单独为这个轴停止卷积。【<font color=blue><strong>z轴的1x1卷积核什么时候变的，不变的话如何让z越卷越小的呢？</strong></font>】</li>
+</ul>
+<hr>
+<h3 id="2输入patch_size的配置">2.输入patch_size的配置</h3>
+<ul>
+<li>① 在batch_size为2的基础上，同时受到GPU的限制patch_size应当越大越好，这样所能得到的上下文的信息就越大。</li>
+<li>② patch大小的纵横比应该是，训练的每一套CT重采样以后的中值形状。</li>
+</ul>
+<hr>
+<h3 id="3-batch_size">3. batch_size</h3>
+<ul>
+<li>batch_size的最小值应当为2，因为如果是在minibatch的更少的样本下训练，梯度下降中的噪声将会增多。</li>
+<li><font color=red>如果GPU的显存在设置完patch_size之后仍然有剩余，那么应该不断增大batch_size直到显存溢出</font>【<font color=blue><strong>为什么我训练的时候并不增长呢？</strong></font>】。</li>
+</ul>
+<hr>
+<h3 id="4目标间隔和重采样">4.目标间隔和重采样</h3>
+<ul>
+<li>① 对于各向同性的数据，所有训练集CT的体素尺寸的中位数作为默认值。然后利用三阶样条插值（对数据）和线性插值（像训练的标签那样的独热编码分割图）进行重采样，会得出一个比较好的结果。</li>
+<li>② 对于各向异性的数据，平面以外的轴（z）的目标间隔应当比这个轴上的中位数要小，这样就会生成尽量高分辨率的图像，可以减少重采样的伪影。为了实现这样的操作，我们把所有该轴上的spacing的值从小到大排列，取在第10%位置的那个数，作为最终的目标间隔。z轴的重采样无论是对数据还是对标签（one-hot），都采用最临近插值算法插值。</li>
+</ul>
+<h4 id="font-face华文琥珀-size5--colorpurple41-更新于727修改了对于推理中的预处理部分的理解请务必仔细看第二篇解读新增部分421来理解font"><font face="华文琥珀" size=5  color=purple>4.1： 更新于7.27，修改了对于推理中的预处理部分的理解，请务必仔细看第二篇解读新增部分4.2.1来理解。</font></h4>
+<hr>
+<h3 id="5强度归一化">5.强度归一化</h3>
+<ul>
+<li>对除了CT外的其他模态的方法：对每张图片进行Z-Score（每个像素值减去所有像素平均值，然后除以标准差）是一个好的默认方法。</li>
+<li>对CT的方法：上面设置的Z-Score是默认的，而nnUNet对CT采用不同的方法，比如通过找到训练集中每一套CT的前景像素值进行全局归一化。</li>
+</ul>
+<hr>
+<h2 id="b3-经验参数">B.3 经验参数</h2>
+<p>       这些参数是不能通过数据指纹简单得到的，是需要监督训练过后的验证表现来确定的。</p>
+<ul>
+<li>① 模型选择：
+即使是当3D_full_resolution_UNet整体表现都不错的时候，一个特定任务的最好模型选择都不可能很精准。因此，nnUNet会生成3个UNet配置并且会在交叉验证后自动选择一个表现最好的方法（独立或者结合）；</li>
+<li>② 后处理：
+医学图像数据的目标结构经常包含一个实例，所以这个先验知识经常被来进行图像分割，即通过连接分支分析算法来进行预测，同时移除除了最大组件外的所有其他组件。是否应用这个算法是由交叉验证之后的验证表现决定的。总的来说，就是通过移除最大组件之外的其他组件可以明显提高Dice系数的时候，后处理会被触发。</li>
+</ul>
+<hr>
+<h1 id="c-font-face华文琥珀-size5--colorredanalysis-of-exemplary-nnu-net-generated-pipelines可效仿的nnunet自生成管道的分析font">C. <font face="华文琥珀" size=5  color=red>Analysis of exemplary nnU-Net-generated pipelines（可效仿的nnUNet自生成管道的分析）</font></h1>
+<p>       在这个部分，我们会简短的介绍以下D13(ACDC)和D14(LiTS)两个数据集的实验结果，这样对于nnUNet怎么设计“管道”以及为什么设计“管道”就会有一个直观的理解。</p>
+<h2 id="c1-acdc">C.1 ACDC</h2>
+<h3 id="figure-c1是nnunet为acdc生成的管道">Figure C.1是nnUNet为ACDC生成的“管道”：</h3>
+<p>
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20200708203008530.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="pipe" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20200708203008530.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="pipe"/>
+      </div>
+  </div>
+</figure>
+</p>
+<hr>
+<h3 id="1-数据描述">1. 数据描述</h3>
+<p>       ACDC是MICCAI在2017年举办的竞赛，这是<a href="https://acdc.creatis.insa-lyon.fr" target="_blank" rel="noopener">数据集地址<i class="fas fa-external-link-alt"></i></a>。在这个竞赛中，参赛者被要求从心脏的MRI中分割出右心室、左心肌和左心室的腔。每个病例对应着两个标签，所以100个病例对应的标签的个数总共是200。电影磁共振成像的一个关键特性是切片采集在多个心跳周期和屏气中进行。这将导致有限的切片数量，从而导致低的平面外分辨率（z）以及切片图像失调的可能性。图C.1提供了nnUNet为这个数据集生成的“管道”的一个摘要。这个典型的图片形状是（每个轴上的中位数）9x237x256，而体素大小是10x1.56x1.56mm。</p>
+<hr>
+<h3 id="2-强度归一化">2. 强度归一化</h3>
+<p>       对于MRI图像来说，nnUNet的归一化方式是：图片的像素值（强度值）先减去他们的均值，再除以他们的标准差。</p>
+<hr>
+<h3 id="3-2d_unet">3. 2D_UNet</h3>
+<p>       1.56x1.56mm是确定的平面内的目标间隔的大小，这一点上是和3D_full_resolution_UNet一样的。因为2D_Unet仅仅对每一层的切片进行操作，所以它的平面外的轴（z）的像素值不会发生变化，这就导致不同的数据集往往这个值都是不同的。按照线上的方法，2D_Unet有一个256x224大小的patch_size，能够完全覆盖典型的图像重采样之后的尺寸（237x208）。</p>
+<hr>
+<h3 id="4-3d_unet">4. 3D_UNet</h3>
+<ul>
+<li>这个数据集尺寸和间隔的各向异性导致了，在3D_full_resolution_UNet的情况下，平面外轴（z）的目标间隔被设定为5mm（这个值依旧是按照之前所述的规则，即将所有病例的目标间隔进行排序，然后选择处于第10%这个位置的目标间隔的值）。在这个ACDC数据集中，因为层与层的间隔很大，所以层与层的分割边缘也会很大。选择更小的目标间隔就会使得上采样用于训练和下采样用于输出分割的图片更多。选择这个变量而不是中值变量的原因正是如此，产生更多的图片用于上采样和下采样，自然也就能够有利于消除插值伪影。</li>
+<li>同时，注意这个z轴的重采样要用最邻近插值，3D_full_resolution在重采样之后的中值图片形状是18x237x208.而线上的方法所述的这个nnUNet进行网络训练的patch_size是20x256x224，对用的能够适应GPU的batch_size是3。</li>
+<li>注意在3D_UNet中，卷积核是如何从1x3x3（2D的3x3卷积核对于本身是十分有效的）开始计算的。原因是因为，体素间隔的差距很大并且每一层有太大的差距，所以图像信息的聚合可能并不是那么有用（卷积核的z轴方向大小为1，即使是换成2，因为z轴方向上的体素大小不同，信息差距也大，这样卷没有意义）。类似地，平面内的池化也用1x2x2的卷积核，<font color=red>直到平面内轴和平面外轴的间距小于1/2，仅仅在间隔大小和池化的大小大致相当时，卷积核才变得各向同性</font>。</li>
+</ul>
+<hr>
+<h3 id="5-3d_unet_cascade">5. 3D_UNet_cascade</h3>
+<p>       由于上一个3D_UNet已经覆盖了整个中值图像尺寸，因此UNet_cascade是没必要的。</p>
+<hr>
+<h3 id="6-训练和后处理">6. 训练和后处理</h3>
+<ul>
+<li>在训练过程中，为3D_UNet在平面内使用空间增强的手段（例如缩放和旋转），仅仅是为了消除不同的切片进行重采样以后造成的插值伪影。</li>
+<li>对于每个UNet配置都使用五折交叉验证，我们分别进行推理，以确保病例被合适地分层（因为每个病例有两张图片）。幸亏有交叉验证这种手段，让nnUNet可以在整个数据集上进行验证和结合。最后，着五个交叉验证被合在一起。nnUNet通过计算所有病例所有分割出来地前景地平均dice，得出一个标量值，从而来衡量模型的表现。详细的信息在这里不做赘述（<font color=green><strong>附录F</strong></font>里有提到）。根据这个评估的方法，2D_UNet的得分是0.9165，3D_full_resolution的得分是0.9181，结合推理的得分是0.9228。因此，结合推理的方法将会用来进行预测测试集的效果。</li>
+<li>后处理在结合推理中进行了配置，去小分支算法对于分割右心房和左心腔十分有用。</li>
+</ul>
+<hr>
+<h2 id="c2-lits">C.2 LiTS</h2>
+<h3 id="figure-c1是nnunet为lits生成的管道">Figure C.1是nnUNet为LiTS生成的“管道”：</h3>
+<p>
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20200709155158244.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="LiTS" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20200709155158244.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="LiTS"/>
+      </div>
+  </div>
+</figure>
+</p>
+<hr>
+<h3 id="1-数据描述-1">1. 数据描述</h3>
+<p>       LiTS也是2017的MICCAI的竞赛项目，并且提供了质量相当高的数据集，是用来分割肝脏和肝脏肿瘤的数据集。有131套CT用来训练，70套用来测试，同时测试的标签只有举办方知道。 中值图像尺寸为432x512x512，对应的体素间隔是1x0.77x0.77。</p>
+<hr>
+<h3 id="2-强度归一化-1">2. 强度归一化</h3>
+<p>       CT的每个体素的强度值是和每层切片的定量物理属性有关系的，因此我们期望得到的强度值是相对连续的。nnUNet将这个属性加以利用，所以采用了全局强度归一化的方法（与上一个ACDC相反）。
+       最后，nnUNet将归一化以后的强度信息作为数据指纹的一部分：所有的样本中，属于任何前景（肝脏和肝脏瘤）的归一化后的强度值被收集起来，然后，<font color=red><strong>Then, the mean and standard deviations of these values as well as their 0.5 and 99.5 percentiles are computed. Subsequently, all images are normalized by clipping them to the 0.5 and 99.5 percentiles, followed by subtraction of the global mean and division by the global standard deviation.（这些强度值的均值和标准差，以及均值的0.5%和标准差的99.5%都会用来计算。随后，所有的图像会被归一化到0.5%和99.5%，之后减去全局均值再除以全局标准差。）</strong></font></p>
+<hr>
+<h3 id="3-2d_unet-1">3. 2D_UNet</h3>
+<p>       2D_UNet的目标间隔被设定为NAx0.77x0.77mm（通过所有训练案例中的中值体素间隔来确定）。因为2D_UNet仅仅在切片上进行操作，所以z轴不用管。对训练案例的重采样会导致一个NAx512x512的中值图像尺寸（NA说明这个轴没有进行重采样）。由于这个尺寸是中值尺寸，所以在训练集中的CT尺寸可能大于它也可能小于它。2D_UNet配置patch_size是512x512，batch_size为12。</p>
+<hr>
+<h3 id="4-3d_unet-1">4. 3D_UNet</h3>
+<ul>
+<li>1.3D_UNet的目标间隔被设定为1x0.77x0.77mm（通过所有训练案例中的中值体素间隔来确定）。因为中值间隔几乎是各向同性的，nnUNet在此不会使用ACDC中的10th_percentile的方法来确定z轴上的间隔。</li>
+<li>2.重采样的策略是由每张切片决定的：
+<ul>
+<li>如果该切片是各向同性的（间隔最大的轴的间隔 / 间隔最小的轴的间隔 &lt; 3），就会用三阶样条插值对原始训练数据切片进行插值，然后用线性插值对数据切片对应的标签切片进行插值（对标签的插值，要在重采样之前将标签切片转换成独热编码，之后插值完了以后再转换成标签格式）。</li>
+<li>如果该切片是各向异性的，nnUNet在z轴的重采样应该像ACDC那样做。（<font color=blue><strong>这里说明了一点：对于CT图像的3D_UNet来说，xyz的插值都要进行，如果一个切片是各向同性的，在三个轴上的插值算法都一样，均为三阶样条插值（data）和线性插值（seg），如果一个切片是各向异性的，xy仍然采取之前的策略，而z轴的插值就要采用ACDC的方法进行插值</strong></font>）</li>
+</ul>
+</li>
+<li>3.在重采样以后，中值图像尺寸为482x512x512。因为要在GPU允许的情况下尽可能给大patch_size，在这个大的patch_size情况下尽可能增大batch_size。因此3D_UNet的patch_size的大小为128x128x128，对应的batch_size为2（启发性规则限定下允许的最小值）。由于输入的patch基本上都有各向同性的间隔，所以所有的卷积核尺寸和下采样的步长都是各向同性的（3x3x3和2x2x2）。</li>
+</ul>
+<hr>
+<h3 id="font-colorred5-3d_unet_cascadefont"><font color=red><strong>5. 3D_UNet_cascade</strong></font></h3>
+<p>       尽管nnUNet优先选择较大的patch，3D_full_resolution_UNet对于覆盖更多的上下文信息来说仍然太小了（仅仅覆盖了重采样后的中值图片尺寸的1/60），这可能会导致分类的错误，因为缩小的太严重了，比如说，这样就会很难区分脾脏和肝脏。nnUNet就是为了应对这种问题，通过首先用3D_UNet训练一个下采样的数据，然后提取出低分辨率的输出作为第二个UNet的输入。使用我们线上描述的步骤（比如<font color=green><strong>方法4</strong></font>和<font color=green><strong>图E.1 b</strong> </font>），low_resolution_3D_UNet的目标间隔被设定为2.47x1.9x1.9，会生成一个尺寸为195x207x207的中值图像。3D_UNet_low_resolution的patch为128x128x128，batch_size为2。注意这些配置和3D_UNet是完全一致的，但是其他对于其他数据集来说不一定是这样。如果3D_full_resolution_UNet的数据是各向异性的，那么nnUNet会优先对高分辨率的轴进行下采样，从而生成一个不同的网络结构、patch_size和batch_size。在3D_low_resolution_UNet进行完五折交叉验证之后，每次交叉验证的验证集的分割图像就会上采样至3D_full_resolution_UNet的目标间隔。而这个级联方式中的full_resolution_UNet（和一般的3D_full_resolution_UNet一样）就会被训练用于修正粗糙的分割图像，并且改正遇到的错误（通过把上采样分割图的独热编码和网络的输入联系起来）。</p>
+<hr>
+<h3 id="5训练和后处理">5.训练和后处理</h3>
+<p>       所有的网络配置都依赖于五折交叉验证，nnUNet会一次次地计算所有类别地前景的dice分数，由此生成一个标量，从而估计所该有的配置。基于这个评估方法，2D的score是0.7625，3D_full_resolution_UNet是0.8044，cascade的low_resolution的分数为0.7796而full_resolution的分数为0.8017，组合后的最好分数是0.8111。后处理会在组合模式的基础上进行，会通过对前景使用去小连接分支算法，通过这样的方法可以比较好的提升模型的表现。</p>
+<hr>
+<h1 id="d-font-face华文琥珀-size5--colorreddetails-on-nnu-nets-data-augmentationnnunet数据增强的细节font">D <font face="华文琥珀" size=5  color=red>Details on nnU-Net’s Data AugmentationnnUNet（数据增强的细节）</font></h1>
+<h2 id="1-一般数据增强">1. 一般数据增强</h2>
+<p>       训练期间应用了很多数据增强的手段，所有的数据增强都在CPU上进行计算。数据增强的“管道”使用了我们之前分享的一个数据增强包：<a href="https://github.com/MIC-DKFZ/batchgenerators" target="_blank" rel="noopener">batchgenerators<i class="fas fa-external-link-alt"></i></a>。不同数据集之间的数据增强参数不变。
+       采样的patch比刚开始的用于训练的patch_size要大，这导致在应用旋转和缩放时，在数据增强期间引入的边界值(这里是0)更少。所以，要在旋转和缩放的时候，将patch从中心开始抠图成最后的patch_size大小。为了确保原始数据的边界出现在最终的patch中，最开始的抠图部分可能会延伸到图像的边界外。
+       空间内的增强（旋转、缩放、低分辨率模拟）被应用在3D_Unet的3D、2D_Unet的2D、或者带有各向异性patch_size的3D_UNet（patch_size的最长边比最小边大三倍）。
+       为了增强生成patch的可变性，大多数的增强都因为一些参数而不同（取自好的某个范围之内）。比如，x ∼ U(a, b)就代表x是从a和b的均匀分布间进行取值。而且，所有的增强都是根据预先设定的概率随机地应用的。
+       下面是nnUNet运用的数据增强方法（按照标出的顺序）</p>
+<ul>
+<li><font size=4 color=red><strong>1. 旋转和缩放</strong></font>
+<ul>
+<li>旋转和缩放的一起应用有助于加快计算的速度，这个方法将需要的数据插值的次数减少到1。使用缩放和旋转的概率各为0.2（只缩放的概率为0.16，只旋转的概率为0.16，两个都触发的概率为0.08）。</li>
+<li>旋转：如果是要处理各向同性的3D patch，应该让x、y、z三个轴分别在（-30，30）之间均匀随机取值。如果这个patch是各向异性的（或者2D）旋转的角度采样范围应为（-180，180）。如果2D的patch_size是各向异性的，角度应当在（-15，15）采样。</li>
+<li>缩放：缩放是通过将坐标与体素网格中的缩放因子相乘实现的。因此，比例因子小于1会产生“缩小”效果，而数值大于1会产生“放大”效果。对于所有的patch类型，尺度因子从U(0.7, 1.4)中采样。</li>
+</ul>
+</li>
+<li><font size=4 color=red><strong>2. 高斯加噪</strong></font>
+<ul>
+<li>将零中心的加性高斯噪声独立地添加到样本中的每个体素中。这个增加的概率为0.15。噪声的方差是从U(0, 0.1)提取的(注意，由于强度归一化，所有样本中的体素强度均值和单位方差都接近于零)。</li>
+</ul>
+</li>
+<li><font size=4 color=red><strong>3. 高斯模糊</strong></font>
+<ul>
+<li>每个样本使用高斯模糊的概率是0.2。但是如果在一个样本中应用了这个模糊，与之相关的模态的应用概率变为0.5（单一模态为0.1）。</li>
+<li>高斯核的宽应当从每一个模态在（0.5，1.5）均匀随机采样。</li>
+</ul>
+</li>
+<li><font size=4><strong>4. 亮度处理</strong></font>
+<ul>
+<li>体素强度要以0.15的概率与在（0.7， 1.3）均匀随机采样的值相乘。</li>
+</ul>
+</li>
+<li><font size=4><strong>5. 对比度处理</strong></font>
+<ul>
+<li>体素强度以0.15的概率与在（0.65，1.5）均匀随机采样的值相乘，乘完之后把这个值裁剪到他们原始强度范围内。</li>
+</ul>
+</li>
+<li><font size=4 color=red><strong>6. 低像素仿真</strong></font>
+<ul>
+<li>这种增强以每个样本0.25和每个相关模态0.5的概率应用。触发的模态需要采用最近邻插值以U（1，2）向下采样，然后使用三次插值将其采样回原始大小。对于2D patch或各向异性3D patch，这种增强只应用于2D中，而使平面外轴(如果适用)保持其原始状态。</li>
+</ul>
+</li>
+<li><font size=4 color=red><strong>7. 伽马增强</strong></font>
+<ul>
+<li>This augmentation is applied with a probability of 0.15. The patch intensities are scaled to a factor of [0, 1] of their respective value range. Then, a nonlinear intensity transformation is applied per voxel: inew = iγold with γ ∼ U(0.7, 1.5). The voxel intensities are subsequently scaled back to their original value range. With a probability of 0.15, this augmentation is applied with the voxel intensities being inverted prior to transformation: (1 1 inew) = (1 1 iold)γ. 【32页】</li>
+</ul>
+</li>
+<li><font size=4 color=red><strong>8. 镜像</strong></font>
+<ul>
+<li>patch的所有轴都按照0.5的概率进行镜像。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-特别数据增强">2. 特别数据增强</h2>
+<p>       对于UNet_cascade的full_resolution_UNet来说，额外对low_resolution_3D_UNet生成的mask采用下面的增强方法。注意这个mask是按独热编码进行保存的。</p>
+<ul>
+<li><font size=4 color=red><strong>1. 二值操作</strong></font>
+<ul>
+<li>对所有的labels以0.4的概率进行这个二值操作，这个操作是从膨胀、腐蚀、开操作、闭操作中随机选取的。结构元素是一个半径为r ~ U(1,8)的球体。该操作以随机顺序应用于标签。因此，独热编码特性被保留。例如，一个标签的膨胀会导致膨胀区域的所有其他标签被移除。</li>
+</ul>
+</li>
+<li><font size=4 color=red><strong>2. 小连接分支移除</strong></font>
+<ul>
+<li>小于15% patch大小的连通分支以0.2的概率从独热编码中移除。</li>
+</ul>
+</li>
+</ul>
+<h1 id="e--font-face华文琥珀-size5-colorrednetwork-architecture-configuration网络结构配置font">E  <font face="华文琥珀" size=5 color=red>Network Architecture Configuration（网络结构配置）</font></h1>
+<p><font color=green><strong>图E.1</strong> </font>为在线方法中描述的架构配置的迭代过程提供了可视化的帮助。
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20200710112942644.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="图E.1" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20200710112942644.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="图E.1"/>
+      </div>
+  </div>
+</figure>
+</p>
+<hr>
+<h1 id="f-font-face华文琥珀-size5-colorred-summary-of-nnu-net-challenge-participationsnnunet参加过的一些竞赛的摘要font">F <font face="华文琥珀" size=5 color=red> Summary of nnU-Net Challenge Participations（nnUNet参加过的一些竞赛的摘要）</font></h1>
+<p>       这一块的总结我会另开一篇文章来讲，会设计到具体的实践项目分析。</p>
+<hr>
+<h1 id="g-font-face华文琥珀-size5-colorredusing-nnu-net-with-limited-compute-resources在有限的资源下使用nnunetfont">G <font face="华文琥珀" size=5 color=red>Using nnU-Net with limited compute resources（在有限的资源下使用nnUNet）</font></h1>
+<p>       降低计算复杂度是驱动网络设计的关键动机之一。对于大多数用户和研究人员来说，运行由nnU-Net生成的所有配置应该是可管理的。然而，在计算资源极其稀缺的情况下，也有一些捷径可走。</p>
+<h2 id="g1-减少网络训练的数目">G.1 减少网络训练的数目</h2>
+<p>       nnUNet总共有四种网络类型：2D、3D_full_res、3D_lower_res、3D_cascade。每个进行五种交叉验证，就是共有20个模型要训练，每个模型都需要几天时间训练，所以必然会面对计算资源的匮乏。我们提出了两个策略去解决接下来的问题。</p>
+<ul>
+<li>1.人工的选择UNet的网络模板配置
+       总的来说，3D_full_res表现出最好的效果。因此，这个配置是一个好的起点，并且能很简单的作为一个默认设置。使用者能够决定是否需要进行这么多个训练，只训练一个nnUNet的配置也是可行的，比如只用3D_full_res的五折交叉运算。
+       要学会利用一些专业知识来大致估计你最适合的网络模板是什么。比如对于高度各向异性的图片，就很有可能最适合跑2D_Unet，但这也不是绝对的。对于一些非常大的图片，3D级联的方法就很有可能表现最好，因为包含了足够的上下文信息，但是这也只是在目标需要一个大的接受野时才成立。比如你需要检测神经突触这种结构，就只需要关注局部信息，这时候3D_full_res效果最好。</li>
+<li>2.不要用五折交叉验证跑所有的模型。
+       选一个可能不错的来跑五折交叉验证，但是对于级联的网络一定要用五折交叉验证，因为他会生成一些可靠的mask去输入下一个网络，而这个mask就是依赖五折交叉验证来得到的。</li>
+</ul>
+<hr>
+<h2 id="g2-减少gpu的显存">G.2 减少GPU的显存</h2>
+<p>       【笔者经验】我的nnUNet框架在RTX8000（48g）上运行速度，占用8g左右显存，运行时间450s一轮，时间和2080Ti基本相同。在1070上也可以运行，一轮650s左右（只要小于8g都可以）。
+       但是，当我在一个GPU上同时运行nnUNet的两项训练任务，计算时间成线性增加，比如两个nnUNet训练进程在一张卡上，每个的速度都会降低一倍，三个就会降低三倍。
+       加入准备用于个人学习，20系列只要显存满足都可以，假如作为研究使用，建议多购置几张2080ti（11g），每张卡上跑一个。</p>
+
+
+
+      </main>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/grpcio">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Google Groups" aria-label="Google Groups">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://groups.google.com/g/grpc-io">
+      <i class="fab fa-google"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Gitter" aria-label="Gitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://gitter.im/grpc/grpc">
+      <i class="fab fa-gitter"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/grpc">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 gRPC Authors
+          
+        </small>
+        
+        
+      </div>
+    </div>
+    <div class="row text-center text-white small">
+      <div class="col-12 text-center py-2 order-sm-2">
+        <a href="https://www.linuxfoundation.org/terms" target="_blank" rel="noopener">Terms</a> |
+        <a href="https://www.linuxfoundation.org/privacy" target="_blank" rel="noopener">Privacy</a> |
+        <a href="https://www.linuxfoundation.org/trademark-usage" target="_blank" rel="noopener">Trademarks</a> |
+        <a href="https://github.com/grpc/grpc.io/blob/main/LICENSE" target="_blank" rel="noopener">License</a> |
+        <a href="/about/">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.d862e8117d34e02dff1772aeeb47caf7ed851d0f8a3a5345f7a32ccfb2f6b87f.js" integrity="sha256-2GLoEX004C3/F3Ku60fK9&#43;2FHQ&#43;KOlNF96Msz7L2uH8=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

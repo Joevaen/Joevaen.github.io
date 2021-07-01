@@ -1,0 +1,36 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – 多GPU训练</title>
+    <link>https://Joevaen.github.io/docs/quickstart/infer/predefined/multi/</link>
+    <description>Recent content in 多GPU训练 on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/quickstart/infer/predefined/multi/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 同时启动多个作业</title>
+      <link>https://Joevaen.github.io/docs/quickstart/infer/predefined/multi/launch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/quickstart/infer/predefined/multi/launch/</guid>
+      <description>
+        
+        
+        &lt;p&gt;If you would like to launch multiple jobs on a single machine, e.g., 2 jobs of 4-GPU training on a machine with 8 GPUs,
+you need to specify different ports (29500 by default) for each job to avoid communication conflict.&lt;/p&gt;
+&lt;p&gt;If you use &lt;code&gt;dist_train.sh&lt;/code&gt; to launch training jobs, you can set the port in commands.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#033&#34;&gt;CUDA_VISIBLE_DEVICES&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;0,1,2,3 &lt;span style=&#34;color:#033&#34;&gt;PORT&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;29500&lt;/span&gt; ./tools/dist_train.sh &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;CONFIG_FILE&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;4&lt;/span&gt;
+&lt;span style=&#34;color:#033&#34;&gt;CUDA_VISIBLE_DEVICES&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;4,5,6,7 &lt;span style=&#34;color:#033&#34;&gt;PORT&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;29501&lt;/span&gt; ./tools/dist_train.sh &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;CONFIG_FILE&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;4&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

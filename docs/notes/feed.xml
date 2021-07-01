@@ -1,0 +1,1084 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – 笔记</title>
+    <link>https://Joevaen.github.io/docs/notes/</link>
+    <description>Recent content in 笔记 on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/notes/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 惯例</title>
+      <link>https://Joevaen.github.io/docs/notes/convention/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/notes/convention/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Please check the following conventions if you would like to modify MMDetection as your own project.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: MMDetection 2.x的兼容性</title>
+      <link>https://Joevaen.github.io/docs/notes/compatibility/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/notes/compatibility/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 基于MMDetection的项目</title>
+      <link>https://Joevaen.github.io/docs/notes/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/notes/projects/</guid>
+      <description>
+        
+        
+        &lt;p&gt;There are many projects built upon MMDetection.
+We list some of them as examples of how to extend MMDetection for your own projects.
+Pull requests are also welcomed.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 版本更新历史</title>
+      <link>https://Joevaen.github.io/docs/notes/changelog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/notes/changelog/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;changelog&#34;&gt;Changelog&lt;/h2&gt;
+&lt;h3 id=&#34;v2130-0162021&#34;&gt;v2.13.0 (01/6/2021)&lt;/h3&gt;
+&lt;h4 id=&#34;highlights&#34;&gt;Highlights&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Support new methods: &lt;a href=&#34;https://arxiv.org/abs/1904.07850&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CenterNet&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, &lt;a href=&#34;https://arxiv.org/abs/2008.10032&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Seesaw Loss&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, &lt;a href=&#34;https://arxiv.org/abs/1801.04381&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MobileNetV2&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;new-features&#34;&gt;New Features&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Support paper &lt;a href=&#34;https://arxiv.org/abs/1904.07850&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Objects as Points&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; (#4602)&lt;/li&gt;
+&lt;li&gt;Support paper &lt;a href=&#34;https://arxiv.org/abs/2008.10032&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Seesaw Loss for Long-Tailed Instance Segmentation (CVPR 2021)&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; (#5128)&lt;/li&gt;
+&lt;li&gt;Support &lt;a href=&#34;https://arxiv.org/abs/1801.04381&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MobileNetV2&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; backbone and inverted residual block (#5122)&lt;/li&gt;
+&lt;li&gt;Support &lt;a href=&#34;https://github.com/open-mmlab/mim&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MIM&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; (#5143)&lt;/li&gt;
+&lt;li&gt;ONNX exportation with dynamic shapes of CornerNet (#5136)&lt;/li&gt;
+&lt;li&gt;Add &lt;code&gt;mask_soft&lt;/code&gt; config option to allow non-binary masks (#4615)&lt;/li&gt;
+&lt;li&gt;Add PWC metafile (#5135)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;bug-fixes&#34;&gt;Bug Fixes&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Fix YOLOv3 FP16 training error (#5172)&lt;/li&gt;
+&lt;li&gt;Fix Cacscade R-CNN TTA test error when &lt;code&gt;det_bboxes&lt;/code&gt; length is 0  (#5221)&lt;/li&gt;
+&lt;li&gt;Fix &lt;code&gt;iou_thr&lt;/code&gt; variable naming errors in VOC recall calculation function (#5195)&lt;/li&gt;
+&lt;li&gt;Fix Faster R-CNN performance dropped in ONNX Runtime (#5197)&lt;/li&gt;
+&lt;li&gt;Fix DETR dict changed error when using python 3.8 during iteration  (#5226)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;improvements&#34;&gt;Improvements&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Refactor ONNX export of two stage detector (#5205)&lt;/li&gt;
+&lt;li&gt;Replace MMDetection&amp;rsquo;s EvalHook with MMCV&amp;rsquo;s EvalHook for consistency  (#4806)&lt;/li&gt;
+&lt;li&gt;Update RoI extractor for ONNX (#5194)&lt;/li&gt;
+&lt;li&gt;Use better parameter initialization in YOLOv3 head for higher performance (#5181)&lt;/li&gt;
+&lt;li&gt;Release new DCN models of Mask R-CNN by mixed-precision training (#5201)&lt;/li&gt;
+&lt;li&gt;Update YOLOv3 model weights (#5229)&lt;/li&gt;
+&lt;li&gt;Add DetectoRS ResNet-101 model weights (#4960)&lt;/li&gt;
+&lt;li&gt;Discard bboxes with sizes equals to &lt;code&gt;min_bbox_size&lt;/code&gt; (#5011)&lt;/li&gt;
+&lt;li&gt;Remove duplicated code in DETR head (#5129)&lt;/li&gt;
+&lt;li&gt;Remove unnecessary object in class definition (#5180)&lt;/li&gt;
+&lt;li&gt;Fix doc link (#5192)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v2120-0152021&#34;&gt;v2.12.0 (01/5/2021)&lt;/h3&gt;
+&lt;h4 id=&#34;highlights-1&#34;&gt;Highlights&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Support new methods: &lt;a href=&#34;https://arxiv.org/abs/2007.03496&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AutoAssign&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, &lt;a href=&#34;https://arxiv.org/abs/2103.09460&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;YOLOF&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, and &lt;a href=&#34;https://arxiv.org/abs/2010.04159&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Deformable DETR&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Stable support of exporting models to ONNX with batched images and dynamic shape (#5039)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;backwards-incompatible-changes&#34;&gt;Backwards Incompatible Changes&lt;/h4&gt;
+&lt;p&gt;MMDetection is going through big refactoring for more general and convenient usages during the releases from v2.12.0 to v2.15.0 (maybe longer).
+In v2.12.0 MMDetection inevitably brings some BC-breakings, including the MMCV dependency, model initialization, model registry, and mask AP evaluation.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MMCV version. MMDetection v2.12.0 relies on the newest features in MMCV 1.3.3, including &lt;code&gt;BaseModule&lt;/code&gt; for unified parameter initialization, model registry, and the CUDA operator &lt;code&gt;MultiScaleDeformableAttn&lt;/code&gt; for &lt;a href=&#34;https://arxiv.org/abs/2010.04159&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Deformable DETR&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;. Note that MMCV 1.3.2 already contains all the features used by MMDet but has known issues. Therefore, we recommend users skip MMCV v1.3.2 and use v1.3.3, though v1.3.2 might work for most cases.&lt;/li&gt;
+&lt;li&gt;Unified model initialization (#4750). To unify the parameter initialization in OpenMMLab projects, MMCV supports &lt;code&gt;BaseModule&lt;/code&gt; that accepts &lt;code&gt;init_cfg&lt;/code&gt; to allow the modules&#39; parameters initialized in a flexible and unified manner. Now the users need to explicitly call &lt;code&gt;model.init_weights()&lt;/code&gt; in the training script to initialize the model (as in &lt;a href=&#34;https://github.com/open-mmlab/mmdetection/blob/master/tools/train.py#L162&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, previously this was handled by the detector. The models in MMDetection have been re-benchmarked to ensure accuracy based on PR #4750. &lt;strong&gt;The downstream projects should update their code accordingly to use MMDetection v2.12.0&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Unified model registry (#5059). To easily use backbones implemented in other OpenMMLab projects, MMDetection migrates to inherit the model registry created in MMCV (#760). In this way, as long as the backbone is supported in an OpenMMLab project and that project also uses the registry in MMCV, users can use that backbone in MMDetection by simply modifying the config without copying the code of that backbone into MMDetection.&lt;/li&gt;
+&lt;li&gt;Mask AP evaluation (#4898). Previous versions calculate the areas of masks through the bounding boxes when calculating the mask AP of small, medium, and large instances. To indeed use the areas of masks, we pop the key &lt;code&gt;bbox&lt;/code&gt; during mask AP calculation. This change does not affect the overall mask AP evaluation and aligns the mask AP of similar models in other projects like Detectron2.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;new-features-1&#34;&gt;New Features&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Support paper &lt;a href=&#34;https://arxiv.org/abs/2007.03496&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AutoAssign: Differentiable Label Assignment for Dense Object Detection&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; (#4295)&lt;/li&gt;
+&lt;li&gt;Support paper &lt;a href=&#34;https://arxiv.org/abs/2103.09460&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;You Only Look One-level Feature&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; (#4295)&lt;/li&gt;
+&lt;li&gt;Support paper &lt;a href=&#34;https://arxiv.org/abs/2010.04159&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Deformable DETR: Deformable Transformers for End-to-End Object Detection&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; (#4778)&lt;/li&gt;
+&lt;li&gt;Support calculating IoU with FP16 tensor in &lt;code&gt;bbox_overlaps&lt;/code&gt; to save memory and keep speed (#4889)&lt;/li&gt;
+&lt;li&gt;Add &lt;code&gt;__repr__&lt;/code&gt; in custom dataset to count the number of instances (#4756)&lt;/li&gt;
+&lt;li&gt;Add windows support by updating requirements.txt (#5052)&lt;/li&gt;
+&lt;li&gt;Stable support of exporting models to ONNX with batched images and dynamic shape, including SSD, FSAF,FCOS, YOLOv3, RetinaNet, Faster R-CNN, and Mask R-CNN (#5039)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;improvements-1&#34;&gt;Improvements&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Use MMCV &lt;code&gt;MODEL_REGISTRY&lt;/code&gt; (#5059)&lt;/li&gt;
+&lt;li&gt;Unified parameter initialization for more flexible usage (#4750)&lt;/li&gt;
+&lt;li&gt;Rename variable names and fix docstring in anchor head (#4883)&lt;/li&gt;
+&lt;li&gt;Support training with empty GT in Cascade RPN (#4928)&lt;/li&gt;
+&lt;li&gt;Add more details of usage of &lt;code&gt;test_robustness&lt;/code&gt; in documentation (#4917)&lt;/li&gt;
+&lt;li&gt;Changing to use &lt;code&gt;pycocotools&lt;/code&gt; instead of &lt;code&gt;mmpycocotools&lt;/code&gt; to fully support Detectron2 and MMDetection in one environment (#4939)&lt;/li&gt;
+&lt;li&gt;Update torch serve dockerfile to support dockers of more versions (#4954)&lt;/li&gt;
+&lt;li&gt;Add check for training with single class dataset (#4973)&lt;/li&gt;
+&lt;li&gt;Refactor transformer and DETR Head (#4763)&lt;/li&gt;
+&lt;li&gt;Update FPG model zoo (#5079)&lt;/li&gt;
+&lt;li&gt;More accurate mask AP of small/medium/large instances (#4898)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;bug-fixes-1&#34;&gt;Bug Fixes&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Fix bug in mean_ap.py when calculating mAP by 11 points (#4875)&lt;/li&gt;
+&lt;li&gt;Fix error when key &lt;code&gt;meta&lt;/code&gt; is not in old checkpoints (#4936)&lt;/li&gt;
+&lt;li&gt;Fix hanging bug when training with empty GT in VFNet, GFL, and FCOS by changing the place of &lt;code&gt;reduce_mean&lt;/code&gt; (#4923, #4978, #5058)&lt;/li&gt;
+&lt;li&gt;Fix asyncronized inference error and provide related demo (#4941)&lt;/li&gt;
+&lt;li&gt;Fix IoU losses dimensionality unmatch error (#4982)&lt;/li&gt;
+&lt;li&gt;Fix torch.randperm whtn using PyTorch 1.8 (#5014)&lt;/li&gt;
+&lt;li&gt;Fix empty bbox error in &lt;code&gt;mask_head&lt;/code&gt; when using CARAFE (#5062)&lt;/li&gt;
+&lt;li&gt;Fix &lt;code&gt;supplement_mask&lt;/code&gt; bug when there are zero-size RoIs (#5065)&lt;/li&gt;
+&lt;li&gt;Fix testing with empty rois in RoI Heads (#5081)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v2110-0142021&#34;&gt;v2.11.0 (01/4/2021)&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Highlights&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Support new method: &lt;a href=&#34;https://arxiv.org/pdf/2102.12252.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Localization Distillation for Object Detection&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Support Pytorch2ONNX with batch inference and dynamic shape&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;New Features&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Support &lt;a href=&#34;https://arxiv.org/pdf/2102.12252.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Localization Distillation for Object Detection&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; (#4758)&lt;/li&gt;
+&lt;li&gt;Support Pytorch2ONNX with batch inference and dynamic shape for Faster-RCNN and mainstream one-stage detectors (#4796)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Improvements&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Support batch inference in head of RetinaNet (#4699)&lt;/li&gt;
+&lt;li&gt;Add batch dimension in second stage of Faster-RCNN (#4785)&lt;/li&gt;
+&lt;li&gt;Support batch inference in bbox coder (#4721)&lt;/li&gt;
+&lt;li&gt;Add check for &lt;code&gt;ann_ids&lt;/code&gt; in &lt;code&gt;COCODataset&lt;/code&gt; to ensure it is unique (#4789)&lt;/li&gt;
+&lt;li&gt;support for showing the FPN results (#4716)&lt;/li&gt;
+&lt;li&gt;support dynamic shape for grid_anchor (#4684)&lt;/li&gt;
+&lt;li&gt;Move pycocotools version check to when it is used (#4880)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Bug Fixes&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fix a bug of TridentNet when doing the batch inference (#4717)&lt;/li&gt;
+&lt;li&gt;Fix a bug of Pytorch2ONNX in FASF (#4735)&lt;/li&gt;
+&lt;li&gt;Fix a bug when show the image with float type (#4732)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v2100-01032021&#34;&gt;v2.10.0 (01/03/2021)&lt;/h3&gt;
+&lt;h4 id=&#34;highlights-2&#34;&gt;Highlights&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Support new methods: &lt;a href=&#34;https://arxiv.org/abs/2004.03580&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;FPG&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Support ONNX2TensorRT for SSD, FSAF, FCOS, YOLOv3, and Faster R-CNN.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;new-features-2&#34;&gt;New Features&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Support ONNX2TensorRT for SSD, FSAF, FCOS, YOLOv3, and Faster R-CNN (#4569)&lt;/li&gt;
+&lt;li&gt;Support &lt;a href=&#34;https://arxiv.org/abs/2004.03580&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Feature Pyramid Grids (FPG)&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; (#4645)&lt;/li&gt;
+&lt;li&gt;Support video demo (#4420)&lt;/li&gt;
+&lt;li&gt;Add seed option for sampler (#4665)&lt;/li&gt;
+&lt;li&gt;Support to customize type of runner (#4570, #4669)&lt;/li&gt;
+&lt;li&gt;Support synchronizing BN buffer in &lt;code&gt;EvalHook&lt;/code&gt; (#4582)&lt;/li&gt;
+&lt;li&gt;Add script for GIF demo (#4573)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;bug-fixes-2&#34;&gt;Bug Fixes&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Fix ConfigDict AttributeError and add Colab link (#4643)&lt;/li&gt;
+&lt;li&gt;Avoid crash in empty gt training of GFL head (#4631)&lt;/li&gt;
+&lt;li&gt;Fix &lt;code&gt;iou_thrs&lt;/code&gt; bug in RPN evaluation (#4581)&lt;/li&gt;
+&lt;li&gt;Fix syntax error of config when upgrading model version (#4584)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;improvements-2&#34;&gt;Improvements&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Refactor unit test file structures (#4600)&lt;/li&gt;
+&lt;li&gt;Refactor nms config (#4636)&lt;/li&gt;
+&lt;li&gt;Get loading pipeline by checking the class directly rather than through config strings (#4619)&lt;/li&gt;
+&lt;li&gt;Add doctests for mask target generation and mask structures (#4614)&lt;/li&gt;
+&lt;li&gt;Use deep copy when copying pipeline arguments (#4621)&lt;/li&gt;
+&lt;li&gt;Update documentations (#4642, #4650, #4620, #4630)&lt;/li&gt;
+&lt;li&gt;Remove redundant code calling &lt;code&gt;import_modules_from_strings&lt;/code&gt; (#4601)&lt;/li&gt;
+&lt;li&gt;Clean deprecated FP16 API (#4571)&lt;/li&gt;
+&lt;li&gt;Check whether &lt;code&gt;CLASSES&lt;/code&gt; is correctly initialized in the intialization of &lt;code&gt;XMLDataset&lt;/code&gt; (#4555)&lt;/li&gt;
+&lt;li&gt;Support batch inference in the inference API (#4462, #4526)&lt;/li&gt;
+&lt;li&gt;Clean deprecated warning and fix &amp;lsquo;meta&amp;rsquo; error (#4695)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v290-01022021&#34;&gt;v2.9.0 (01/02/2021)&lt;/h3&gt;
+&lt;h4 id=&#34;highlights-3&#34;&gt;Highlights&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Support new methods: &lt;a href=&#34;https://arxiv.org/abs/2012.10150&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SCNet&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, &lt;a href=&#34;https://arxiv.org/abs/2011.12450&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Sparse R-CNN&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Move &lt;code&gt;train_cfg&lt;/code&gt; and &lt;code&gt;test_cfg&lt;/code&gt; into model in configs&lt;/li&gt;
+&lt;li&gt;Support to visualize results based on prediction quality&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;new-features-3&#34;&gt;New Features&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Support &lt;a href=&#34;https://arxiv.org/abs/2012.10150&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SCNet&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; (#4356)&lt;/li&gt;
+&lt;li&gt;Support &lt;a href=&#34;https://arxiv.org/abs/2011.12450&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Sparse R-CNN&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; (#4219)&lt;/li&gt;
+&lt;li&gt;Support evaluate mAP by multiple IoUs (#4398)&lt;/li&gt;
+&lt;li&gt;Support concatenate dataset for testing (#4452)&lt;/li&gt;
+&lt;li&gt;Support to visualize results based on prediction quality (#4441)&lt;/li&gt;
+&lt;li&gt;Add ONNX simplify option to Pytorch2ONNX script (#4468)&lt;/li&gt;
+&lt;li&gt;Add hook for checking compatibility of class numbers in heads and datasets (#4508)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;bug-fixes-3&#34;&gt;Bug Fixes&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Fix CPU inference bug of Cascade RPN (#4410)&lt;/li&gt;
+&lt;li&gt;Fix NMS error of CornerNet when there is no prediction box (#4409)&lt;/li&gt;
+&lt;li&gt;Fix TypeError in CornerNet inference (#4411)&lt;/li&gt;
+&lt;li&gt;Fix bug of PAA when training with background images (#4391)&lt;/li&gt;
+&lt;li&gt;Fix the error that the window data is not destroyed when &lt;code&gt;out_file is not None&lt;/code&gt; and &lt;code&gt;show==False&lt;/code&gt; (#4442)&lt;/li&gt;
+&lt;li&gt;Fix order of NMS &lt;code&gt;score_factor&lt;/code&gt; that will decrease the performance of YOLOv3 (#4473)&lt;/li&gt;
+&lt;li&gt;Fix bug in HTC TTA when the number of detection boxes is 0 (#4516)&lt;/li&gt;
+&lt;li&gt;Fix resize error in mask data structures (#4520)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;improvements-3&#34;&gt;Improvements&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Allow to customize classes in LVIS dataset (#4382)&lt;/li&gt;
+&lt;li&gt;Add tutorials for building new models with existing datasets (#4396)&lt;/li&gt;
+&lt;li&gt;Add CPU compatibility information in documentation (#4405)&lt;/li&gt;
+&lt;li&gt;Add documentation of deprecated &lt;code&gt;ImageToTensor&lt;/code&gt; for batch inference (#4408)&lt;/li&gt;
+&lt;li&gt;Add more details in documentation for customizing dataset (#4430)&lt;/li&gt;
+&lt;li&gt;Switch &lt;code&gt;imshow_det_bboxes&lt;/code&gt; visualization backend from OpenCV to Matplotlib (#4389)&lt;/li&gt;
+&lt;li&gt;Deprecate &lt;code&gt;ImageToTensor&lt;/code&gt; in &lt;code&gt;image_demo.py&lt;/code&gt; (#4400)&lt;/li&gt;
+&lt;li&gt;Move train_cfg/test_cfg into model (#4347, #4489)&lt;/li&gt;
+&lt;li&gt;Update docstring for &lt;code&gt;reg_decoded_bbox&lt;/code&gt; option in bbox heads (#4467)&lt;/li&gt;
+&lt;li&gt;Update dataset information in documentation (#4525)&lt;/li&gt;
+&lt;li&gt;Release pre-trained R50 and R101 PAA detectors with multi-scale 3x training schedules (#4495)&lt;/li&gt;
+&lt;li&gt;Add guidance for speed benchmark (#4537)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v280-04012021&#34;&gt;v2.8.0 (04/01/2021)&lt;/h3&gt;
+&lt;h4 id=&#34;highlights-4&#34;&gt;Highlights&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Support new methods: &lt;a href=&#34;https://arxiv.org/abs/1909.06720&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cascade RPN&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, &lt;a href=&#34;https://arxiv.org/abs/1901.01892&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;TridentNet&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;new-features-4&#34;&gt;New Features&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Support &lt;a href=&#34;https://arxiv.org/abs/1909.06720&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cascade RPN&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; (#1900)&lt;/li&gt;
+&lt;li&gt;Support &lt;a href=&#34;https://arxiv.org/abs/1901.01892&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;TridentNet&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; (#3313)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;bug-fixes-4&#34;&gt;Bug Fixes&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Fix bug of show result in async_benchmark (#4367)&lt;/li&gt;
+&lt;li&gt;Fix scale factor in MaskTestMixin (#4366)&lt;/li&gt;
+&lt;li&gt;Fix but when returning indices in &lt;code&gt;multiclass_nms&lt;/code&gt; (#4362)&lt;/li&gt;
+&lt;li&gt;Fix bug of empirical attention in resnext backbone error (#4300)&lt;/li&gt;
+&lt;li&gt;Fix bug of &lt;code&gt;img_norm_cfg&lt;/code&gt; in FCOS-HRNet models with updated performance and models (#4250)&lt;/li&gt;
+&lt;li&gt;Fix invalid checkpoint and log in Mask R-CNN models on Cityscapes dataset (#4287)&lt;/li&gt;
+&lt;li&gt;Fix bug in distributed sampler when dataset is too small (#4257)&lt;/li&gt;
+&lt;li&gt;Fix bug of &amp;lsquo;PAFPN has no attribute extra_convs_on_inputs&amp;rsquo; (#4235)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;improvements-4&#34;&gt;Improvements&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Update model url from aws to aliyun (#4349)&lt;/li&gt;
+&lt;li&gt;Update ATSS for PyTorch 1.6+ (#4359)&lt;/li&gt;
+&lt;li&gt;Update script to install ruby in pre-commit installation (#4360)&lt;/li&gt;
+&lt;li&gt;Delete deprecated &lt;code&gt;mmdet.ops&lt;/code&gt; (#4325)&lt;/li&gt;
+&lt;li&gt;Refactor hungarian assigner for more general usage in Sparse R-CNN (#4259)&lt;/li&gt;
+&lt;li&gt;Handle scipy import in DETR to reduce package dependencies (#4339)&lt;/li&gt;
+&lt;li&gt;Update documentation of usages for config options after MMCV (1.2.3) supports overriding list in config (#4326)&lt;/li&gt;
+&lt;li&gt;Update pre-train models of faster rcnn trained on COCO subsets (#4307)&lt;/li&gt;
+&lt;li&gt;Avoid zero or too small value for beta in Dynamic R-CNN (#4303)&lt;/li&gt;
+&lt;li&gt;Add doccumentation for Pytorch2ONNX (#4271)&lt;/li&gt;
+&lt;li&gt;Add deprecated warning FPN arguments (#4264)&lt;/li&gt;
+&lt;li&gt;Support returning indices of kept bboxes when using nms (#4251)&lt;/li&gt;
+&lt;li&gt;Update type and device requirements when creating tensors &lt;code&gt;GFLHead&lt;/code&gt; (#4210)&lt;/li&gt;
+&lt;li&gt;Update device requirements when creating tensors in &lt;code&gt;CrossEntropyLoss&lt;/code&gt; (#4224)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v270-30112020&#34;&gt;v2.7.0 (30/11/2020)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Support new method: &lt;a href=&#34;https://arxiv.org/abs/2005.12872&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;DETR&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, &lt;a href=&#34;https://arxiv.org/abs/2004.08955&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ResNest&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, Faster R-CNN DC5.&lt;/li&gt;
+&lt;li&gt;Support YOLO, Mask R-CNN, and Cascade R-CNN models exportable to ONNX.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;new-features-5&#34;&gt;New Features&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Support &lt;a href=&#34;https://arxiv.org/abs/2005.12872&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;DETR&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; (#4201, #4206)&lt;/li&gt;
+&lt;li&gt;Support to link the best checkpoint in training (#3773)&lt;/li&gt;
+&lt;li&gt;Support to override config through options in inference.py (#4175)&lt;/li&gt;
+&lt;li&gt;Support YOLO, Mask R-CNN, and Cascade R-CNN models exportable to ONNX (#4087, #4083)&lt;/li&gt;
+&lt;li&gt;Support &lt;a href=&#34;https://arxiv.org/abs/2004.08955&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ResNeSt&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; backbone (#2959)&lt;/li&gt;
+&lt;li&gt;Support unclip border bbox regression (#4076)&lt;/li&gt;
+&lt;li&gt;Add tpfp func in evaluating AP (#4069)&lt;/li&gt;
+&lt;li&gt;Support mixed precision training of SSD detector with other backbones (#4081)&lt;/li&gt;
+&lt;li&gt;Add Faster R-CNN DC5 models (#4043)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;bug-fixes-5&#34;&gt;Bug Fixes&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Fix bug of &lt;code&gt;gpu_id&lt;/code&gt; in distributed training mode (#4163)&lt;/li&gt;
+&lt;li&gt;Support Albumentations with version higher than 0.5 (#4032)&lt;/li&gt;
+&lt;li&gt;Fix num_classes bug in faster rcnn config (#4088)&lt;/li&gt;
+&lt;li&gt;Update code in docs/2_new_data_model.md (#4041)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;improvements-5&#34;&gt;Improvements&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Ensure DCN offset to have similar type as features in VFNet (#4198)&lt;/li&gt;
+&lt;li&gt;Add config links in README files of models (#4190)&lt;/li&gt;
+&lt;li&gt;Add tutorials for loss conventions (#3818)&lt;/li&gt;
+&lt;li&gt;Add solution to installation issues in 30-series GPUs (#4176)&lt;/li&gt;
+&lt;li&gt;Update docker version in get_started.md (#4145)&lt;/li&gt;
+&lt;li&gt;Add model statistics and polish some titles in configs README (#4140)&lt;/li&gt;
+&lt;li&gt;Clamp neg probability in FreeAnchor (#4082)&lt;/li&gt;
+&lt;li&gt;Speed up expanding large images (#4089)&lt;/li&gt;
+&lt;li&gt;Fix Pytorch 1.7 incompatibility issues (#4103)&lt;/li&gt;
+&lt;li&gt;Update trouble shooting page to resolve segmentation fault (#4055)&lt;/li&gt;
+&lt;li&gt;Update aLRP-Loss in project page (#4078)&lt;/li&gt;
+&lt;li&gt;Clean duplicated &lt;code&gt;reduce_mean&lt;/code&gt; function (#4056)&lt;/li&gt;
+&lt;li&gt;Refactor Q&amp;amp;A (#4045)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v260-1112020&#34;&gt;v2.6.0 (1/11/2020)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Support new method: &lt;a href=&#34;https://arxiv.org/abs/2008.13367&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VarifocalNet&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Refactored documentation with more tutorials.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;new-features-6&#34;&gt;New Features&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Support GIoU calculation in &lt;code&gt;BboxOverlaps2D&lt;/code&gt;, and re-implement &lt;code&gt;giou_loss&lt;/code&gt; using &lt;code&gt;bbox_overlaps&lt;/code&gt; (#3936)&lt;/li&gt;
+&lt;li&gt;Support random sampling in CPU mode (#3948)&lt;/li&gt;
+&lt;li&gt;Support VarifocalNet (#3666, #4024)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;bug-fixes-6&#34;&gt;Bug Fixes&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Fix SABL validating bug in Cascade R-CNN (#3913)&lt;/li&gt;
+&lt;li&gt;Avoid division by zero in PAA head when num_pos=0 (#3938)&lt;/li&gt;
+&lt;li&gt;Fix temporary directory bug of multi-node testing error (#4034, #4017)&lt;/li&gt;
+&lt;li&gt;Fix &lt;code&gt;--show-dir&lt;/code&gt; option in test script (#4025)&lt;/li&gt;
+&lt;li&gt;Fix GA-RetinaNet r50 model url (#3983)&lt;/li&gt;
+&lt;li&gt;Update code in docs and fix broken urls (#3947)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;improvements-6&#34;&gt;Improvements&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Refactor pytorch2onnx API into &lt;code&gt;mmdet.core.export&lt;/code&gt; and use &lt;code&gt;generate_inputs_and_wrap_model&lt;/code&gt; for pytorch2onnx (#3857, #3912)&lt;/li&gt;
+&lt;li&gt;Update RPN upgrade scripts for v2.5.0 compatibility (#3986)&lt;/li&gt;
+&lt;li&gt;Use mmcv &lt;code&gt;tensor2imgs&lt;/code&gt; (#4010)&lt;/li&gt;
+&lt;li&gt;Update test robustness (#4000)&lt;/li&gt;
+&lt;li&gt;Update trouble shooting page (#3994)&lt;/li&gt;
+&lt;li&gt;Accelerate PAA training speed (#3985)&lt;/li&gt;
+&lt;li&gt;Support batch_size &amp;gt; 1 in validation (#3966)&lt;/li&gt;
+&lt;li&gt;Use RoIAlign implemented in MMCV for inference in CPU mode (#3930)&lt;/li&gt;
+&lt;li&gt;Documentation refactoring (#4031)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v250-5102020&#34;&gt;v2.5.0 (5/10/2020)&lt;/h3&gt;
+&lt;h4 id=&#34;highlights-5&#34;&gt;Highlights&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Support new methods: &lt;a href=&#34;https://arxiv.org/abs/1904.02689&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;YOLACT&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, &lt;a href=&#34;https://arxiv.org/abs/2003.09119&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CentripetalNet&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Add more documentations for easier and more clear usage.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;backwards-incompatible-changes-1&#34;&gt;Backwards Incompatible Changes&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;FP16 related methods are imported from mmcv instead of mmdet. (#3766, #3822)&lt;/strong&gt;
+Mixed precision training utils in &lt;code&gt;mmdet.core.fp16&lt;/code&gt; are moved to &lt;code&gt;mmcv.runner&lt;/code&gt;, including &lt;code&gt;force_fp32&lt;/code&gt;, &lt;code&gt;auto_fp16&lt;/code&gt;, &lt;code&gt;wrap_fp16_model&lt;/code&gt;, and &lt;code&gt;Fp16OptimizerHook&lt;/code&gt;. A deprecation warning will be raised if users attempt to import those methods from &lt;code&gt;mmdet.core.fp16&lt;/code&gt;, and will be finally removed in V2.10.0.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;[0, N-1] represents foreground classes and N indicates background classes for all models. (#3221)&lt;/strong&gt;
+Before v2.5.0, the background label for RPN is 0, and N for other heads. Now the behavior is consistent for all models. Thus &lt;code&gt;self.background_labels&lt;/code&gt; in &lt;code&gt;dense_heads&lt;/code&gt; is removed and all heads use &lt;code&gt;self.num_classes&lt;/code&gt; to indicate the class index of background labels.
+This change has no effect on the pre-trained models in the v2.x model zoo, but will affect the training of all models with RPN heads. Two-stage detectors whose RPN head uses softmax will be affected because the order of categories is changed.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Only call &lt;code&gt;get_subset_by_classes&lt;/code&gt; when &lt;code&gt;test_mode=True&lt;/code&gt; and &lt;code&gt;self.filter_empty_gt=True&lt;/code&gt; (#3695)&lt;/strong&gt;
+Function &lt;code&gt;get_subset_by_classes&lt;/code&gt; in dataset is refactored and only filters out images when &lt;code&gt;test_mode=True&lt;/code&gt; and &lt;code&gt;self.filter_empty_gt=True&lt;/code&gt;.
+In the original implementation, &lt;code&gt;get_subset_by_classes&lt;/code&gt; is not related to the flag &lt;code&gt;self.filter_empty_gt&lt;/code&gt; and will only be called when the classes is set during initialization no matter &lt;code&gt;test_mode&lt;/code&gt; is &lt;code&gt;True&lt;/code&gt; or &lt;code&gt;False&lt;/code&gt;. This brings ambiguous behavior and potential bugs in many cases. After v2.5.0, if &lt;code&gt;filter_empty_gt=False&lt;/code&gt;, no matter whether the classes are specified in a dataset, the dataset will use all the images in the annotations. If &lt;code&gt;filter_empty_gt=True&lt;/code&gt; and &lt;code&gt;test_mode=True&lt;/code&gt;, no matter whether the classes are specified, the dataset will call ``get_subset_by_classes` to check the images and filter out images containing no GT boxes. Therefore, the users should be responsible for the data filtering/cleaning process for the test dataset.&lt;/p&gt;
+&lt;h4 id=&#34;new-features-7&#34;&gt;New Features&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Test time augmentation for single stage detectors (#3844, #3638)&lt;/li&gt;
+&lt;li&gt;Support to show the name of experiments during training (#3764)&lt;/li&gt;
+&lt;li&gt;Add &lt;code&gt;Shear&lt;/code&gt;, &lt;code&gt;Rotate&lt;/code&gt;, &lt;code&gt;Translate&lt;/code&gt; Augmentation (#3656, #3619, #3687)&lt;/li&gt;
+&lt;li&gt;Add image-only transformations including &lt;code&gt;Constrast&lt;/code&gt;, &lt;code&gt;Equalize&lt;/code&gt;, &lt;code&gt;Color&lt;/code&gt;, and &lt;code&gt;Brightness&lt;/code&gt;. (#3643)&lt;/li&gt;
+&lt;li&gt;Support &lt;a href=&#34;https://arxiv.org/abs/1904.02689&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;YOLACT&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; (#3456)&lt;/li&gt;
+&lt;li&gt;Support &lt;a href=&#34;https://arxiv.org/abs/2003.09119&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CentripetalNet&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; (#3390)&lt;/li&gt;
+&lt;li&gt;Support PyTorch 1.6 in docker (#3905)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;bug-fixes-7&#34;&gt;Bug Fixes&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Fix the bug of training ATSS when there is no ground truth boxes (#3702)&lt;/li&gt;
+&lt;li&gt;Fix the bug of using Focal Loss when there is &lt;code&gt;num_pos&lt;/code&gt; is 0 (#3702)&lt;/li&gt;
+&lt;li&gt;Fix the label index mapping in dataset browser (#3708)&lt;/li&gt;
+&lt;li&gt;Fix Mask R-CNN training stuck problem when ther is no positive rois (#3713)&lt;/li&gt;
+&lt;li&gt;Fix the bug of &lt;code&gt;self.rpn_head.test_cfg&lt;/code&gt; in &lt;code&gt;RPNTestMixin&lt;/code&gt; by using &lt;code&gt;self.rpn_head&lt;/code&gt; in rpn head (#3808)&lt;/li&gt;
+&lt;li&gt;Fix deprecated &lt;code&gt;Conv2d&lt;/code&gt; from mmcv.ops (#3791)&lt;/li&gt;
+&lt;li&gt;Fix device bug in RepPoints (#3836)&lt;/li&gt;
+&lt;li&gt;Fix SABL validating bug (#3849)&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;https://download.openmmlab.com/mmcv/dist/index.html&lt;/code&gt; for installing MMCV (#3840)&lt;/li&gt;
+&lt;li&gt;Fix nonzero in NMS for PyTorch 1.6.0 (#3867)&lt;/li&gt;
+&lt;li&gt;Fix the API change bug of PAA (#3883)&lt;/li&gt;
+&lt;li&gt;Fix typo in bbox_flip (#3886)&lt;/li&gt;
+&lt;li&gt;Fix cv2 import error of ligGL.so.1 in Dockerfile (#3891)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;improvements-7&#34;&gt;Improvements&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Change to use &lt;code&gt;mmcv.utils.collect_env&lt;/code&gt; for collecting environment information to avoid duplicate codes (#3779)&lt;/li&gt;
+&lt;li&gt;Update checkpoint file names to v2.0 models in documentation (#3795)&lt;/li&gt;
+&lt;li&gt;Update tutorials for changing runtime settings (#3778), modifing loss (#3777)&lt;/li&gt;
+&lt;li&gt;Improve the function of &lt;code&gt;simple_test_bboxes&lt;/code&gt; in SABL (#3853)&lt;/li&gt;
+&lt;li&gt;Convert mask to bool before using it as img&amp;rsquo;s index for robustness and speedup (#3870)&lt;/li&gt;
+&lt;li&gt;Improve documentation of modules and dataset customization (#3821)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v240-592020&#34;&gt;v2.4.0 (5/9/2020)&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Highlights&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fix lots of issues/bugs and reorganize the trouble shooting page&lt;/li&gt;
+&lt;li&gt;Support new methods &lt;a href=&#34;https://arxiv.org/abs/1912.04260&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SABL&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, &lt;a href=&#34;https://arxiv.org/abs/1804.02767&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;YOLOv3&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, and &lt;a href=&#34;https://arxiv.org/abs/2007.08103&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PAA Assign&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Support Batch Inference&lt;/li&gt;
+&lt;li&gt;Start to publish &lt;code&gt;mmdet&lt;/code&gt; package to PyPI since v2.3.0&lt;/li&gt;
+&lt;li&gt;Switch model zoo to download.openmmlab.com&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Backwards Incompatible Changes&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Support Batch Inference (#3564, #3686, #3705): Since v2.4.0, MMDetection could inference model with multiple images in a single GPU.
+This change influences all the test APIs in MMDetection and downstream codebases. To help the users migrate their code, we use &lt;code&gt;replace_ImageToTensor&lt;/code&gt; (#3686) to convert legacy test data pipelines during dataset initialization.&lt;/li&gt;
+&lt;li&gt;Support RandomFlip with horizontal/vertical/diagonal direction (#3608): Since v2.4.0, MMDetection supports horizontal/vertical/diagonal flip in the data augmentation. This influences bounding box, mask, and image transformations in data augmentation process and the process that will map those data back to the original format.&lt;/li&gt;
+&lt;li&gt;Migrate to use &lt;code&gt;mmlvis&lt;/code&gt; and &lt;code&gt;mmpycocotools&lt;/code&gt; for COCO and LVIS dataset (#3727). The APIs are fully compatible with the original &lt;code&gt;lvis&lt;/code&gt; and &lt;code&gt;pycocotools&lt;/code&gt;. Users need to uninstall the existing pycocotools and lvis packages in their environment first and install &lt;code&gt;mmlvis&lt;/code&gt; &amp;amp; &lt;code&gt;mmpycocotools&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Bug Fixes&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fix default mean/std for onnx (#3491)&lt;/li&gt;
+&lt;li&gt;Fix coco evaluation and add metric items (#3497)&lt;/li&gt;
+&lt;li&gt;Fix typo for install.md (#3516)&lt;/li&gt;
+&lt;li&gt;Fix atss when sampler per gpu is 1 (#3528)&lt;/li&gt;
+&lt;li&gt;Fix import of fuse_conv_bn (#3529)&lt;/li&gt;
+&lt;li&gt;Fix bug of gaussian_target, update unittest of heatmap (#3543)&lt;/li&gt;
+&lt;li&gt;Fixed VOC2012 evaluate (#3553)&lt;/li&gt;
+&lt;li&gt;Fix scale factor bug of rescale (#3566)&lt;/li&gt;
+&lt;li&gt;Fix with_xxx_attributes in base detector (#3567)&lt;/li&gt;
+&lt;li&gt;Fix boxes scaling when number is 0 (#3575)&lt;/li&gt;
+&lt;li&gt;Fix rfp check when neck config is a list (#3591)&lt;/li&gt;
+&lt;li&gt;Fix import of fuse conv bn in benchmark.py (#3606)&lt;/li&gt;
+&lt;li&gt;Fix webcam demo (#3634)&lt;/li&gt;
+&lt;li&gt;Fix typo and itemize issues in tutorial (#3658)&lt;/li&gt;
+&lt;li&gt;Fix error in distributed training when some levels of FPN are not assigned with bounding boxes (#3670)&lt;/li&gt;
+&lt;li&gt;Fix the width and height orders of stride in valid flag generation (#3685)&lt;/li&gt;
+&lt;li&gt;Fix weight initialization bug in Res2Net DCN (#3714)&lt;/li&gt;
+&lt;li&gt;Fix bug in OHEMSampler (#3677)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;New Features&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Support Cutout augmentation (#3521)&lt;/li&gt;
+&lt;li&gt;Support evaluation on multiple datasets through ConcatDataset (#3522)&lt;/li&gt;
+&lt;li&gt;Support &lt;a href=&#34;https://arxiv.org/abs/2007.08103&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PAA assign&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; #(3547)&lt;/li&gt;
+&lt;li&gt;Support eval metric with pickle results (#3607)&lt;/li&gt;
+&lt;li&gt;Support &lt;a href=&#34;https://arxiv.org/abs/1804.02767&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;YOLOv3&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; (#3083)&lt;/li&gt;
+&lt;li&gt;Support &lt;a href=&#34;https://arxiv.org/abs/1912.04260&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SABL&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; (#3603)&lt;/li&gt;
+&lt;li&gt;Support to publish to Pypi in github-action (#3510)&lt;/li&gt;
+&lt;li&gt;Support custom imports (#3641)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Improvements&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Refactor common issues in documentation (#3530)&lt;/li&gt;
+&lt;li&gt;Add pytorch 1.6 to CI config (#3532)&lt;/li&gt;
+&lt;li&gt;Add config to runner meta (#3534)&lt;/li&gt;
+&lt;li&gt;Add eval-option flag for testing (#3537)&lt;/li&gt;
+&lt;li&gt;Add init_eval to evaluation hook (#3550)&lt;/li&gt;
+&lt;li&gt;Add include_bkg in ClassBalancedDataset (#3577)&lt;/li&gt;
+&lt;li&gt;Using config&amp;rsquo;s loading in inference_detector (#3611)&lt;/li&gt;
+&lt;li&gt;Add ATSS ResNet-101 models in model zoo (#3639)&lt;/li&gt;
+&lt;li&gt;Update urls to download.openmmlab.com (#3665)&lt;/li&gt;
+&lt;li&gt;Support non-mask training for CocoDataset (#3711)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v230-582020&#34;&gt;v2.3.0 (5/8/2020)&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Highlights&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The CUDA/C++ operators have been moved to &lt;code&gt;mmcv.ops&lt;/code&gt;. For backward compatibility &lt;code&gt;mmdet.ops&lt;/code&gt; is kept as warppers of &lt;code&gt;mmcv.ops&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Support new methods &lt;a href=&#34;https://arxiv.org/abs/1808.01244&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CornerNet&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, &lt;a href=&#34;https://arxiv.org/abs/1911.08287&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;DIOU&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;/&lt;a href=&#34;https://arxiv.org/abs/2005.03572&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CIOU&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; loss, and new dataset: &lt;a href=&#34;https://arxiv.org/abs/1908.03195&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;LVIS V1&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Provide more detailed colab training tutorials and more complete documentation.&lt;/li&gt;
+&lt;li&gt;Support to convert RetinaNet from Pytorch to ONNX.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Bug Fixes&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fix the model initialization bug of DetectoRS (#3187)&lt;/li&gt;
+&lt;li&gt;Fix the bug of module names in NASFCOSHead (#3205)&lt;/li&gt;
+&lt;li&gt;Fix the filename bug in publish_model.py (#3237)&lt;/li&gt;
+&lt;li&gt;Fix the dimensionality bug when &lt;code&gt;inside_flags.any()&lt;/code&gt; is &lt;code&gt;False&lt;/code&gt; in dense heads (#3242)&lt;/li&gt;
+&lt;li&gt;Fix the bug of forgetting to pass flip directions in &lt;code&gt;MultiScaleFlipAug&lt;/code&gt; (#3262)&lt;/li&gt;
+&lt;li&gt;Fixed the bug caused by default value of &lt;code&gt;stem_channels&lt;/code&gt; (#3333)&lt;/li&gt;
+&lt;li&gt;Fix the bug of model checkpoint loading for CPU inference (#3318, #3316)&lt;/li&gt;
+&lt;li&gt;Fix topk bug when box number is smaller than the expected topk number in ATSSAssigner (#3361)&lt;/li&gt;
+&lt;li&gt;Fix the gt priority bug in center_region_assigner.py (#3208)&lt;/li&gt;
+&lt;li&gt;Fix NaN issue of iou calculation in iou_loss.py (#3394)&lt;/li&gt;
+&lt;li&gt;Fix the bug that &lt;code&gt;iou_thrs&lt;/code&gt; is not actually used during evaluation in coco.py (#3407)&lt;/li&gt;
+&lt;li&gt;Fix test-time augmentation of RepPoints (#3435)&lt;/li&gt;
+&lt;li&gt;Fix runtimeError caused by incontiguous tensor in Res2Net+DCN (#3412)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;New Features&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Support &lt;a href=&#34;https://arxiv.org/abs/1808.01244&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CornerNet&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; (#3036)&lt;/li&gt;
+&lt;li&gt;Support &lt;a href=&#34;https://arxiv.org/abs/1911.08287&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;DIOU&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;/&lt;a href=&#34;https://arxiv.org/abs/2005.03572&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CIOU&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; loss (#3151)&lt;/li&gt;
+&lt;li&gt;Support &lt;a href=&#34;https://arxiv.org/abs/1908.03195&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;LVIS V1&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; dataset (#)&lt;/li&gt;
+&lt;li&gt;Support customized hooks in training (#3395)&lt;/li&gt;
+&lt;li&gt;Support fp16 training of generalized focal loss (#3410)&lt;/li&gt;
+&lt;li&gt;Support to convert RetinaNet from Pytorch to ONNX (#3075)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Improvements&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Support to process ignore boxes in ATSS assigner (#3082)&lt;/li&gt;
+&lt;li&gt;Allow to crop images without ground truth in &lt;code&gt;RandomCrop&lt;/code&gt; (#3153)&lt;/li&gt;
+&lt;li&gt;Enable the the &lt;code&gt;Accuracy&lt;/code&gt; module to set threshold (#3155)&lt;/li&gt;
+&lt;li&gt;Refactoring unit tests (#3206)&lt;/li&gt;
+&lt;li&gt;Unify the training settings of &lt;code&gt;to_float32&lt;/code&gt; and &lt;code&gt;norm_cfg&lt;/code&gt; in RegNets configs (#3210)&lt;/li&gt;
+&lt;li&gt;Add colab training tutorials for beginners (#3213, #3273)&lt;/li&gt;
+&lt;li&gt;Move CUDA/C++ operators into &lt;code&gt;mmcv.ops&lt;/code&gt; and keep &lt;code&gt;mmdet.ops&lt;/code&gt; as warppers for backward compatibility (#3232)(#3457)&lt;/li&gt;
+&lt;li&gt;Update installation scripts in documentation (#3290) and dockerfile (#3320)&lt;/li&gt;
+&lt;li&gt;Support to set image resize backend (#3392)&lt;/li&gt;
+&lt;li&gt;Remove git hash in version file (#3466)&lt;/li&gt;
+&lt;li&gt;Check mmcv version to force version compatibility (#3460)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v220-172020&#34;&gt;v2.2.0 (1/7/2020)&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Highlights&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Support new methods: &lt;a href=&#34;https://arxiv.org/abs/2006.02334&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;DetectoRS&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, &lt;a href=&#34;https://arxiv.org/abs/1912.08193&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PointRend&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, &lt;a href=&#34;https://arxiv.org/abs/2006.04388&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Generalized Focal Loss&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, &lt;a href=&#34;https://arxiv.org/abs/2004.06002&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dynamic R-CNN&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Bug Fixes&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fix FreeAnchor when no gt in image (#3176)&lt;/li&gt;
+&lt;li&gt;Clean up deprecated usage of &lt;code&gt;register_module()&lt;/code&gt; (#3092, #3161)&lt;/li&gt;
+&lt;li&gt;Fix pretrain bug in NAS FCOS (#3145)&lt;/li&gt;
+&lt;li&gt;Fix &lt;code&gt;num_classes&lt;/code&gt; in SSD (#3142)&lt;/li&gt;
+&lt;li&gt;Fix FCOS warmup (#3119)&lt;/li&gt;
+&lt;li&gt;Fix &lt;code&gt;rstrip&lt;/code&gt; in &lt;code&gt;tools/publish_model.py&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Fix &lt;code&gt;flip_ratio&lt;/code&gt; default value in RandomFLip pipeline (#3106)&lt;/li&gt;
+&lt;li&gt;Fix cityscapes eval with ms_rcnn (#3112)&lt;/li&gt;
+&lt;li&gt;Fix RPN softmax (#3056)&lt;/li&gt;
+&lt;li&gt;Fix filename of &lt;a href=&#34;mailto:LVIS@v0.5&#34;&gt;LVIS@v0.5&lt;/a&gt; (#2998)&lt;/li&gt;
+&lt;li&gt;Fix nan loss by filtering out-of-frame gt_bboxes in COCO (#2999)&lt;/li&gt;
+&lt;li&gt;Fix bug in FSAF (#3018)&lt;/li&gt;
+&lt;li&gt;Add FocalLoss &lt;code&gt;num_classes&lt;/code&gt; check (#2964)&lt;/li&gt;
+&lt;li&gt;Fix PISA Loss when there are no gts (#2992)&lt;/li&gt;
+&lt;li&gt;Avoid nan in &lt;code&gt;iou_calculator&lt;/code&gt; (#2975)&lt;/li&gt;
+&lt;li&gt;Prevent possible bugs in loading and transforms caused by shallow copy (#2967)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;New Features&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Add DetectoRS (#3064)&lt;/li&gt;
+&lt;li&gt;Support Generalize Focal Loss (#3097)&lt;/li&gt;
+&lt;li&gt;Support PointRend (#2752)&lt;/li&gt;
+&lt;li&gt;Support Dynamic R-CNN (#3040)&lt;/li&gt;
+&lt;li&gt;Add DeepFashion dataset (#2968)&lt;/li&gt;
+&lt;li&gt;Implement FCOS training tricks (#2935)&lt;/li&gt;
+&lt;li&gt;Use BaseDenseHead as base class for anchor-base heads (#2963)&lt;/li&gt;
+&lt;li&gt;Add &lt;code&gt;with_cp&lt;/code&gt; for BasicBlock (#2891)&lt;/li&gt;
+&lt;li&gt;Add &lt;code&gt;stem_channels&lt;/code&gt; argument for ResNet (#2954)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Improvements&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Add anchor free base head (#2867)&lt;/li&gt;
+&lt;li&gt;Migrate to github action (#3137)&lt;/li&gt;
+&lt;li&gt;Add docstring for datasets, pipelines, core modules and methods (#3130, #3125, #3120)&lt;/li&gt;
+&lt;li&gt;Add VOC benchmark (#3060)&lt;/li&gt;
+&lt;li&gt;Add &lt;code&gt;concat&lt;/code&gt; mode in GRoI (#3098)&lt;/li&gt;
+&lt;li&gt;Remove cmd arg &lt;code&gt;autorescale-lr&lt;/code&gt; (#3080)&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;len(data[&#39;img_metas&#39;])&lt;/code&gt; to indicate &lt;code&gt;num_samples&lt;/code&gt; (#3073, #3053)&lt;/li&gt;
+&lt;li&gt;Switch to EpochBasedRunner (#2976)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v210-862020&#34;&gt;v2.1.0 (8/6/2020)&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Highlights&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Support new backbones: &lt;a href=&#34;https://arxiv.org/abs/2003.13678&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;RegNetX&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, &lt;a href=&#34;https://arxiv.org/abs/1904.01169&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Res2Net&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Support new methods: &lt;a href=&#34;https://arxiv.org/abs/1906.04423&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;NASFCOS&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, &lt;a href=&#34;https://arxiv.org/abs/1904.04821&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PISA&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, &lt;a href=&#34;https://arxiv.org/abs/2004.13665&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GRoIE&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Support new dataset: &lt;a href=&#34;https://arxiv.org/abs/1908.03195&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;LVIS&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Bug Fixes&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Change the CLI argument &lt;code&gt;--validate&lt;/code&gt; to &lt;code&gt;--no-validate&lt;/code&gt; to enable validation after training epochs by default. (#2651)&lt;/li&gt;
+&lt;li&gt;Add missing cython to docker file (#2713)&lt;/li&gt;
+&lt;li&gt;Fix bug in nms cpu implementation (#2754)&lt;/li&gt;
+&lt;li&gt;Fix bug when showing mask results (#2763)&lt;/li&gt;
+&lt;li&gt;Fix gcc requirement (#2806)&lt;/li&gt;
+&lt;li&gt;Fix bug in async test (#2820)&lt;/li&gt;
+&lt;li&gt;Fix mask encoding-decoding bugs in test API (#2824)&lt;/li&gt;
+&lt;li&gt;Fix bug in test time augmentation (#2858, #2921, #2944)&lt;/li&gt;
+&lt;li&gt;Fix a typo in comment of apis/train (#2877)&lt;/li&gt;
+&lt;li&gt;Fix the bug of returning None when no gt bboxes are in the original image in &lt;code&gt;RandomCrop&lt;/code&gt;. Fix the bug that misses to handle &lt;code&gt;gt_bboxes_ignore&lt;/code&gt;, &lt;code&gt;gt_label_ignore&lt;/code&gt;, and &lt;code&gt;gt_masks_ignore&lt;/code&gt; in &lt;code&gt;RandomCrop&lt;/code&gt;, &lt;code&gt;MinIoURandomCrop&lt;/code&gt; and &lt;code&gt;Expand&lt;/code&gt; modules. (#2810)&lt;/li&gt;
+&lt;li&gt;Fix bug of &lt;code&gt;base_channels&lt;/code&gt; of regnet (#2917)&lt;/li&gt;
+&lt;li&gt;Fix the bug of logger when loading pre-trained weights in base detector (#2936)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;New Features&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Add IoU models (#2666)&lt;/li&gt;
+&lt;li&gt;Add colab demo for inference&lt;/li&gt;
+&lt;li&gt;Support class agnostic nms (#2553)&lt;/li&gt;
+&lt;li&gt;Add benchmark gathering scripts for development only (#2676)&lt;/li&gt;
+&lt;li&gt;Add mmdet-based project links (#2736, #2767, #2895)&lt;/li&gt;
+&lt;li&gt;Add config dump in training (#2779)&lt;/li&gt;
+&lt;li&gt;Add ClassBalancedDataset (#2721)&lt;/li&gt;
+&lt;li&gt;Add res2net backbone (#2237)&lt;/li&gt;
+&lt;li&gt;Support RegNetX models (#2710)&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;mmcv.FileClient&lt;/code&gt; to support different storage backends (#2712)&lt;/li&gt;
+&lt;li&gt;Add ClassBalancedDataset (#2721)&lt;/li&gt;
+&lt;li&gt;Code Release: Prime Sample Attention in Object Detection (CVPR 2020) (#2626)&lt;/li&gt;
+&lt;li&gt;Implement NASFCOS (#2682)&lt;/li&gt;
+&lt;li&gt;Add class weight in CrossEntropyLoss (#2797)&lt;/li&gt;
+&lt;li&gt;Support LVIS dataset (#2088)&lt;/li&gt;
+&lt;li&gt;Support GRoIE (#2584)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Improvements&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Allow different x and y strides in anchor heads. (#2629)&lt;/li&gt;
+&lt;li&gt;Make FSAF loss more robust to no gt (#2680)&lt;/li&gt;
+&lt;li&gt;Compute pure inference time instead (#2657) and update inference speed (#2730)&lt;/li&gt;
+&lt;li&gt;Avoided the possibility that a patch with 0 area is cropped. (#2704)&lt;/li&gt;
+&lt;li&gt;Add warnings when deprecated &lt;code&gt;imgs_per_gpu&lt;/code&gt; is used. (#2700)&lt;/li&gt;
+&lt;li&gt;Add a mask rcnn example for config (#2645)&lt;/li&gt;
+&lt;li&gt;Update model zoo (#2762, #2866, #2876, #2879, #2831)&lt;/li&gt;
+&lt;li&gt;Add &lt;code&gt;ori_filename&lt;/code&gt; to img_metas and use it in test show-dir (#2612)&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;img_fields&lt;/code&gt; to handle multiple images during image transform (#2800)&lt;/li&gt;
+&lt;li&gt;Add upsample_cfg support in FPN (#2787)&lt;/li&gt;
+&lt;li&gt;Add &lt;code&gt;[&#39;img&#39;]&lt;/code&gt; as default &lt;code&gt;img_fields&lt;/code&gt; for back compatibility (#2809)&lt;/li&gt;
+&lt;li&gt;Rename the pretrained model from &lt;code&gt;open-mmlab://resnet50_caffe&lt;/code&gt; and &lt;code&gt;open-mmlab://resnet50_caffe_bgr&lt;/code&gt; to &lt;code&gt;open-mmlab://detectron/resnet50_caffe&lt;/code&gt; and &lt;code&gt;open-mmlab://detectron2/resnet50_caffe&lt;/code&gt;. (#2832)&lt;/li&gt;
+&lt;li&gt;Added sleep(2) in test.py to reduce hanging problem (#2847)&lt;/li&gt;
+&lt;li&gt;Support &lt;code&gt;c10::half&lt;/code&gt; in CARAFE (#2890)&lt;/li&gt;
+&lt;li&gt;Improve documentations (#2918, #2714)&lt;/li&gt;
+&lt;li&gt;Use optimizer constructor in mmcv and clean the original implementation in &lt;code&gt;mmdet.core.optimizer&lt;/code&gt; (#2947)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v200-652020&#34;&gt;v2.0.0 (6/5/2020)&lt;/h3&gt;
+&lt;p&gt;In this release, we made lots of major refactoring and modifications.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Faster speed&lt;/strong&gt;. We optimize the training and inference speed for common models, achieving up to 30% speedup for training and 25% for inference. Please refer to &lt;a href=&#34;model_zoo.md#comparison-with-detectron2&#34;&gt;model zoo&lt;/a&gt; for details.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Higher performance&lt;/strong&gt;. We change some default hyperparameters with no additional cost, which leads to a gain of performance for most models. Please refer to &lt;a href=&#34;compatibility.md#training-hyperparameters&#34;&gt;compatibility&lt;/a&gt; for details.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;More documentation and tutorials&lt;/strong&gt;. We add a bunch of documentation and tutorials to help users get started more smoothly. Read it &lt;a href=&#34;https://mmdetection.readthedocs.io/en/latest/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Support PyTorch 1.5&lt;/strong&gt;. The support for 1.1 and 1.2 is dropped, and we switch to some new APIs.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Better configuration system&lt;/strong&gt;. Inheritance is supported to reduce the redundancy of configs.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Better modular design&lt;/strong&gt;. Towards the goal of simplicity and flexibility, we simplify some encapsulation while add more other configurable modules like BBoxCoder, IoUCalculator, OptimizerConstructor, RoIHead. Target computation is also included in heads and the call hierarchy is simpler.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Support new methods: &lt;a href=&#34;https://arxiv.org/abs/1903.00621&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;FSAF&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; and PAFPN (part of &lt;a href=&#34;https://arxiv.org/abs/1803.01534&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PAFPN&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Breaking Changes&lt;/strong&gt;
+Models training with MMDetection 1.x are not fully compatible with 2.0, please refer to the &lt;a href=&#34;compatibility.md&#34;&gt;compatibility doc&lt;/a&gt; for the details and how to migrate to the new version.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Improvements&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Unify cuda and cpp API for custom ops. (#2277)&lt;/li&gt;
+&lt;li&gt;New config files with inheritance. (#2216)&lt;/li&gt;
+&lt;li&gt;Encapsulate the second stage into RoI heads. (#1999)&lt;/li&gt;
+&lt;li&gt;Refactor GCNet/EmpericalAttention into plugins. (#2345)&lt;/li&gt;
+&lt;li&gt;Set low quality match as an option in IoU-based bbox assigners. (#2375)&lt;/li&gt;
+&lt;li&gt;Change the codebase&amp;rsquo;s coordinate system. (#2380)&lt;/li&gt;
+&lt;li&gt;Refactor the category order in heads. 0 means the first positive class instead of background now. (#2374)&lt;/li&gt;
+&lt;li&gt;Add bbox sampler and assigner registry. (#2419)&lt;/li&gt;
+&lt;li&gt;Speed up the inference of RPN. (#2420)&lt;/li&gt;
+&lt;li&gt;Add &lt;code&gt;train_cfg&lt;/code&gt; and &lt;code&gt;test_cfg&lt;/code&gt; as class members in all anchor heads. (#2422)&lt;/li&gt;
+&lt;li&gt;Merge target computation methods into heads. (#2429)&lt;/li&gt;
+&lt;li&gt;Add bbox coder to support different bbox encoding and losses. (#2480)&lt;/li&gt;
+&lt;li&gt;Unify the API for regression loss. (#2156)&lt;/li&gt;
+&lt;li&gt;Refactor Anchor Generator. (#2474)&lt;/li&gt;
+&lt;li&gt;Make &lt;code&gt;lr&lt;/code&gt; an optional argument for optimizers. (#2509)&lt;/li&gt;
+&lt;li&gt;Migrate to modules and methods in MMCV. (#2502, #2511, #2569, #2572)&lt;/li&gt;
+&lt;li&gt;Support PyTorch 1.5. (#2524)&lt;/li&gt;
+&lt;li&gt;Drop the support for Python 3.5 and use F-string in the codebase. (#2531)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Bug Fixes&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fix the scale factors for resized images without keep the aspect ratio. (#2039)&lt;/li&gt;
+&lt;li&gt;Check if max_num &amp;gt; 0 before slicing in NMS. (#2486)&lt;/li&gt;
+&lt;li&gt;Fix Deformable RoIPool when there is no instance. (#2490)&lt;/li&gt;
+&lt;li&gt;Fix the default value of assigned labels. (#2536)&lt;/li&gt;
+&lt;li&gt;Fix the evaluation of Cityscapes. (#2578)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;New Features&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Add deep_stem and avg_down option to ResNet, i.e., support ResNetV1d. (#2252)&lt;/li&gt;
+&lt;li&gt;Add L1 loss. (#2376)&lt;/li&gt;
+&lt;li&gt;Support both polygon and bitmap for instance masks. (#2353, #2540)&lt;/li&gt;
+&lt;li&gt;Support CPU mode for inference. (#2385)&lt;/li&gt;
+&lt;li&gt;Add optimizer constructor for complicated configuration of optimizers. (#2397, #2488)&lt;/li&gt;
+&lt;li&gt;Implement PAFPN. (#2392)&lt;/li&gt;
+&lt;li&gt;Support empty tensor input for some modules. (#2280)&lt;/li&gt;
+&lt;li&gt;Support for custom dataset classes without overriding it. (#2408, #2443)&lt;/li&gt;
+&lt;li&gt;Support to train subsets of coco dataset. (#2340)&lt;/li&gt;
+&lt;li&gt;Add iou_calculator to potentially support more IoU calculation methods. (2405)&lt;/li&gt;
+&lt;li&gt;Support class wise mean AP (was removed in the last version). (#2459)&lt;/li&gt;
+&lt;li&gt;Add option to save the testing result images. (#2414)&lt;/li&gt;
+&lt;li&gt;Support MomentumUpdaterHook. (#2571)&lt;/li&gt;
+&lt;li&gt;Add a demo to inference a single image. (#2605)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v110-2422020&#34;&gt;v1.1.0 (24/2/2020)&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Highlights&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dataset evaluation is rewritten with a unified api, which is used by both evaluation hooks and test scripts.&lt;/li&gt;
+&lt;li&gt;Support new methods: &lt;a href=&#34;https://arxiv.org/abs/1905.02188&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CARAFE&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Breaking Changes&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The new MMDDP inherits from the official DDP, thus the &lt;code&gt;__init__&lt;/code&gt; api is changed to be the same as official DDP.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;mask_head&lt;/code&gt; field in HTC config files is modified.&lt;/li&gt;
+&lt;li&gt;The evaluation and testing script is updated.&lt;/li&gt;
+&lt;li&gt;In all transforms, instance masks are stored as a numpy array shaped (n, h, w) instead of a list of (h, w) arrays, where n is the number of instances.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Bug Fixes&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fix IOU assigners when ignore_iof_thr &amp;gt; 0 and there is no pred boxes. (#2135)&lt;/li&gt;
+&lt;li&gt;Fix mAP evaluation when there are no ignored boxes. (#2116)&lt;/li&gt;
+&lt;li&gt;Fix the empty RoI input for Deformable RoI Pooling. (#2099)&lt;/li&gt;
+&lt;li&gt;Fix the dataset settings for multiple workflows. (#2103)&lt;/li&gt;
+&lt;li&gt;Fix the warning related to &lt;code&gt;torch.uint8&lt;/code&gt; in PyTorch 1.4. (#2105)&lt;/li&gt;
+&lt;li&gt;Fix the inference demo on devices other than gpu:0. (#2098)&lt;/li&gt;
+&lt;li&gt;Fix Dockerfile. (#2097)&lt;/li&gt;
+&lt;li&gt;Fix the bug that &lt;code&gt;pad_val&lt;/code&gt; is unused in Pad transform. (#2093)&lt;/li&gt;
+&lt;li&gt;Fix the albumentation transform when there is no ground truth bbox. (#2032)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Improvements&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use torch instead of numpy for random sampling. (#2094)&lt;/li&gt;
+&lt;li&gt;Migrate to the new MMDDP implementation in MMCV v0.3. (#2090)&lt;/li&gt;
+&lt;li&gt;Add meta information in logs. (#2086)&lt;/li&gt;
+&lt;li&gt;Rewrite Soft NMS with pytorch extension and remove cython as a dependency. (#2056)&lt;/li&gt;
+&lt;li&gt;Rewrite dataset evaluation. (#2042, #2087, #2114, #2128)&lt;/li&gt;
+&lt;li&gt;Use numpy array for masks in transforms. (#2030)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;New Features&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Implement &amp;ldquo;CARAFE: Content-Aware ReAssembly of FEatures&amp;rdquo;. (#1583)&lt;/li&gt;
+&lt;li&gt;Add &lt;code&gt;worker_init_fn()&lt;/code&gt; in data_loader when seed is set. (#2066, #2111)&lt;/li&gt;
+&lt;li&gt;Add logging utils. (#2035)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v100-3012020&#34;&gt;v1.0.0 (30/1/2020)&lt;/h3&gt;
+&lt;p&gt;This release mainly improves the code quality and add more docstrings.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Highlights&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Documentation is online now: &lt;a href=&#34;https://mmdetection.readthedocs.io&#34;&gt;https://mmdetection.readthedocs.io&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Support new models: &lt;a href=&#34;https://arxiv.org/abs/1912.02424&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ATSS&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;DCN is now available with the api &lt;code&gt;build_conv_layer&lt;/code&gt; and &lt;code&gt;ConvModule&lt;/code&gt; like the normal conv layer.&lt;/li&gt;
+&lt;li&gt;A tool to collect environment information is available for trouble shooting.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Bug Fixes&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fix the incompatibility of the latest numpy and pycocotools. (#2024)&lt;/li&gt;
+&lt;li&gt;Fix the case when distributed package is unavailable, e.g., on Windows. (#1985)&lt;/li&gt;
+&lt;li&gt;Fix the dimension issue for &lt;code&gt;refine_bboxes()&lt;/code&gt;. (#1962)&lt;/li&gt;
+&lt;li&gt;Fix the typo when &lt;code&gt;seg_prefix&lt;/code&gt; is a list. (#1906)&lt;/li&gt;
+&lt;li&gt;Add segmentation map cropping to RandomCrop. (#1880)&lt;/li&gt;
+&lt;li&gt;Fix the return value of &lt;code&gt;ga_shape_target_single()&lt;/code&gt;. (#1853)&lt;/li&gt;
+&lt;li&gt;Fix the loaded shape of empty proposals. (#1819)&lt;/li&gt;
+&lt;li&gt;Fix the mask data type when using albumentation. (#1818)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Improvements&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Enhance AssignResult and SamplingResult. (#1995)&lt;/li&gt;
+&lt;li&gt;Add ability to overwrite existing module in Registry. (#1982)&lt;/li&gt;
+&lt;li&gt;Reorganize requirements and make albumentations and imagecorruptions optional. (#1969)&lt;/li&gt;
+&lt;li&gt;Check NaN in &lt;code&gt;SSDHead&lt;/code&gt;. (#1935)&lt;/li&gt;
+&lt;li&gt;Encapsulate the DCN in ResNe(X)t into a ConvModule &amp;amp; Conv_layers. (#1894)&lt;/li&gt;
+&lt;li&gt;Refactoring for mAP evaluation and support multiprocessing and logging. (#1889)&lt;/li&gt;
+&lt;li&gt;Init the root logger before constructing Runner to log more information. (#1865)&lt;/li&gt;
+&lt;li&gt;Split &lt;code&gt;SegResizeFlipPadRescale&lt;/code&gt; into different existing transforms. (#1852)&lt;/li&gt;
+&lt;li&gt;Move &lt;code&gt;init_dist()&lt;/code&gt; to MMCV. (#1851)&lt;/li&gt;
+&lt;li&gt;Documentation and docstring improvements. (#1971, #1938, #1869, #1838)&lt;/li&gt;
+&lt;li&gt;Fix the color of the same class for mask visualization. (#1834)&lt;/li&gt;
+&lt;li&gt;Remove the option &lt;code&gt;keep_all_stages&lt;/code&gt; in HTC and Cascade R-CNN. (#1806)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;New Features&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Add two test-time options &lt;code&gt;crop_mask&lt;/code&gt; and &lt;code&gt;rle_mask_encode&lt;/code&gt; for mask heads. (#2013)&lt;/li&gt;
+&lt;li&gt;Support loading grayscale images as single channel. (#1975)&lt;/li&gt;
+&lt;li&gt;Implement &amp;ldquo;Bridging the Gap Between Anchor-based and Anchor-free Detection via Adaptive Training Sample Selection&amp;rdquo;. (#1872)&lt;/li&gt;
+&lt;li&gt;Add sphinx generated docs. (#1859, #1864)&lt;/li&gt;
+&lt;li&gt;Add GN support for flops computation. (#1850)&lt;/li&gt;
+&lt;li&gt;Collect env info for trouble shooting. (#1812)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v10rc1-13122019&#34;&gt;v1.0rc1 (13/12/2019)&lt;/h3&gt;
+&lt;p&gt;The RC1 release mainly focuses on improving the user experience, and fixing bugs.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Highlights&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Support new models: &lt;a href=&#34;https://arxiv.org/abs/1904.03797&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;FoveaBox&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, &lt;a href=&#34;https://arxiv.org/abs/1904.11490&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;RepPoints&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; and &lt;a href=&#34;https://arxiv.org/abs/1909.02466&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;FreeAnchor&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Add a Dockerfile.&lt;/li&gt;
+&lt;li&gt;Add a jupyter notebook demo and a webcam demo.&lt;/li&gt;
+&lt;li&gt;Setup the code style and CI.&lt;/li&gt;
+&lt;li&gt;Add lots of docstrings and unit tests.&lt;/li&gt;
+&lt;li&gt;Fix lots of bugs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Breaking Changes&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;There was a bug for computing COCO-style mAP w.r.t different scales (AP_s, AP_m, AP_l), introduced by #621. (#1679)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Bug Fixes&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fix a sampling interval bug in Libra R-CNN. (#1800)&lt;/li&gt;
+&lt;li&gt;Fix the learning rate in SSD300 WIDER FACE. (#1781)&lt;/li&gt;
+&lt;li&gt;Fix the scaling issue when &lt;code&gt;keep_ratio=False&lt;/code&gt;. (#1730)&lt;/li&gt;
+&lt;li&gt;Fix typos. (#1721, #1492, #1242, #1108, #1107)&lt;/li&gt;
+&lt;li&gt;Fix the shuffle argument in &lt;code&gt;build_dataloader&lt;/code&gt;. (#1693)&lt;/li&gt;
+&lt;li&gt;Clip the proposal when computing mask targets. (#1688)&lt;/li&gt;
+&lt;li&gt;Fix the &amp;ldquo;index out of range&amp;rdquo; bug for samplers in some corner cases. (#1610, #1404)&lt;/li&gt;
+&lt;li&gt;Fix the NMS issue on devices other than GPU:0. (#1603)&lt;/li&gt;
+&lt;li&gt;Fix SSD Head and GHM Loss on CPU. (#1578)&lt;/li&gt;
+&lt;li&gt;Fix the OOM error when there are too many gt bboxes. (#1575)&lt;/li&gt;
+&lt;li&gt;Fix the wrong keyword argument &lt;code&gt;nms_cfg&lt;/code&gt; in HTC. (#1573)&lt;/li&gt;
+&lt;li&gt;Process masks and semantic segmentation in Expand and MinIoUCrop transforms. (#1550, #1361)&lt;/li&gt;
+&lt;li&gt;Fix a scale bug in the Non Local op. (#1528)&lt;/li&gt;
+&lt;li&gt;Fix a bug in transforms when &lt;code&gt;gt_bboxes_ignore&lt;/code&gt; is None. (#1498)&lt;/li&gt;
+&lt;li&gt;Fix a bug when &lt;code&gt;img_prefix&lt;/code&gt; is None. (#1497)&lt;/li&gt;
+&lt;li&gt;Pass the device argument to &lt;code&gt;grid_anchors&lt;/code&gt; and &lt;code&gt;valid_flags&lt;/code&gt;. (#1478)&lt;/li&gt;
+&lt;li&gt;Fix the data pipeline for test_robustness. (#1476)&lt;/li&gt;
+&lt;li&gt;Fix the argument type of deformable pooling. (#1390)&lt;/li&gt;
+&lt;li&gt;Fix the coco_eval when there are only two classes. (#1376)&lt;/li&gt;
+&lt;li&gt;Fix a bug in Modulated DeformableConv when deformable_group&amp;gt;1. (#1359)&lt;/li&gt;
+&lt;li&gt;Fix the mask cropping in RandomCrop. (#1333)&lt;/li&gt;
+&lt;li&gt;Fix zero outputs in DeformConv when not running on cuda:0. (#1326)&lt;/li&gt;
+&lt;li&gt;Fix the type issue in Expand. (#1288)&lt;/li&gt;
+&lt;li&gt;Fix the inference API. (#1255)&lt;/li&gt;
+&lt;li&gt;Fix the inplace operation in Expand. (#1249)&lt;/li&gt;
+&lt;li&gt;Fix the from-scratch training config. (#1196)&lt;/li&gt;
+&lt;li&gt;Fix inplace add in RoIExtractor which cause an error in PyTorch 1.2. (#1160)&lt;/li&gt;
+&lt;li&gt;Fix FCOS when input images has no positive sample. (#1136)&lt;/li&gt;
+&lt;li&gt;Fix recursive imports. (#1099)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Improvements&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Print the config file and mmdet version in the log. (#1721)&lt;/li&gt;
+&lt;li&gt;Lint the code before compiling in travis CI. (#1715)&lt;/li&gt;
+&lt;li&gt;Add a probability argument for the &lt;code&gt;Expand&lt;/code&gt; transform. (#1651)&lt;/li&gt;
+&lt;li&gt;Update the PyTorch and CUDA version in the docker file. (#1615)&lt;/li&gt;
+&lt;li&gt;Raise a warning when specifying &lt;code&gt;--validate&lt;/code&gt; in non-distributed training. (#1624, #1651)&lt;/li&gt;
+&lt;li&gt;Beautify the mAP printing. (#1614)&lt;/li&gt;
+&lt;li&gt;Add pre-commit hook. (#1536)&lt;/li&gt;
+&lt;li&gt;Add the argument &lt;code&gt;in_channels&lt;/code&gt; to backbones. (#1475)&lt;/li&gt;
+&lt;li&gt;Add lots of docstrings and unit tests, thanks to &lt;a href=&#34;https://github.com/Erotemic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;@Erotemic&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;. (#1603, #1517, #1506, #1505, #1491, #1479, #1477, #1475, #1474)&lt;/li&gt;
+&lt;li&gt;Add support for multi-node distributed test when there is no shared storage. (#1399)&lt;/li&gt;
+&lt;li&gt;Optimize Dockerfile to reduce the image size. (#1306)&lt;/li&gt;
+&lt;li&gt;Update new results of HRNet. (#1284, #1182)&lt;/li&gt;
+&lt;li&gt;Add an argument &lt;code&gt;no_norm_on_lateral&lt;/code&gt; in FPN. (#1240)&lt;/li&gt;
+&lt;li&gt;Test the compiling in CI. (#1235)&lt;/li&gt;
+&lt;li&gt;Move docs to a separate folder. (#1233)&lt;/li&gt;
+&lt;li&gt;Add a jupyter notebook demo. (#1158)&lt;/li&gt;
+&lt;li&gt;Support different type of dataset for training. (#1133)&lt;/li&gt;
+&lt;li&gt;Use int64_t instead of long in cuda kernels. (#1131)&lt;/li&gt;
+&lt;li&gt;Support unsquare RoIs for bbox and mask heads. (#1128)&lt;/li&gt;
+&lt;li&gt;Manually add type promotion to make compatible to PyTorch 1.2. (#1114)&lt;/li&gt;
+&lt;li&gt;Allowing validation dataset for computing validation loss. (#1093)&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;.scalar_type()&lt;/code&gt; instead of &lt;code&gt;.type()&lt;/code&gt; to suppress some warnings. (#1070)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;New Features&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Add an option &lt;code&gt;--with_ap&lt;/code&gt; to compute the AP for each class. (#1549)&lt;/li&gt;
+&lt;li&gt;Implement &amp;ldquo;FreeAnchor: Learning to Match Anchors for Visual Object Detection&amp;rdquo;. (#1391)&lt;/li&gt;
+&lt;li&gt;Support &lt;a href=&#34;https://github.com/albumentations-team/albumentations&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Albumentations&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; for augmentations in the data pipeline. (#1354)&lt;/li&gt;
+&lt;li&gt;Implement &amp;ldquo;FoveaBox: Beyond Anchor-based Object Detector&amp;rdquo;. (#1339)&lt;/li&gt;
+&lt;li&gt;Support horizontal and vertical flipping. (#1273, #1115)&lt;/li&gt;
+&lt;li&gt;Implement &amp;ldquo;RepPoints: Point Set Representation for Object Detection&amp;rdquo;. (#1265)&lt;/li&gt;
+&lt;li&gt;Add test-time augmentation to HTC and Cascade R-CNN. (#1251)&lt;/li&gt;
+&lt;li&gt;Add a COCO result analysis tool. (#1228)&lt;/li&gt;
+&lt;li&gt;Add Dockerfile. (#1168)&lt;/li&gt;
+&lt;li&gt;Add a webcam demo. (#1155, #1150)&lt;/li&gt;
+&lt;li&gt;Add FLOPs counter. (#1127)&lt;/li&gt;
+&lt;li&gt;Allow arbitrary layer order for ConvModule. (#1078)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v10rc0-27072019&#34;&gt;v1.0rc0 (27/07/2019)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Implement lots of new methods and components (Mixed Precision Training, HTC, Libra R-CNN, Guided Anchoring, Empirical Attention, Mask Scoring R-CNN, Grid R-CNN (Plus), GHM, GCNet, FCOS, HRNet, Weight Standardization, etc.). Thank all collaborators!&lt;/li&gt;
+&lt;li&gt;Support two additional datasets: WIDER FACE and Cityscapes.&lt;/li&gt;
+&lt;li&gt;Refactoring for loss APIs and make it more flexible to adopt different losses and related hyper-parameters.&lt;/li&gt;
+&lt;li&gt;Speed up multi-gpu testing.&lt;/li&gt;
+&lt;li&gt;Integrate all compiling and installing in a single script.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v060-14042019&#34;&gt;v0.6.0 (14/04/2019)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Up to 30% speedup compared to the model zoo.&lt;/li&gt;
+&lt;li&gt;Support both PyTorch stable and nightly version.&lt;/li&gt;
+&lt;li&gt;Replace NMS and SigmoidFocalLoss with Pytorch CUDA extensions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v06rc006022019&#34;&gt;v0.6rc0(06/02/2019)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Migrate to PyTorch 1.0.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v057-06022019&#34;&gt;v0.5.7 (06/02/2019)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Add support for Deformable ConvNet v2. (Many thanks to the authors and &lt;a href=&#34;https://github.com/chengdazhi&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;@chengdazhi&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;This is the last release based on PyTorch 0.4.1.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v056-17012019&#34;&gt;v0.5.6 (17/01/2019)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Add support for Group Normalization.&lt;/li&gt;
+&lt;li&gt;Unify RPNHead and single stage heads (RetinaHead, SSDHead) with AnchorHead.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v055-22122018&#34;&gt;v0.5.5 (22/12/2018)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Add SSD for COCO and PASCAL VOC.&lt;/li&gt;
+&lt;li&gt;Add ResNeXt backbones and detection models.&lt;/li&gt;
+&lt;li&gt;Refactoring for Samplers/Assigners and add OHEM.&lt;/li&gt;
+&lt;li&gt;Add VOC dataset and evaluation scripts.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v054-27112018&#34;&gt;v0.5.4 (27/11/2018)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Add SingleStageDetector and RetinaNet.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v053-26112018&#34;&gt;v0.5.3 (26/11/2018)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Add Cascade R-CNN and Cascade Mask R-CNN.&lt;/li&gt;
+&lt;li&gt;Add support for Soft-NMS in config files.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v052-21102018&#34;&gt;v0.5.2 (21/10/2018)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Add support for custom datasets.&lt;/li&gt;
+&lt;li&gt;Add a script to convert PASCAL VOC annotations to the expected format.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v051-20102018&#34;&gt;v0.5.1 (20/10/2018)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Add BBoxAssigner and BBoxSampler, the &lt;code&gt;train_cfg&lt;/code&gt; field in config files are restructured.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ConvFCRoIHead&lt;/code&gt; / &lt;code&gt;SharedFCRoIHead&lt;/code&gt; are renamed to &lt;code&gt;ConvFCBBoxHead&lt;/code&gt; / &lt;code&gt;SharedFCBBoxHead&lt;/code&gt; for consistency.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: MMCV安装</title>
+      <link>https://Joevaen.github.io/docs/notes/install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/notes/install/</guid>
+      <description>
+        
+        
+        &lt;p&gt;We list some common troubles faced by many users and their corresponding solutions here. Feel free to enrich the list if you find any frequent issues and have ways to help others to solve them. If the contents here do not cover your issue, please create an issue using the &lt;a href=&#34;https://github.com/open-mmlab/mmdetection/blob/master/.github/ISSUE_TEMPLATE/error-report.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;provided templates&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; and make sure you fill in all required information in the template.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Compatibility issue between MMCV and MMDetection; &amp;ldquo;ConvWS is already registered in conv layer&amp;rdquo;; &amp;ldquo;AssertionError: MMCV==xxx is used but incompatible. Please install mmcv&amp;gt;=xxx, &amp;lt;=xxx.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Please install the correct version of MMCV for the version of your MMDetection following the &lt;a href=&#34;https://mmdetection.readthedocs.io/en/latest/get_started.html#installation&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;installation instruction&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;ldquo;No module named &amp;lsquo;mmcv.ops&amp;rsquo;&amp;quot;; &amp;ldquo;No module named &amp;lsquo;mmcv._ext&amp;rsquo;&amp;rdquo;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Uninstall existing mmcv in the environment using &lt;code&gt;pip uninstall mmcv&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Install mmcv-full following the &lt;a href=&#34;https://mmcv.readthedocs.io/en/latest/#installation&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;installation instruction&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Pytorch / CUDA环境</title>
+      <link>https://Joevaen.github.io/docs/notes/pytorch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/notes/pytorch/</guid>
+      <description>
+        
+        
+        &lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;ldquo;RTX 30 series card fails when building MMCV or MMDet&amp;rdquo;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Temporary work-around: do &lt;code&gt;MMCV_WITH_OPS=1 MMCV_CUDA_ARGS=&#39;-gencode=arch=compute_80,code=sm_80&#39; pip install -e .&lt;/code&gt;.
+The common issue is &lt;code&gt;nvcc fatal : Unsupported gpu architecture &#39;compute_86&#39;&lt;/code&gt;. This means that the compiler should optimize for sm_86, i.e., nvidia 30 series card, but such optimizations have not been supported by CUDA toolkit 11.0.
+This work-around modifies the compile flag by adding &lt;code&gt;MMCV_CUDA_ARGS=&#39;-gencode=arch=compute_80,code=sm_80&#39;&lt;/code&gt;, which tells &lt;code&gt;nvcc&lt;/code&gt; to optimize for &lt;strong&gt;sm_80&lt;/strong&gt;, i.e., Nvidia A100. Although A100 is different from the 30 series card, they use similar ampere architecture. This may hurt the performance but it works.&lt;/li&gt;
+&lt;li&gt;PyTorch developers have updated that the default compiler flags should be fixed by &lt;a href=&#34;https://github.com/pytorch/pytorch/pull/47585&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;pytorch/pytorch#47585&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;. So using PyTorch-nightly may also be able to solve the problem, though we have not tested it yet.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;ldquo;invalid device function&amp;rdquo; or &amp;ldquo;no kernel image is available for execution&amp;rdquo;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Check if your cuda runtime version (under &lt;code&gt;/usr/local/&lt;/code&gt;), &lt;code&gt;nvcc --version&lt;/code&gt; and &lt;code&gt;conda list cudatoolkit&lt;/code&gt; version match.&lt;/li&gt;
+&lt;li&gt;Run &lt;code&gt;python mmdet/utils/collect_env.py&lt;/code&gt; to check whether PyTorch, torchvision, and MMCV are built for the correct GPU architecture.
+You may need to set &lt;code&gt;TORCH_CUDA_ARCH_LIST&lt;/code&gt; to reinstall MMCV.
+The GPU arch table could be found &lt;a href=&#34;https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html#gpu-feature-list&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;,
+i.e. run &lt;code&gt;TORCH_CUDA_ARCH_LIST=7.0 pip install mmcv-full&lt;/code&gt; to build MMCV for Volta GPUs.
+The compatibility issue could happen when using old GPUS, e.g., Tesla K80 (3.7) on colab.&lt;/li&gt;
+&lt;li&gt;Check whether the running environment is the same as that when mmcv/mmdet has compiled.
+For example, you may compile mmcv using CUDA 10.0 but run it on CUDA 9.0 environments.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;ldquo;undefined symbol&amp;rdquo; or &amp;ldquo;cannot open xxx.so&amp;rdquo;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;If those symbols are CUDA/C++ symbols (e.g., libcudart.so or GLIBCXX), check whether the CUDA/GCC runtimes are the same as those used for compiling mmcv,
+i.e. run &lt;code&gt;python mmdet/utils/collect_env.py&lt;/code&gt; to see if &lt;code&gt;&amp;quot;MMCV Compiler&amp;quot;&lt;/code&gt;/&lt;code&gt;&amp;quot;MMCV CUDA Compiler&amp;quot;&lt;/code&gt; is the same as &lt;code&gt;&amp;quot;GCC&amp;quot;&lt;/code&gt;/&lt;code&gt;&amp;quot;CUDA_HOME&amp;quot;&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;If those symbols are PyTorch symbols (e.g., symbols containing caffe, aten, and TH), check whether the PyTorch version is the same as that used for compiling mmcv.&lt;/li&gt;
+&lt;li&gt;Run &lt;code&gt;python mmdet/utils/collect_env.py&lt;/code&gt; to check whether PyTorch, torchvision, and MMCV are built by and running on the same environment.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;setuptools.sandbox.UnpickleableException: DistutilsSetupError(&amp;ldquo;each element of &amp;lsquo;ext_modules&amp;rsquo; option must be an Extension instance or 2-tuple&amp;rdquo;)&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;If you are using miniconda rather than anaconda, check whether Cython is installed as indicated in &lt;a href=&#34;https://github.com/open-mmlab/mmdetection/issues/3379&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#3379&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.
+You need to manually install Cython first and then run command &lt;code&gt;pip install -r requirements.txt&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;You may also need to check the compatibility between the &lt;code&gt;setuptools&lt;/code&gt;, &lt;code&gt;Cython&lt;/code&gt;, and &lt;code&gt;PyTorch&lt;/code&gt; in your environment.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;ldquo;Segmentation fault&amp;rdquo;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Check you GCC version and use GCC 5.4. This usually caused by the incompatibility between PyTorch and the environment (e.g., GCC &amp;lt; 4.9 for PyTorch). We also recommand the users to avoid using GCC 5.5 because many feedbacks report that GCC 5.5 will cause &amp;ldquo;segmentation fault&amp;rdquo; and simply changing it to GCC 5.4 could solve the problem.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Check whether PyTorch is correctly installed and could use CUDA op, e.g. type the following command in your terminal.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;python -c &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;import torch; print(torch.cuda.is_available())&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And see whether they could correctly output results.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If Pytorch is correctly installed, check whether MMCV is correctly installed.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;python -c &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;import mmcv; import mmcv.ops&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If MMCV is correctly installed, then there will be no issue of the above two commands.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If MMCV and Pytorch is correctly installed, you man use &lt;code&gt;ipdb&lt;/code&gt;, &lt;code&gt;pdb&lt;/code&gt; to set breakpoints or directly add &amp;lsquo;print&amp;rsquo; in mmdetection code and see which part leads the segmentation fault.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 训练</title>
+      <link>https://Joevaen.github.io/docs/notes/training/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/notes/training/</guid>
+      <description>
+        
+        
+        &lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;ldquo;Loss goes Nan&amp;rdquo;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Check if the dataset annotations are valid: zero-size bounding boxes will cause the regression loss to be Nan due to the commonly used transformation for box regression. Some small size (width or height are smaller than 1) boxes will also cause this problem after data augmentation (e.g., instaboost). So check the data and try to filter out those zero-size boxes and skip some risky augmentations on the small-size boxes when you face the problem.&lt;/li&gt;
+&lt;li&gt;Reduce the learning rate: the learning rate might be too large due to some reasons, e.g., change of batch size. You can rescale them to the value that could stably train the model.&lt;/li&gt;
+&lt;li&gt;Extend the warmup iterations: some models are sensitive to the learning rate at the start of the training. You can extend the warmup iterations, e.g., change the &lt;code&gt;warmup_iters&lt;/code&gt; from 500 to 1000 or 2000.&lt;/li&gt;
+&lt;li&gt;Add gradient clipping: some models requires gradient clipping to stablize the training process. You can add gradient clippint to avoid gradients that are too large.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;’GPU out of memory&amp;quot;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;There are some scenarios when there are large amount of ground truth boxes, which may cause OOM during target assignment. You can set &lt;code&gt;gpu_assign_thr=N&lt;/code&gt; in the config of assigner thus the assigner will calculate box overlaps through CPU when there are more than N GT boxes.&lt;/li&gt;
+&lt;li&gt;Set &lt;code&gt;with_cp=True&lt;/code&gt; in the backbone. This uses the sublinear strategy in PyTorch to reduce GPU memory cost in the backbone.&lt;/li&gt;
+&lt;li&gt;Try mixed precision training using following the examples in &lt;code&gt;config/fp16&lt;/code&gt;. The &lt;code&gt;loss_scale&lt;/code&gt; might need further tuning for different models.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;ldquo;RuntimeError: Expected to have finished reduction in the prior iteration before starting a new one&amp;rdquo;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;This error indicates that your module has parameters that were not used in producing loss. This phenomenon may be caused by running different branches in your code in DDP mode.&lt;/li&gt;
+&lt;li&gt;You can set &lt;code&gt; find_unused_parameters = True&lt;/code&gt; in the config to solve the above problems or find those unused parameters manually.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

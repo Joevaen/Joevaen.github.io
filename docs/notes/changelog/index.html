@@ -1,0 +1,4817 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.82.1" />
+
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-512x512.png" sizes="512x512">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/site.webmanifest">
+<title>版本更新历史 | gRPC</title>
+<meta property="og:title" content="版本更新历史" />
+<meta property="og:description" content="Changelog v2.13.0 (01/6/2021) Highlights  Support new methods: CenterNet, Seesaw Loss, MobileNetV2  New Features  Support paper Objects as Points (#4602) Support paper Seesaw Loss for Long-Tailed Instance Segmentation (CVPR 2021) (#5128) Support MobileNetV2 backbone and inverted residual block (#5122) Support MIM (#5143) ONNX exportation with dynamic shapes of CornerNet (#5136) Add mask_soft config option to allow non-binary masks (#4615) Add PWC metafile (#5135)  Bug Fixes  Fix YOLOv3 FP16 training error (#5172) Fix Cacscade R-CNN TTA test error when det_bboxes length is 0 (#5221) Fix iou_thr variable naming errors in VOC recall calculation function (#5195) Fix Faster R-CNN performance dropped in ONNX Runtime (#5197) Fix DETR dict changed error when using python 3." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Joevaen.github.io/docs/notes/changelog/" /><meta property="article:section" content="docs" />
+
+<meta property="og:site_name" content="gRPC" />
+
+<meta itemprop="name" content="版本更新历史">
+<meta itemprop="description" content="Changelog v2.13.0 (01/6/2021) Highlights  Support new methods: CenterNet, Seesaw Loss, MobileNetV2  New Features  Support paper Objects as Points (#4602) Support paper Seesaw Loss for Long-Tailed Instance Segmentation (CVPR 2021) (#5128) Support MobileNetV2 backbone and inverted residual block (#5122) Support MIM (#5143) ONNX exportation with dynamic shapes of CornerNet (#5136) Add mask_soft config option to allow non-binary masks (#4615) Add PWC metafile (#5135)  Bug Fixes  Fix YOLOv3 FP16 training error (#5172) Fix Cacscade R-CNN TTA test error when det_bboxes length is 0 (#5221) Fix iou_thr variable naming errors in VOC recall calculation function (#5195) Fix Faster R-CNN performance dropped in ONNX Runtime (#5197) Fix DETR dict changed error when using python 3.">
+
+<meta itemprop="wordCount" content="5795">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="版本更新历史"/>
+<meta name="twitter:description" content="Changelog v2.13.0 (01/6/2021) Highlights  Support new methods: CenterNet, Seesaw Loss, MobileNetV2  New Features  Support paper Objects as Points (#4602) Support paper Seesaw Loss for Long-Tailed Instance Segmentation (CVPR 2021) (#5128) Support MobileNetV2 backbone and inverted residual block (#5122) Support MIM (#5143) ONNX exportation with dynamic shapes of CornerNet (#5136) Add mask_soft config option to allow non-binary masks (#4615) Add PWC metafile (#5135)  Bug Fixes  Fix YOLOv3 FP16 training error (#5172) Fix Cacscade R-CNN TTA test error when det_bboxes length is 0 (#5221) Fix iou_thr variable naming errors in VOC recall calculation function (#5195) Fix Faster R-CNN performance dropped in ONNX Runtime (#5197) Fix DETR dict changed error when using python 3."/>
+
+
+
+<link rel="preload" href="/css/style.min.e3cf82e558200e98b09736f835e12b188dca1353aad6649d3429c72923031431.css" as="style">
+<link href="/css/style.min.e3cf82e558200e98b09736f835e12b188dca1353aad6649d3429c72923031431.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163836834-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-163836834-2');
+  gtag('config', 'UA-60127042-1');
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="canonical" href="https://Joevaen.github.io/docs/notes/changelog/">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@grpcio">
+<meta name="twitter:creator" content="@grpcio">
+<meta name="twitter:image" content="https://Joevaen.github.io/img/logos/grpc-icon-color.png">
+<meta name="twitter:image:alt" content="gRPC color logo">
+
+<meta property="og:url" content="https://Joevaen.github.io/docs/notes/changelog/">
+<meta property="og:title" content="版本更新历史">
+<meta property="og:description" content="A high-performance, open source universal RPC framework">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="gRPC">
+<meta property="og:image" content="https://Joevaen.github.io/img/logos/grpc-icon-color.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="gRPC color logo">
+<meta property="og:locale" content="en_US">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-512x512.png" sizes="512x512">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/site.webmanifest">
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="672pt" height="436pt" viewBox="0 0 672 436"><g transform="translate(0.000000,436.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M3066 3659c-376-41-707-264-894-602-35-63-50-101-45-113 4-12 3-15-5-10s-10 1-5-10c5-13 9-11 23 15 9 18 19 29 22 25 4-3 4 3 1 15-4 14-1 21 9 21 8 0 27 23 42 51 119 218 360 416 607 499 96 33 250 60 337 60 551 0 1009-390 1097-933 48-296-20-597-193-847-24-36-35-56-23-46 35 32 24 2-23-61-49-64-119-128-220-198-36-26-66-49-66-51 0-10 123 74 187 128 63 53 173 174 182 201 2 7 9 19 16 27s36 58 63 110c198 373 185 786-35 1159-25 42-60 95-79 118-42 51-45 68-4 22 68-76 190-285 190-326 0-7 5-12 11-10 6 1 14-4 17-12 2-8 0-11-5-8-6 4-8-4-5-19 3-18 7-22 12-13 6 8 12-2 19-29 6-23 15-59 21-80 31-121 29-332-5-516-9-44-13-81-11-83s16 47 31 109c26 106 27 122 22 268-4 119-12 179-32 260-56 225-191 440-375 598-70 59-261 182-284 182-6 0 25-21 69-47 44-25 105-65 135-89 62-48 149-134 135-134-6 0-32 23-60 51-67 67-224 171-325 215-78 34-249 83-294 85-21 0-21 1-1 9 15 7 8 9-30 10-27 0-72 2-1e2 4-27 2-86 0-129-5z"/><path d="M36e2 3580c8-5 20-10 25-10 6 0 3 5-5 10s-19 10-25 10c-5 0-3-5 5-10z"/><path d="M3519 3276c-69-18-136-62-211-138-191-194-325-488-288-630 12-45 45-88 67-88 18 0 16 19-2 27-24 9-45 57-45 103 0 121 141 397 271 531 111 115 241 189 303 173 1e2-25 76-265-64-626l-40-105-58-13c-79-17-211-65-309-110-197-92-359-233-429-375-35-71-39-87-39-154 0-65 4-83 28-123 61-104 188-133 299-70 70 41 176 152 251 265 67 102 188 333 243 464 37 89 39 92 79 102 43 11 84 36 74 45-3 3-24-2-47-11s-45-14-48-11 15 63 41 133c126 349 145 579 49 615-33 13-68 12-125-4zm-29-794c0-4-47-102-104-218-197-398-362-594-5e2-594-68 0-124 44-151 119-85 243 203 545 645 675 93 27 110 30 110 18z"/><path d="M2081 2794c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M4291 2784c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M2071 2754c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M4302 2740c0-14 2-19 5-12 2 6 2 18 0 25-3 6-5 1-5-13z"/><path d="M2061 2714c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M2052 2660c0-14 2-19 5-12 2 6 2 18 0 25-3 6-5 1-5-13z"/><path d="M2043 2585c0-22 2-30 4-17 2 12 2 30 0 40-3 9-5-1-4-23z"/><path d="M4252 2018c-15-37-19-55-11-63 7-7 8-4 3 9-6 15-4 17 6 11 9-5 11-4 6 3-4 7-3 12 3 12s7 7 4 17c-5 12-3 14 8 8 8-4 11-5 7 0-4 4-4 13 2 19 5 7 5 17 1 24s-15-8-29-40z"/><path d="M4205 1919c-3-4 2-6 10-5 21 3 28 13 10 13-9 0-18-4-20-8z"/><path d="M4024 1668l-19-23 23 19c12 11 22 21 22 23 0 8-8 2-26-19z"/><path d="M4015 1628l-40-43 43 40c39 36 47 45 39 45-2 0-21-19-42-42z"/><path d="M3969 1613c-13-16-12-17 4-4s21 21 13 21c-2 0-10-8-17-17z"/><path d="M3919 1543c-13-16-12-17 4-4 9 7 17 15 17 17 0 8-8 3-21-13z"/><path d="M3705 1428c-11-6-23-15-26-20-3-6-9-9-13-9-19 3-27 0-22-7 7-12-61-35-75-26-8 5-9 3-4-6 6-10 3-12-13-8-14 4-20 2-15-5 4-6-2-8-15-5-12 4-20 2-17-2 3-5 0-10-7-13-7-2-2-2 12 0 39 7 179 63 194 78 7 8 16 12 18 10 3-3 5 2 5 10s-1 15-1 15c-1 0-10-6-21-12z"/><path d="M3448 1313c7-3 16-2 19 1 4 3-2 6-13 5-11 0-14-3-6-6z"/><path d="M3355 13e2c-27-7-27-8-5-8 14 0 39 4 55 8 27 7 27 8 5 8-14 0-38-4-55-8z"/><path d="M3263 1283c9-2 25-2 35 0 9 3 1 5-18 5s-27-2-17-5z"/><path d="M1810 981c0-75-4-103-15-115-17-17-20-66-4-66 6 0 24 13 40 29 29 29 29 31 29 140v111h-25c-25 0-25 0-25-99z"/><path d="M2211 1062c-51-25-73-61-74-120-1-70 33-116 101-137 36-10 28 31-13 69-26 25-35 42-35 66s9 41 35 66c19 18 35 42 35 53 0 25-5 26-49 3z"/><path d="M2290 1060c0-12 16-36 35-54 26-25 35-42 35-66s-9-41-35-66c-41-38-49-79-12-69 66 20 99 65 99 135s-33 115-99 135c-19 5-23 2-23-15z"/><path d="M2692 1053l3-28h1e2 1e2l3 28 3 27h-106-106l3-27z"/><path d="M3150 1068c0-7 23-70 52-140 48-119 53-128 78-128s30 9 78 130c29 72 52 135 52 141s-12 9-27 7c-23-2-31-13-51-63-13-33-31-76-39-95l-14-35-25 59c-13 33-24 63-24 67s15 9 33 11c27 2 32 7 32 28 0 24-3 25-72 28-55 2-73 0-73-10z"/><path d="M3724 1003c-43-93-48-128-19-128 15 0 28 17 50 63l30 62 25-62c14-35 27-66 28-70 2-5-35-8-82-8-76 0-86-2-1e2-22-8-12-13-25-10-30 7-11 261-10 268 1 3 5-19 67-49 137-48 114-57 129-80 132s-29-4-61-75z"/><path d="M4187 1073c-4-3-7-14-7-24 0-25 28-31 125-27 79 3 80 3 83 31l3 27h-99c-54 0-102-3-105-7z"/><path d="M4670 1068c0-7 43-71 96-141 77-105 99-128 117-125 21 3 22 7 25 141l3 138-28-3c-28-3-28-4-33-86l-5-83-62 85c-50 69-68 86-88 86-14 0-25-6-25-12z"/><path d="M2694 955c-14-37 2-45 89-45 88 0 114 11 101 44-9 23-182 24-190 1z"/><path d="M4184 955c-3-8-3-22 0-30 5-13 22-15 98-13 92 3 93 3 93 28s-1 25-93 28c-76 2-93 0-98-13z"/><path d="M1675 890c-10-16 4-48 32-70 32-25 40-25 48 0 13 40-60 103-80 70z"/><path d="M4670 850c0-47 2-50 25-50s25 3 25 50-2 50-25 50-25-3-25-50z"/><path d="M2694 845c-3-8-3-22 0-30 5-13 23-15 103-13 97 3 98 3 98 28s-1 25-98 28c-80 2-98 0-103-13z"/><path d="M4184 845c-15-38 1-45 106-45h101l-3 28-3 27-98 3c-80 2-98 0-103-13z"/></g></svg></span><span class="text-uppercase font-weight-bold">gRPC</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/about/" ><span>nnUNet</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/" ><span>MMDetection</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/showcase/" ><span>论文</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/blog/" ><span>Blog</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/community/" ><span>C&#43;&#43;</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  
+  <nav class="collapse td-sidebar-nav" id="td-section-nav">
+    
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">
+      
+        MMDetection中文文档
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docs">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/get_start/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        准备工作
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsget_start">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsget_startprerequisites" href="/docs/get_start/prerequisites/">
+            
+              1.环境配置
+            
+            </a>
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/get_start/installation/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        2.安装工作
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsget_startinstallation">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsget_startinstallationnormal_installation" href="/docs/get_start/installation/normal_installation/">
+            
+              常规安装
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsget_startinstallationcpu_only_install" href="/docs/get_start/installation/cpu_only_install/">
+            
+              仅有cpu安装
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsget_startinstallationdocker_image_install" href="/docs/get_start/installation/docker_image_install/">
+            
+              docker镜像安装
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsget_startinstallationfrom_scratch_install" href="/docs/get_start/installation/from_scratch_install/">
+            
+              从零开始的脚本
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsget_startinstallationmuiti_version_manage" href="/docs/get_start/installation/muiti_version_manage/">
+            
+              如何使用多个版本
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsget_startinstallationverify" href="/docs/get_start/installation/verify/">
+            
+              判断是否安装成功
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsget_startbenchmark_and_model_zoo" href="/docs/get_start/benchmark_and_model_zoo/">
+            
+              3.基准和模型
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/quickstart/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        快速开始
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsquickstart">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/quickstart/infer/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        使用现有模型和标准数据集的推理和训练
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsquickstartinfer">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/quickstart/infer/existing_infer/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        用现有模型进行推理
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsquickstartinferexisting_infer">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/quickstart/infer/existing_infer/api/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        推理的api
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsquickstartinferexisting_inferapi">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/quickstart/infer/existing_infer/interface/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        异步接口
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsquickstartinferexisting_inferinterface">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/quickstart/infer/existing_infer/demo/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        演示
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsquickstartinferexisting_inferdemo">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsquickstartinferexisting_inferdemoimage_demo" href="/docs/quickstart/infer/existing_infer/demo/image_demo/">
+            
+              图像演示
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsquickstartinferexisting_inferdemowebcam_demo" href="/docs/quickstart/infer/existing_infer/demo/webcam_demo/">
+            
+              摄像头演示
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsquickstartinferexisting_inferdemovideo" href="/docs/quickstart/infer/existing_infer/demo/video/">
+            
+              视频演示
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/quickstart/infer/test_on_standard/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        在标准数据集上进行现有模型的测试
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsquickstartinfertest_on_standard">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsquickstartinfertest_on_standardprepare" href="/docs/quickstart/infer/test_on_standard/prepare/">
+            
+              准备数据集
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsquickstartinfertest_on_standardtest" href="/docs/quickstart/infer/test_on_standard/test/">
+            
+              测试现有模型
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsquickstartinfertest_on_standardexamples" href="/docs/quickstart/infer/test_on_standard/examples/">
+            
+              例子
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsquickstartinfertest_on_standardwithout_gt" href="/docs/quickstart/infer/test_on_standard/without_gt/">
+            
+              无GT测试
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsquickstartinfertest_on_standardbatch" href="/docs/quickstart/infer/test_on_standard/batch/">
+            
+              推理batch
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsquickstartinfertest_on_standarddeprecate" href="/docs/quickstart/infer/test_on_standard/deprecate/">
+            
+              弃用ImageToTensor
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/quickstart/infer/predefined/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        在标准数据集上训练预定义模型
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsquickstartinferpredefined">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsquickstartinferpredefinedsingle_gpu" href="/docs/quickstart/infer/predefined/single_gpu/">
+            
+              单GPU训练
+            
+            </a>
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/quickstart/infer/predefined/multi/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        多GPU训练
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsquickstartinferpredefinedmulti">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsquickstartinferpredefinedmultilaunch" href="/docs/quickstart/infer/predefined/multi/launch/">
+            
+              同时启动多个作业
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsquickstartinferpredefinedmulti_node" href="/docs/quickstart/infer/predefined/multi_node/">
+            
+              多节点训练
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsquickstartinferpredefinedslurm" href="/docs/quickstart/infer/predefined/slurm/">
+            
+              slurm管理
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/quickstart/train/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        用自定义数据集训练
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsquickstarttrain">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/quickstart/train/prepare_data/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        准备自定义数据集
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsquickstarttrainprepare_data">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/quickstart/train/prepare_data/api/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        COCO标签格式
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsquickstarttrainprepare_dataapi">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/quickstart/train/test_on_standard/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        准备config
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsquickstarttraintest_on_standard">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsquickstarttraintrain" href="/docs/quickstart/train/train/">
+            
+              训练一个新的模型
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsquickstarttraintest" href="/docs/quickstart/train/test/">
+            
+              测试和推理
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        教程
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguages">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/cpp/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        1.学习如何使用Configs
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagescpp">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagescppquickstart" href="/docs/languages/cpp/quickstart/">
+            
+              通过脚本参数修改配置
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagescppbasics" href="/docs/languages/cpp/basics/">
+            
+              配置文件结构
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagescppasync" href="/docs/languages/cpp/async/">
+            
+              配置文件命名风格
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagescppalts" href="/docs/languages/cpp/alts/">
+            
+              丢弃这样的训练/测试配置方式：train_cfg/test_cfg
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagescppapi" href="/docs/languages/cpp/api/" target="_blank" rel="noopener">
+            
+              用Mask R-CNN进行举例说明
+            
+            <i class="fas fa-external-link-alt"></i></a>
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/cpp/faq/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        常见问题
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagescppfaq">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagescppfaqfaq1" href="/docs/languages/cpp/faq/faq1/">
+            
+              忘记基本配置文件中的一些字段
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagescppfaqfaq2" href="/docs/languages/cpp/faq/faq2/">
+            
+              在配置文件中使用中间变量
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/csharp/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        2.定制数据集
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagescsharp">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/csharp/new_data_format/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        对新数据格式的支持
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagescsharpnew_data_format">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/csharp/new_data_format/reorganize_exist/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        将新的数据格式重新组织到现有格式
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagescsharpnew_data_formatreorganize_exist">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagescsharpnew_data_formatreorganize_existmodify" href="/docs/languages/csharp/new_data_format/reorganize_exist/modify/">
+            
+              1.修改使用自定义数据集的配置文件
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagescsharpnew_data_formatreorganize_existcheck" href="/docs/languages/csharp/new_data_format/reorganize_exist/check/">
+            
+              2.检查自定义数据集的标签
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagescsharpnew_data_formatreorganize_middle" href="/docs/languages/csharp/new_data_format/reorganize_middle/">
+            
+              重新组织新数据格式到中间格式
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagescsharpnew_data_formatexample" href="/docs/languages/csharp/new_data_format/example/">
+            
+              自定义数据集的示例
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/csharp/dataset_wraper/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        通过数据集封装器自定义数据集
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagescsharpdataset_wraper">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagescsharpdataset_wrapersimple_repeat" href="/docs/languages/csharp/dataset_wraper/simple_repeat/">
+            
+              简单的重复数据集
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagescsharpdataset_wraperclass_balance" href="/docs/languages/csharp/dataset_wraper/class_balance/">
+            
+              类平衡数据集
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagescsharpdataset_wraperconcat_dataset" href="/docs/languages/csharp/dataset_wraper/concat_dataset/">
+            
+              合并数据集
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagescsharpquickstart" href="/docs/languages/csharp/quickstart/">
+            
+              修改数据集的类别
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/dart/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        3.自定义数据管道
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesdart">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/dart/design_pipeline/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        数据管道的设计
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesdartdesign_pipeline">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesdartdesign_pipelinedata_load" href="/docs/languages/dart/design_pipeline/data_load/">
+            
+              数据加载
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesdartdesign_pipelinepre_process" href="/docs/languages/dart/design_pipeline/pre_process/">
+            
+              预处理
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesdartdesign_pipelineformat" href="/docs/languages/dart/design_pipeline/format/">
+            
+              格式化
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesdartdesign_pipelinetime_aug" href="/docs/languages/dart/design_pipeline/time_aug/">
+            
+              测试时间增强
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesdartquickstart" href="/docs/languages/dart/quickstart/">
+            
+              扩展和使用定制管道
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/go/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        4.自定义模型
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesgo">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/go/develop_new_components/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        开发新组件
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesgodevelop_new_components">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/go/develop_new_components/add_backbone/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        添加新的backbone
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesgodevelop_new_componentsadd_backbone">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesgodevelop_new_componentsadd_backbonedefine" href="/docs/languages/go/develop_new_components/add_backbone/define/">
+            
+              1.定义一个新的骨架
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesgodevelop_new_componentsadd_backboneimport" href="/docs/languages/go/develop_new_components/add_backbone/import/">
+            
+              2.导入模块
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesgodevelop_new_componentsadd_backboneuse_in_config" href="/docs/languages/go/develop_new_components/add_backbone/use_in_config/">
+            
+              3.在你的配置文件中使用骨架
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/go/develop_new_components/add_neck/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        添加新的neck
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesgodevelop_new_componentsadd_neck">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesgodevelop_new_componentsadd_neckdefine" href="/docs/languages/go/develop_new_components/add_neck/define/">
+            
+              1.定义一个neck
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesgodevelop_new_componentsadd_neckimport" href="/docs/languages/go/develop_new_components/add_neck/import/">
+            
+              2.导入模块
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesgodevelop_new_componentsadd_neckuse_in_config" href="/docs/languages/go/develop_new_components/add_neck/use_in_config/">
+            
+              3.修改配置文件
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/go/develop_new_components/add_head/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        添加新的head
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesgodevelop_new_componentsadd_head">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/go/develop_new_components/add_loss/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        添加新的loss
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesgodevelop_new_componentsadd_loss">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesgodevelop_new_componentsadd_lossdefine" href="/docs/languages/go/develop_new_components/add_loss/define/">
+            
+              1.定义一个新的骨架
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesgodevelop_new_componentsadd_lossimport" href="/docs/languages/go/develop_new_components/add_loss/import/">
+            
+              2.导入模块
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesgodevelop_new_componentsadd_lossuse_in_config" href="/docs/languages/go/develop_new_components/add_loss/use_in_config/">
+            
+              3.在你的配置文件中使用骨架
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/java/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        5.自定义runtime设置
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesjava">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/java/optimizer_setting/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        自定义优化设置
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesjavaoptimizer_setting">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/java/optimizer_setting/optimizer_torch/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        自定义Pytorch支持的优化器
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesjavaoptimizer_settingoptimizer_torch">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/java/optimizer_setting/self_implemented/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        自定义自动化优化器
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesjavaoptimizer_settingself_implemented">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesjavaoptimizer_settingself_implementeddefine" href="/docs/languages/java/optimizer_setting/self_implemented/define/">
+            
+              1.定义一个新的优化器
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesjavaoptimizer_settingself_implementedimport" href="/docs/languages/java/optimizer_setting/self_implemented/import/">
+            
+              2.将优化器加入注册表
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesjavaoptimizer_settingself_implementedspecify_optimizer" href="/docs/languages/java/optimizer_setting/self_implemented/specify_optimizer/">
+            
+              3.在配置文件中指明优化器
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/java/optimizer_setting/optimizer_constructor/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        自定义优化器的构造函数
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesjavaoptimizer_settingoptimizer_constructor">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/java/optimizer_setting/add_set/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        额外的设置
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesjavaoptimizer_settingadd_set">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/java/training_schedule/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        自定义训练时间表
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesjavatraining_schedule">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/java/workflow/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        自定义workflow
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesjavaworkflow">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/java/hooks/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        自定义hooks
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesjavahooks">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/java/hooks/optimizer_torch/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        自定义自建hooks
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesjavahooksoptimizer_torch">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesjavahooksoptimizer_torchnew_hook" href="/docs/languages/java/hooks/optimizer_torch/new_hook/">
+            
+              创建一个新的hook
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesjavahooksoptimizer_torchregister" href="/docs/languages/java/hooks/optimizer_torch/register/">
+            
+              注册一个新的hook
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesjavahooksoptimizer_torchmodify_config" href="/docs/languages/java/hooks/optimizer_torch/modify_config/">
+            
+              修改配置文件
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/java/hooks/self_implemented/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        使用MMCV中实现的hooks
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesjavahooksself_implemented">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesjavahooksself_implementeddefine" href="/docs/languages/java/hooks/self_implemented/define/">
+            
+              4.例子NumClassCheckHook
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/java/hooks/optimizer_constructor/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        修改默认的运行hooks
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesjavahooksoptimizer_constructor">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesjavahooksoptimizer_constructorcheckpoint" href="/docs/languages/java/hooks/optimizer_constructor/checkpoint/">
+            
+              checkpoint配置文件
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesjavahooksoptimizer_constructorlog" href="/docs/languages/java/hooks/optimizer_constructor/log/">
+            
+              log配置文件
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesjavahooksoptimizer_constructorevaluation" href="/docs/languages/java/hooks/optimizer_constructor/evaluation/">
+            
+              evaluation配置文件
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/java/hooks/add_set/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        额外的设置
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesjavahooksadd_set">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/kotlin/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        6.自定义loss
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguageskotlin">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/kotlin/tweak/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        微调损失
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguageskotlintweak">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguageskotlintweakhyper_parameters" href="/docs/languages/kotlin/tweak/hyper_parameters/">
+            
+              调整超参数（步骤1）
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguageskotlintweakrecuction" href="/docs/languages/kotlin/tweak/recuction/">
+            
+              调整损失减少的方式（步骤3）
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguageskotlintweakweight" href="/docs/languages/kotlin/tweak/weight/">
+            
+              调整损失权重（步骤4）
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguageskotlinpipeline" href="/docs/languages/kotlin/pipeline/">
+            
+              计算损失的pipeline
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguageskotlinweighting" href="/docs/languages/kotlin/weighting/">
+            
+              加权损失（步骤2）
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/node/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        7.微调模型
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesnode">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesnodeinherit" href="/docs/languages/node/inherit/">
+            
+              继承基本配置
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesnodemodify_head" href="/docs/languages/node/modify_head/">
+            
+              修改head
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesnodemodify_dataset" href="/docs/languages/node/modify_dataset/">
+            
+              修改数据集
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesnodemodify_schedule" href="/docs/languages/node/modify_schedule/">
+            
+              修改训练schedule
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesnodeuse_pretained" href="/docs/languages/node/use_pretained/">
+            
+              使用预训练模型
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/objective-c/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        8.Pytorch to ONNX
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesobjective-c">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/objective-c/convert/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        怎样把模型从Pytorch转到ONNX
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesobjective-cconvert">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesobjective-cconvertpre" href="/docs/languages/objective-c/convert/pre/">
+            
+              前提
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesobjective-cconvertusage" href="/docs/languages/objective-c/convert/usage/">
+            
+              用法
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesobjective-cconvertarg" href="/docs/languages/objective-c/convert/arg/">
+            
+              参数解释
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/objective-c/evaluate/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        怎样评估导出的模型
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesobjective-cevaluate">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesobjective-cevaluatepre" href="/docs/languages/objective-c/evaluate/pre/">
+            
+              前提
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesobjective-cevaluateusage" href="/docs/languages/objective-c/evaluate/usage/">
+            
+              用法
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesobjective-cevaluatearg" href="/docs/languages/objective-c/evaluate/arg/">
+            
+              参数说明
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesobjective-cevaluateresult" href="/docs/languages/objective-c/evaluate/result/">
+            
+              模型和结果分析
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesobjective-clist" href="/docs/languages/objective-c/list/">
+            
+              支持导出为ONNX模型的列表
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesobjective-cnms" href="/docs/languages/objective-c/nms/">
+            
+              ONNX导出时的NMS参数
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesobjective-creminder" href="/docs/languages/objective-c/reminder/">
+            
+              提醒
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/php/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        9.ONNX to TensorRT
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesphp">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/php/convert/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        怎样把模型从ONNX转到TensorRT
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesphpconvert">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesphpconvertpre" href="/docs/languages/php/convert/pre/">
+            
+              前提
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesphpconvertusage" href="/docs/languages/php/convert/usage/">
+            
+              用法
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/languages/php/evaluate/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        怎样评估导出的模型
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslanguagesphpevaluate">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesphplist" href="/docs/languages/php/list/">
+            
+              支持导出为TensorRT模型的列表
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docslanguagesphpreminder" href="/docs/languages/php/reminder/">
+            
+              提醒
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/guides/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        有用的工具和脚本
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsguides">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsguideslog_analysis" href="/docs/guides/log_analysis/">
+            
+              log分析
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsguidesresult" href="/docs/guides/result/">
+            
+              结果分析
+            
+            </a>
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/guides/visual/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        可视化
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsguidesvisual">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsguidesvisualdata" href="/docs/guides/visual/data/">
+            
+              可视化数据
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsguidesvisualmodel" href="/docs/guides/visual/model/">
+            
+              可视化模型
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsguidesvisualpredict" href="/docs/guides/visual/predict/">
+            
+              可视化预测
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/guides/error/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        错误分析
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsguideserror">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/guides/serving/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        模型服务
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsguidesserving">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsguidesservingconvert" href="/docs/guides/serving/convert/">
+            
+              1.将MMDetection模型转换到TorchServe
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsguidesservingbuild" href="/docs/guides/serving/build/">
+            
+              2.创建docker镜像
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsguidesservingrun" href="/docs/guides/serving/run/">
+            
+              3.运行
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsguidesservingtest" href="/docs/guides/serving/test/">
+            
+              4.测试部署
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsguidesmodel_complex" href="/docs/guides/model_complex/">
+            
+              模型复杂度
+            
+            </a>
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/guides/model_conversion/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        模型转换
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsguidesmodel_conversion">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsguidesmodel_conversiononnx" href="/docs/guides/model_conversion/onnx/">
+            
+              从MMDetection模型到ONNX
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsguidesmodel_conversionmmdetection" href="/docs/guides/model_conversion/mmdetection/">
+            
+              MMDetection 1.x模型到MMDetection 2.x
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsguidesmodel_conversionregnet" href="/docs/guides/model_conversion/regnet/">
+            
+              RegNet模型到MMDetection
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsguidesmodel_conversiondetectron" href="/docs/guides/model_conversion/detectron/">
+            
+              detectron ResNet到Pytorch
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsguidesmodel_conversionpublish" href="/docs/guides/model_conversion/publish/">
+            
+              准备出版的模型
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsguidesdata_conversion" href="/docs/guides/data_conversion/">
+            
+              数据集转换
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsguidesrobust" href="/docs/guides/robust/">
+            
+              强大的检测基准
+            
+            </a>
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/guides/miscellaneous/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        其他的多样的
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsguidesmiscellaneous">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsguidesmiscellaneousevaluating" href="/docs/guides/miscellaneous/evaluating/">
+            
+              评估算法
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsguidesmiscellaneousprint" href="/docs/guides/miscellaneous/print/">
+            
+              打印配置文件
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/notes/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">
+      
+        笔记
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docsnotes">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/notes/convention/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        惯例
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsnotesconvention">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsnotesconventionloss" href="/docs/notes/convention/loss/">
+            
+              损失
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/notes/compatibility/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        MMDetection 2.x的兼容性
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsnotescompatibility">
+      
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/notes/compatibility/mmdetection2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        MMDetection 2.12.0
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsnotescompatibilitymmdetection2">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsnotescompatibilitymmdetection2mmcv" href="/docs/notes/compatibility/mmdetection2/mmcv/">
+            
+              MMCV版本
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsnotescompatibilitymmdetection2init" href="/docs/notes/compatibility/mmdetection2/init/">
+            
+              统一模型初始化
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsnotescompatibilitymmdetection2regist" href="/docs/notes/compatibility/mmdetection2/regist/">
+            
+              统一模型注册表
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsnotescompatibilitymmdetection2eval" href="/docs/notes/compatibility/mmdetection2/eval/">
+            
+              maskAP评估
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/notes/compatibility/mmdetection1/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        MMDetection 1.x的兼容性
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsnotescompatibilitymmdetection1">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsnotescompatibilitymmdetection1cord" href="/docs/notes/compatibility/mmdetection1/cord/">
+            
+              坐标系统
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsnotescompatibilitymmdetection1codebase" href="/docs/notes/compatibility/mmdetection1/codebase/">
+            
+              代码库惯例
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsnotescompatibilitymmdetection1train" href="/docs/notes/compatibility/mmdetection1/train/">
+            
+              训练超参数
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsnotescompatibilitymmdetection1upgrade" href="/docs/notes/compatibility/mmdetection1/upgrade/">
+            
+              将模型从1.x升级到2.0
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsnotescompatibilitypycocotools" href="/docs/notes/compatibility/pycocotools/">
+            
+              pycocotools兼容性
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/notes/projects/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">
+      
+        基于MMDetection的项目
+      
+    </a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsnotesprojects">
+      
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsnotesprojectsextension" href="/docs/notes/projects/extension/">
+            
+              作为扩展的项目
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsnotesprojectspaper" href="/docs/notes/projects/paper/">
+            
+              项目论文
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page  active" id="m-docsnoteschangelog" href="/docs/notes/changelog/">
+            
+              版本更新历史
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsnotesinstall" href="/docs/notes/install/">
+            
+              MMCV安装
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsnotespytorch" href="/docs/notes/pytorch/">
+            
+              Pytorch / CUDA环境
+            
+            </a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsnotestraining" href="/docs/notes/training/">
+            
+              训练
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docspractice" href="/docs/practice/">
+            
+              我的测试
+            
+            </a>
+        
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+          </div>
+          <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+            
+  
+  
+  
+  
+  
+  <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+  
+    
+    
+      
+    
+    
+    
+    
+    
+    
+    
+
+    <a href="https://github.com/grpc/grpc.io/edit/main/content/en/docs/notes/changelog.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+    <a href="https://github.com/grpc/grpc.io/new/main/content/en/docs/notes/changelog.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+    <a href="https://github.com/grpc/grpc.io/issues/new?title=%e7%89%88%e6%9c%ac%e6%9b%b4%e6%96%b0%e5%8e%86%e5%8f%b2" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+    
+      
+      <a href="https://github.com/grpc/grpc.io/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+    
+
+  
+  
+  </div>
+
+
+
+
+
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#changelog">Changelog</a>
+      <ul>
+        <li><a href="#v2130-0162021">v2.13.0 (01/6/2021)</a>
+          <ul>
+            <li><a href="#highlights">Highlights</a></li>
+            <li><a href="#new-features">New Features</a></li>
+            <li><a href="#bug-fixes">Bug Fixes</a></li>
+            <li><a href="#improvements">Improvements</a></li>
+          </ul>
+        </li>
+        <li><a href="#v2120-0152021">v2.12.0 (01/5/2021)</a>
+          <ul>
+            <li><a href="#highlights-1">Highlights</a></li>
+            <li><a href="#backwards-incompatible-changes">Backwards Incompatible Changes</a></li>
+            <li><a href="#new-features-1">New Features</a></li>
+            <li><a href="#improvements-1">Improvements</a></li>
+            <li><a href="#bug-fixes-1">Bug Fixes</a></li>
+          </ul>
+        </li>
+        <li><a href="#v2110-0142021">v2.11.0 (01/4/2021)</a></li>
+        <li><a href="#v2100-01032021">v2.10.0 (01/03/2021)</a>
+          <ul>
+            <li><a href="#highlights-2">Highlights</a></li>
+            <li><a href="#new-features-2">New Features</a></li>
+            <li><a href="#bug-fixes-2">Bug Fixes</a></li>
+            <li><a href="#improvements-2">Improvements</a></li>
+          </ul>
+        </li>
+        <li><a href="#v290-01022021">v2.9.0 (01/02/2021)</a>
+          <ul>
+            <li><a href="#highlights-3">Highlights</a></li>
+            <li><a href="#new-features-3">New Features</a></li>
+            <li><a href="#bug-fixes-3">Bug Fixes</a></li>
+            <li><a href="#improvements-3">Improvements</a></li>
+          </ul>
+        </li>
+        <li><a href="#v280-04012021">v2.8.0 (04/01/2021)</a>
+          <ul>
+            <li><a href="#highlights-4">Highlights</a></li>
+            <li><a href="#new-features-4">New Features</a></li>
+            <li><a href="#bug-fixes-4">Bug Fixes</a></li>
+            <li><a href="#improvements-4">Improvements</a></li>
+          </ul>
+        </li>
+        <li><a href="#v270-30112020">v2.7.0 (30/11/2020)</a>
+          <ul>
+            <li><a href="#new-features-5">New Features</a></li>
+            <li><a href="#bug-fixes-5">Bug Fixes</a></li>
+            <li><a href="#improvements-5">Improvements</a></li>
+          </ul>
+        </li>
+        <li><a href="#v260-1112020">v2.6.0 (1/11/2020)</a>
+          <ul>
+            <li><a href="#new-features-6">New Features</a></li>
+            <li><a href="#bug-fixes-6">Bug Fixes</a></li>
+            <li><a href="#improvements-6">Improvements</a></li>
+          </ul>
+        </li>
+        <li><a href="#v250-5102020">v2.5.0 (5/10/2020)</a>
+          <ul>
+            <li><a href="#highlights-5">Highlights</a></li>
+            <li><a href="#backwards-incompatible-changes-1">Backwards Incompatible Changes</a></li>
+            <li><a href="#new-features-7">New Features</a></li>
+            <li><a href="#bug-fixes-7">Bug Fixes</a></li>
+            <li><a href="#improvements-7">Improvements</a></li>
+          </ul>
+        </li>
+        <li><a href="#v240-592020">v2.4.0 (5/9/2020)</a></li>
+        <li><a href="#v230-582020">v2.3.0 (5/8/2020)</a></li>
+        <li><a href="#v220-172020">v2.2.0 (1/7/2020)</a></li>
+        <li><a href="#v210-862020">v2.1.0 (8/6/2020)</a></li>
+        <li><a href="#v200-652020">v2.0.0 (6/5/2020)</a></li>
+        <li><a href="#v110-2422020">v1.1.0 (24/2/2020)</a></li>
+        <li><a href="#v100-3012020">v1.0.0 (30/1/2020)</a></li>
+        <li><a href="#v10rc1-13122019">v1.0rc1 (13/12/2019)</a></li>
+        <li><a href="#v10rc0-27072019">v1.0rc0 (27/07/2019)</a></li>
+        <li><a href="#v060-14042019">v0.6.0 (14/04/2019)</a></li>
+        <li><a href="#v06rc006022019">v0.6rc0(06/02/2019)</a></li>
+        <li><a href="#v057-06022019">v0.5.7 (06/02/2019)</a></li>
+        <li><a href="#v056-17012019">v0.5.6 (17/01/2019)</a></li>
+        <li><a href="#v055-22122018">v0.5.5 (22/12/2018)</a></li>
+        <li><a href="#v054-27112018">v0.5.4 (27/11/2018)</a></li>
+        <li><a href="#v053-26112018">v0.5.3 (26/11/2018)</a></li>
+        <li><a href="#v052-21102018">v0.5.2 (21/10/2018)</a></li>
+        <li><a href="#v051-20102018">v0.5.1 (20/10/2018)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+          </div>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+            <nav aria-label="breadcrumb" class="d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://Joevaen.github.io/docs/">
+		
+			MMDetection中文文档
+		
+	</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://Joevaen.github.io/docs/notes/">
+		
+			笔记
+		
+	</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://Joevaen.github.io/docs/notes/changelog/">
+		
+			版本更新历史
+		
+	</a>
+</li>
+
+	</ol>
+</nav	>
+
+            <h1 class="mb-4 font-weight-bold">版本更新历史</h1>
+<p class="lead pb-2"></p>
+<div class="d-xl-none td-toc td-toc--inline d-print-none">
+  
+  
+    
+      <a id="td-content__toc-link" href="#td-content__toc" data-toggle="collapse" aria-controls="td-docs-toc" aria-expanded="false" aria-label="Toggle toc navigation">
+        <span class="lead">Contents<i class="fas fa-chevron-right ml-2"></i></span>
+      </a>
+      <div id="td-content__toc" class="collapse">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#changelog">Changelog</a>
+      <ul>
+        <li><a href="#v2130-0162021">v2.13.0 (01/6/2021)</a>
+          <ul>
+            <li><a href="#highlights">Highlights</a></li>
+            <li><a href="#new-features">New Features</a></li>
+            <li><a href="#bug-fixes">Bug Fixes</a></li>
+            <li><a href="#improvements">Improvements</a></li>
+          </ul>
+        </li>
+        <li><a href="#v2120-0152021">v2.12.0 (01/5/2021)</a>
+          <ul>
+            <li><a href="#highlights-1">Highlights</a></li>
+            <li><a href="#backwards-incompatible-changes">Backwards Incompatible Changes</a></li>
+            <li><a href="#new-features-1">New Features</a></li>
+            <li><a href="#improvements-1">Improvements</a></li>
+            <li><a href="#bug-fixes-1">Bug Fixes</a></li>
+          </ul>
+        </li>
+        <li><a href="#v2110-0142021">v2.11.0 (01/4/2021)</a></li>
+        <li><a href="#v2100-01032021">v2.10.0 (01/03/2021)</a>
+          <ul>
+            <li><a href="#highlights-2">Highlights</a></li>
+            <li><a href="#new-features-2">New Features</a></li>
+            <li><a href="#bug-fixes-2">Bug Fixes</a></li>
+            <li><a href="#improvements-2">Improvements</a></li>
+          </ul>
+        </li>
+        <li><a href="#v290-01022021">v2.9.0 (01/02/2021)</a>
+          <ul>
+            <li><a href="#highlights-3">Highlights</a></li>
+            <li><a href="#new-features-3">New Features</a></li>
+            <li><a href="#bug-fixes-3">Bug Fixes</a></li>
+            <li><a href="#improvements-3">Improvements</a></li>
+          </ul>
+        </li>
+        <li><a href="#v280-04012021">v2.8.0 (04/01/2021)</a>
+          <ul>
+            <li><a href="#highlights-4">Highlights</a></li>
+            <li><a href="#new-features-4">New Features</a></li>
+            <li><a href="#bug-fixes-4">Bug Fixes</a></li>
+            <li><a href="#improvements-4">Improvements</a></li>
+          </ul>
+        </li>
+        <li><a href="#v270-30112020">v2.7.0 (30/11/2020)</a>
+          <ul>
+            <li><a href="#new-features-5">New Features</a></li>
+            <li><a href="#bug-fixes-5">Bug Fixes</a></li>
+            <li><a href="#improvements-5">Improvements</a></li>
+          </ul>
+        </li>
+        <li><a href="#v260-1112020">v2.6.0 (1/11/2020)</a>
+          <ul>
+            <li><a href="#new-features-6">New Features</a></li>
+            <li><a href="#bug-fixes-6">Bug Fixes</a></li>
+            <li><a href="#improvements-6">Improvements</a></li>
+          </ul>
+        </li>
+        <li><a href="#v250-5102020">v2.5.0 (5/10/2020)</a>
+          <ul>
+            <li><a href="#highlights-5">Highlights</a></li>
+            <li><a href="#backwards-incompatible-changes-1">Backwards Incompatible Changes</a></li>
+            <li><a href="#new-features-7">New Features</a></li>
+            <li><a href="#bug-fixes-7">Bug Fixes</a></li>
+            <li><a href="#improvements-7">Improvements</a></li>
+          </ul>
+        </li>
+        <li><a href="#v240-592020">v2.4.0 (5/9/2020)</a></li>
+        <li><a href="#v230-582020">v2.3.0 (5/8/2020)</a></li>
+        <li><a href="#v220-172020">v2.2.0 (1/7/2020)</a></li>
+        <li><a href="#v210-862020">v2.1.0 (8/6/2020)</a></li>
+        <li><a href="#v200-652020">v2.0.0 (6/5/2020)</a></li>
+        <li><a href="#v110-2422020">v1.1.0 (24/2/2020)</a></li>
+        <li><a href="#v100-3012020">v1.0.0 (30/1/2020)</a></li>
+        <li><a href="#v10rc1-13122019">v1.0rc1 (13/12/2019)</a></li>
+        <li><a href="#v10rc0-27072019">v1.0rc0 (27/07/2019)</a></li>
+        <li><a href="#v060-14042019">v0.6.0 (14/04/2019)</a></li>
+        <li><a href="#v06rc006022019">v0.6rc0(06/02/2019)</a></li>
+        <li><a href="#v057-06022019">v0.5.7 (06/02/2019)</a></li>
+        <li><a href="#v056-17012019">v0.5.6 (17/01/2019)</a></li>
+        <li><a href="#v055-22122018">v0.5.5 (22/12/2018)</a></li>
+        <li><a href="#v054-27112018">v0.5.4 (27/11/2018)</a></li>
+        <li><a href="#v053-26112018">v0.5.3 (26/11/2018)</a></li>
+        <li><a href="#v052-21102018">v0.5.2 (21/10/2018)</a></li>
+        <li><a href="#v051-20102018">v0.5.1 (20/10/2018)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+      <button id="td-content__toc-link-expanded" href="#td-content__toc" class="btn btn-small ml-1 my-2 py-0 px-3" data-toggle="collapse" aria-controls="td-docs-toc" aria-expanded="true" aria-label="Toggle toc navigation">
+      </button>
+    
+  
+
+
+</div>
+<div class="td-content">
+	<h1>版本更新历史</h1>
+    
+	       
+	<h2 id="changelog">Changelog</h2>
+<h3 id="v2130-0162021">v2.13.0 (01/6/2021)</h3>
+<h4 id="highlights">Highlights</h4>
+<ul>
+<li>Support new methods: <a href="https://arxiv.org/abs/1904.07850" target="_blank" rel="noopener">CenterNet<i class="fas fa-external-link-alt"></i></a>, <a href="https://arxiv.org/abs/2008.10032" target="_blank" rel="noopener">Seesaw Loss<i class="fas fa-external-link-alt"></i></a>, <a href="https://arxiv.org/abs/1801.04381" target="_blank" rel="noopener">MobileNetV2<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<h4 id="new-features">New Features</h4>
+<ul>
+<li>Support paper <a href="https://arxiv.org/abs/1904.07850" target="_blank" rel="noopener">Objects as Points<i class="fas fa-external-link-alt"></i></a> (#4602)</li>
+<li>Support paper <a href="https://arxiv.org/abs/2008.10032" target="_blank" rel="noopener">Seesaw Loss for Long-Tailed Instance Segmentation (CVPR 2021)<i class="fas fa-external-link-alt"></i></a> (#5128)</li>
+<li>Support <a href="https://arxiv.org/abs/1801.04381" target="_blank" rel="noopener">MobileNetV2<i class="fas fa-external-link-alt"></i></a> backbone and inverted residual block (#5122)</li>
+<li>Support <a href="https://github.com/open-mmlab/mim" target="_blank" rel="noopener">MIM<i class="fas fa-external-link-alt"></i></a> (#5143)</li>
+<li>ONNX exportation with dynamic shapes of CornerNet (#5136)</li>
+<li>Add <code>mask_soft</code> config option to allow non-binary masks (#4615)</li>
+<li>Add PWC metafile (#5135)</li>
+</ul>
+<h4 id="bug-fixes">Bug Fixes</h4>
+<ul>
+<li>Fix YOLOv3 FP16 training error (#5172)</li>
+<li>Fix Cacscade R-CNN TTA test error when <code>det_bboxes</code> length is 0  (#5221)</li>
+<li>Fix <code>iou_thr</code> variable naming errors in VOC recall calculation function (#5195)</li>
+<li>Fix Faster R-CNN performance dropped in ONNX Runtime (#5197)</li>
+<li>Fix DETR dict changed error when using python 3.8 during iteration  (#5226)</li>
+</ul>
+<h4 id="improvements">Improvements</h4>
+<ul>
+<li>Refactor ONNX export of two stage detector (#5205)</li>
+<li>Replace MMDetection&rsquo;s EvalHook with MMCV&rsquo;s EvalHook for consistency  (#4806)</li>
+<li>Update RoI extractor for ONNX (#5194)</li>
+<li>Use better parameter initialization in YOLOv3 head for higher performance (#5181)</li>
+<li>Release new DCN models of Mask R-CNN by mixed-precision training (#5201)</li>
+<li>Update YOLOv3 model weights (#5229)</li>
+<li>Add DetectoRS ResNet-101 model weights (#4960)</li>
+<li>Discard bboxes with sizes equals to <code>min_bbox_size</code> (#5011)</li>
+<li>Remove duplicated code in DETR head (#5129)</li>
+<li>Remove unnecessary object in class definition (#5180)</li>
+<li>Fix doc link (#5192)</li>
+</ul>
+<h3 id="v2120-0152021">v2.12.0 (01/5/2021)</h3>
+<h4 id="highlights-1">Highlights</h4>
+<ul>
+<li>Support new methods: <a href="https://arxiv.org/abs/2007.03496" target="_blank" rel="noopener">AutoAssign<i class="fas fa-external-link-alt"></i></a>, <a href="https://arxiv.org/abs/2103.09460" target="_blank" rel="noopener">YOLOF<i class="fas fa-external-link-alt"></i></a>, and <a href="https://arxiv.org/abs/2010.04159" target="_blank" rel="noopener">Deformable DETR<i class="fas fa-external-link-alt"></i></a></li>
+<li>Stable support of exporting models to ONNX with batched images and dynamic shape (#5039)</li>
+</ul>
+<h4 id="backwards-incompatible-changes">Backwards Incompatible Changes</h4>
+<p>MMDetection is going through big refactoring for more general and convenient usages during the releases from v2.12.0 to v2.15.0 (maybe longer).
+In v2.12.0 MMDetection inevitably brings some BC-breakings, including the MMCV dependency, model initialization, model registry, and mask AP evaluation.</p>
+<ul>
+<li>MMCV version. MMDetection v2.12.0 relies on the newest features in MMCV 1.3.3, including <code>BaseModule</code> for unified parameter initialization, model registry, and the CUDA operator <code>MultiScaleDeformableAttn</code> for <a href="https://arxiv.org/abs/2010.04159" target="_blank" rel="noopener">Deformable DETR<i class="fas fa-external-link-alt"></i></a>. Note that MMCV 1.3.2 already contains all the features used by MMDet but has known issues. Therefore, we recommend users skip MMCV v1.3.2 and use v1.3.3, though v1.3.2 might work for most cases.</li>
+<li>Unified model initialization (#4750). To unify the parameter initialization in OpenMMLab projects, MMCV supports <code>BaseModule</code> that accepts <code>init_cfg</code> to allow the modules' parameters initialized in a flexible and unified manner. Now the users need to explicitly call <code>model.init_weights()</code> in the training script to initialize the model (as in <a href="https://github.com/open-mmlab/mmdetection/blob/master/tools/train.py#L162" target="_blank" rel="noopener">here<i class="fas fa-external-link-alt"></i></a>, previously this was handled by the detector. The models in MMDetection have been re-benchmarked to ensure accuracy based on PR #4750. <strong>The downstream projects should update their code accordingly to use MMDetection v2.12.0</strong>.</li>
+<li>Unified model registry (#5059). To easily use backbones implemented in other OpenMMLab projects, MMDetection migrates to inherit the model registry created in MMCV (#760). In this way, as long as the backbone is supported in an OpenMMLab project and that project also uses the registry in MMCV, users can use that backbone in MMDetection by simply modifying the config without copying the code of that backbone into MMDetection.</li>
+<li>Mask AP evaluation (#4898). Previous versions calculate the areas of masks through the bounding boxes when calculating the mask AP of small, medium, and large instances. To indeed use the areas of masks, we pop the key <code>bbox</code> during mask AP calculation. This change does not affect the overall mask AP evaluation and aligns the mask AP of similar models in other projects like Detectron2.</li>
+</ul>
+<h4 id="new-features-1">New Features</h4>
+<ul>
+<li>Support paper <a href="https://arxiv.org/abs/2007.03496" target="_blank" rel="noopener">AutoAssign: Differentiable Label Assignment for Dense Object Detection<i class="fas fa-external-link-alt"></i></a> (#4295)</li>
+<li>Support paper <a href="https://arxiv.org/abs/2103.09460" target="_blank" rel="noopener">You Only Look One-level Feature<i class="fas fa-external-link-alt"></i></a> (#4295)</li>
+<li>Support paper <a href="https://arxiv.org/abs/2010.04159" target="_blank" rel="noopener">Deformable DETR: Deformable Transformers for End-to-End Object Detection<i class="fas fa-external-link-alt"></i></a> (#4778)</li>
+<li>Support calculating IoU with FP16 tensor in <code>bbox_overlaps</code> to save memory and keep speed (#4889)</li>
+<li>Add <code>__repr__</code> in custom dataset to count the number of instances (#4756)</li>
+<li>Add windows support by updating requirements.txt (#5052)</li>
+<li>Stable support of exporting models to ONNX with batched images and dynamic shape, including SSD, FSAF,FCOS, YOLOv3, RetinaNet, Faster R-CNN, and Mask R-CNN (#5039)</li>
+</ul>
+<h4 id="improvements-1">Improvements</h4>
+<ul>
+<li>Use MMCV <code>MODEL_REGISTRY</code> (#5059)</li>
+<li>Unified parameter initialization for more flexible usage (#4750)</li>
+<li>Rename variable names and fix docstring in anchor head (#4883)</li>
+<li>Support training with empty GT in Cascade RPN (#4928)</li>
+<li>Add more details of usage of <code>test_robustness</code> in documentation (#4917)</li>
+<li>Changing to use <code>pycocotools</code> instead of <code>mmpycocotools</code> to fully support Detectron2 and MMDetection in one environment (#4939)</li>
+<li>Update torch serve dockerfile to support dockers of more versions (#4954)</li>
+<li>Add check for training with single class dataset (#4973)</li>
+<li>Refactor transformer and DETR Head (#4763)</li>
+<li>Update FPG model zoo (#5079)</li>
+<li>More accurate mask AP of small/medium/large instances (#4898)</li>
+</ul>
+<h4 id="bug-fixes-1">Bug Fixes</h4>
+<ul>
+<li>Fix bug in mean_ap.py when calculating mAP by 11 points (#4875)</li>
+<li>Fix error when key <code>meta</code> is not in old checkpoints (#4936)</li>
+<li>Fix hanging bug when training with empty GT in VFNet, GFL, and FCOS by changing the place of <code>reduce_mean</code> (#4923, #4978, #5058)</li>
+<li>Fix asyncronized inference error and provide related demo (#4941)</li>
+<li>Fix IoU losses dimensionality unmatch error (#4982)</li>
+<li>Fix torch.randperm whtn using PyTorch 1.8 (#5014)</li>
+<li>Fix empty bbox error in <code>mask_head</code> when using CARAFE (#5062)</li>
+<li>Fix <code>supplement_mask</code> bug when there are zero-size RoIs (#5065)</li>
+<li>Fix testing with empty rois in RoI Heads (#5081)</li>
+</ul>
+<h3 id="v2110-0142021">v2.11.0 (01/4/2021)</h3>
+<p><strong>Highlights</strong></p>
+<ul>
+<li>Support new method: <a href="https://arxiv.org/pdf/2102.12252.pdf" target="_blank" rel="noopener">Localization Distillation for Object Detection<i class="fas fa-external-link-alt"></i></a></li>
+<li>Support Pytorch2ONNX with batch inference and dynamic shape</li>
+</ul>
+<p><strong>New Features</strong></p>
+<ul>
+<li>Support <a href="https://arxiv.org/pdf/2102.12252.pdf" target="_blank" rel="noopener">Localization Distillation for Object Detection<i class="fas fa-external-link-alt"></i></a> (#4758)</li>
+<li>Support Pytorch2ONNX with batch inference and dynamic shape for Faster-RCNN and mainstream one-stage detectors (#4796)</li>
+</ul>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Support batch inference in head of RetinaNet (#4699)</li>
+<li>Add batch dimension in second stage of Faster-RCNN (#4785)</li>
+<li>Support batch inference in bbox coder (#4721)</li>
+<li>Add check for <code>ann_ids</code> in <code>COCODataset</code> to ensure it is unique (#4789)</li>
+<li>support for showing the FPN results (#4716)</li>
+<li>support dynamic shape for grid_anchor (#4684)</li>
+<li>Move pycocotools version check to when it is used (#4880)</li>
+</ul>
+<p><strong>Bug Fixes</strong></p>
+<ul>
+<li>Fix a bug of TridentNet when doing the batch inference (#4717)</li>
+<li>Fix a bug of Pytorch2ONNX in FASF (#4735)</li>
+<li>Fix a bug when show the image with float type (#4732)</li>
+</ul>
+<h3 id="v2100-01032021">v2.10.0 (01/03/2021)</h3>
+<h4 id="highlights-2">Highlights</h4>
+<ul>
+<li>Support new methods: <a href="https://arxiv.org/abs/2004.03580" target="_blank" rel="noopener">FPG<i class="fas fa-external-link-alt"></i></a></li>
+<li>Support ONNX2TensorRT for SSD, FSAF, FCOS, YOLOv3, and Faster R-CNN.</li>
+</ul>
+<h4 id="new-features-2">New Features</h4>
+<ul>
+<li>Support ONNX2TensorRT for SSD, FSAF, FCOS, YOLOv3, and Faster R-CNN (#4569)</li>
+<li>Support <a href="https://arxiv.org/abs/2004.03580" target="_blank" rel="noopener">Feature Pyramid Grids (FPG)<i class="fas fa-external-link-alt"></i></a> (#4645)</li>
+<li>Support video demo (#4420)</li>
+<li>Add seed option for sampler (#4665)</li>
+<li>Support to customize type of runner (#4570, #4669)</li>
+<li>Support synchronizing BN buffer in <code>EvalHook</code> (#4582)</li>
+<li>Add script for GIF demo (#4573)</li>
+</ul>
+<h4 id="bug-fixes-2">Bug Fixes</h4>
+<ul>
+<li>Fix ConfigDict AttributeError and add Colab link (#4643)</li>
+<li>Avoid crash in empty gt training of GFL head (#4631)</li>
+<li>Fix <code>iou_thrs</code> bug in RPN evaluation (#4581)</li>
+<li>Fix syntax error of config when upgrading model version (#4584)</li>
+</ul>
+<h4 id="improvements-2">Improvements</h4>
+<ul>
+<li>Refactor unit test file structures (#4600)</li>
+<li>Refactor nms config (#4636)</li>
+<li>Get loading pipeline by checking the class directly rather than through config strings (#4619)</li>
+<li>Add doctests for mask target generation and mask structures (#4614)</li>
+<li>Use deep copy when copying pipeline arguments (#4621)</li>
+<li>Update documentations (#4642, #4650, #4620, #4630)</li>
+<li>Remove redundant code calling <code>import_modules_from_strings</code> (#4601)</li>
+<li>Clean deprecated FP16 API (#4571)</li>
+<li>Check whether <code>CLASSES</code> is correctly initialized in the intialization of <code>XMLDataset</code> (#4555)</li>
+<li>Support batch inference in the inference API (#4462, #4526)</li>
+<li>Clean deprecated warning and fix &lsquo;meta&rsquo; error (#4695)</li>
+</ul>
+<h3 id="v290-01022021">v2.9.0 (01/02/2021)</h3>
+<h4 id="highlights-3">Highlights</h4>
+<ul>
+<li>Support new methods: <a href="https://arxiv.org/abs/2012.10150" target="_blank" rel="noopener">SCNet<i class="fas fa-external-link-alt"></i></a>, <a href="https://arxiv.org/abs/2011.12450" target="_blank" rel="noopener">Sparse R-CNN<i class="fas fa-external-link-alt"></i></a></li>
+<li>Move <code>train_cfg</code> and <code>test_cfg</code> into model in configs</li>
+<li>Support to visualize results based on prediction quality</li>
+</ul>
+<h4 id="new-features-3">New Features</h4>
+<ul>
+<li>Support <a href="https://arxiv.org/abs/2012.10150" target="_blank" rel="noopener">SCNet<i class="fas fa-external-link-alt"></i></a> (#4356)</li>
+<li>Support <a href="https://arxiv.org/abs/2011.12450" target="_blank" rel="noopener">Sparse R-CNN<i class="fas fa-external-link-alt"></i></a> (#4219)</li>
+<li>Support evaluate mAP by multiple IoUs (#4398)</li>
+<li>Support concatenate dataset for testing (#4452)</li>
+<li>Support to visualize results based on prediction quality (#4441)</li>
+<li>Add ONNX simplify option to Pytorch2ONNX script (#4468)</li>
+<li>Add hook for checking compatibility of class numbers in heads and datasets (#4508)</li>
+</ul>
+<h4 id="bug-fixes-3">Bug Fixes</h4>
+<ul>
+<li>Fix CPU inference bug of Cascade RPN (#4410)</li>
+<li>Fix NMS error of CornerNet when there is no prediction box (#4409)</li>
+<li>Fix TypeError in CornerNet inference (#4411)</li>
+<li>Fix bug of PAA when training with background images (#4391)</li>
+<li>Fix the error that the window data is not destroyed when <code>out_file is not None</code> and <code>show==False</code> (#4442)</li>
+<li>Fix order of NMS <code>score_factor</code> that will decrease the performance of YOLOv3 (#4473)</li>
+<li>Fix bug in HTC TTA when the number of detection boxes is 0 (#4516)</li>
+<li>Fix resize error in mask data structures (#4520)</li>
+</ul>
+<h4 id="improvements-3">Improvements</h4>
+<ul>
+<li>Allow to customize classes in LVIS dataset (#4382)</li>
+<li>Add tutorials for building new models with existing datasets (#4396)</li>
+<li>Add CPU compatibility information in documentation (#4405)</li>
+<li>Add documentation of deprecated <code>ImageToTensor</code> for batch inference (#4408)</li>
+<li>Add more details in documentation for customizing dataset (#4430)</li>
+<li>Switch <code>imshow_det_bboxes</code> visualization backend from OpenCV to Matplotlib (#4389)</li>
+<li>Deprecate <code>ImageToTensor</code> in <code>image_demo.py</code> (#4400)</li>
+<li>Move train_cfg/test_cfg into model (#4347, #4489)</li>
+<li>Update docstring for <code>reg_decoded_bbox</code> option in bbox heads (#4467)</li>
+<li>Update dataset information in documentation (#4525)</li>
+<li>Release pre-trained R50 and R101 PAA detectors with multi-scale 3x training schedules (#4495)</li>
+<li>Add guidance for speed benchmark (#4537)</li>
+</ul>
+<h3 id="v280-04012021">v2.8.0 (04/01/2021)</h3>
+<h4 id="highlights-4">Highlights</h4>
+<ul>
+<li>Support new methods: <a href="https://arxiv.org/abs/1909.06720" target="_blank" rel="noopener">Cascade RPN<i class="fas fa-external-link-alt"></i></a>, <a href="https://arxiv.org/abs/1901.01892" target="_blank" rel="noopener">TridentNet<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<h4 id="new-features-4">New Features</h4>
+<ul>
+<li>Support <a href="https://arxiv.org/abs/1909.06720" target="_blank" rel="noopener">Cascade RPN<i class="fas fa-external-link-alt"></i></a> (#1900)</li>
+<li>Support <a href="https://arxiv.org/abs/1901.01892" target="_blank" rel="noopener">TridentNet<i class="fas fa-external-link-alt"></i></a> (#3313)</li>
+</ul>
+<h4 id="bug-fixes-4">Bug Fixes</h4>
+<ul>
+<li>Fix bug of show result in async_benchmark (#4367)</li>
+<li>Fix scale factor in MaskTestMixin (#4366)</li>
+<li>Fix but when returning indices in <code>multiclass_nms</code> (#4362)</li>
+<li>Fix bug of empirical attention in resnext backbone error (#4300)</li>
+<li>Fix bug of <code>img_norm_cfg</code> in FCOS-HRNet models with updated performance and models (#4250)</li>
+<li>Fix invalid checkpoint and log in Mask R-CNN models on Cityscapes dataset (#4287)</li>
+<li>Fix bug in distributed sampler when dataset is too small (#4257)</li>
+<li>Fix bug of &lsquo;PAFPN has no attribute extra_convs_on_inputs&rsquo; (#4235)</li>
+</ul>
+<h4 id="improvements-4">Improvements</h4>
+<ul>
+<li>Update model url from aws to aliyun (#4349)</li>
+<li>Update ATSS for PyTorch 1.6+ (#4359)</li>
+<li>Update script to install ruby in pre-commit installation (#4360)</li>
+<li>Delete deprecated <code>mmdet.ops</code> (#4325)</li>
+<li>Refactor hungarian assigner for more general usage in Sparse R-CNN (#4259)</li>
+<li>Handle scipy import in DETR to reduce package dependencies (#4339)</li>
+<li>Update documentation of usages for config options after MMCV (1.2.3) supports overriding list in config (#4326)</li>
+<li>Update pre-train models of faster rcnn trained on COCO subsets (#4307)</li>
+<li>Avoid zero or too small value for beta in Dynamic R-CNN (#4303)</li>
+<li>Add doccumentation for Pytorch2ONNX (#4271)</li>
+<li>Add deprecated warning FPN arguments (#4264)</li>
+<li>Support returning indices of kept bboxes when using nms (#4251)</li>
+<li>Update type and device requirements when creating tensors <code>GFLHead</code> (#4210)</li>
+<li>Update device requirements when creating tensors in <code>CrossEntropyLoss</code> (#4224)</li>
+</ul>
+<h3 id="v270-30112020">v2.7.0 (30/11/2020)</h3>
+<ul>
+<li>Support new method: <a href="https://arxiv.org/abs/2005.12872" target="_blank" rel="noopener">DETR<i class="fas fa-external-link-alt"></i></a>, <a href="https://arxiv.org/abs/2004.08955" target="_blank" rel="noopener">ResNest<i class="fas fa-external-link-alt"></i></a>, Faster R-CNN DC5.</li>
+<li>Support YOLO, Mask R-CNN, and Cascade R-CNN models exportable to ONNX.</li>
+</ul>
+<h4 id="new-features-5">New Features</h4>
+<ul>
+<li>Support <a href="https://arxiv.org/abs/2005.12872" target="_blank" rel="noopener">DETR<i class="fas fa-external-link-alt"></i></a> (#4201, #4206)</li>
+<li>Support to link the best checkpoint in training (#3773)</li>
+<li>Support to override config through options in inference.py (#4175)</li>
+<li>Support YOLO, Mask R-CNN, and Cascade R-CNN models exportable to ONNX (#4087, #4083)</li>
+<li>Support <a href="https://arxiv.org/abs/2004.08955" target="_blank" rel="noopener">ResNeSt<i class="fas fa-external-link-alt"></i></a> backbone (#2959)</li>
+<li>Support unclip border bbox regression (#4076)</li>
+<li>Add tpfp func in evaluating AP (#4069)</li>
+<li>Support mixed precision training of SSD detector with other backbones (#4081)</li>
+<li>Add Faster R-CNN DC5 models (#4043)</li>
+</ul>
+<h4 id="bug-fixes-5">Bug Fixes</h4>
+<ul>
+<li>Fix bug of <code>gpu_id</code> in distributed training mode (#4163)</li>
+<li>Support Albumentations with version higher than 0.5 (#4032)</li>
+<li>Fix num_classes bug in faster rcnn config (#4088)</li>
+<li>Update code in docs/2_new_data_model.md (#4041)</li>
+</ul>
+<h4 id="improvements-5">Improvements</h4>
+<ul>
+<li>Ensure DCN offset to have similar type as features in VFNet (#4198)</li>
+<li>Add config links in README files of models (#4190)</li>
+<li>Add tutorials for loss conventions (#3818)</li>
+<li>Add solution to installation issues in 30-series GPUs (#4176)</li>
+<li>Update docker version in get_started.md (#4145)</li>
+<li>Add model statistics and polish some titles in configs README (#4140)</li>
+<li>Clamp neg probability in FreeAnchor (#4082)</li>
+<li>Speed up expanding large images (#4089)</li>
+<li>Fix Pytorch 1.7 incompatibility issues (#4103)</li>
+<li>Update trouble shooting page to resolve segmentation fault (#4055)</li>
+<li>Update aLRP-Loss in project page (#4078)</li>
+<li>Clean duplicated <code>reduce_mean</code> function (#4056)</li>
+<li>Refactor Q&amp;A (#4045)</li>
+</ul>
+<h3 id="v260-1112020">v2.6.0 (1/11/2020)</h3>
+<ul>
+<li>Support new method: <a href="https://arxiv.org/abs/2008.13367" target="_blank" rel="noopener">VarifocalNet<i class="fas fa-external-link-alt"></i></a>.</li>
+<li>Refactored documentation with more tutorials.</li>
+</ul>
+<h4 id="new-features-6">New Features</h4>
+<ul>
+<li>Support GIoU calculation in <code>BboxOverlaps2D</code>, and re-implement <code>giou_loss</code> using <code>bbox_overlaps</code> (#3936)</li>
+<li>Support random sampling in CPU mode (#3948)</li>
+<li>Support VarifocalNet (#3666, #4024)</li>
+</ul>
+<h4 id="bug-fixes-6">Bug Fixes</h4>
+<ul>
+<li>Fix SABL validating bug in Cascade R-CNN (#3913)</li>
+<li>Avoid division by zero in PAA head when num_pos=0 (#3938)</li>
+<li>Fix temporary directory bug of multi-node testing error (#4034, #4017)</li>
+<li>Fix <code>--show-dir</code> option in test script (#4025)</li>
+<li>Fix GA-RetinaNet r50 model url (#3983)</li>
+<li>Update code in docs and fix broken urls (#3947)</li>
+</ul>
+<h4 id="improvements-6">Improvements</h4>
+<ul>
+<li>Refactor pytorch2onnx API into <code>mmdet.core.export</code> and use <code>generate_inputs_and_wrap_model</code> for pytorch2onnx (#3857, #3912)</li>
+<li>Update RPN upgrade scripts for v2.5.0 compatibility (#3986)</li>
+<li>Use mmcv <code>tensor2imgs</code> (#4010)</li>
+<li>Update test robustness (#4000)</li>
+<li>Update trouble shooting page (#3994)</li>
+<li>Accelerate PAA training speed (#3985)</li>
+<li>Support batch_size &gt; 1 in validation (#3966)</li>
+<li>Use RoIAlign implemented in MMCV for inference in CPU mode (#3930)</li>
+<li>Documentation refactoring (#4031)</li>
+</ul>
+<h3 id="v250-5102020">v2.5.0 (5/10/2020)</h3>
+<h4 id="highlights-5">Highlights</h4>
+<ul>
+<li>Support new methods: <a href="https://arxiv.org/abs/1904.02689" target="_blank" rel="noopener">YOLACT<i class="fas fa-external-link-alt"></i></a>, <a href="https://arxiv.org/abs/2003.09119" target="_blank" rel="noopener">CentripetalNet<i class="fas fa-external-link-alt"></i></a>.</li>
+<li>Add more documentations for easier and more clear usage.</li>
+</ul>
+<h4 id="backwards-incompatible-changes-1">Backwards Incompatible Changes</h4>
+<p><strong>FP16 related methods are imported from mmcv instead of mmdet. (#3766, #3822)</strong>
+Mixed precision training utils in <code>mmdet.core.fp16</code> are moved to <code>mmcv.runner</code>, including <code>force_fp32</code>, <code>auto_fp16</code>, <code>wrap_fp16_model</code>, and <code>Fp16OptimizerHook</code>. A deprecation warning will be raised if users attempt to import those methods from <code>mmdet.core.fp16</code>, and will be finally removed in V2.10.0.</p>
+<p><strong>[0, N-1] represents foreground classes and N indicates background classes for all models. (#3221)</strong>
+Before v2.5.0, the background label for RPN is 0, and N for other heads. Now the behavior is consistent for all models. Thus <code>self.background_labels</code> in <code>dense_heads</code> is removed and all heads use <code>self.num_classes</code> to indicate the class index of background labels.
+This change has no effect on the pre-trained models in the v2.x model zoo, but will affect the training of all models with RPN heads. Two-stage detectors whose RPN head uses softmax will be affected because the order of categories is changed.</p>
+<p><strong>Only call <code>get_subset_by_classes</code> when <code>test_mode=True</code> and <code>self.filter_empty_gt=True</code> (#3695)</strong>
+Function <code>get_subset_by_classes</code> in dataset is refactored and only filters out images when <code>test_mode=True</code> and <code>self.filter_empty_gt=True</code>.
+In the original implementation, <code>get_subset_by_classes</code> is not related to the flag <code>self.filter_empty_gt</code> and will only be called when the classes is set during initialization no matter <code>test_mode</code> is <code>True</code> or <code>False</code>. This brings ambiguous behavior and potential bugs in many cases. After v2.5.0, if <code>filter_empty_gt=False</code>, no matter whether the classes are specified in a dataset, the dataset will use all the images in the annotations. If <code>filter_empty_gt=True</code> and <code>test_mode=True</code>, no matter whether the classes are specified, the dataset will call ``get_subset_by_classes` to check the images and filter out images containing no GT boxes. Therefore, the users should be responsible for the data filtering/cleaning process for the test dataset.</p>
+<h4 id="new-features-7">New Features</h4>
+<ul>
+<li>Test time augmentation for single stage detectors (#3844, #3638)</li>
+<li>Support to show the name of experiments during training (#3764)</li>
+<li>Add <code>Shear</code>, <code>Rotate</code>, <code>Translate</code> Augmentation (#3656, #3619, #3687)</li>
+<li>Add image-only transformations including <code>Constrast</code>, <code>Equalize</code>, <code>Color</code>, and <code>Brightness</code>. (#3643)</li>
+<li>Support <a href="https://arxiv.org/abs/1904.02689" target="_blank" rel="noopener">YOLACT<i class="fas fa-external-link-alt"></i></a> (#3456)</li>
+<li>Support <a href="https://arxiv.org/abs/2003.09119" target="_blank" rel="noopener">CentripetalNet<i class="fas fa-external-link-alt"></i></a> (#3390)</li>
+<li>Support PyTorch 1.6 in docker (#3905)</li>
+</ul>
+<h4 id="bug-fixes-7">Bug Fixes</h4>
+<ul>
+<li>Fix the bug of training ATSS when there is no ground truth boxes (#3702)</li>
+<li>Fix the bug of using Focal Loss when there is <code>num_pos</code> is 0 (#3702)</li>
+<li>Fix the label index mapping in dataset browser (#3708)</li>
+<li>Fix Mask R-CNN training stuck problem when ther is no positive rois (#3713)</li>
+<li>Fix the bug of <code>self.rpn_head.test_cfg</code> in <code>RPNTestMixin</code> by using <code>self.rpn_head</code> in rpn head (#3808)</li>
+<li>Fix deprecated <code>Conv2d</code> from mmcv.ops (#3791)</li>
+<li>Fix device bug in RepPoints (#3836)</li>
+<li>Fix SABL validating bug (#3849)</li>
+<li>Use <code>https://download.openmmlab.com/mmcv/dist/index.html</code> for installing MMCV (#3840)</li>
+<li>Fix nonzero in NMS for PyTorch 1.6.0 (#3867)</li>
+<li>Fix the API change bug of PAA (#3883)</li>
+<li>Fix typo in bbox_flip (#3886)</li>
+<li>Fix cv2 import error of ligGL.so.1 in Dockerfile (#3891)</li>
+</ul>
+<h4 id="improvements-7">Improvements</h4>
+<ul>
+<li>Change to use <code>mmcv.utils.collect_env</code> for collecting environment information to avoid duplicate codes (#3779)</li>
+<li>Update checkpoint file names to v2.0 models in documentation (#3795)</li>
+<li>Update tutorials for changing runtime settings (#3778), modifing loss (#3777)</li>
+<li>Improve the function of <code>simple_test_bboxes</code> in SABL (#3853)</li>
+<li>Convert mask to bool before using it as img&rsquo;s index for robustness and speedup (#3870)</li>
+<li>Improve documentation of modules and dataset customization (#3821)</li>
+</ul>
+<h3 id="v240-592020">v2.4.0 (5/9/2020)</h3>
+<p><strong>Highlights</strong></p>
+<ul>
+<li>Fix lots of issues/bugs and reorganize the trouble shooting page</li>
+<li>Support new methods <a href="https://arxiv.org/abs/1912.04260" target="_blank" rel="noopener">SABL<i class="fas fa-external-link-alt"></i></a>, <a href="https://arxiv.org/abs/1804.02767" target="_blank" rel="noopener">YOLOv3<i class="fas fa-external-link-alt"></i></a>, and <a href="https://arxiv.org/abs/2007.08103" target="_blank" rel="noopener">PAA Assign<i class="fas fa-external-link-alt"></i></a></li>
+<li>Support Batch Inference</li>
+<li>Start to publish <code>mmdet</code> package to PyPI since v2.3.0</li>
+<li>Switch model zoo to download.openmmlab.com</li>
+</ul>
+<p><strong>Backwards Incompatible Changes</strong></p>
+<ul>
+<li>Support Batch Inference (#3564, #3686, #3705): Since v2.4.0, MMDetection could inference model with multiple images in a single GPU.
+This change influences all the test APIs in MMDetection and downstream codebases. To help the users migrate their code, we use <code>replace_ImageToTensor</code> (#3686) to convert legacy test data pipelines during dataset initialization.</li>
+<li>Support RandomFlip with horizontal/vertical/diagonal direction (#3608): Since v2.4.0, MMDetection supports horizontal/vertical/diagonal flip in the data augmentation. This influences bounding box, mask, and image transformations in data augmentation process and the process that will map those data back to the original format.</li>
+<li>Migrate to use <code>mmlvis</code> and <code>mmpycocotools</code> for COCO and LVIS dataset (#3727). The APIs are fully compatible with the original <code>lvis</code> and <code>pycocotools</code>. Users need to uninstall the existing pycocotools and lvis packages in their environment first and install <code>mmlvis</code> &amp; <code>mmpycocotools</code>.</li>
+</ul>
+<p><strong>Bug Fixes</strong></p>
+<ul>
+<li>Fix default mean/std for onnx (#3491)</li>
+<li>Fix coco evaluation and add metric items (#3497)</li>
+<li>Fix typo for install.md (#3516)</li>
+<li>Fix atss when sampler per gpu is 1 (#3528)</li>
+<li>Fix import of fuse_conv_bn (#3529)</li>
+<li>Fix bug of gaussian_target, update unittest of heatmap (#3543)</li>
+<li>Fixed VOC2012 evaluate (#3553)</li>
+<li>Fix scale factor bug of rescale (#3566)</li>
+<li>Fix with_xxx_attributes in base detector (#3567)</li>
+<li>Fix boxes scaling when number is 0 (#3575)</li>
+<li>Fix rfp check when neck config is a list (#3591)</li>
+<li>Fix import of fuse conv bn in benchmark.py (#3606)</li>
+<li>Fix webcam demo (#3634)</li>
+<li>Fix typo and itemize issues in tutorial (#3658)</li>
+<li>Fix error in distributed training when some levels of FPN are not assigned with bounding boxes (#3670)</li>
+<li>Fix the width and height orders of stride in valid flag generation (#3685)</li>
+<li>Fix weight initialization bug in Res2Net DCN (#3714)</li>
+<li>Fix bug in OHEMSampler (#3677)</li>
+</ul>
+<p><strong>New Features</strong></p>
+<ul>
+<li>Support Cutout augmentation (#3521)</li>
+<li>Support evaluation on multiple datasets through ConcatDataset (#3522)</li>
+<li>Support <a href="https://arxiv.org/abs/2007.08103" target="_blank" rel="noopener">PAA assign<i class="fas fa-external-link-alt"></i></a> #(3547)</li>
+<li>Support eval metric with pickle results (#3607)</li>
+<li>Support <a href="https://arxiv.org/abs/1804.02767" target="_blank" rel="noopener">YOLOv3<i class="fas fa-external-link-alt"></i></a> (#3083)</li>
+<li>Support <a href="https://arxiv.org/abs/1912.04260" target="_blank" rel="noopener">SABL<i class="fas fa-external-link-alt"></i></a> (#3603)</li>
+<li>Support to publish to Pypi in github-action (#3510)</li>
+<li>Support custom imports (#3641)</li>
+</ul>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Refactor common issues in documentation (#3530)</li>
+<li>Add pytorch 1.6 to CI config (#3532)</li>
+<li>Add config to runner meta (#3534)</li>
+<li>Add eval-option flag for testing (#3537)</li>
+<li>Add init_eval to evaluation hook (#3550)</li>
+<li>Add include_bkg in ClassBalancedDataset (#3577)</li>
+<li>Using config&rsquo;s loading in inference_detector (#3611)</li>
+<li>Add ATSS ResNet-101 models in model zoo (#3639)</li>
+<li>Update urls to download.openmmlab.com (#3665)</li>
+<li>Support non-mask training for CocoDataset (#3711)</li>
+</ul>
+<h3 id="v230-582020">v2.3.0 (5/8/2020)</h3>
+<p><strong>Highlights</strong></p>
+<ul>
+<li>The CUDA/C++ operators have been moved to <code>mmcv.ops</code>. For backward compatibility <code>mmdet.ops</code> is kept as warppers of <code>mmcv.ops</code>.</li>
+<li>Support new methods <a href="https://arxiv.org/abs/1808.01244" target="_blank" rel="noopener">CornerNet<i class="fas fa-external-link-alt"></i></a>, <a href="https://arxiv.org/abs/1911.08287" target="_blank" rel="noopener">DIOU<i class="fas fa-external-link-alt"></i></a>/<a href="https://arxiv.org/abs/2005.03572" target="_blank" rel="noopener">CIOU<i class="fas fa-external-link-alt"></i></a> loss, and new dataset: <a href="https://arxiv.org/abs/1908.03195" target="_blank" rel="noopener">LVIS V1<i class="fas fa-external-link-alt"></i></a></li>
+<li>Provide more detailed colab training tutorials and more complete documentation.</li>
+<li>Support to convert RetinaNet from Pytorch to ONNX.</li>
+</ul>
+<p><strong>Bug Fixes</strong></p>
+<ul>
+<li>Fix the model initialization bug of DetectoRS (#3187)</li>
+<li>Fix the bug of module names in NASFCOSHead (#3205)</li>
+<li>Fix the filename bug in publish_model.py (#3237)</li>
+<li>Fix the dimensionality bug when <code>inside_flags.any()</code> is <code>False</code> in dense heads (#3242)</li>
+<li>Fix the bug of forgetting to pass flip directions in <code>MultiScaleFlipAug</code> (#3262)</li>
+<li>Fixed the bug caused by default value of <code>stem_channels</code> (#3333)</li>
+<li>Fix the bug of model checkpoint loading for CPU inference (#3318, #3316)</li>
+<li>Fix topk bug when box number is smaller than the expected topk number in ATSSAssigner (#3361)</li>
+<li>Fix the gt priority bug in center_region_assigner.py (#3208)</li>
+<li>Fix NaN issue of iou calculation in iou_loss.py (#3394)</li>
+<li>Fix the bug that <code>iou_thrs</code> is not actually used during evaluation in coco.py (#3407)</li>
+<li>Fix test-time augmentation of RepPoints (#3435)</li>
+<li>Fix runtimeError caused by incontiguous tensor in Res2Net+DCN (#3412)</li>
+</ul>
+<p><strong>New Features</strong></p>
+<ul>
+<li>Support <a href="https://arxiv.org/abs/1808.01244" target="_blank" rel="noopener">CornerNet<i class="fas fa-external-link-alt"></i></a> (#3036)</li>
+<li>Support <a href="https://arxiv.org/abs/1911.08287" target="_blank" rel="noopener">DIOU<i class="fas fa-external-link-alt"></i></a>/<a href="https://arxiv.org/abs/2005.03572" target="_blank" rel="noopener">CIOU<i class="fas fa-external-link-alt"></i></a> loss (#3151)</li>
+<li>Support <a href="https://arxiv.org/abs/1908.03195" target="_blank" rel="noopener">LVIS V1<i class="fas fa-external-link-alt"></i></a> dataset (#)</li>
+<li>Support customized hooks in training (#3395)</li>
+<li>Support fp16 training of generalized focal loss (#3410)</li>
+<li>Support to convert RetinaNet from Pytorch to ONNX (#3075)</li>
+</ul>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Support to process ignore boxes in ATSS assigner (#3082)</li>
+<li>Allow to crop images without ground truth in <code>RandomCrop</code> (#3153)</li>
+<li>Enable the the <code>Accuracy</code> module to set threshold (#3155)</li>
+<li>Refactoring unit tests (#3206)</li>
+<li>Unify the training settings of <code>to_float32</code> and <code>norm_cfg</code> in RegNets configs (#3210)</li>
+<li>Add colab training tutorials for beginners (#3213, #3273)</li>
+<li>Move CUDA/C++ operators into <code>mmcv.ops</code> and keep <code>mmdet.ops</code> as warppers for backward compatibility (#3232)(#3457)</li>
+<li>Update installation scripts in documentation (#3290) and dockerfile (#3320)</li>
+<li>Support to set image resize backend (#3392)</li>
+<li>Remove git hash in version file (#3466)</li>
+<li>Check mmcv version to force version compatibility (#3460)</li>
+</ul>
+<h3 id="v220-172020">v2.2.0 (1/7/2020)</h3>
+<p><strong>Highlights</strong></p>
+<ul>
+<li>Support new methods: <a href="https://arxiv.org/abs/2006.02334" target="_blank" rel="noopener">DetectoRS<i class="fas fa-external-link-alt"></i></a>, <a href="https://arxiv.org/abs/1912.08193" target="_blank" rel="noopener">PointRend<i class="fas fa-external-link-alt"></i></a>, <a href="https://arxiv.org/abs/2006.04388" target="_blank" rel="noopener">Generalized Focal Loss<i class="fas fa-external-link-alt"></i></a>, <a href="https://arxiv.org/abs/2004.06002" target="_blank" rel="noopener">Dynamic R-CNN<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<p><strong>Bug Fixes</strong></p>
+<ul>
+<li>Fix FreeAnchor when no gt in image (#3176)</li>
+<li>Clean up deprecated usage of <code>register_module()</code> (#3092, #3161)</li>
+<li>Fix pretrain bug in NAS FCOS (#3145)</li>
+<li>Fix <code>num_classes</code> in SSD (#3142)</li>
+<li>Fix FCOS warmup (#3119)</li>
+<li>Fix <code>rstrip</code> in <code>tools/publish_model.py</code></li>
+<li>Fix <code>flip_ratio</code> default value in RandomFLip pipeline (#3106)</li>
+<li>Fix cityscapes eval with ms_rcnn (#3112)</li>
+<li>Fix RPN softmax (#3056)</li>
+<li>Fix filename of <a href="mailto:LVIS@v0.5">LVIS@v0.5</a> (#2998)</li>
+<li>Fix nan loss by filtering out-of-frame gt_bboxes in COCO (#2999)</li>
+<li>Fix bug in FSAF (#3018)</li>
+<li>Add FocalLoss <code>num_classes</code> check (#2964)</li>
+<li>Fix PISA Loss when there are no gts (#2992)</li>
+<li>Avoid nan in <code>iou_calculator</code> (#2975)</li>
+<li>Prevent possible bugs in loading and transforms caused by shallow copy (#2967)</li>
+</ul>
+<p><strong>New Features</strong></p>
+<ul>
+<li>Add DetectoRS (#3064)</li>
+<li>Support Generalize Focal Loss (#3097)</li>
+<li>Support PointRend (#2752)</li>
+<li>Support Dynamic R-CNN (#3040)</li>
+<li>Add DeepFashion dataset (#2968)</li>
+<li>Implement FCOS training tricks (#2935)</li>
+<li>Use BaseDenseHead as base class for anchor-base heads (#2963)</li>
+<li>Add <code>with_cp</code> for BasicBlock (#2891)</li>
+<li>Add <code>stem_channels</code> argument for ResNet (#2954)</li>
+</ul>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Add anchor free base head (#2867)</li>
+<li>Migrate to github action (#3137)</li>
+<li>Add docstring for datasets, pipelines, core modules and methods (#3130, #3125, #3120)</li>
+<li>Add VOC benchmark (#3060)</li>
+<li>Add <code>concat</code> mode in GRoI (#3098)</li>
+<li>Remove cmd arg <code>autorescale-lr</code> (#3080)</li>
+<li>Use <code>len(data['img_metas'])</code> to indicate <code>num_samples</code> (#3073, #3053)</li>
+<li>Switch to EpochBasedRunner (#2976)</li>
+</ul>
+<h3 id="v210-862020">v2.1.0 (8/6/2020)</h3>
+<p><strong>Highlights</strong></p>
+<ul>
+<li>Support new backbones: <a href="https://arxiv.org/abs/2003.13678" target="_blank" rel="noopener">RegNetX<i class="fas fa-external-link-alt"></i></a>, <a href="https://arxiv.org/abs/1904.01169" target="_blank" rel="noopener">Res2Net<i class="fas fa-external-link-alt"></i></a></li>
+<li>Support new methods: <a href="https://arxiv.org/abs/1906.04423" target="_blank" rel="noopener">NASFCOS<i class="fas fa-external-link-alt"></i></a>, <a href="https://arxiv.org/abs/1904.04821" target="_blank" rel="noopener">PISA<i class="fas fa-external-link-alt"></i></a>, <a href="https://arxiv.org/abs/2004.13665" target="_blank" rel="noopener">GRoIE<i class="fas fa-external-link-alt"></i></a></li>
+<li>Support new dataset: <a href="https://arxiv.org/abs/1908.03195" target="_blank" rel="noopener">LVIS<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<p><strong>Bug Fixes</strong></p>
+<ul>
+<li>Change the CLI argument <code>--validate</code> to <code>--no-validate</code> to enable validation after training epochs by default. (#2651)</li>
+<li>Add missing cython to docker file (#2713)</li>
+<li>Fix bug in nms cpu implementation (#2754)</li>
+<li>Fix bug when showing mask results (#2763)</li>
+<li>Fix gcc requirement (#2806)</li>
+<li>Fix bug in async test (#2820)</li>
+<li>Fix mask encoding-decoding bugs in test API (#2824)</li>
+<li>Fix bug in test time augmentation (#2858, #2921, #2944)</li>
+<li>Fix a typo in comment of apis/train (#2877)</li>
+<li>Fix the bug of returning None when no gt bboxes are in the original image in <code>RandomCrop</code>. Fix the bug that misses to handle <code>gt_bboxes_ignore</code>, <code>gt_label_ignore</code>, and <code>gt_masks_ignore</code> in <code>RandomCrop</code>, <code>MinIoURandomCrop</code> and <code>Expand</code> modules. (#2810)</li>
+<li>Fix bug of <code>base_channels</code> of regnet (#2917)</li>
+<li>Fix the bug of logger when loading pre-trained weights in base detector (#2936)</li>
+</ul>
+<p><strong>New Features</strong></p>
+<ul>
+<li>Add IoU models (#2666)</li>
+<li>Add colab demo for inference</li>
+<li>Support class agnostic nms (#2553)</li>
+<li>Add benchmark gathering scripts for development only (#2676)</li>
+<li>Add mmdet-based project links (#2736, #2767, #2895)</li>
+<li>Add config dump in training (#2779)</li>
+<li>Add ClassBalancedDataset (#2721)</li>
+<li>Add res2net backbone (#2237)</li>
+<li>Support RegNetX models (#2710)</li>
+<li>Use <code>mmcv.FileClient</code> to support different storage backends (#2712)</li>
+<li>Add ClassBalancedDataset (#2721)</li>
+<li>Code Release: Prime Sample Attention in Object Detection (CVPR 2020) (#2626)</li>
+<li>Implement NASFCOS (#2682)</li>
+<li>Add class weight in CrossEntropyLoss (#2797)</li>
+<li>Support LVIS dataset (#2088)</li>
+<li>Support GRoIE (#2584)</li>
+</ul>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Allow different x and y strides in anchor heads. (#2629)</li>
+<li>Make FSAF loss more robust to no gt (#2680)</li>
+<li>Compute pure inference time instead (#2657) and update inference speed (#2730)</li>
+<li>Avoided the possibility that a patch with 0 area is cropped. (#2704)</li>
+<li>Add warnings when deprecated <code>imgs_per_gpu</code> is used. (#2700)</li>
+<li>Add a mask rcnn example for config (#2645)</li>
+<li>Update model zoo (#2762, #2866, #2876, #2879, #2831)</li>
+<li>Add <code>ori_filename</code> to img_metas and use it in test show-dir (#2612)</li>
+<li>Use <code>img_fields</code> to handle multiple images during image transform (#2800)</li>
+<li>Add upsample_cfg support in FPN (#2787)</li>
+<li>Add <code>['img']</code> as default <code>img_fields</code> for back compatibility (#2809)</li>
+<li>Rename the pretrained model from <code>open-mmlab://resnet50_caffe</code> and <code>open-mmlab://resnet50_caffe_bgr</code> to <code>open-mmlab://detectron/resnet50_caffe</code> and <code>open-mmlab://detectron2/resnet50_caffe</code>. (#2832)</li>
+<li>Added sleep(2) in test.py to reduce hanging problem (#2847)</li>
+<li>Support <code>c10::half</code> in CARAFE (#2890)</li>
+<li>Improve documentations (#2918, #2714)</li>
+<li>Use optimizer constructor in mmcv and clean the original implementation in <code>mmdet.core.optimizer</code> (#2947)</li>
+</ul>
+<h3 id="v200-652020">v2.0.0 (6/5/2020)</h3>
+<p>In this release, we made lots of major refactoring and modifications.</p>
+<ol>
+<li>
+<p><strong>Faster speed</strong>. We optimize the training and inference speed for common models, achieving up to 30% speedup for training and 25% for inference. Please refer to <a href="model_zoo.md#comparison-with-detectron2">model zoo</a> for details.</p>
+</li>
+<li>
+<p><strong>Higher performance</strong>. We change some default hyperparameters with no additional cost, which leads to a gain of performance for most models. Please refer to <a href="compatibility.md#training-hyperparameters">compatibility</a> for details.</p>
+</li>
+<li>
+<p><strong>More documentation and tutorials</strong>. We add a bunch of documentation and tutorials to help users get started more smoothly. Read it <a href="https://mmdetection.readthedocs.io/en/latest/" target="_blank" rel="noopener">here<i class="fas fa-external-link-alt"></i></a>.</p>
+</li>
+<li>
+<p><strong>Support PyTorch 1.5</strong>. The support for 1.1 and 1.2 is dropped, and we switch to some new APIs.</p>
+</li>
+<li>
+<p><strong>Better configuration system</strong>. Inheritance is supported to reduce the redundancy of configs.</p>
+</li>
+<li>
+<p><strong>Better modular design</strong>. Towards the goal of simplicity and flexibility, we simplify some encapsulation while add more other configurable modules like BBoxCoder, IoUCalculator, OptimizerConstructor, RoIHead. Target computation is also included in heads and the call hierarchy is simpler.</p>
+</li>
+<li>
+<p>Support new methods: <a href="https://arxiv.org/abs/1903.00621" target="_blank" rel="noopener">FSAF<i class="fas fa-external-link-alt"></i></a> and PAFPN (part of <a href="https://arxiv.org/abs/1803.01534" target="_blank" rel="noopener">PAFPN<i class="fas fa-external-link-alt"></i></a>).</p>
+</li>
+</ol>
+<p><strong>Breaking Changes</strong>
+Models training with MMDetection 1.x are not fully compatible with 2.0, please refer to the <a href="compatibility.md">compatibility doc</a> for the details and how to migrate to the new version.</p>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Unify cuda and cpp API for custom ops. (#2277)</li>
+<li>New config files with inheritance. (#2216)</li>
+<li>Encapsulate the second stage into RoI heads. (#1999)</li>
+<li>Refactor GCNet/EmpericalAttention into plugins. (#2345)</li>
+<li>Set low quality match as an option in IoU-based bbox assigners. (#2375)</li>
+<li>Change the codebase&rsquo;s coordinate system. (#2380)</li>
+<li>Refactor the category order in heads. 0 means the first positive class instead of background now. (#2374)</li>
+<li>Add bbox sampler and assigner registry. (#2419)</li>
+<li>Speed up the inference of RPN. (#2420)</li>
+<li>Add <code>train_cfg</code> and <code>test_cfg</code> as class members in all anchor heads. (#2422)</li>
+<li>Merge target computation methods into heads. (#2429)</li>
+<li>Add bbox coder to support different bbox encoding and losses. (#2480)</li>
+<li>Unify the API for regression loss. (#2156)</li>
+<li>Refactor Anchor Generator. (#2474)</li>
+<li>Make <code>lr</code> an optional argument for optimizers. (#2509)</li>
+<li>Migrate to modules and methods in MMCV. (#2502, #2511, #2569, #2572)</li>
+<li>Support PyTorch 1.5. (#2524)</li>
+<li>Drop the support for Python 3.5 and use F-string in the codebase. (#2531)</li>
+</ul>
+<p><strong>Bug Fixes</strong></p>
+<ul>
+<li>Fix the scale factors for resized images without keep the aspect ratio. (#2039)</li>
+<li>Check if max_num &gt; 0 before slicing in NMS. (#2486)</li>
+<li>Fix Deformable RoIPool when there is no instance. (#2490)</li>
+<li>Fix the default value of assigned labels. (#2536)</li>
+<li>Fix the evaluation of Cityscapes. (#2578)</li>
+</ul>
+<p><strong>New Features</strong></p>
+<ul>
+<li>Add deep_stem and avg_down option to ResNet, i.e., support ResNetV1d. (#2252)</li>
+<li>Add L1 loss. (#2376)</li>
+<li>Support both polygon and bitmap for instance masks. (#2353, #2540)</li>
+<li>Support CPU mode for inference. (#2385)</li>
+<li>Add optimizer constructor for complicated configuration of optimizers. (#2397, #2488)</li>
+<li>Implement PAFPN. (#2392)</li>
+<li>Support empty tensor input for some modules. (#2280)</li>
+<li>Support for custom dataset classes without overriding it. (#2408, #2443)</li>
+<li>Support to train subsets of coco dataset. (#2340)</li>
+<li>Add iou_calculator to potentially support more IoU calculation methods. (2405)</li>
+<li>Support class wise mean AP (was removed in the last version). (#2459)</li>
+<li>Add option to save the testing result images. (#2414)</li>
+<li>Support MomentumUpdaterHook. (#2571)</li>
+<li>Add a demo to inference a single image. (#2605)</li>
+</ul>
+<h3 id="v110-2422020">v1.1.0 (24/2/2020)</h3>
+<p><strong>Highlights</strong></p>
+<ul>
+<li>Dataset evaluation is rewritten with a unified api, which is used by both evaluation hooks and test scripts.</li>
+<li>Support new methods: <a href="https://arxiv.org/abs/1905.02188" target="_blank" rel="noopener">CARAFE<i class="fas fa-external-link-alt"></i></a>.</li>
+</ul>
+<p><strong>Breaking Changes</strong></p>
+<ul>
+<li>The new MMDDP inherits from the official DDP, thus the <code>__init__</code> api is changed to be the same as official DDP.</li>
+<li>The <code>mask_head</code> field in HTC config files is modified.</li>
+<li>The evaluation and testing script is updated.</li>
+<li>In all transforms, instance masks are stored as a numpy array shaped (n, h, w) instead of a list of (h, w) arrays, where n is the number of instances.</li>
+</ul>
+<p><strong>Bug Fixes</strong></p>
+<ul>
+<li>Fix IOU assigners when ignore_iof_thr &gt; 0 and there is no pred boxes. (#2135)</li>
+<li>Fix mAP evaluation when there are no ignored boxes. (#2116)</li>
+<li>Fix the empty RoI input for Deformable RoI Pooling. (#2099)</li>
+<li>Fix the dataset settings for multiple workflows. (#2103)</li>
+<li>Fix the warning related to <code>torch.uint8</code> in PyTorch 1.4. (#2105)</li>
+<li>Fix the inference demo on devices other than gpu:0. (#2098)</li>
+<li>Fix Dockerfile. (#2097)</li>
+<li>Fix the bug that <code>pad_val</code> is unused in Pad transform. (#2093)</li>
+<li>Fix the albumentation transform when there is no ground truth bbox. (#2032)</li>
+</ul>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Use torch instead of numpy for random sampling. (#2094)</li>
+<li>Migrate to the new MMDDP implementation in MMCV v0.3. (#2090)</li>
+<li>Add meta information in logs. (#2086)</li>
+<li>Rewrite Soft NMS with pytorch extension and remove cython as a dependency. (#2056)</li>
+<li>Rewrite dataset evaluation. (#2042, #2087, #2114, #2128)</li>
+<li>Use numpy array for masks in transforms. (#2030)</li>
+</ul>
+<p><strong>New Features</strong></p>
+<ul>
+<li>Implement &ldquo;CARAFE: Content-Aware ReAssembly of FEatures&rdquo;. (#1583)</li>
+<li>Add <code>worker_init_fn()</code> in data_loader when seed is set. (#2066, #2111)</li>
+<li>Add logging utils. (#2035)</li>
+</ul>
+<h3 id="v100-3012020">v1.0.0 (30/1/2020)</h3>
+<p>This release mainly improves the code quality and add more docstrings.</p>
+<p><strong>Highlights</strong></p>
+<ul>
+<li>Documentation is online now: <a href="https://mmdetection.readthedocs.io">https://mmdetection.readthedocs.io</a>.</li>
+<li>Support new models: <a href="https://arxiv.org/abs/1912.02424" target="_blank" rel="noopener">ATSS<i class="fas fa-external-link-alt"></i></a>.</li>
+<li>DCN is now available with the api <code>build_conv_layer</code> and <code>ConvModule</code> like the normal conv layer.</li>
+<li>A tool to collect environment information is available for trouble shooting.</li>
+</ul>
+<p><strong>Bug Fixes</strong></p>
+<ul>
+<li>Fix the incompatibility of the latest numpy and pycocotools. (#2024)</li>
+<li>Fix the case when distributed package is unavailable, e.g., on Windows. (#1985)</li>
+<li>Fix the dimension issue for <code>refine_bboxes()</code>. (#1962)</li>
+<li>Fix the typo when <code>seg_prefix</code> is a list. (#1906)</li>
+<li>Add segmentation map cropping to RandomCrop. (#1880)</li>
+<li>Fix the return value of <code>ga_shape_target_single()</code>. (#1853)</li>
+<li>Fix the loaded shape of empty proposals. (#1819)</li>
+<li>Fix the mask data type when using albumentation. (#1818)</li>
+</ul>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Enhance AssignResult and SamplingResult. (#1995)</li>
+<li>Add ability to overwrite existing module in Registry. (#1982)</li>
+<li>Reorganize requirements and make albumentations and imagecorruptions optional. (#1969)</li>
+<li>Check NaN in <code>SSDHead</code>. (#1935)</li>
+<li>Encapsulate the DCN in ResNe(X)t into a ConvModule &amp; Conv_layers. (#1894)</li>
+<li>Refactoring for mAP evaluation and support multiprocessing and logging. (#1889)</li>
+<li>Init the root logger before constructing Runner to log more information. (#1865)</li>
+<li>Split <code>SegResizeFlipPadRescale</code> into different existing transforms. (#1852)</li>
+<li>Move <code>init_dist()</code> to MMCV. (#1851)</li>
+<li>Documentation and docstring improvements. (#1971, #1938, #1869, #1838)</li>
+<li>Fix the color of the same class for mask visualization. (#1834)</li>
+<li>Remove the option <code>keep_all_stages</code> in HTC and Cascade R-CNN. (#1806)</li>
+</ul>
+<p><strong>New Features</strong></p>
+<ul>
+<li>Add two test-time options <code>crop_mask</code> and <code>rle_mask_encode</code> for mask heads. (#2013)</li>
+<li>Support loading grayscale images as single channel. (#1975)</li>
+<li>Implement &ldquo;Bridging the Gap Between Anchor-based and Anchor-free Detection via Adaptive Training Sample Selection&rdquo;. (#1872)</li>
+<li>Add sphinx generated docs. (#1859, #1864)</li>
+<li>Add GN support for flops computation. (#1850)</li>
+<li>Collect env info for trouble shooting. (#1812)</li>
+</ul>
+<h3 id="v10rc1-13122019">v1.0rc1 (13/12/2019)</h3>
+<p>The RC1 release mainly focuses on improving the user experience, and fixing bugs.</p>
+<p><strong>Highlights</strong></p>
+<ul>
+<li>Support new models: <a href="https://arxiv.org/abs/1904.03797" target="_blank" rel="noopener">FoveaBox<i class="fas fa-external-link-alt"></i></a>, <a href="https://arxiv.org/abs/1904.11490" target="_blank" rel="noopener">RepPoints<i class="fas fa-external-link-alt"></i></a> and <a href="https://arxiv.org/abs/1909.02466" target="_blank" rel="noopener">FreeAnchor<i class="fas fa-external-link-alt"></i></a>.</li>
+<li>Add a Dockerfile.</li>
+<li>Add a jupyter notebook demo and a webcam demo.</li>
+<li>Setup the code style and CI.</li>
+<li>Add lots of docstrings and unit tests.</li>
+<li>Fix lots of bugs.</li>
+</ul>
+<p><strong>Breaking Changes</strong></p>
+<ul>
+<li>There was a bug for computing COCO-style mAP w.r.t different scales (AP_s, AP_m, AP_l), introduced by #621. (#1679)</li>
+</ul>
+<p><strong>Bug Fixes</strong></p>
+<ul>
+<li>Fix a sampling interval bug in Libra R-CNN. (#1800)</li>
+<li>Fix the learning rate in SSD300 WIDER FACE. (#1781)</li>
+<li>Fix the scaling issue when <code>keep_ratio=False</code>. (#1730)</li>
+<li>Fix typos. (#1721, #1492, #1242, #1108, #1107)</li>
+<li>Fix the shuffle argument in <code>build_dataloader</code>. (#1693)</li>
+<li>Clip the proposal when computing mask targets. (#1688)</li>
+<li>Fix the &ldquo;index out of range&rdquo; bug for samplers in some corner cases. (#1610, #1404)</li>
+<li>Fix the NMS issue on devices other than GPU:0. (#1603)</li>
+<li>Fix SSD Head and GHM Loss on CPU. (#1578)</li>
+<li>Fix the OOM error when there are too many gt bboxes. (#1575)</li>
+<li>Fix the wrong keyword argument <code>nms_cfg</code> in HTC. (#1573)</li>
+<li>Process masks and semantic segmentation in Expand and MinIoUCrop transforms. (#1550, #1361)</li>
+<li>Fix a scale bug in the Non Local op. (#1528)</li>
+<li>Fix a bug in transforms when <code>gt_bboxes_ignore</code> is None. (#1498)</li>
+<li>Fix a bug when <code>img_prefix</code> is None. (#1497)</li>
+<li>Pass the device argument to <code>grid_anchors</code> and <code>valid_flags</code>. (#1478)</li>
+<li>Fix the data pipeline for test_robustness. (#1476)</li>
+<li>Fix the argument type of deformable pooling. (#1390)</li>
+<li>Fix the coco_eval when there are only two classes. (#1376)</li>
+<li>Fix a bug in Modulated DeformableConv when deformable_group&gt;1. (#1359)</li>
+<li>Fix the mask cropping in RandomCrop. (#1333)</li>
+<li>Fix zero outputs in DeformConv when not running on cuda:0. (#1326)</li>
+<li>Fix the type issue in Expand. (#1288)</li>
+<li>Fix the inference API. (#1255)</li>
+<li>Fix the inplace operation in Expand. (#1249)</li>
+<li>Fix the from-scratch training config. (#1196)</li>
+<li>Fix inplace add in RoIExtractor which cause an error in PyTorch 1.2. (#1160)</li>
+<li>Fix FCOS when input images has no positive sample. (#1136)</li>
+<li>Fix recursive imports. (#1099)</li>
+</ul>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Print the config file and mmdet version in the log. (#1721)</li>
+<li>Lint the code before compiling in travis CI. (#1715)</li>
+<li>Add a probability argument for the <code>Expand</code> transform. (#1651)</li>
+<li>Update the PyTorch and CUDA version in the docker file. (#1615)</li>
+<li>Raise a warning when specifying <code>--validate</code> in non-distributed training. (#1624, #1651)</li>
+<li>Beautify the mAP printing. (#1614)</li>
+<li>Add pre-commit hook. (#1536)</li>
+<li>Add the argument <code>in_channels</code> to backbones. (#1475)</li>
+<li>Add lots of docstrings and unit tests, thanks to <a href="https://github.com/Erotemic" target="_blank" rel="noopener">@Erotemic<i class="fas fa-external-link-alt"></i></a>. (#1603, #1517, #1506, #1505, #1491, #1479, #1477, #1475, #1474)</li>
+<li>Add support for multi-node distributed test when there is no shared storage. (#1399)</li>
+<li>Optimize Dockerfile to reduce the image size. (#1306)</li>
+<li>Update new results of HRNet. (#1284, #1182)</li>
+<li>Add an argument <code>no_norm_on_lateral</code> in FPN. (#1240)</li>
+<li>Test the compiling in CI. (#1235)</li>
+<li>Move docs to a separate folder. (#1233)</li>
+<li>Add a jupyter notebook demo. (#1158)</li>
+<li>Support different type of dataset for training. (#1133)</li>
+<li>Use int64_t instead of long in cuda kernels. (#1131)</li>
+<li>Support unsquare RoIs for bbox and mask heads. (#1128)</li>
+<li>Manually add type promotion to make compatible to PyTorch 1.2. (#1114)</li>
+<li>Allowing validation dataset for computing validation loss. (#1093)</li>
+<li>Use <code>.scalar_type()</code> instead of <code>.type()</code> to suppress some warnings. (#1070)</li>
+</ul>
+<p><strong>New Features</strong></p>
+<ul>
+<li>Add an option <code>--with_ap</code> to compute the AP for each class. (#1549)</li>
+<li>Implement &ldquo;FreeAnchor: Learning to Match Anchors for Visual Object Detection&rdquo;. (#1391)</li>
+<li>Support <a href="https://github.com/albumentations-team/albumentations" target="_blank" rel="noopener">Albumentations<i class="fas fa-external-link-alt"></i></a> for augmentations in the data pipeline. (#1354)</li>
+<li>Implement &ldquo;FoveaBox: Beyond Anchor-based Object Detector&rdquo;. (#1339)</li>
+<li>Support horizontal and vertical flipping. (#1273, #1115)</li>
+<li>Implement &ldquo;RepPoints: Point Set Representation for Object Detection&rdquo;. (#1265)</li>
+<li>Add test-time augmentation to HTC and Cascade R-CNN. (#1251)</li>
+<li>Add a COCO result analysis tool. (#1228)</li>
+<li>Add Dockerfile. (#1168)</li>
+<li>Add a webcam demo. (#1155, #1150)</li>
+<li>Add FLOPs counter. (#1127)</li>
+<li>Allow arbitrary layer order for ConvModule. (#1078)</li>
+</ul>
+<h3 id="v10rc0-27072019">v1.0rc0 (27/07/2019)</h3>
+<ul>
+<li>Implement lots of new methods and components (Mixed Precision Training, HTC, Libra R-CNN, Guided Anchoring, Empirical Attention, Mask Scoring R-CNN, Grid R-CNN (Plus), GHM, GCNet, FCOS, HRNet, Weight Standardization, etc.). Thank all collaborators!</li>
+<li>Support two additional datasets: WIDER FACE and Cityscapes.</li>
+<li>Refactoring for loss APIs and make it more flexible to adopt different losses and related hyper-parameters.</li>
+<li>Speed up multi-gpu testing.</li>
+<li>Integrate all compiling and installing in a single script.</li>
+</ul>
+<h3 id="v060-14042019">v0.6.0 (14/04/2019)</h3>
+<ul>
+<li>Up to 30% speedup compared to the model zoo.</li>
+<li>Support both PyTorch stable and nightly version.</li>
+<li>Replace NMS and SigmoidFocalLoss with Pytorch CUDA extensions.</li>
+</ul>
+<h3 id="v06rc006022019">v0.6rc0(06/02/2019)</h3>
+<ul>
+<li>Migrate to PyTorch 1.0.</li>
+</ul>
+<h3 id="v057-06022019">v0.5.7 (06/02/2019)</h3>
+<ul>
+<li>Add support for Deformable ConvNet v2. (Many thanks to the authors and <a href="https://github.com/chengdazhi" target="_blank" rel="noopener">@chengdazhi<i class="fas fa-external-link-alt"></i></a>)</li>
+<li>This is the last release based on PyTorch 0.4.1.</li>
+</ul>
+<h3 id="v056-17012019">v0.5.6 (17/01/2019)</h3>
+<ul>
+<li>Add support for Group Normalization.</li>
+<li>Unify RPNHead and single stage heads (RetinaHead, SSDHead) with AnchorHead.</li>
+</ul>
+<h3 id="v055-22122018">v0.5.5 (22/12/2018)</h3>
+<ul>
+<li>Add SSD for COCO and PASCAL VOC.</li>
+<li>Add ResNeXt backbones and detection models.</li>
+<li>Refactoring for Samplers/Assigners and add OHEM.</li>
+<li>Add VOC dataset and evaluation scripts.</li>
+</ul>
+<h3 id="v054-27112018">v0.5.4 (27/11/2018)</h3>
+<ul>
+<li>Add SingleStageDetector and RetinaNet.</li>
+</ul>
+<h3 id="v053-26112018">v0.5.3 (26/11/2018)</h3>
+<ul>
+<li>Add Cascade R-CNN and Cascade Mask R-CNN.</li>
+<li>Add support for Soft-NMS in config files.</li>
+</ul>
+<h3 id="v052-21102018">v0.5.2 (21/10/2018)</h3>
+<ul>
+<li>Add support for custom datasets.</li>
+<li>Add a script to convert PASCAL VOC annotations to the expected format.</li>
+</ul>
+<h3 id="v051-20102018">v0.5.1 (20/10/2018)</h3>
+<ul>
+<li>Add BBoxAssigner and BBoxSampler, the <code>train_cfg</code> field in config files are restructured.</li>
+<li><code>ConvFCRoIHead</code> / <code>SharedFCRoIHead</code> are renamed to <code>ConvFCBBoxHead</code> / <code>SharedFCBBoxHead</code> for consistency.</li>
+</ul>
+
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified January 1, 0001
+</div>
+</div>
+
+<div class="c-global-meta-links">
+  
+  
+  
+  
+  
+  
+  <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+  
+    
+    
+      
+    
+    
+    
+    
+    
+    
+    
+
+    <a href="https://github.com/grpc/grpc.io/edit/main/content/en/docs/notes/changelog.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+    <a href="https://github.com/grpc/grpc.io/new/main/content/en/docs/notes/changelog.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+    <a href="https://github.com/grpc/grpc.io/issues/new?title=%e7%89%88%e6%9c%ac%e6%9b%b4%e6%96%b0%e5%8e%86%e5%8f%b2" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+    
+      
+      <a href="https://github.com/grpc/grpc.io/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+    
+
+  
+  
+  </div>
+
+
+</div>
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/grpcio">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Google Groups" aria-label="Google Groups">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://groups.google.com/g/grpc-io">
+      <i class="fab fa-google"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Gitter" aria-label="Gitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://gitter.im/grpc/grpc">
+      <i class="fab fa-gitter"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/grpc">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 gRPC Authors
+          
+        </small>
+        
+        
+      </div>
+    </div>
+    <div class="row text-center text-white small">
+      <div class="col-12 text-center py-2 order-sm-2">
+        <a href="https://www.linuxfoundation.org/terms" target="_blank" rel="noopener">Terms</a> |
+        <a href="https://www.linuxfoundation.org/privacy" target="_blank" rel="noopener">Privacy</a> |
+        <a href="https://www.linuxfoundation.org/trademark-usage" target="_blank" rel="noopener">Trademarks</a> |
+        <a href="https://github.com/grpc/grpc.io/blob/main/LICENSE" target="_blank" rel="noopener">License</a> |
+        <a href="/about/">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.d862e8117d34e02dff1772aeeb47caf7ed851d0f8a3a5345f7a32ccfb2f6b87f.js" integrity="sha256-2GLoEX004C3/F3Ku60fK9&#43;2FHQ&#43;KOlNF96Msz7L2uH8=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

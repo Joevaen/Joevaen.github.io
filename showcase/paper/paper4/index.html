@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.82.1" />
+
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-512x512.png" sizes="512x512">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/site.webmanifest">
+<title>BiO-Net：学习用于编码器-解码器结构的递归双向连接 | gRPC</title>
+<meta property="og:title" content="BiO-Net：学习用于编码器-解码器结构的递归双向连接" />
+<meta property="og:description" content="BiO-Net：学习用于编码器-解码器结构的递归双向连接       Contents   1.介绍  1.1 U-Net Variants（U-Net的变体总结） 1.2 Recurrent Convolutional Networks（递归神经网络）   2.方法  2.1 递归双向跳跃连接 2.2 BiO-Net结构   3.实验  3.1 语义分割 3.2 超像素分割   总结        讲在前面  一.论文地址在这里 二.我设计了几种字体颜色用于更加醒目地表现关键的思想和主题：  红色表示本文的重要关键信息 绿色表示此处需要参考的论文其他部分 橙色表示尚未理解透彻的一些概念 我会用删除线将自己曾经不到位的理解进行删除 蓝色表示此处的一些个人思考 紫色表示我的更新内容   三.目的：研究该改进算法的实验结果，理解该算法的思想，尝试去改进算法。 四.意义： * 五.思考： *  摘要  U-Net已成为用于现代计算机视觉任务（例如语义分段，超分辨率，图像降噪和修复）的基于深度学习的最新技术之一。 U-Net的先前扩展主要集中在修改其现有构建基块或开发新的功能模块以提高性能。 结果，这些变体通常会导致模型复杂性的增加。 为了解决此类U-Net变体中的此问题，在本文中，我们提出了一种新颖的双向O型网络（BiO-Net），该网络以循环方式重用构建基块，而无需引入任何其他参数。 我们提出的双向跳跃连接可以直接应用于任何编码器/解码器结构中，以进一步增强其在各种任务领域中的功能。我们在各种医学图像分析任务上评估了我们的方法，结果表明，我们的BiO-Net大大优于vanillaU -Net以及其他最新方法。代码地址在这里。 关键词：语义分割、双向连接、递归神经网络" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Joevaen.github.io/showcase/paper/paper4/" /><meta property="article:section" content="showcase" />
+
+<meta property="og:site_name" content="gRPC" />
+
+<meta itemprop="name" content="BiO-Net：学习用于编码器-解码器结构的递归双向连接">
+<meta itemprop="description" content="BiO-Net：学习用于编码器-解码器结构的递归双向连接       Contents   1.介绍  1.1 U-Net Variants（U-Net的变体总结） 1.2 Recurrent Convolutional Networks（递归神经网络）   2.方法  2.1 递归双向跳跃连接 2.2 BiO-Net结构   3.实验  3.1 语义分割 3.2 超像素分割   总结        讲在前面  一.论文地址在这里 二.我设计了几种字体颜色用于更加醒目地表现关键的思想和主题：  红色表示本文的重要关键信息 绿色表示此处需要参考的论文其他部分 橙色表示尚未理解透彻的一些概念 我会用删除线将自己曾经不到位的理解进行删除 蓝色表示此处的一些个人思考 紫色表示我的更新内容   三.目的：研究该改进算法的实验结果，理解该算法的思想，尝试去改进算法。 四.意义： * 五.思考： *  摘要  U-Net已成为用于现代计算机视觉任务（例如语义分段，超分辨率，图像降噪和修复）的基于深度学习的最新技术之一。 U-Net的先前扩展主要集中在修改其现有构建基块或开发新的功能模块以提高性能。 结果，这些变体通常会导致模型复杂性的增加。 为了解决此类U-Net变体中的此问题，在本文中，我们提出了一种新颖的双向O型网络（BiO-Net），该网络以循环方式重用构建基块，而无需引入任何其他参数。 我们提出的双向跳跃连接可以直接应用于任何编码器/解码器结构中，以进一步增强其在各种任务领域中的功能。我们在各种医学图像分析任务上评估了我们的方法，结果表明，我们的BiO-Net大大优于vanillaU -Net以及其他最新方法。代码地址在这里。 关键词：语义分割、双向连接、递归神经网络">
+
+<meta itemprop="wordCount" content="181">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="BiO-Net：学习用于编码器-解码器结构的递归双向连接"/>
+<meta name="twitter:description" content="BiO-Net：学习用于编码器-解码器结构的递归双向连接       Contents   1.介绍  1.1 U-Net Variants（U-Net的变体总结） 1.2 Recurrent Convolutional Networks（递归神经网络）   2.方法  2.1 递归双向跳跃连接 2.2 BiO-Net结构   3.实验  3.1 语义分割 3.2 超像素分割   总结        讲在前面  一.论文地址在这里 二.我设计了几种字体颜色用于更加醒目地表现关键的思想和主题：  红色表示本文的重要关键信息 绿色表示此处需要参考的论文其他部分 橙色表示尚未理解透彻的一些概念 我会用删除线将自己曾经不到位的理解进行删除 蓝色表示此处的一些个人思考 紫色表示我的更新内容   三.目的：研究该改进算法的实验结果，理解该算法的思想，尝试去改进算法。 四.意义： * 五.思考： *  摘要  U-Net已成为用于现代计算机视觉任务（例如语义分段，超分辨率，图像降噪和修复）的基于深度学习的最新技术之一。 U-Net的先前扩展主要集中在修改其现有构建基块或开发新的功能模块以提高性能。 结果，这些变体通常会导致模型复杂性的增加。 为了解决此类U-Net变体中的此问题，在本文中，我们提出了一种新颖的双向O型网络（BiO-Net），该网络以循环方式重用构建基块，而无需引入任何其他参数。 我们提出的双向跳跃连接可以直接应用于任何编码器/解码器结构中，以进一步增强其在各种任务领域中的功能。我们在各种医学图像分析任务上评估了我们的方法，结果表明，我们的BiO-Net大大优于vanillaU -Net以及其他最新方法。代码地址在这里。 关键词：语义分割、双向连接、递归神经网络"/>
+
+
+
+<link rel="preload" href="/css/style.min.e3cf82e558200e98b09736f835e12b188dca1353aad6649d3429c72923031431.css" as="style">
+<link href="/css/style.min.e3cf82e558200e98b09736f835e12b188dca1353aad6649d3429c72923031431.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163836834-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-163836834-2');
+  gtag('config', 'UA-60127042-1');
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="canonical" href="https://Joevaen.github.io/showcase/paper/paper4/">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@grpcio">
+<meta name="twitter:creator" content="@grpcio">
+<meta name="twitter:image" content="https://Joevaen.github.io/img/logos/grpc-icon-color.png">
+<meta name="twitter:image:alt" content="gRPC color logo">
+
+<meta property="og:url" content="https://Joevaen.github.io/showcase/paper/paper4/">
+<meta property="og:title" content="BiO-Net：学习用于编码器-解码器结构的递归双向连接">
+<meta property="og:description" content="A high-performance, open source universal RPC framework">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="gRPC">
+<meta property="og:image" content="https://Joevaen.github.io/img/logos/grpc-icon-color.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="gRPC color logo">
+<meta property="og:locale" content="en_US">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-512x512.png" sizes="512x512">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/site.webmanifest">
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark  td-navbar-cover flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="672pt" height="436pt" viewBox="0 0 672 436"><g transform="translate(0.000000,436.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M3066 3659c-376-41-707-264-894-602-35-63-50-101-45-113 4-12 3-15-5-10s-10 1-5-10c5-13 9-11 23 15 9 18 19 29 22 25 4-3 4 3 1 15-4 14-1 21 9 21 8 0 27 23 42 51 119 218 360 416 607 499 96 33 250 60 337 60 551 0 1009-390 1097-933 48-296-20-597-193-847-24-36-35-56-23-46 35 32 24 2-23-61-49-64-119-128-220-198-36-26-66-49-66-51 0-10 123 74 187 128 63 53 173 174 182 201 2 7 9 19 16 27s36 58 63 110c198 373 185 786-35 1159-25 42-60 95-79 118-42 51-45 68-4 22 68-76 190-285 190-326 0-7 5-12 11-10 6 1 14-4 17-12 2-8 0-11-5-8-6 4-8-4-5-19 3-18 7-22 12-13 6 8 12-2 19-29 6-23 15-59 21-80 31-121 29-332-5-516-9-44-13-81-11-83s16 47 31 109c26 106 27 122 22 268-4 119-12 179-32 260-56 225-191 440-375 598-70 59-261 182-284 182-6 0 25-21 69-47 44-25 105-65 135-89 62-48 149-134 135-134-6 0-32 23-60 51-67 67-224 171-325 215-78 34-249 83-294 85-21 0-21 1-1 9 15 7 8 9-30 10-27 0-72 2-1e2 4-27 2-86 0-129-5z"/><path d="M36e2 3580c8-5 20-10 25-10 6 0 3 5-5 10s-19 10-25 10c-5 0-3-5 5-10z"/><path d="M3519 3276c-69-18-136-62-211-138-191-194-325-488-288-630 12-45 45-88 67-88 18 0 16 19-2 27-24 9-45 57-45 103 0 121 141 397 271 531 111 115 241 189 303 173 1e2-25 76-265-64-626l-40-105-58-13c-79-17-211-65-309-110-197-92-359-233-429-375-35-71-39-87-39-154 0-65 4-83 28-123 61-104 188-133 299-70 70 41 176 152 251 265 67 102 188 333 243 464 37 89 39 92 79 102 43 11 84 36 74 45-3 3-24-2-47-11s-45-14-48-11 15 63 41 133c126 349 145 579 49 615-33 13-68 12-125-4zm-29-794c0-4-47-102-104-218-197-398-362-594-5e2-594-68 0-124 44-151 119-85 243 203 545 645 675 93 27 110 30 110 18z"/><path d="M2081 2794c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M4291 2784c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M2071 2754c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M4302 2740c0-14 2-19 5-12 2 6 2 18 0 25-3 6-5 1-5-13z"/><path d="M2061 2714c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M2052 2660c0-14 2-19 5-12 2 6 2 18 0 25-3 6-5 1-5-13z"/><path d="M2043 2585c0-22 2-30 4-17 2 12 2 30 0 40-3 9-5-1-4-23z"/><path d="M4252 2018c-15-37-19-55-11-63 7-7 8-4 3 9-6 15-4 17 6 11 9-5 11-4 6 3-4 7-3 12 3 12s7 7 4 17c-5 12-3 14 8 8 8-4 11-5 7 0-4 4-4 13 2 19 5 7 5 17 1 24s-15-8-29-40z"/><path d="M4205 1919c-3-4 2-6 10-5 21 3 28 13 10 13-9 0-18-4-20-8z"/><path d="M4024 1668l-19-23 23 19c12 11 22 21 22 23 0 8-8 2-26-19z"/><path d="M4015 1628l-40-43 43 40c39 36 47 45 39 45-2 0-21-19-42-42z"/><path d="M3969 1613c-13-16-12-17 4-4s21 21 13 21c-2 0-10-8-17-17z"/><path d="M3919 1543c-13-16-12-17 4-4 9 7 17 15 17 17 0 8-8 3-21-13z"/><path d="M3705 1428c-11-6-23-15-26-20-3-6-9-9-13-9-19 3-27 0-22-7 7-12-61-35-75-26-8 5-9 3-4-6 6-10 3-12-13-8-14 4-20 2-15-5 4-6-2-8-15-5-12 4-20 2-17-2 3-5 0-10-7-13-7-2-2-2 12 0 39 7 179 63 194 78 7 8 16 12 18 10 3-3 5 2 5 10s-1 15-1 15c-1 0-10-6-21-12z"/><path d="M3448 1313c7-3 16-2 19 1 4 3-2 6-13 5-11 0-14-3-6-6z"/><path d="M3355 13e2c-27-7-27-8-5-8 14 0 39 4 55 8 27 7 27 8 5 8-14 0-38-4-55-8z"/><path d="M3263 1283c9-2 25-2 35 0 9 3 1 5-18 5s-27-2-17-5z"/><path d="M1810 981c0-75-4-103-15-115-17-17-20-66-4-66 6 0 24 13 40 29 29 29 29 31 29 140v111h-25c-25 0-25 0-25-99z"/><path d="M2211 1062c-51-25-73-61-74-120-1-70 33-116 101-137 36-10 28 31-13 69-26 25-35 42-35 66s9 41 35 66c19 18 35 42 35 53 0 25-5 26-49 3z"/><path d="M2290 1060c0-12 16-36 35-54 26-25 35-42 35-66s-9-41-35-66c-41-38-49-79-12-69 66 20 99 65 99 135s-33 115-99 135c-19 5-23 2-23-15z"/><path d="M2692 1053l3-28h1e2 1e2l3 28 3 27h-106-106l3-27z"/><path d="M3150 1068c0-7 23-70 52-140 48-119 53-128 78-128s30 9 78 130c29 72 52 135 52 141s-12 9-27 7c-23-2-31-13-51-63-13-33-31-76-39-95l-14-35-25 59c-13 33-24 63-24 67s15 9 33 11c27 2 32 7 32 28 0 24-3 25-72 28-55 2-73 0-73-10z"/><path d="M3724 1003c-43-93-48-128-19-128 15 0 28 17 50 63l30 62 25-62c14-35 27-66 28-70 2-5-35-8-82-8-76 0-86-2-1e2-22-8-12-13-25-10-30 7-11 261-10 268 1 3 5-19 67-49 137-48 114-57 129-80 132s-29-4-61-75z"/><path d="M4187 1073c-4-3-7-14-7-24 0-25 28-31 125-27 79 3 80 3 83 31l3 27h-99c-54 0-102-3-105-7z"/><path d="M4670 1068c0-7 43-71 96-141 77-105 99-128 117-125 21 3 22 7 25 141l3 138-28-3c-28-3-28-4-33-86l-5-83-62 85c-50 69-68 86-88 86-14 0-25-6-25-12z"/><path d="M2694 955c-14-37 2-45 89-45 88 0 114 11 101 44-9 23-182 24-190 1z"/><path d="M4184 955c-3-8-3-22 0-30 5-13 22-15 98-13 92 3 93 3 93 28s-1 25-93 28c-76 2-93 0-98-13z"/><path d="M1675 890c-10-16 4-48 32-70 32-25 40-25 48 0 13 40-60 103-80 70z"/><path d="M4670 850c0-47 2-50 25-50s25 3 25 50-2 50-25 50-25-3-25-50z"/><path d="M2694 845c-3-8-3-22 0-30 5-13 23-15 103-13 97 3 98 3 98 28s-1 25-98 28c-80 2-98 0-103-13z"/><path d="M4184 845c-15-38 1-45 106-45h101l-3 28-3 27-98 3c-80 2-98 0-103-13z"/></g></svg></span><span class="text-uppercase font-weight-bold">gRPC</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/about/" ><span>nnUNet</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/" ><span>MMDetection</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/showcase/" ><span>论文</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/blog/" ><span>Blog</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/community/" ><span>C&#43;&#43;</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-default td-outer">
+      
+      <main role="main" class="td-main">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="td-cover-block-0" class="row td-cover-block td-cover-block--height-sm js-td-cover td-overlay td-overlay--dark -bg-primary">
+  <div class="container td-overlay__inner">
+    <div class="row">
+      <div class="col-12">
+        <div class="text-center">
+          
+          
+          <div class="pt-3 lead">
+            
+                <div class="text-left">
+  <h1 class="display-1 mb-5">BiO-Net：学习用于编码器-解码器结构的递归双向连接</h1></div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<div class="container l-container--padded">
+<div class="row">
+
+
+
+
+  
+    <div class="d-lg-none col-12">
+      <div class="td-toc td-toc--inline">
+  
+      
+        <a id="td-content__toc-link" class="collapsed" href="#td-content__toc" data-toggle="collapse" aria-controls="td-page-toc" aria-expanded="false" aria-label="Toggle toc navigation">
+          <span class="lead">Contents<i class="fas fa-chevron-right ml-2"></i></span>
+        </a>
+        <div id="td-content__toc" class="collapse">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1介绍">1.介绍</a>
+      <ul>
+        <li><a href="#11-u-net-variantsu-net的变体总结">1.1 U-Net Variants（U-Net的变体总结）</a></li>
+        <li><a href="#12-recurrent-convolutional-networks递归神经网络">1.2 Recurrent Convolutional Networks（递归神经网络）</a></li>
+      </ul>
+    </li>
+    <li><a href="#2方法">2.方法</a>
+      <ul>
+        <li><a href="#21-递归双向跳跃连接">2.1 递归双向跳跃连接</a></li>
+        <li><a href="#22-bio-net结构">2.2 BiO-Net结构</a></li>
+      </ul>
+    </li>
+    <li><a href="#3实验">3.实验</a>
+      <ul>
+        <li><a href="#31-语义分割">3.1 语义分割</a></li>
+        <li><a href="#32-超像素分割">3.2 超像素分割</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+        </div>
+        <button id="td-content__toc-link-expanded" href="#td-content__toc" class="btn btn-small ml-1 my-2 py-0 px-3" data-toggle="collapse" aria-controls="td-docs-toc" aria-expanded="true" aria-label="Toggle toc navigation">
+        </button>
+      
+    </div>
+  </div>
+
+</div>
+<div class="row">
+<div class="col-12 col-lg-8">
+<h1 id="讲在前面">讲在前面</h1>
+<ul>
+<li>一.论文地址在<a href="https://arxiv.org/abs/2007.00243" target="_blank" rel="noopener">这里<i class="fas fa-external-link-alt"></i></a></li>
+<li>二.我设计了几种字体颜色用于更加醒目地表现关键的思想和主题：
+<ul>
+<li><strong><font color=red>红色表示本文的重要关键信息</font></strong></li>
+<li><strong><font color=green>绿色表示此处需要参考的论文其他部分</font></strong></li>
+<li><strong><font color=orange>橙色表示尚未理解透彻的一些概念</font></strong></li>
+<li><strong><del>我会用删除线将自己曾经不到位的理解进行删除</del></strong></li>
+<li><strong><font color=blue>蓝色表示此处的一些个人思考</font></strong></li>
+<li><strong><font color=purple>紫色表示我的更新内容</font></strong></li>
+</ul>
+</li>
+<li>三.<strong><font color=red>目的</font></strong>：研究该改进算法的实验结果，理解该算法的思想，尝试去改进算法。</li>
+<li>四.<font color=red><strong>意义</strong></font>：
+*</li>
+<li>五.<font color=red><strong>思考</strong></font>：
+*</li>
+</ul>
+<h1 id="摘要">摘要</h1>
+<p>        U-Net已成为用于现代计算机视觉任务（例如语义分段，超分辨率，图像降噪和修复）的基于深度学习的最新技术之一。 U-Net的先前扩展主要集中在修改其现有构建基块或开发新的功能模块以提高性能。 结果，这些变体通常会导致模型复杂性的增加。 为了解决此类U-Net变体中的此问题，在本文中，我们提出了一种新颖的双向O型网络（BiO-Net），该网络以循环方式重用构建基块，而无需引入任何其他参数。 我们提出的双向跳跃连接可以直接应用于任何编码器/解码器结构中，以进一步增强其在各种任务领域中的功能。我们在各种医学图像分析任务上评估了我们的方法，结果表明，我们的BiO-Net大大优于vanillaU -Net以及其他最新方法。代码地址在<a href="https://github.com/tiangexiang/BiO-Net" target="_blank" rel="noopener">这里<i class="fas fa-external-link-alt"></i></a>。
+关键词：语义分割、双向连接、递归神经网络</p>
+<h1 id="论文内容">论文内容</h1>
+<h2 id="1介绍">1.介绍</h2>
+<p>        基于深度学习的方法最近在辅助医学图像分析中占了上风，例如整个图像分类，脑病灶分割和医学图像合成。 U-Net作为最流行的基于深度学习的模型之一，已经在众多医学图像计算研究中证明了其令人印象深刻的表现能力。 U-Net引入了跳跃连接，可以跨多个语义尺度聚合特征表示，并有助于防止信息丢失。</p>
+<h3 id="11-u-net-variantsu-net的变体总结">1.1 U-Net Variants（U-Net的变体总结）</h3>
+<p>        最近的工作提出用不同的模块设计和网络构建来扩展U-Net结构，从而说明其在各种可视化分析任务中的潜力。 V-Net在较高尺寸的体素上应用U-Net并保持其内部结构。 W-Net修改了U-Net，以通过自动编码器样式模型连接两个U-Net来解决无监督的分割问题。与U-Net相比，M-Net将不同比例的输入特征附加到不同的级别，因此可以通过一系列下采样和上采样层来捕获多级视觉细节。 最近，U-Net ++采用嵌套和密集跳过连接来更有效地表示细粒度的对象细节。 此外，注意力U-Net使用额外的分支来将注意力机制自适应地应用于跳过和解码特征的融合。 但是，这些建议可能涉及其他构建块，这导致更多的网络参数，从而增加了GPU内存。 与上述变体不同，我们的BiO-Net通过一种新颖的功能重用机制提高了U-Net的性能，该机制在编码器和解码器之间建立双向连接，以递归方式进行推理。</p>
+<h3 id="12-recurrent-convolutional-networks递归神经网络">1.2 Recurrent Convolutional Networks（递归神经网络）</h3>
+<p>        使用递归卷积迭代优化在不同时间提取的特征已被证明对于许多计算机视觉问题是可行且有效的。郭等人建议重用ResNet中的残差块，以便充分利用可用参数，并显着减小模型大小。 这种机制也有利于U-Net的发展。结果，王等人提出R-U-Net，可以递归连接UNet的编解码对来加强语义分割对信息的表达能力，尽管他也引入了一些额外的学习模块，但也只是作为一个折中的方法引入。BiO-Net与R-U-Net的反向跳跃连接是不同的，因为后者的解码器的特征被多次反复使用，目的是为了随着当前步骤保存的梯度聚合更多的过渡信息。R2U-Net采用了类似的方法，但是是仅在每个细化级别上都递归最后一个构建块。与这些不同的是，我们的方法是在现有的编码器和解码器之间学习递归连接，而不是递归同一水平的block，因为这样并不能利用解码器的精细化特征。
+        所以，最终我们提出了BiONet，一个带有双向O型推理轨迹的递归UNet。改网络将解码器的特征通过反向跳跃连接传送给编码器，通过这种方式不断在编解码器之间进行递归。与之前的一些算法相比，我们的方法更好的实现了特征的细化，因为我们的网络出发了多个编解码机制。我们将我们的BiO-Net应用于在核分割任务和EM膜分割任务上的语义分割，并且我们的结果表明，所提出的BiO-Net优于其他U-Net变体，包括同样使用递归的其他方法和许多SOTA方法。超分辨率任务还证明了我们将BiO-Net应用于不同场景的重要性。</p>
+<h2 id="2方法">2.方法</h2>
+<p>        就像<strong>图一</strong>展示的这样，BiONet采用与UNet相同的网络结构，没有添加任何额外的功能模块，只使用了成对的双向连接。它在展开过程中没有引入额外的可训练参数，从而实现了更好的性能。 此外，我们的方法不限于U-Net，还可以集成到其他编码器/解码器体系结构中以执行各种视觉分析任务。
+<strong>图一</strong>：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20210108101457735.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20210108101457735.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</p>
+<h3 id="21-递归双向跳跃连接">2.1 递归双向跳跃连接</h3>
+<p>BiO-Net模型的主要独特之处在于引入了递归双向跳跃连接，这有助于编码器处理解码器中的语义特征，也有助于解码器处理编码器的信息。</p>
+<ul>
+<li><strong>前向跳跃连接(Forward Skip Connections)</strong>：
+连接同一个水平线上编码器和解码器<strong>前向跳跃连接</strong>可以保存low-level的图像特征 $f_{enc}$ 和他们的梯度信息。因此第 $l$ 个解码块就能将从底下传上来的信息$\hat{x_{in}}$和从对应编码块的$f_{enc}$ 进行融合，然后经过解码器 $DEC$ 再变成 $f_{dec}$ ，然后进一步通过上采样 $UP$ 。这个过程如下公式表示：
+$$f_{dec}=DEC([f_{enc}, \hat{x_{in}}])\tag1$$
+连接的方式采用点乘$[\cdot]$。</li>
+<li><strong>反向跳跃连接(Backward Skip Connections)</strong>：
+在我们设计的独特模块<strong>反向跳跃连接</strong>的帮助下，我们能够将解码器部分的特征信息再传回编码器中，与编码器的特征信息聚合。与之前的前向跳跃方法类似，我们以同样方式来进行反向操作，公式表达如下：
+$$f_{enc}=ENC([f_{dec}, x_{in}])\tag2$$
+下采样块$DOWN$使得编码器可以获得更深层的图像特征。</li>
+<li><strong>回归推理(Recursive Inferences)</strong>：
+上面的两种跳跃链接方式使得我们的网络形成了一个$O$型的推理路径。注意，这种路径可以循环多次来快速得到表现的收益，更重要的是，这样的方法不会产生任何额外的参数。所以，我们的方法公式表达如下，$i$是推理的迭代次数：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20210108152243522.png" alt="在这里插入图片描述" id="20210108152243522" data-toggle="modal" data-target="#modal-20210108152243522"/>
+
+  <div class="modal" id="modal-20210108152243522">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20210108152243522.png" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+与一般的UNet相比，我们的BiONet把编码器和解码器的特征都考虑了进去，同时从之前一次递归过程中拿到更精细的信息。</li>
+</ul>
+<h3 id="22-bio-net结构">2.2 BiO-Net结构</h3>
+<p>在网络结构中，我们使用平面卷积、BN层、ReLU层。没有BN层会被重复使用。输入图像首先会经过三个卷积块来提取向下阶段的特征。注意第一个level上是没有<strong>backward skip connection</strong>的，因此第一个stage上的block中的参数在递归时不会重复使用。提取到的特征被送入到编码块中从而使用池化操作进行下采样。在编码阶段完成后，会进入一个中间stage来进一步提取编码器的信息，之后就会被送入解码器阶段，通过每个解码块中转置卷积来恢复编码器信息。之后解码器恢复的信息再次传入到编码器，执行循环。同样的，解码器的最后一个block也不循环使用。
+为了方便起见，我们定义了以下几个参数：</p>
+<ul>
+<li>$t$:总共的循环次数；</li>
+<li>$×n$:代表所有隐藏的输出通道号的扩展倍数；</li>
+<li>$w$:代表从最底下一层数的第几个深度使用<strong>backward skip connections</strong>；</li>
+<li>$TNT$:代表会将前几次 迭代的解码恢复后的特征进行叠加，组合成最终的block；</li>
+<li>$l$:代表的是最大的编码深度。
+从<strong>图2</strong>可以看到对应的例子：
+<strong>图2</strong>：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20210108155523847.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20210108155523847.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</li>
+</ul>
+<h2 id="3实验">3.实验</h2>
+<ul>
+<li><strong>数据集</strong>
+我们的方法是在三个常见的数字病理图像分析任务上进行评估的：总共四个不同的数据集上的核分割，EM膜分割和图像超分辨率。 选择了两个可公开获得的数据集，即MoNuSeg和TNBC，以评估我们的核语义分割方法。 MoNuSeg数据集包含30个图像训练集和14个图像测试集，并从多个器官的不同整体幻灯片图像中采样了大小为1000x1000的图像。 我们从每个图像的4个角提取512x512大小的patch，将数据集放大4倍。 TNBC由50个大小为512x512的组织病理学图像组成，没有任何特定的测试集。 这两个数据集都包含针对核语义分割问题的像素级注释。 我们评估的第二个任务是EM膜分割，从中收集小鼠的梨状皮质EM数据集，其中包含四叠EM图像，切片图像尺寸分别为255x255、512x512、512x512和256x256。 图像超分辨率是我们评估方法的最后一项任务，该数据集是由MICCAI15 CBTC收集的完整幻灯片图像构成的。 我们在40倍放大倍率下采样了2900个大小为512x512的patch，分别针对训练和测试集以9：1的比例进行了分割。</li>
+<li><strong>改进细节</strong>
+我们使用初始学习率为0.01、衰减率为0.00003的Adam优化器，语义分割任务中使用的交叉熵损失，在超像素任务中使用的是均方差损失。数据增强采用了（-15,15）度的随机旋转、xy两个方向上范围在（-5%, 5%）的随机平移、随机裁剪、范围在（0,0.2）的随机扩大、水平和竖直的翻转。训练和推理的Batchsize都设置为2。默认实在编码器深度为4、同时在网络的每一个stage上都进行<strong>backward skip connectio</strong>，一张1080Ti上进行的测试，最好的$t$应该为3。</li>
+</ul>
+<h3 id="31-语义分割">3.1 语义分割</h3>
+<ul>
+<li><strong>核分割：</strong>
+在此任务中，我们的方法与baselineU-Net和其他最新技术进行了比较。仅在MoNuSeg训练集上训练模型，并在MoNuSeg测试集和TNBC数据集上进行评估。 评估了（DICE）和（IoU）。 如<strong>表1</strong>所示，我们的结果优于MoNuSeg测试集上的其他结果。 我们在TNBC数据集上的结果也大大高于其他数据集，这证明了强大的泛化能力。 此外，与U-Net的其他扩展相比，我们的BiO-Net具有更高的内存效率。 图3显示了我们的方法与循环对应的R2U-Net的定性比较。可以看出，随着推理时间的增加，我们的模型对核的分割更加准确。在我们的实验中，BiO-Net推断出两个预测的批次 当t = 1，t = 2和t = 3时分别在35、52和70ms中。 将我们的方法结合到另一个编码器-解码器体系结构LinkNet中的进一步评估，也显示在表中。 我们的BiO-LinkNet明智地添加了跳过的功能，因此，它们共享的参数数量与普通LinkNet相同。
+<strong>表1：</strong>
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20210108161234472.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20210108161234472.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+<strong>表2</strong>通过改变<strong>图2</strong>中定义的设置演示了我们的烧蚀研究。 结果表明，通过提出的双向跳跃连接通过编码器和解码器进行递归，通常可以提高网络性能。 集成来自所有推理重复的解码特征，可以在两个数据集中产生最新的性能。 此外，我们发现当网络中的参数不足时，增加推理重复率几乎没有改善，甚至使结果更糟。 有趣的是，当构建编码深度较浅的BiO-Net时，我们的模型在两个数据集上的表现要好于编码深度较深的模型。
+<strong>表2：</strong>
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20210108161451188.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20210108161451188.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</li>
+<li><strong>EM膜分割：</strong>
+我们通过对Mouse Piriform Cortex EM图像进行分段来进一步评估我们的方法，其中在stack1和stack2上训练模型，并在stack4和stack3上进行验证。 结果由Rand F-score评估。 如<strong>表3</strong>所示，我们的方法通过提出的双向O形跳过连接展示了更好的细分结果。
+<strong>图3:</strong>
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20210108161706585.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20210108161706585.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+<strong>表3：</strong>
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20210108161954114.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20210108161954114.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</li>
+</ul>
+<h3 id="32-超像素分割">3.2 超像素分割</h3>
+<p>在超分辨率任务中，将低分辨率（下采样）图像用作输入，以将网络朝其原始的高分辨率标签训练，这可以通过重新恢复丢失的细节并生成高分辨率的组织病理学图像来帮助医学成像分析。 我们采用了两种最先进的方法FSRCNN和SRResNet与我们的BiO-Net进行比较。 整个测试集中的定性结果以及峰值信噪比（PSNR）得分如<strong>图4</strong>所示。可以看出，我们的方法在安全范围内优于最新方法，这证明了该方法的有效性。 在不同的视觉任务上应用我们的BiO-Net的可行性。
+<strong>图4：</strong>
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20210108162207164.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20210108162207164.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</p>
+<h2 id="总结">总结</h2>
+<p>在本文中，我们介绍了一种新颖的U-Net循环变体，称为BiO-Net。 BiO-Net是U-Net的紧凑替代品，具有更好的性能和无额外训练的参数，它利用成对的前向和后向跳过连接来构成编码器和解码器之间的复杂关系。 可以对模型进行递归，以在训练和推理过程中重用参数。语义分割和超分辨率任务的大量实验表明了我们提出的模型的有效性，该模型在不引入辅助参数的情况下优于U-Net及其扩展方法。</p>
+
+
+
+      </main>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/grpcio">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Google Groups" aria-label="Google Groups">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://groups.google.com/g/grpc-io">
+      <i class="fab fa-google"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Gitter" aria-label="Gitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://gitter.im/grpc/grpc">
+      <i class="fab fa-gitter"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/grpc">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 gRPC Authors
+          
+        </small>
+        
+        
+      </div>
+    </div>
+    <div class="row text-center text-white small">
+      <div class="col-12 text-center py-2 order-sm-2">
+        <a href="https://www.linuxfoundation.org/terms" target="_blank" rel="noopener">Terms</a> |
+        <a href="https://www.linuxfoundation.org/privacy" target="_blank" rel="noopener">Privacy</a> |
+        <a href="https://www.linuxfoundation.org/trademark-usage" target="_blank" rel="noopener">Trademarks</a> |
+        <a href="https://github.com/grpc/grpc.io/blob/main/LICENSE" target="_blank" rel="noopener">License</a> |
+        <a href="/about/">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.d862e8117d34e02dff1772aeeb47caf7ed851d0f8a3a5345f7a32ccfb2f6b87f.js" integrity="sha256-2GLoEX004C3/F3Ku60fK9&#43;2FHQ&#43;KOlNF96Msz7L2uH8=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

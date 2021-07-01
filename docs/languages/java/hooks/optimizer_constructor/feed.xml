@@ -1,0 +1,69 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – 修改默认的运行hooks</title>
+    <link>https://Joevaen.github.io/docs/languages/java/hooks/optimizer_constructor/</link>
+    <description>Recent content in 修改默认的运行hooks on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/languages/java/hooks/optimizer_constructor/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: checkpoint配置文件</title>
+      <link>https://Joevaen.github.io/docs/languages/java/hooks/optimizer_constructor/checkpoint/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/java/hooks/optimizer_constructor/checkpoint/</guid>
+      <description>
+        
+        
+        &lt;p&gt;MMCV会使用 &lt;code&gt;checkpoint_config&lt;/code&gt; 来初始化&lt;a href=&#34;https://github.com/open-mmlab/mmcv/blob/9ecd6b0d5ff9d2172c49a182eaa669e9f27bb8e7/mmcv/runner/hooks/checkpoint.py#L9&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;CheckpointHook&lt;/code&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;checkpoint_config &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(interval&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;使用者可以设置 &lt;code&gt;max_keep_ckpts&lt;/code&gt; 来只保存少量的checkpoints或通过&lt;code&gt;save_optimizer&lt;/code&gt;决定是否保存优化的状态字典。关于参数的更多细节在 &lt;a href=&#34;https://mmcv.readthedocs.io/en/latest/api.html#mmcv.runner.CheckpointHook&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;这里&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: log配置文件</title>
+      <link>https://Joevaen.github.io/docs/languages/java/hooks/optimizer_constructor/log/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/java/hooks/optimizer_constructor/log/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;code&gt;log_config&lt;/code&gt; 封装了多个logger hooks，而且能设置间隔。现在的MMCV支持 &lt;code&gt;WandbLoggerHook&lt;/code&gt;, &lt;code&gt;MlflowLoggerHook&lt;/code&gt;, 和 &lt;code&gt;TensorboardLoggerHook&lt;/code&gt;。细节在&lt;a href=&#34;https://mmcv.readthedocs.io/en/latest/api.html#mmcv.runner.LoggerHook&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;doc&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;可以找到。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;log_config &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+    interval&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;50&lt;/span&gt;,
+    hooks&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;[
+        &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(&lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;TextLoggerHook&amp;#39;&lt;/span&gt;),
+        &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(&lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;TensorboardLoggerHook&amp;#39;&lt;/span&gt;)
+    ])
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: evaluation配置文件</title>
+      <link>https://Joevaen.github.io/docs/languages/java/hooks/optimizer_constructor/evaluation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/java/hooks/optimizer_constructor/evaluation/</guid>
+      <description>
+        
+        
+        &lt;p&gt;除了&lt;code&gt;interval&lt;/code&gt;这个参数外，其他的参数，比如&lt;code&gt;metric&lt;/code&gt;也能被传入&lt;code&gt;dataset.evaluate()&lt;/code&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;evaluation &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(interval&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;, metric&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;bbox&amp;#39;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -4,769 +4,28 @@
   
     
     <url>
-      <loc>https://Joevaen.github.io/docs/get_start/</loc>
+      <loc>https://Joevaen.github.io/blog/tools/</loc>
+      <lastmod>2021-06-06T00:00:00+00:00</lastmod>
     </url>
     
   
     
     <url>
-      <loc>https://Joevaen.github.io/docs/get_start/installation/normal_installation/</loc>
+      <loc>https://Joevaen.github.io/blog/tools/youtube-dl/</loc>
+      <lastmod>2021-06-06T00:00:00+00:00</lastmod>
     </url>
     
   
     
     <url>
-      <loc>https://Joevaen.github.io/docs/get_start/prerequisites/</loc>
+      <loc>https://Joevaen.github.io/blog/causeries/suns_1/</loc>
+      <lastmod>2021-06-05T00:00:00+00:00</lastmod>
     </url>
     
   
     
     <url>
-      <loc>https://Joevaen.github.io/docs/get_start/installation/</loc>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/platforms/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/get_start/installation/cpu_only_install/</loc>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/get_start/installation/docker_image_install/</loc>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/guides/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/get_start/installation/from_scratch_install/</loc>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/get_start/installation/muiti_version_manage/</loc>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/get_start/installation/verify/</loc>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/cpp/quickstart/</loc>
-      <lastmod>2021-04-21T09:09:20-04:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/csharp/quickstart/</loc>
-      <lastmod>2021-02-10T11:10:12-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/dart/quickstart/</loc>
-      <lastmod>2021-04-22T08:55:42-04:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/go/quickstart/</loc>
-      <lastmod>2021-05-11T05:32:46+09:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/java/quickstart/</loc>
-      <lastmod>2021-02-10T11:10:12-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/kotlin/quickstart/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/node/quickstart/</loc>
-      <lastmod>2021-04-19T09:55:56-07:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/objective-c/quickstart/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/php/quickstart/</loc>
-      <lastmod>2021-04-30T15:35:36-04:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/python/quickstart/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/ruby/quickstart/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/platforms/android/java/quickstart/</loc>
-      <lastmod>2021-02-10T11:10:12-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/platforms/android/kotlin/quickstart/</loc>
-      <lastmod>2021-02-10T11:10:12-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/platforms/web/quickstart/</loc>
-      <lastmod>2021-02-10T11:10:12-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/get_start/practice/</loc>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/cpp/basics/</loc>
-      <lastmod>2021-04-21T05:54:07-07:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/csharp/basics/</loc>
-      <lastmod>2021-04-27T20:19:50+06:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/dart/basics/</loc>
-      <lastmod>2021-04-22T08:58:49-04:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/go/basics/</loc>
-      <lastmod>2021-02-10T11:10:12-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/java/basics/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/kotlin/basics/</loc>
-      <lastmod>2021-03-09T16:50:58-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/node/basics/</loc>
-      <lastmod>2021-02-26T11:03:32-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/objective-c/basics/</loc>
-      <lastmod>2021-02-10T11:10:12-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/php/basics/</loc>
-      <lastmod>2021-02-25T15:08:24-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/python/basics/</loc>
-      <lastmod>2021-02-10T11:10:12-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/ruby/basics/</loc>
-      <lastmod>2021-02-10T11:10:12-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/platforms/android/java/basics/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/platforms/web/basics/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/cpp/async/</loc>
-      <lastmod>2021-01-28T16:21:49-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/csharp/dotnet/</loc>
-      <lastmod>2021-02-10T11:10:12-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/objective-c/oauth2/</loc>
-      <lastmod>2021-02-10T11:10:12-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/cpp/alts/</loc>
-      <lastmod>2021-03-24T12:17:56-07:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/go/alts/</loc>
-      <lastmod>2020-12-17T09:44:50-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/java/alts/</loc>
-      <lastmod>2020-12-17T09:44:50-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/python/alts/</loc>
-      <lastmod>2020-12-17T09:44:50-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/python/generated-code/</loc>
-      <lastmod>2020-12-17T09:44:50-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/cpp/api/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/csharp/api/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/dart/api/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/go/api/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/java/api/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/kotlin/api/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/node/api/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/objective-c/api/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/php/api/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/python/api/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/ruby/api/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/platforms/android/java/api/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/platforms/android/kotlin/api/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/go/generated-code/</loc>
-      <lastmod>2021-02-24T00:37:09+09:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/java/generated-code/</loc>
-      <lastmod>2020-12-17T09:44:50-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/grpc-csharp-future/</loc>
-      <lastmod>2021-05-03T13:41:39+02:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/wireshark/</loc>
-      <lastmod>2021-02-03T13:55:35-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/grpc-web-interceptor/</loc>
-      <lastmod>2021-02-10T11:10:12-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/grpc-js-1.0/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/kotlin-meet-grpc/</loc>
-      <lastmod>2021-03-09T16:50:58-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/grpc-cloud-run/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/cmake-improvements/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/grpc-on-dotnetcore/</loc>
-      <lastmod>2020-12-18T17:04:43-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/hello-pancakes/</loc>
-      <lastmod>2021-03-11T19:58:24-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/state-of-grpc-web/</loc>
-      <lastmod>2021-02-15T17:00:54+01:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/grpc-stacks/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/grpc-web-ga/</loc>
-      <lastmod>2021-05-07T17:13:36+03:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/a-short-introduction-to-channelz/</loc>
-      <lastmod>2020-12-18T05:40:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/grpc-on-http2/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/grpc-with-json/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/take-the-grpc-survey/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/graceful-cleanup-junit-tests/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/grpc-dotnet-build/</loc>
-      <lastmod>2020-12-19T15:05:11-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/kotlin-gradle-projects/</loc>
-      <lastmod>2021-03-15T16:17:18-04:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/optimizing-grpc-part-2/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/optimizing-grpc-part-1/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/deadlines/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/grpc-go-engineering-practices/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/meetup-kit/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/grpc-go-perf-improvements/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/community-meeting-update/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/grpc-flatbuffers/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/grpc-load-balancing/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/helm-grpc/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/yikyak/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/bazel-rules-protobuf/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/vsco/</loc>
-      <lastmod>2021-02-15T15:30:46-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/vendasta/</loc>
-      <lastmod>2021-02-15T15:30:46-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/ga-announcement/</loc>
-      <lastmod>2021-02-15T15:30:46-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/mobile-benchmarks/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/coreos/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/installation/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/pubsub/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/beta-release/</loc>
-      <lastmod>2021-02-15T15:30:46-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/blog/principles/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/</loc>
-      <lastmod>2021-03-05T16:19:25-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/about/</loc>
-      <lastmod>2021-03-05T16:19:25-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/platforms/android/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/platforms/android/java/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/guides/auth/</loc>
-      <lastmod>2021-04-28T16:30:46-07:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/guides/benchmarking/</loc>
-      <lastmod>2021-05-19T14:38:00+02:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/languages/csharp/</loc>
-      <lastmod>2021-05-03T15:08:10-04:00</lastmod>
+      <loc>https://Joevaen.github.io/docs/languages/csharp/new_data_format/reorganize_exist/modify/</loc>
     </url>
     
   
@@ -779,8 +38,657 @@
   
     
     <url>
-      <loc>https://Joevaen.github.io/community/</loc>
-      <lastmod>2021-05-19T08:41:14-04:00</lastmod>
+      <loc>https://Joevaen.github.io/docs/languages/go/develop_new_components/add_neck/define/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/java/optimizer_setting/self_implemented/define/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/go/develop_new_components/add_backbone/define/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/go/develop_new_components/add_loss/define/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/guides/serving/convert/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/java/hooks/self_implemented/define/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/java/hooks/optimizer_constructor/checkpoint/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/train/prepare_data/api/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/guides/log_analysis/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/notes/compatibility/mmdetection2/mmcv/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/notes/compatibility/mmdetection2/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/guides/model_conversion/onnx/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/notes/projects/extension/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/community/codebeauty/beginner/lesson1/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/get_start/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/infer/test_on_standard/prepare/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/train/prepare_data/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/java/hooks/optimizer_torch/new_hook/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/showcase/paper/paper1/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/objective-c/convert/pre/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/objective-c/evaluate/pre/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/php/convert/pre/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/infer/predefined/single_gpu/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/guides/visual/data/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/infer/predefined/multi/launch/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/infer/existing_infer/demo/image_demo/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/notes/compatibility/mmdetection1/cord/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/csharp/new_data_format/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/csharp/new_data_format/reorganize_exist/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/get_start/installation/normal_installation/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/go/develop_new_components/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/kotlin/tweak/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/cpp/faq/faq1/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/php/convert/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/objective-c/convert/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/notes/convention/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/notes/convention/loss/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/infer/existing_infer/api/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/dart/design_pipeline/data_load/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/dart/design_pipeline/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/go/develop_new_components/add_backbone/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/get_start/prerequisites/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/infer/existing_infer/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/csharp/dataset_wraper/simple_repeat/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/node/inherit/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/java/optimizer_setting/optimizer_torch/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/java/optimizer_setting/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/java/hooks/optimizer_torch/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/kotlin/pipeline/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/guides/miscellaneous/evaluating/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/kotlin/tweak/hyper_parameters/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/cpp/quickstart/</loc>
+      <lastmod>2021-04-21T09:09:20-04:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/blog/causeries/suns_2/</loc>
+      <lastmod>2021-06-30T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/blog/causeries/</loc>
+      <lastmod>2021-06-30T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/blog/tools/spotify-downloader/</loc>
+      <lastmod>2021-06-05T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/guides/serving/build/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/csharp/</loc>
+      <lastmod>2021-05-03T15:08:10-04:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/go/develop_new_components/add_backbone/import/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/go/develop_new_components/add_loss/import/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/go/develop_new_components/add_neck/import/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/java/optimizer_setting/self_implemented/import/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/csharp/new_data_format/reorganize_exist/check/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/java/hooks/optimizer_constructor/log/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/guides/model_conversion/mmdetection/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/notes/compatibility/mmdetection1/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/notes/compatibility/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/get_start/installation/cpu_only_install/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/showcase/paper/paper2/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/notes/compatibility/mmdetection1/codebase/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/java/hooks/self_implemented/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/infer/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/node/modify_head/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/train/test_on_standard/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/guides/visual/model/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/infer/test_on_standard/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/cpp/faq/faq2/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/infer/predefined/multi/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/get_start/installation/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/infer/existing_infer/interface/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/objective-c/evaluate/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/php/evaluate/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/guides/miscellaneous/print/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/dart/quickstart/</loc>
+      <lastmod>2021-04-22T08:55:42-04:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/infer/existing_infer/demo/webcam_demo/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/</loc>
+      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/java/hooks/optimizer_torch/register/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/infer/test_on_standard/test/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/go/develop_new_components/add_neck/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/objective-c/convert/usage/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/objective-c/evaluate/usage/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/php/convert/usage/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/train/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/csharp/dataset_wraper/class_balance/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/guides/result/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/notes/compatibility/mmdetection2/init/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/java/optimizer_setting/self_implemented/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/java/training_schedule/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/kotlin/tweak/recuction/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/csharp/dataset_wraper/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/cpp/basics/</loc>
+      <lastmod>2021-04-21T05:54:07-07:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/csharp/new_data_format/reorganize_middle/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/notes/projects/paper/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/dart/design_pipeline/pre_process/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/go/develop_new_components/add_neck/use_in_config/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/go/develop_new_components/add_backbone/use_in_config/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/go/develop_new_components/add_loss/use_in_config/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/java/optimizer_setting/self_implemented/specify_optimizer/</loc>
     </url>
     
   
@@ -793,14 +701,219 @@
   
     
     <url>
-      <loc>https://Joevaen.github.io/docs/guides/error/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
+      <loc>https://Joevaen.github.io/docs/guides/serving/run/</loc>
     </url>
     
   
     
     <url>
-      <loc>https://Joevaen.github.io/docs/get_start/faq/</loc>
+      <loc>https://Joevaen.github.io/docs/get_start/installation/docker_image_install/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/java/hooks/optimizer_constructor/evaluation/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/notes/compatibility/pycocotools/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/guides/model_conversion/regnet/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/infer/test_on_standard/examples/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/node/modify_dataset/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/csharp/quickstart/</loc>
+      <lastmod>2021-02-10T11:10:12-05:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/java/hooks/optimizer_torch/modify_config/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/java/hooks/optimizer_constructor/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/showcase/paper/paper3/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/kotlin/weighting/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/objective-c/convert/arg/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/objective-c/evaluate/arg/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/guides/visual/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/guides/visual/predict/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/csharp/dataset_wraper/concat_dataset/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/infer/predefined/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/notes/projects/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/get_start/benchmark_and_model_zoo/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/infer/predefined/multi_node/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/objective-c/list/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/php/list/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/dart/design_pipeline/format/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/go/develop_new_components/add_head/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/infer/existing_infer/demo/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/notes/compatibility/mmdetection2/regist/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/java/workflow/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/java/optimizer_setting/optimizer_constructor/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/csharp/new_data_format/example/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/infer/existing_infer/demo/video/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/train/train/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/notes/compatibility/mmdetection1/train/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/kotlin/tweak/weight/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/cpp/async/</loc>
+      <lastmod>2021-01-28T16:21:49-05:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/guides/serving/test/</loc>
     </url>
     
   
@@ -813,8 +926,123 @@
   
     
     <url>
-      <loc>https://Joevaen.github.io/blog/</loc>
+      <loc>https://Joevaen.github.io/showcase/paper/paper4/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/guides/model_conversion/detectron/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/notes/compatibility/mmdetection2/eval/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/objective-c/nms/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/infer/predefined/slurm/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/cpp/alts/</loc>
+      <lastmod>2021-03-24T12:17:56-07:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/get_start/installation/from_scratch_install/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/node/modify_schedule/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/notes/compatibility/mmdetection1/upgrade/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/infer/test_on_standard/without_gt/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/guides/</loc>
       <lastmod>2020-12-16T23:13:50-08:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/objective-c/evaluate/result/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/train/test/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/dart/design_pipeline/time_aug/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/go/develop_new_components/add_loss/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/notes/changelog/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/java/hooks/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/guides/error/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/java/hooks/add_set/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/java/optimizer_setting/add_set/</loc>
     </url>
     
   
@@ -827,6 +1055,73 @@
   
     
     <url>
+      <loc>https://Joevaen.github.io/docs/notes/install/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/showcase/paper/paper5/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/node/use_pretained/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/guides/model_conversion/publish/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/get_start/installation/muiti_version_manage/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/infer/test_on_standard/batch/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/objective-c/reminder/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/php/reminder/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/guides/serving/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/cpp/api/</loc>
+      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/notes/</loc>
+    </url>
+    
+  
+    
+    <url>
       <loc>https://Joevaen.github.io/docs/languages/kotlin/</loc>
       <lastmod>2021-03-11T16:29:37-05:00</lastmod>
     </url>
@@ -834,15 +1129,37 @@
   
     
     <url>
-      <loc>https://Joevaen.github.io/docs/platforms/android/kotlin/</loc>
-      <lastmod>2021-03-09T16:50:58-05:00</lastmod>
+      <loc>https://Joevaen.github.io/showcase/paper/paper6/</loc>
     </url>
     
   
     
     <url>
-      <loc>https://Joevaen.github.io/docs/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
+      <loc>https://Joevaen.github.io/docs/notes/pytorch/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/get_start/installation/verify/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/languages/cpp/faq/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/quickstart/infer/test_on_standard/deprecate/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/guides/model_complex/</loc>
     </url>
     
   
@@ -855,8 +1172,38 @@
   
     
     <url>
+      <loc>https://Joevaen.github.io/showcase/paper/paper7/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/guides/model_conversion/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/notes/training/</loc>
+    </url>
+    
+  
+    
+    <url>
       <loc>https://Joevaen.github.io/docs/languages/objective-c/</loc>
       <lastmod>2020-12-16T23:13:50-08:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/showcase/paper/paper8/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/guides/data_conversion/</loc>
     </url>
     
   
@@ -869,24 +1216,90 @@
   
     
     <url>
-      <loc>https://Joevaen.github.io/docs/protoc-installation/</loc>
-      <lastmod>2021-05-05T08:17:11-04:00</lastmod>
+      <loc>https://Joevaen.github.io/docs/guides/robust/</loc>
     </url>
     
   
     
     <url>
-      <loc>https://Joevaen.github.io/docs/languages/python/</loc>
-      <lastmod>2020-12-18T09:17:10-08:00</lastmod>
+      <loc>https://Joevaen.github.io/docs/guides/miscellaneous/</loc>
     </url>
     
   
     
+    <url>
+      <loc>https://Joevaen.github.io/docs/practice/</loc>
+    </url>
+    
   
     
     <url>
-      <loc>https://Joevaen.github.io/docs/languages/ruby/</loc>
+      <loc>https://Joevaen.github.io/</loc>
+      <lastmod>2021-03-05T16:19:25-05:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/community/</loc>
+      <lastmod>2021-05-19T08:41:14-04:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/blog/</loc>
       <lastmod>2020-12-16T23:13:50-08:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/docs/</loc>
+      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/about/</loc>
+      <lastmod>2021-03-05T16:19:25-05:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/about/nnunet/nnunet6/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/about/nnunet/nnunet5/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/about/nnunet/nnunet4/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/about/nnunet/nnunet1/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/about/nnunet/nnunet2/</loc>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://Joevaen.github.io/about/nnunet/nnunet3/</loc>
     </url>
     
   
@@ -901,15 +1314,6 @@
     <url>
       <loc>https://Joevaen.github.io/showcase/</loc>
       <lastmod>2021-03-11T16:29:37-05:00</lastmod>
-    </url>
-    
-  
-    
-  
-    
-    <url>
-      <loc>https://Joevaen.github.io/docs/platforms/web/</loc>
-      <lastmod>2020-12-16T23:13:50-08:00</lastmod>
     </url>
     
   

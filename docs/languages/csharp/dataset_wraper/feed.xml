@@ -1,0 +1,173 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – 通过数据集封装器自定义数据集</title>
+    <link>https://Joevaen.github.io/docs/languages/csharp/dataset_wraper/</link>
+    <description>Recent content in 通过数据集封装器自定义数据集 on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/languages/csharp/dataset_wraper/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 简单的重复数据集</title>
+      <link>https://Joevaen.github.io/docs/languages/csharp/dataset_wraper/simple_repeat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/csharp/dataset_wraper/simple_repeat/</guid>
+      <description>
+        
+        
+        &lt;p&gt;我们使用 &lt;code&gt;RepeatDataset&lt;/code&gt; 作为数据集的封装器。 例如, 假设原始数据是 &lt;code&gt;Dataset_A&lt;/code&gt;, 如果要重述它, 配置文件应该如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;dataset_A_train &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+        &lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;RepeatDataset&amp;#39;&lt;/span&gt;,
+        times&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;N,
+        dataset&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# This is the original config of Dataset_A&lt;/span&gt;
+            &lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;Dataset_A&amp;#39;&lt;/span&gt;,
+            &lt;span style=&#34;color:#555&#34;&gt;...&lt;/span&gt;
+            pipeline&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;train_pipeline
+        )
+    )
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 类平衡数据集</title>
+      <link>https://Joevaen.github.io/docs/languages/csharp/dataset_wraper/class_balance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/csharp/dataset_wraper/class_balance/</guid>
+      <description>
+        
+        
+        &lt;p&gt;我们使用 &lt;code&gt;ClassBalancedDataset&lt;/code&gt; 作为一个封装器，以此根据类别的频率重塑数据集。 重塑的数据集需要实例化函数： &lt;code&gt;self.get_cat_ids(idx)&lt;/code&gt;，以此实现 &lt;code&gt;ClassBalancedDataset&lt;/code&gt;。
+例如, 要用 &lt;code&gt;oversample_thr=1e-3&lt;/code&gt;重塑 &lt;code&gt;Dataset_A&lt;/code&gt; , 配置文件看起来如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;dataset_A_train &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+        &lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;ClassBalancedDataset&amp;#39;&lt;/span&gt;,
+        oversample_thr&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;1e-3&lt;/span&gt;,
+        dataset&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# This is the original config of Dataset_A&lt;/span&gt;
+            &lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;Dataset_A&amp;#39;&lt;/span&gt;,
+            &lt;span style=&#34;color:#555&#34;&gt;...&lt;/span&gt;
+            pipeline&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;train_pipeline
+        )
+    )
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;参考&lt;a href=&#34;../../mmdet/datasets/dataset_wrappers.py&#34;&gt;source code&lt;/a&gt; 得到更多细节。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 合并数据集</title>
+      <link>https://Joevaen.github.io/docs/languages/csharp/dataset_wraper/concat_dataset/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/csharp/dataset_wraper/concat_dataset/</guid>
+      <description>
+        
+        
+        &lt;p&gt;有三种方法来合并数据集。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;如果要合并的数据集是具有不同的标签文件的相同类型，则可以合并以下内容的数据集配置。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;dataset_A_train &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+    &lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;Dataset_A&amp;#39;&lt;/span&gt;,
+    ann_file &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;anno_file_1&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;anno_file_2&amp;#39;&lt;/span&gt;],
+    pipeline&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;train_pipeline
+)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果合并数据集用于测试或评估，则这种方式支持单独评估每个数据集。要测试合并的数据集，您可以设置以下设置为&lt;code&gt;sclode_eval = false&lt;/code&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;dataset_A_train &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+    &lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;Dataset_A&amp;#39;&lt;/span&gt;,
+    ann_file &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;anno_file_1&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;anno_file_2&amp;#39;&lt;/span&gt;],
+    separate_eval&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;False,
+    pipeline&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;train_pipeline
+)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果要合并的数据集是不同的，则可以合并以下内容的数据集配置。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;dataset_A_train &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;()
+dataset_B_train &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;()
+
+data &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+    imgs_per_gpu&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;2&lt;/span&gt;,
+    workers_per_gpu&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;2&lt;/span&gt;,
+    train &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; [
+        dataset_A_train,
+        dataset_B_train
+    ],
+    val &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; dataset_A_val,
+    test &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; dataset_A_test
+    )
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果合并数据集用于测试或评估，则这种方式还支持单独评估每个数据集。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;我们也支持明确定义 &lt;code&gt;ConcatDataset&lt;/code&gt; 如下.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;dataset_A_val &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;()
+dataset_B_val &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;()
+
+data &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+    imgs_per_gpu&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;2&lt;/span&gt;,
+    workers_per_gpu&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;2&lt;/span&gt;,
+    train&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;dataset_A_train,
+    val&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+        &lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;ConcatDataset&amp;#39;&lt;/span&gt;,
+        datasets&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;[dataset_A_val, dataset_B_val],
+        separate_eval&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;False))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这种方式允许用户通过设置&lt;code&gt;separate_eval=False&lt;/code&gt;将所有数据集视为单个单位。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;注意:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;选项 &lt;code&gt;separate_eval=False&lt;/code&gt; 建立在评估数据集期间使用 &lt;code&gt;self.data_infos&lt;/code&gt; 。 因此, COCO数据集不支持这样的行为因为COCO数据集不完全依赖于 &lt;code&gt;self.data_infos&lt;/code&gt; 来进行评估。合并不同类型的数据集并进行评估的方式还未测试，因此并不建议使用。&lt;/li&gt;
+&lt;li&gt;评估 &lt;code&gt;ClassBalancedDataset&lt;/code&gt; 和 &lt;code&gt;RepeatDataset&lt;/code&gt; 还不支持，所以评估这种类型的合并数据集也不支持。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;A more complex example that repeats &lt;code&gt;Dataset_A&lt;/code&gt; and &lt;code&gt;Dataset_B&lt;/code&gt; by N and M times, respectively, and then concatenates the repeated datasets is as the following.
+特别指出一个更加复杂的重塑 N次&lt;code&gt;Dataset_A&lt;/code&gt;和 M次&lt;code&gt;Dataset_B&lt;/code&gt;，然后将两者进行合并的例子。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;dataset_A_train &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+    &lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;RepeatDataset&amp;#39;&lt;/span&gt;,
+    times&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;N,
+    dataset&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+        &lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;Dataset_A&amp;#39;&lt;/span&gt;,
+        &lt;span style=&#34;color:#555&#34;&gt;...&lt;/span&gt;
+        pipeline&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;train_pipeline
+    )
+)
+dataset_A_val &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+    &lt;span style=&#34;color:#555&#34;&gt;...&lt;/span&gt;
+    pipeline&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;test_pipeline
+)
+dataset_A_test &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+    &lt;span style=&#34;color:#555&#34;&gt;...&lt;/span&gt;
+    pipeline&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;test_pipeline
+)
+dataset_B_train &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+    &lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;RepeatDataset&amp;#39;&lt;/span&gt;,
+    times&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;M,
+    dataset&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+        &lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;Dataset_B&amp;#39;&lt;/span&gt;,
+        &lt;span style=&#34;color:#555&#34;&gt;...&lt;/span&gt;
+        pipeline&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;train_pipeline
+    )
+)
+data &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+    imgs_per_gpu&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;2&lt;/span&gt;,
+    workers_per_gpu&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;2&lt;/span&gt;,
+    train &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; [
+        dataset_A_train,
+        dataset_B_train
+    ],
+    val &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; dataset_A_val,
+    test &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; dataset_A_test
+)
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

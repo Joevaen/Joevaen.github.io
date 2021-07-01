@@ -1,0 +1,162 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – MMDetection 1.x的兼容性</title>
+    <link>https://Joevaen.github.io/docs/notes/compatibility/mmdetection1/</link>
+    <description>Recent content in MMDetection 1.x的兼容性 on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/notes/compatibility/mmdetection1/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 坐标系统</title>
+      <link>https://Joevaen.github.io/docs/notes/compatibility/mmdetection1/cord/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/notes/compatibility/mmdetection1/cord/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The new coordinate system is consistent with &lt;a href=&#34;https://github.com/facebookresearch/detectron2/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Detectron2&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; and treats the center of the most left-top pixel as (0, 0) rather than the left-top corner of that pixel.
+Accordingly, the system interprets the coordinates in COCO bounding box and segmentation annotations as coordinates in range &lt;code&gt;[0, width]&lt;/code&gt; or &lt;code&gt;[0, height]&lt;/code&gt;.
+This modification affects all the computation related to the bbox and pixel selection,
+which is more natural and accurate.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The height and width of a box with corners (x1, y1) and (x2, y2) in the new coordinate system is computed as &lt;code&gt;width = x2 - x1&lt;/code&gt; and &lt;code&gt;height = y2 - y1&lt;/code&gt;.
+In MMDetection 1.x and previous version, a &amp;ldquo;+ 1&amp;rdquo; was added both height and width.
+This modification are in three folds:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Box transformation and encoding/decoding in regression.&lt;/li&gt;
+&lt;li&gt;IoU calculation. This affects the matching process between ground truth and bounding box and the NMS process. The effect to compatibility is very negligible, though.&lt;/li&gt;
+&lt;li&gt;The corners of bounding box is in float type and no longer quantized. This should provide more accurate bounding box results. This also makes the bounding box and RoIs not required to have minimum size of 1, whose effect is small, though.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The anchors are center-aligned to feature grid points and in float type.
+In MMDetection 1.x and previous version, the anchors are in &lt;code&gt;int&lt;/code&gt; type and not center-aligned.
+This affects the anchor generation in RPN and all the anchor-based methods.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ROIAlign is better aligned with the image coordinate system. The new implementation is adopted from &lt;a href=&#34;https://github.com/facebookresearch/detectron2/tree/master/detectron2/layers/csrc/ROIAlign&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Detectron2&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.
+The RoIs are shifted by half a pixel by default when they are used to cropping RoI features, compared to MMDetection 1.x.
+The old behavior is still available by setting &lt;code&gt;aligned=False&lt;/code&gt; instead of &lt;code&gt;aligned=True&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Mask cropping and pasting are more accurate.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;We use the new RoIAlign to crop mask targets. In MMDetection 1.x, the bounding box is quantized before it is used to crop mask target, and the crop process is implemented by numpy. In new implementation, the bounding box for crop is not quantized and sent to RoIAlign. This implementation accelerates the training speed by a large margin (~0.1s per iter, ~2 hour when training Mask R50 for 1x schedule) and should be more accurate.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In MMDetection 2.0, the &amp;ldquo;&lt;code&gt;paste_mask()&lt;/code&gt;&amp;rdquo; function is different and should be more accurate than those in previous versions. This change follows the modification in &lt;a href=&#34;https://github.com/facebookresearch/detectron2/blob/master/detectron2/structures/masks.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Detectron2&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; and can improve mask AP on COCO by ~0.5% absolute.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 代码库惯例</title>
+      <link>https://Joevaen.github.io/docs/notes/compatibility/mmdetection1/codebase/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/notes/compatibility/mmdetection1/codebase/</guid>
+      <description>
+        
+        
+        &lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;MMDetection 2.0 changes the order of class labels to reduce unused parameters in regression and mask branch more naturally (without +1 and -1).
+This effect all the classification layers of the model to have a different ordering of class labels. The final layers of regression branch and mask head no longer keep K+1 channels for K categories, and their class orders are consistent with the classification branch.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;In MMDetection 2.0, label &amp;ldquo;K&amp;rdquo; means background, and labels [0, K-1] correspond to the K = num_categories object categories.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In MMDetection 1.x and previous version, label &amp;ldquo;0&amp;rdquo; means background, and labels [1, K] correspond to the K categories.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: The class order of softmax RPN is still the same as that in 1.x in versions&amp;lt;=2.4.0 while sigmoid RPN is not affected. The class orders in all heads are unified since MMDetection v2.5.0.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Low quality matching in R-CNN is not used. In MMDetection 1.x and previous versions, the &lt;code&gt;max_iou_assigner&lt;/code&gt; will match low quality boxes for each ground truth box in both RPN and R-CNN training. We observe this sometimes does not assign the most perfect GT box to some bounding boxes,
+thus MMDetection 2.0 do not allow low quality matching by default in R-CNN training in the new system. This sometimes may slightly improve the box AP (~0.1% absolute).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Separate scale factors for width and height. In MMDetection 1.x and previous versions, the scale factor is a single float in mode &lt;code&gt;keep_ratio=True&lt;/code&gt;. This is slightly inaccurate because the scale factors for width and height have slight difference. MMDetection 2.0 adopts separate scale factors for width and height, the improvement on AP ~0.1% absolute.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Configs name conventions are changed. MMDetection V2.0 adopts the new name convention to maintain the gradually growing model zoo as the following:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;model&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;_&lt;span style=&#34;color:#555&#34;&gt;(&lt;/span&gt;model setting&lt;span style=&#34;color:#555&#34;&gt;)&lt;/span&gt;_&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;backbone&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;_&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;neck&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;_&lt;span style=&#34;color:#555&#34;&gt;(&lt;/span&gt;norm setting&lt;span style=&#34;color:#555&#34;&gt;)&lt;/span&gt;_&lt;span style=&#34;color:#555&#34;&gt;(&lt;/span&gt;misc&lt;span style=&#34;color:#555&#34;&gt;)&lt;/span&gt;_&lt;span style=&#34;color:#555&#34;&gt;(&lt;/span&gt;gpu x batch&lt;span style=&#34;color:#555&#34;&gt;)&lt;/span&gt;_&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;schedule&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;_&lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;dataset&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;.py,
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;where the (&lt;code&gt;misc&lt;/code&gt;) includes DCN and GCBlock, etc. More details are illustrated in the &lt;a href=&#34;config.md&#34;&gt;documentation for config&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;MMDetection V2.0 uses new ResNet Caffe backbones to reduce warnings when loading pre-trained models. Most of the new backbones&#39; weights are the same as the former ones but do not have &lt;code&gt;conv.bias&lt;/code&gt;, except that they use a different &lt;code&gt;img_norm_cfg&lt;/code&gt;. Thus, the new backbone will not cause warning of unexpected keys.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 训练超参数</title>
+      <link>https://Joevaen.github.io/docs/notes/compatibility/mmdetection1/train/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/notes/compatibility/mmdetection1/train/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The change in training hyperparameters does not affect
+model-level compatibility but slightly improves the performance. The major ones are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The number of proposals after nms is changed from 2000 to 1000 by setting &lt;code&gt;nms_post=1000&lt;/code&gt; and &lt;code&gt;max_num=1000&lt;/code&gt;.
+This slightly improves both mask AP and bbox AP by ~0.2% absolute.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The default box regression losses for Mask R-CNN, Faster R-CNN and RetinaNet are changed from smooth L1 Loss to L1 loss. This leads to an overall improvement in box AP (~0.6% absolute). However, using L1-loss for other methods such as Cascade R-CNN and HTC does not improve the performance, so we keep the original settings for these methods.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The sample num of RoIAlign layer is set to be 0 for simplicity. This leads to slightly improvement on mask AP (~0.2% absolute).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The default setting does not use gradient clipping anymore during training for faster training speed. This does not degrade performance of the most of models. For some models such as RepPoints we keep using gradient clipping to stabilize the training process and to obtain better performance.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The default warmup ratio is changed from 1/3 to 0.001 for a more smooth warming up process since the gradient clipping is usually not used. The effect is found negligible during our re-benchmarking, though.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 将模型从1.x升级到2.0</title>
+      <link>https://Joevaen.github.io/docs/notes/compatibility/mmdetection1/upgrade/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/notes/compatibility/mmdetection1/upgrade/</guid>
+      <description>
+        
+        
+        &lt;p&gt;To convert the models trained by MMDetection V1.x to MMDetection V2.0, the users can use the script &lt;code&gt;tools/model_converters/upgrade_model_version.py&lt;/code&gt; to convert
+their models. The converted models can be run in MMDetection V2.0 with slightly dropped performance (less than 1% AP absolute).
+Details can be found in &lt;code&gt;configs/legacy&lt;/code&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

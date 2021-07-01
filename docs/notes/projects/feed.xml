@@ -1,0 +1,81 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – 基于MMDetection的项目</title>
+    <link>https://Joevaen.github.io/docs/notes/projects/</link>
+    <description>Recent content in 基于MMDetection的项目 on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/notes/projects/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 作为扩展的项目</title>
+      <link>https://Joevaen.github.io/docs/notes/projects/extension/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/notes/projects/extension/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Some projects extend the boundary of MMDetection for deployment or other research fields.
+They reveal the potential of what MMDetection can do. We list several of them as below.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/opencv/mmdetection&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;OTEDetection&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;: OpenVINO training extensions for object detection.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/open-mmlab/mmdetection3d&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MMDetection3d&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;: OpenMMLab&amp;rsquo;s next-generation platform for general 3D object detection.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 项目论文</title>
+      <link>https://Joevaen.github.io/docs/notes/projects/paper/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/notes/projects/paper/</guid>
+      <description>
+        
+        
+        &lt;p&gt;There are also projects released with papers.
+Some of the papers are published in top-tier conferences (CVPR, ICCV, and ECCV), the others are also highly influential.
+To make this list also a reference for the community to develop and compare new object detection algorithms, we list them following the time order of top-tier conferences.
+Methods already supported and maintained by MMDetection are not listed.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Overcoming Classifier Imbalance for Long-tail Object Detection with Balanced Group Softmax, CVPR2020. &lt;a href=&#34;http://openaccess.thecvf.com/content_CVPR_2020/papers/Li_Overcoming_Classifier_Imbalance_for_Long-Tail_Object_Detection_With_Balanced_Group_CVPR_2020_paper.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[paper]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&#34;https://github.com/FishYuLi/BalancedGroupSoftmax&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[github]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Coherent Reconstruction of Multiple Humans from a Single Image, CVPR2020. &lt;a href=&#34;https://jiangwenpl.github.io/multiperson/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[paper]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&#34;https://github.com/JiangWenPL/multiperson&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[github]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Look-into-Object: Self-supervised Structure Modeling for Object Recognition, CVPR 2020. &lt;a href=&#34;http://openaccess.thecvf.com/content_CVPR_2020/papers/Zhou_Look-Into-Object_Self-Supervised_Structure_Modeling_for_Object_Recognition_CVPR_2020_paper.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[paper]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&#34;https://github.com/JDAI-CV/LIO&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[github]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Video Panoptic Segmentation, CVPR2020. &lt;a href=&#34;https://arxiv.org/abs/2006.11339&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[paper]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&#34;https://github.com/mcahny/vps&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[github]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;D2Det: Towards High Quality Object Detection and Instance Segmentation, CVPR2020. &lt;a href=&#34;http://openaccess.thecvf.com/content_CVPR_2020/html/Cao_D2Det_Towards_High_Quality_Object_Detection_and_Instance_Segmentation_CVPR_2020_paper.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[paper]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&#34;https://github.com/JialeCao001/D2Det&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[github]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;CentripetalNet: Pursuing High-quality Keypoint Pairs for Object Detection, CVPR2020. &lt;a href=&#34;https://arxiv.org/abs/2003.09119&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[paper]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&#34;https://github.com/KiveeDong/CentripetalNet&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[github]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Learning a Unified Sample Weighting Network for Object Detection, CVPR 2020. &lt;a href=&#34;http://openaccess.thecvf.com/content_CVPR_2020/html/Cai_Learning_a_Unified_Sample_Weighting_Network_for_Object_Detection_CVPR_2020_paper.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[paper]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&#34;https://github.com/caiqi/sample-weighting-network&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[github]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Scale-equalizing Pyramid Convolution for Object Detection, CVPR2020. &lt;a href=&#34;https://arxiv.org/abs/2005.03101&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[paper]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; &lt;a href=&#34;https://github.com/jshilong/SEPC&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[github]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Revisiting the Sibling Head in Object Detector, CVPR2020. &lt;a href=&#34;https://arxiv.org/abs/2003.07540&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[paper]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&#34;https://github.com/Sense-X/TSD&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[github]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PolarMask: Single Shot Instance Segmentation with Polar Representation, CVPR2020. &lt;a href=&#34;https://arxiv.org/abs/1909.13226&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[paper]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&#34;https://github.com/xieenze/PolarMask&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[github]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Hit-Detector: Hierarchical Trinity Architecture Search for Object Detection, CVPR2020. &lt;a href=&#34;https://arxiv.org/abs/2003.11818&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[paper]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&#34;https://github.com/ggjy/HitDet.pytorch&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[github]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;ZeroQ: A Novel Zero Shot Quantization Framework, CVPR2020. &lt;a href=&#34;https://arxiv.org/abs/2001.00281&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[paper]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&#34;https://github.com/amirgholami/ZeroQ&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[github]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;CBNet: A Novel Composite Backbone Network Architecture for Object Detection, AAAI2020. &lt;a href=&#34;https://aaai.org/Papers/AAAI/2020GB/AAAI-LiuY.1833.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[paper]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&#34;https://github.com/VDIGPKU/CBNet&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[github]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;RDSNet: A New Deep Architecture for Reciprocal Object Detection and Instance Segmentation, AAAI2020. &lt;a href=&#34;https://arxiv.org/abs/1912.05070&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[paper]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&#34;https://github.com/wangsr126/RDSNet&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[github]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Training-Time-Friendly Network for Real-Time Object Detection, AAAI2020. &lt;a href=&#34;https://arxiv.org/abs/1909.00700&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[paper]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&#34;https://github.com/ZJULearning/ttfnet&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[github]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Cascade RPN: Delving into High-Quality Region Proposal Network with Adaptive Convolution, NeurIPS 2019. &lt;a href=&#34;https://arxiv.org/abs/1909.06720&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[paper]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&#34;https://github.com/thangvubk/Cascade-RPN&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[github]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Reasoning R-CNN: Unifying Adaptive Global Reasoning into Large-scale Object Detection, CVPR2019. &lt;a href=&#34;http://openaccess.thecvf.com/content_CVPR_2019/papers/Xu_Reasoning-RCNN_Unifying_Adaptive_Global_Reasoning_Into_Large-Scale_Object_Detection_CVPR_2019_paper.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[paper]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&#34;https://github.com/chanyn/Reasoning-RCNN&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[github]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Learning RoI Transformer for Oriented Object Detection in Aerial Images, CVPR2019. &lt;a href=&#34;https://arxiv.org/abs/1812.00155&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[paper]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&#34;https://github.com/dingjiansw101/AerialDetection&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[github]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;SOLO: Segmenting Objects by Locations. &lt;a href=&#34;https://arxiv.org/abs/1912.04488&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[paper]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&#34;https://github.com/WXinlong/SOLO&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[github]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;SOLOv2: Dynamic, Faster and Stronger. &lt;a href=&#34;https://arxiv.org/abs/2003.10152&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[paper]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&#34;https://github.com/WXinlong/SOLO&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[github]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Dense Peppoints: Representing Visual Objects with Dense Point Sets. &lt;a href=&#34;https://arxiv.org/abs/1912.11473&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[paper]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&#34;https://github.com/justimyhxu/Dense-RepPoints&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[github]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;IterDet: Iterative Scheme for Object Detection in Crowded Environments. &lt;a href=&#34;https://arxiv.org/abs/2005.05708&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[paper]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&#34;https://github.com/saic-vul/iterdet&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[github]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Cross-Iteration Batch Normalization. &lt;a href=&#34;https://arxiv.org/abs/2002.05712&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[paper]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&#34;https://github.com/Howal/Cross-iterationBatchNorm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[github]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Generalizable Pedestrian Detection: The Elephant In The Room, CVPR2021. &lt;a href=&#34;https://arxiv.org/abs/2003.08799&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[paper]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&#34;https://github.com/hasanirtiza/Pedestron&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[github]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;A Ranking-based, Balanced Loss Function Unifying Classification and Localisation in Object Detection, NeurIPS2020 &lt;a href=&#34;https://arxiv.org/abs/2009.13592&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[paper]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&#34;https://github.com/kemaloksuz/aLRPLoss&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[github]&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

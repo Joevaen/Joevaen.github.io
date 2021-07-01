@@ -1,0 +1,913 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.82.1" />
+
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-512x512.png" sizes="512x512">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/site.webmanifest">
+<title>CT中伪影的识别和规避 | gRPC</title>
+<meta property="og:title" content="CT中伪影的识别和规避" />
+<meta property="og:description" content="CT中伪影的识别和规避       Contents   物理伪影  一、Beam Hardening（线质硬化）  I.线质硬化的原理 II.线质硬化的表现  杯子伪影 密集对象之间的暗带或条纹   III.解决线质硬化的内置功能 IV.避免线质硬化的操作方法   二、Partial Volume（部分体积效应） 三、Photon Starvation（光子饥饿效应）  I. 光子饥饿原理 II. 光子饥饿解决方案  Automatic Tube Current Modulation（自动管电流调制）: Adaptive Filtration（自适应过滤）:     四、Undersampling（欠采样）   病例伪影  一、Metallic Materials（金属材料）  I.金属伪影原因 II.解决方案  在操作上避免金属伪影: 软件上修正伪影:     二、Patient Motion（移动伪影）  I.移动伪影原因 II.移动伪影解决方案  操作上避免移动伪影 内置功能可最大程度地减少运动伪影     三、Incomplete Projections（不完整的投影）   扫描仪伪影  一、Ring Artifacts（环状伪影）  I." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Joevaen.github.io/showcase/paper/paper6/" /><meta property="article:section" content="showcase" />
+
+<meta property="og:site_name" content="gRPC" />
+
+<meta itemprop="name" content="CT中伪影的识别和规避">
+<meta itemprop="description" content="CT中伪影的识别和规避       Contents   物理伪影  一、Beam Hardening（线质硬化）  I.线质硬化的原理 II.线质硬化的表现  杯子伪影 密集对象之间的暗带或条纹   III.解决线质硬化的内置功能 IV.避免线质硬化的操作方法   二、Partial Volume（部分体积效应） 三、Photon Starvation（光子饥饿效应）  I. 光子饥饿原理 II. 光子饥饿解决方案  Automatic Tube Current Modulation（自动管电流调制）: Adaptive Filtration（自适应过滤）:     四、Undersampling（欠采样）   病例伪影  一、Metallic Materials（金属材料）  I.金属伪影原因 II.解决方案  在操作上避免金属伪影: 软件上修正伪影:     二、Patient Motion（移动伪影）  I.移动伪影原因 II.移动伪影解决方案  操作上避免移动伪影 内置功能可最大程度地减少运动伪影     三、Incomplete Projections（不完整的投影）   扫描仪伪影  一、Ring Artifacts（环状伪影）  I.">
+
+<meta itemprop="wordCount" content="262">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CT中伪影的识别和规避"/>
+<meta name="twitter:description" content="CT中伪影的识别和规避       Contents   物理伪影  一、Beam Hardening（线质硬化）  I.线质硬化的原理 II.线质硬化的表现  杯子伪影 密集对象之间的暗带或条纹   III.解决线质硬化的内置功能 IV.避免线质硬化的操作方法   二、Partial Volume（部分体积效应） 三、Photon Starvation（光子饥饿效应）  I. 光子饥饿原理 II. 光子饥饿解决方案  Automatic Tube Current Modulation（自动管电流调制）: Adaptive Filtration（自适应过滤）:     四、Undersampling（欠采样）   病例伪影  一、Metallic Materials（金属材料）  I.金属伪影原因 II.解决方案  在操作上避免金属伪影: 软件上修正伪影:     二、Patient Motion（移动伪影）  I.移动伪影原因 II.移动伪影解决方案  操作上避免移动伪影 内置功能可最大程度地减少运动伪影     三、Incomplete Projections（不完整的投影）   扫描仪伪影  一、Ring Artifacts（环状伪影）  I."/>
+
+
+
+<link rel="preload" href="/css/style.min.e3cf82e558200e98b09736f835e12b188dca1353aad6649d3429c72923031431.css" as="style">
+<link href="/css/style.min.e3cf82e558200e98b09736f835e12b188dca1353aad6649d3429c72923031431.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163836834-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-163836834-2');
+  gtag('config', 'UA-60127042-1');
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="canonical" href="https://Joevaen.github.io/showcase/paper/paper6/">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@grpcio">
+<meta name="twitter:creator" content="@grpcio">
+<meta name="twitter:image" content="https://Joevaen.github.io/img/logos/grpc-icon-color.png">
+<meta name="twitter:image:alt" content="gRPC color logo">
+
+<meta property="og:url" content="https://Joevaen.github.io/showcase/paper/paper6/">
+<meta property="og:title" content="CT中伪影的识别和规避">
+<meta property="og:description" content="A high-performance, open source universal RPC framework">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="gRPC">
+<meta property="og:image" content="https://Joevaen.github.io/img/logos/grpc-icon-color.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="gRPC color logo">
+<meta property="og:locale" content="en_US">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-512x512.png" sizes="512x512">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/site.webmanifest">
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark  td-navbar-cover flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="672pt" height="436pt" viewBox="0 0 672 436"><g transform="translate(0.000000,436.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M3066 3659c-376-41-707-264-894-602-35-63-50-101-45-113 4-12 3-15-5-10s-10 1-5-10c5-13 9-11 23 15 9 18 19 29 22 25 4-3 4 3 1 15-4 14-1 21 9 21 8 0 27 23 42 51 119 218 360 416 607 499 96 33 250 60 337 60 551 0 1009-390 1097-933 48-296-20-597-193-847-24-36-35-56-23-46 35 32 24 2-23-61-49-64-119-128-220-198-36-26-66-49-66-51 0-10 123 74 187 128 63 53 173 174 182 201 2 7 9 19 16 27s36 58 63 110c198 373 185 786-35 1159-25 42-60 95-79 118-42 51-45 68-4 22 68-76 190-285 190-326 0-7 5-12 11-10 6 1 14-4 17-12 2-8 0-11-5-8-6 4-8-4-5-19 3-18 7-22 12-13 6 8 12-2 19-29 6-23 15-59 21-80 31-121 29-332-5-516-9-44-13-81-11-83s16 47 31 109c26 106 27 122 22 268-4 119-12 179-32 260-56 225-191 440-375 598-70 59-261 182-284 182-6 0 25-21 69-47 44-25 105-65 135-89 62-48 149-134 135-134-6 0-32 23-60 51-67 67-224 171-325 215-78 34-249 83-294 85-21 0-21 1-1 9 15 7 8 9-30 10-27 0-72 2-1e2 4-27 2-86 0-129-5z"/><path d="M36e2 3580c8-5 20-10 25-10 6 0 3 5-5 10s-19 10-25 10c-5 0-3-5 5-10z"/><path d="M3519 3276c-69-18-136-62-211-138-191-194-325-488-288-630 12-45 45-88 67-88 18 0 16 19-2 27-24 9-45 57-45 103 0 121 141 397 271 531 111 115 241 189 303 173 1e2-25 76-265-64-626l-40-105-58-13c-79-17-211-65-309-110-197-92-359-233-429-375-35-71-39-87-39-154 0-65 4-83 28-123 61-104 188-133 299-70 70 41 176 152 251 265 67 102 188 333 243 464 37 89 39 92 79 102 43 11 84 36 74 45-3 3-24-2-47-11s-45-14-48-11 15 63 41 133c126 349 145 579 49 615-33 13-68 12-125-4zm-29-794c0-4-47-102-104-218-197-398-362-594-5e2-594-68 0-124 44-151 119-85 243 203 545 645 675 93 27 110 30 110 18z"/><path d="M2081 2794c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M4291 2784c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M2071 2754c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M4302 2740c0-14 2-19 5-12 2 6 2 18 0 25-3 6-5 1-5-13z"/><path d="M2061 2714c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M2052 2660c0-14 2-19 5-12 2 6 2 18 0 25-3 6-5 1-5-13z"/><path d="M2043 2585c0-22 2-30 4-17 2 12 2 30 0 40-3 9-5-1-4-23z"/><path d="M4252 2018c-15-37-19-55-11-63 7-7 8-4 3 9-6 15-4 17 6 11 9-5 11-4 6 3-4 7-3 12 3 12s7 7 4 17c-5 12-3 14 8 8 8-4 11-5 7 0-4 4-4 13 2 19 5 7 5 17 1 24s-15-8-29-40z"/><path d="M4205 1919c-3-4 2-6 10-5 21 3 28 13 10 13-9 0-18-4-20-8z"/><path d="M4024 1668l-19-23 23 19c12 11 22 21 22 23 0 8-8 2-26-19z"/><path d="M4015 1628l-40-43 43 40c39 36 47 45 39 45-2 0-21-19-42-42z"/><path d="M3969 1613c-13-16-12-17 4-4s21 21 13 21c-2 0-10-8-17-17z"/><path d="M3919 1543c-13-16-12-17 4-4 9 7 17 15 17 17 0 8-8 3-21-13z"/><path d="M3705 1428c-11-6-23-15-26-20-3-6-9-9-13-9-19 3-27 0-22-7 7-12-61-35-75-26-8 5-9 3-4-6 6-10 3-12-13-8-14 4-20 2-15-5 4-6-2-8-15-5-12 4-20 2-17-2 3-5 0-10-7-13-7-2-2-2 12 0 39 7 179 63 194 78 7 8 16 12 18 10 3-3 5 2 5 10s-1 15-1 15c-1 0-10-6-21-12z"/><path d="M3448 1313c7-3 16-2 19 1 4 3-2 6-13 5-11 0-14-3-6-6z"/><path d="M3355 13e2c-27-7-27-8-5-8 14 0 39 4 55 8 27 7 27 8 5 8-14 0-38-4-55-8z"/><path d="M3263 1283c9-2 25-2 35 0 9 3 1 5-18 5s-27-2-17-5z"/><path d="M1810 981c0-75-4-103-15-115-17-17-20-66-4-66 6 0 24 13 40 29 29 29 29 31 29 140v111h-25c-25 0-25 0-25-99z"/><path d="M2211 1062c-51-25-73-61-74-120-1-70 33-116 101-137 36-10 28 31-13 69-26 25-35 42-35 66s9 41 35 66c19 18 35 42 35 53 0 25-5 26-49 3z"/><path d="M2290 1060c0-12 16-36 35-54 26-25 35-42 35-66s-9-41-35-66c-41-38-49-79-12-69 66 20 99 65 99 135s-33 115-99 135c-19 5-23 2-23-15z"/><path d="M2692 1053l3-28h1e2 1e2l3 28 3 27h-106-106l3-27z"/><path d="M3150 1068c0-7 23-70 52-140 48-119 53-128 78-128s30 9 78 130c29 72 52 135 52 141s-12 9-27 7c-23-2-31-13-51-63-13-33-31-76-39-95l-14-35-25 59c-13 33-24 63-24 67s15 9 33 11c27 2 32 7 32 28 0 24-3 25-72 28-55 2-73 0-73-10z"/><path d="M3724 1003c-43-93-48-128-19-128 15 0 28 17 50 63l30 62 25-62c14-35 27-66 28-70 2-5-35-8-82-8-76 0-86-2-1e2-22-8-12-13-25-10-30 7-11 261-10 268 1 3 5-19 67-49 137-48 114-57 129-80 132s-29-4-61-75z"/><path d="M4187 1073c-4-3-7-14-7-24 0-25 28-31 125-27 79 3 80 3 83 31l3 27h-99c-54 0-102-3-105-7z"/><path d="M4670 1068c0-7 43-71 96-141 77-105 99-128 117-125 21 3 22 7 25 141l3 138-28-3c-28-3-28-4-33-86l-5-83-62 85c-50 69-68 86-88 86-14 0-25-6-25-12z"/><path d="M2694 955c-14-37 2-45 89-45 88 0 114 11 101 44-9 23-182 24-190 1z"/><path d="M4184 955c-3-8-3-22 0-30 5-13 22-15 98-13 92 3 93 3 93 28s-1 25-93 28c-76 2-93 0-98-13z"/><path d="M1675 890c-10-16 4-48 32-70 32-25 40-25 48 0 13 40-60 103-80 70z"/><path d="M4670 850c0-47 2-50 25-50s25 3 25 50-2 50-25 50-25-3-25-50z"/><path d="M2694 845c-3-8-3-22 0-30 5-13 23-15 103-13 97 3 98 3 98 28s-1 25-98 28c-80 2-98 0-103-13z"/><path d="M4184 845c-15-38 1-45 106-45h101l-3 28-3 27-98 3c-80 2-98 0-103-13z"/></g></svg></span><span class="text-uppercase font-weight-bold">gRPC</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/about/" ><span>nnUNet</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/" ><span>MMDetection</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/showcase/" ><span>论文</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/blog/" ><span>Blog</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/community/" ><span>C&#43;&#43;</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-default td-outer">
+      
+      <main role="main" class="td-main">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="td-cover-block-0" class="row td-cover-block td-cover-block--height-sm js-td-cover td-overlay td-overlay--dark -bg-primary">
+  <div class="container td-overlay__inner">
+    <div class="row">
+      <div class="col-12">
+        <div class="text-center">
+          
+          
+          <div class="pt-3 lead">
+            
+                <div class="text-left">
+  <h1 class="display-1 mb-5">CT中伪影的识别和规避</h1></div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<div class="container l-container--padded">
+<div class="row">
+
+
+
+
+  
+    <div class="d-lg-none col-12">
+      <div class="td-toc td-toc--inline">
+  
+      
+        <a id="td-content__toc-link" class="collapsed" href="#td-content__toc" data-toggle="collapse" aria-controls="td-page-toc" aria-expanded="false" aria-label="Toggle toc navigation">
+          <span class="lead">Contents<i class="fas fa-chevron-right ml-2"></i></span>
+        </a>
+        <div id="td-content__toc" class="collapse">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#物理伪影">物理伪影</a>
+      <ul>
+        <li><a href="#一beam-hardening线质硬化">一、Beam Hardening（线质硬化）</a>
+          <ul>
+            <li><a href="#i线质硬化的原理">I.线质硬化的原理</a></li>
+            <li><a href="#ii线质硬化的表现">II.线质硬化的表现</a>
+              <ul>
+                <li><a href="#font-colorcoral杯子伪影font"><font color=Coral><strong>杯子伪影</strong></font></a></li>
+                <li><a href="#font-colorcoral密集对象之间的暗带或条纹font"><font color=Coral><strong>密集对象之间的暗带或条纹</strong></font></a></li>
+              </ul>
+            </li>
+            <li><a href="#iii解决线质硬化的内置功能">III.解决线质硬化的内置功能</a></li>
+            <li><a href="#iv避免线质硬化的操作方法">IV.避免线质硬化的操作方法</a></li>
+          </ul>
+        </li>
+        <li><a href="#二partial-volume部分体积效应">二、Partial Volume（部分体积效应）</a></li>
+        <li><a href="#三photon-starvation光子饥饿效应">三、Photon Starvation（光子饥饿效应）</a>
+          <ul>
+            <li><a href="#i-光子饥饿原理">I. 光子饥饿原理</a></li>
+            <li><a href="#ii-光子饥饿解决方案">II. 光子饥饿解决方案</a>
+              <ul>
+                <li><a href="#font-colorcoralautomatic-tube-current-modulation自动管电流调制font"><font color=Coral><strong>Automatic Tube Current Modulation（自动管电流调制）:</strong></font></a></li>
+                <li><a href="#font-colorcoraladaptive-filtration自适应过滤font"><font color=Coral><strong>Adaptive Filtration（自适应过滤）:</strong></font></a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#四undersampling欠采样">四、Undersampling（欠采样）</a></li>
+      </ul>
+    </li>
+    <li><a href="#病例伪影">病例伪影</a>
+      <ul>
+        <li><a href="#一metallic-materials金属材料">一、Metallic Materials（金属材料）</a>
+          <ul>
+            <li><a href="#i金属伪影原因">I.金属伪影原因</a></li>
+            <li><a href="#ii解决方案">II.解决方案</a>
+              <ul>
+                <li><a href="#font-colorcoral在操作上避免金属伪影font"><font color=Coral><strong>在操作上避免金属伪影:</strong></font></a></li>
+                <li><a href="#font-colorcoral软件上修正伪影font"><font color=Coral><strong>软件上修正伪影:</strong></font></a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#二patient-motion移动伪影">二、Patient Motion（移动伪影）</a>
+          <ul>
+            <li><a href="#i移动伪影原因">I.移动伪影原因</a></li>
+            <li><a href="#ii移动伪影解决方案">II.移动伪影解决方案</a>
+              <ul>
+                <li><a href="#font-colorcoral操作上避免移动伪影font"><font color=Coral><strong>操作上避免移动伪影</strong></font></a></li>
+                <li><a href="#font-colorcoral内置功能可最大程度地减少运动伪影font"><font color=Coral><strong>内置功能可最大程度地减少运动伪影</strong></font></a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#三incomplete-projections不完整的投影">三、Incomplete Projections（不完整的投影）</a></li>
+      </ul>
+    </li>
+    <li><a href="#扫描仪伪影">扫描仪伪影</a>
+      <ul>
+        <li><a href="#一ring-artifacts环状伪影">一、Ring Artifacts（环状伪影）</a>
+          <ul>
+            <li><a href="#i环装伪影原因">I.环装伪影原因</a></li>
+            <li><a href="#ii环状伪影解决方案">II.环状伪影解决方案</a></li>
+          </ul>
+        </li>
+        <li><a href="#二helical-and-multisection-ct-artifacts螺旋多段状伪影">二、Helical and Multisection CT Artifacts（螺旋、多段状伪影）</a>
+          <ul>
+            <li><a href="#i轴向平面中的螺旋伪影单节扫描">I.轴向平面中的螺旋伪影：单节扫描</a></li>
+            <li><a href="#ii多段扫描中的螺旋伪影">II.多段扫描中的螺旋伪影</a></li>
+            <li><a href="#iii锥束效应">III.锥束效应</a></li>
+            <li><a href="#iv多平面和三维重塑">IV.多平面和三维重塑</a>
+              <ul>
+                <li><a href="#font-colorcoral阶梯状伪影font"><font color=Coral><strong>阶梯状伪影</strong></font></a></li>
+                <li><a href="#font-colorcoral斑马伪影font"><font color=Coral><strong>斑马伪影</strong></font></a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        <button id="td-content__toc-link-expanded" href="#td-content__toc" class="btn btn-small ml-1 my-2 py-0 px-3" data-toggle="collapse" aria-controls="td-docs-toc" aria-expanded="true" aria-label="Toggle toc navigation">
+        </button>
+      
+    </div>
+  </div>
+
+</div>
+<div class="row">
+<div class="col-12 col-lg-8">
+<h1 id="讲在前面">讲在前面</h1>
+<ul>
+<li>一.之前的工作持续了很长一段，所以博客的更新进度比较慢，关于分割的很多问题也没有花更多的精力，毕竟不是求学阶段，所以还是工作的结果更重要。主要解决对于粒子手术中针道的检测问题，产生的一些小的问题花费了巨额的时间来进行修正和调整。有意思的是，在这么长时间的问题解决过程中，我发现在医学图像领域解决问题的方法往往是自然场景图像解决方案的一种延伸。在我的构想中，如果针道在ct的图像中显示是一条直线，那么利用现有3d点云中检测直线的方法实现在ct中的利用是否可行，那么我就可以去除复杂的2d线性检测后的后处理过程，在空间直接找到针道，我认为该方案具有革命性的意义。</li>
+<li>二.那么问题来了，CT中的针道在图像上的显影可并不是一条直线，假如我使用了插值算法，那么伪影的存在，会使得这条针道的表现成为类似于一个片状的存在。为了解决这个问题，我决定一步步地解决这个伪影的问题，<strong><font color=red>急功近利的利用解决的方案不是一个工程师应该做的事，寻求为什么，才是真正的意义所在，尤其是当我只是一个菜鸟的时候。</font></strong></li>
+<li>三.对于这篇论文而言，我会尽量结合一些事实做更多的阐述，可能会变得啰嗦，但是也是为了方便更多的和我一样的新手阅读。<strong><font color=red>这是一篇2004年的论文</font></strong>，但我认为就基础而言，这篇论文仍然有讨论的价值。</li>
+</ul>
+<hr>
+<h1 id="摘要">摘要</h1>
+<p>        伪影会严重影响CT的质量，甚至有些时候会让诊断无法进行下去。为了优化图像质量，理解伪影为何会发生以及如何避免或者抑制就变得十分必要。CT伪影产生的原因有很多：
+        1.基于物理原因的伪影是因为在CT图像在物理采集的过程中产生的；
+        2.基于病例原因的伪影是病人因为移动或者病人体内的金属造成的；
+        3.基于扫描器的伪影是扫描器的功能上的瑕疵导致的；
+        4.螺旋状和多段式的伪影是在图像的重建过程中产生的；
+        现代CT扫描仪中包含的设计功能可最大程度地减少某些伪影，并且某些部分可以通过扫描仪软件进行部分校正。然而，在许多情况下，避免CT伪影的最重要因素是精心安排患者位置和选择最佳扫描参数。（<strong><font color=green>但实际情况下，很多扫描是不注重这些位置选择和参数设置的，至少在我所跟踪的临床手术中，选择参数这种情况很少发生，而医生对于软件的使用也是相当有局限性的，或者说，能不用的他们都不会用</font></strong>）</p>
+<hr>
+<h1 id="介绍">介绍</h1>
+<p>        在CT中，“伪影”这个术语是用来形容重构图像的CT数值和物体的真实衰减系数之间的各项系统差异。CT相比传统的射线图像是一定更容易收到伪影的影响的，因为CT图像是上百万个相互独立的探测结果中的某种东西合并而成的。
+        伪影产生的类型有以下几种：</p>
+<ul>
+<li>（a） 条纹状伪影：通常是单项测量不一致导致；</li>
+<li>（b） 阴影状伪影：由于一组通道或视图逐渐偏离真实度量；</li>
+<li>（c） 环状伪影：由于单个探测器的校准错误；</li>
+<li>（d）变形伪影：螺旋形重建导致。</li>
+</ul>
+<p>        伪影产生的原因有以下几种：</p>
+<ul>
+<li>（a） 物理原因：CT数据采集中的物理过程导致；</li>
+<li>（b） 病例原因：病人的移动或者体内的金属造成；</li>
+<li>（c） 扫描原因：扫面器的功能缺陷；</li>
+<li>（d）螺旋和多段伪影：图像重构过程中产生。</li>
+</ul>
+<p>        这篇文章对于这几种伪影进行以下几点的阐述：</p>
+<ul>
+<li>（a）阐述他们产生的机制；</li>
+<li>（b）阐述CT厂商们抑制他们的方法；</li>
+<li>（c）避免伪影的技术。</li>
+</ul>
+<h2 id="物理伪影">物理伪影</h2>
+<h3 id="一beam-hardening线质硬化">一、Beam Hardening（线质硬化）</h3>
+<h4 id="i线质硬化的原理">I.线质硬化的原理</h4>
+<p>        一束x光线是由带有一序列能量的光子组成的。随着这些光子穿过物体，光束会具备更大的穿透力或者说&quot;harder&quot;的现象，这是因为低能量光子会比高能量的光子更迅速的被吸收（如图1：x光线经过不同深度的水后的能量谱，能量随着水深而增加）。这样的情况会产生两种伪影：所谓的<font color=Coral><strong>cupping伪影</strong></font>和图像中<font color=Coral><strong>密集对象之间的暗带或条纹</strong></font>的出现。
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201109144519879.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201109144519879.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</p>
+<h4 id="ii线质硬化的表现">II.线质硬化的表现</h4>
+<h5 id="font-colorcoral杯子伪影font"><font color=Coral><strong>杯子伪影</strong></font></h5>
+<p>        当x射线经过一个规则圆柱体时，穿过圆柱的中间部分的能量要比穿过边缘部分的能量要大，因为它穿过了更多的物质。随着光束越来越硬，衰减的速率也越来越低，因此光束到达检测器时的强度比未硬化时要强。因此，最终的衰减曲线不同于在没有光束硬化的情况下获得的理想曲线（如图2：理想化的穿过圆柱体的衰减曲线和硬化后的光束穿过圆柱体的衰减曲线）
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201109154611919.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201109154611919.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+        这就是穿过圆柱体后产生的CT的数值形成的类似于杯子的形状（图3：经过校准器修正和未修正之后的）。
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201109155056526.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201109155056526.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</p>
+<h5 id="font-colorcoral密集对象之间的暗带或条纹font"><font color=Coral><strong>密集对象之间的暗带或条纹</strong></font></h5>
+<p>        在非常异质的横截面中，图像中的两个密集对象之间可能会出现暗带或条纹。它们发生的原因是，当光束通过相邻两个物体中的一个物体时，它的硬度比通过两个物体时要小。这种伪影既可以出现在身体的骨区，也可以出现在造影剂的扫描中。图4的胸部CT就显示出，造影剂造成的条纹性伪影可能就会导致会被误认为是临近解剖结构性疾病。
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201109160240761.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201109160240761.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</p>
+<h4 id="iii解决线质硬化的内置功能">III.解决线质硬化的内置功能</h4>
+<p>        以下是厂商们解决伪影问题的方案：</p>
+<ul>
+<li><font color=Coral><strong>过滤器：</strong></font>在x光线穿过人体之前，加上一块平整的衰减材料，通常是金属做的，这样可以事先过滤掉能量较低的部分。然后再另外加一块器件（领结过滤器）来增强那些穿过人体更薄的部分的边缘光束的能量。</li>
+<li><font color=Coral><strong>校准修正：</strong></font>制造商使用各种尺寸的幻像对他们的扫描仪进行校准，针对患者不同部位的光束硬化效果定制各种特定的补偿，探测器上添加上这种补偿。由于临床的解剖学结构一定不会和一个理想的圆柱体一样，所以临床上尽管经过了这个校正的手段，但可能还是会有轻微的杯状伪影和帽状伪影，而过度校正会使得中心的CT值会升高。</li>
+<li><font color=Coral><strong>光束硬化修正软件：</strong></font>当重建骨区域的图像时，可以应用迭代校正算法。这有助于最大程度地减少脑部扫描中骨骼-软组织界面的模糊（图5：经过骨头修正和没经过骨头修正的），并减少非均质横截面中暗带的出现（图6）。
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201109174440565.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201109174440565.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201109174634835.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201109174634835.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</li>
+</ul>
+<h4 id="iv避免线质硬化的操作方法">IV.避免线质硬化的操作方法</h4>
+<p>        有时可以通过患者定位或倾斜机架来避免扫描骨区域。 重要的是选择合适的扫描视野，以确保扫描仪使用正确的校准和光束硬化校正数据，以及在某些系统上使用合适的领结过滤器。</p>
+<h3 id="二partial-volume部分体积效应">二、Partial Volume（部分体积效应）</h3>
+<p>        部分体积效应可通过多种方式导致图像伪影。 这些伪影是与部分体积平均分开的独立问题，部分体积平均产生的CT值代表体素内材料的平均衰减。（<font color=green><strong>CT图像上各个像素的数值代表相应单位组织全体的平均CT值，它不能如实反映该单位内各种组织本身的CT值。</strong></font>）
+        一种产生的伪影类型是：当x射线的光束路径上，突然有一个凸起的稠密物体时，就会产生伪影现象。<strong>图7</strong>展现了这种伪影产生的原因：这里对这个光线进行了一些夸张，方便看到结果。当光束从右往左时，因为绿色物体没有在光束内，所以右边的探测器接受不到这个物体的信息；但当光束从左往右时，绿色物体出现在光束范围内，所以探测器是“看得见”这个物体的。两个视图之间的不一致会导致阴影伪影出现在图像中，也就是<strong>图8a</strong>.
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201109182250492.png#pic_center" alt="在这里插入图片描述" id="20201109182250492#pic_center" data-toggle="modal" data-target="#modal-20201109182250492#pic_center"/>
+
+  <div class="modal" id="modal-20201109182250492#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201109182250492.png#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201109182834364.png#pic_center" alt="在这里插入图片描述" id="20201109182834364#pic_center" data-toggle="modal" data-target="#modal-20201109182834364#pic_center"/>
+
+  <div class="modal" id="modal-20201109182834364#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201109182834364.png#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+        <font color=red><strong>避免这种伪影的最好的方法是使用一个薄片的<code>acquisition section width</code>。</strong></font>当人体结构在z轴方向上快速移动照射时这样做是非常有必要的。为了限制图片的噪声，用这些薄的<code>section</code>来组成更厚的<code>section</code>。</p>
+<h3 id="三photon-starvation光子饥饿效应">三、Photon Starvation（光子饥饿效应）</h3>
+<h4 id="i-光子饥饿原理">I. 光子饥饿原理</h4>
+<p>        一个潜在的产生纹状伪影的原因是光子饥饿效应，尤其是在肩膀这种高衰减区域，如图9：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201109184535585.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201109184535585.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+        当x射线光束水平传播时，衰减最大，到达探测器的光子出现不足现象。结果是在这些传播通道的角度上会产生非常大的噪声投影。 重建过程会极大地放大噪声，从而导致图像中出现水平条纹。
+        如果在扫描期间增加管电流，则将克服光子饥饿的问题，但是当光束穿过无衰减部分时，患者将受到不必要的剂量。 因此，制造商已经开发出使光子饥饿最小化的技术。</p>
+<h4 id="ii-光子饥饿解决方案">II. 光子饥饿解决方案</h4>
+<h5 id="font-colorcoralautomatic-tube-current-modulation自动管电流调制font"><font color=Coral><strong>Automatic Tube Current Modulation（自动管电流调制）:</strong></font></h5>
+<p>        在某些扫描仪型号上，管电流在每次旋转过程中会自动改变，这是一个称为<code>毫安调制</code>的过程，这使足够的光子可以穿过患者的最宽部分而不会对狭窄部分产生不必要的剂量（图10）
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201109190243871.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201109190243871.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</p>
+<h5 id="font-colorcoraladaptive-filtration自适应过滤font"><font color=Coral><strong>Adaptive Filtration（自适应过滤）:</strong></font></h5>
+<p>        一些制造商使用一种自适应过滤器来减少光子饥饿图像中的条纹。 该软件校正可在重建图像之前平滑高衰减区域中的衰减曲线（图11：投影数据可能出现在水平X射线束穿过肩部的情况下。 图以原始形式（a）和自适应过滤（b）显示数据。）。
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201109190946768.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201109190946768.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+        目前正在开发一种多维自适应过滤技术，以用于多部分扫描仪。 对于超过选定衰减阈值的一小部分投影数据，在相邻的面内探测器之间（图12a）和连续的投影角度之间（图12b）进行平滑处理，<font color=red><strong>而在螺旋重建中使用的z滤光片则扩大了宽幅范围， 衰减投影角，以允许更多的光子有助于重建（图12c）</strong></font>。 图13展示了减少条纹的程度，同时通过技术（2）保持了空间分辨率。
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201109193422925.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201109193422925.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/202011091937087.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/202011091937087.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</p>
+<h3 id="四undersampling欠采样">四、Undersampling（欠采样）</h3>
+<p>        用于重建一个CT图像的投影数量是图像质量的决定因素之一。 投影之间的间隔（欠采样）过大会导致计算机对与锐利边缘和小物体有关的信息进行配准错误。 这导致了一种称为<code>视图混叠</code>的效果，其中细小条纹似乎从密集结构的边缘放射而出（图14）。 出现在结构附近的条纹更有可能是由投影内的欠采样引起的，这被称为<code>射线混叠</code>。
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201109194259618.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201109194259618.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+        混叠可能不会对图像的诊断质量造成太大的影响，因为均匀间隔的线通常不会模仿任何解剖结构。 但是，在精细细节的解析很重要的地方，欠采样需要尽量避免。 通过获取每个旋转可能的最大投影数量，可以最大程度地减少视图混淆。 在某些扫描仪上，这只能通过使用较低的旋转速度来实现，而在其他扫描仪上，投影的数量与旋转速度无关。 可以通过使用专业的高分辨率技术（例如，四分之一探测器移位或飞行焦点）来减少<code>射线混叠</code>，制造商采用这种技术来增加投影内的样本数量。</p>
+<hr>
+<h2 id="病例伪影">病例伪影</h2>
+<h3 id="一metallic-materials金属材料">一、Metallic Materials（金属材料）</h3>
+<h4 id="i金属伪影原因">I.金属伪影原因</h4>
+<p>        扫描场中金属物体的存在会导致严重的条纹痕迹。 发生这些现象是因为金属的密度超出了计算机可以处理的正常范围，从而导致衰减曲线不完整。 当扫描非常稠密的物体时，由于光束硬化，部分体积和混叠而产生的其他伪像可能会使问题更加复杂。</p>
+<h4 id="ii解决方案">II.解决方案</h4>
+<h5 id="font-colorcoral在操作上避免金属伪影font"><font color=Coral><strong>在操作上避免金属伪影:</strong></font></h5>
+<p>        病人在检查前经常会被告知取下金属物质。对于不可移动的物品，例如牙科填充物，修复设备和手术夹子，有时可以使用龙门成角法将金属插件从附近的解剖结构扫描中排除。 当无法在不包括金属物体的情况下扫描所需的解剖结构时，不断增加的技术（特别是千伏电压）可能有助于穿透某些物体，并且使用薄截面将减少由于部分体积伪影而造成的影响。</p>
+<h5 id="font-colorcoral软件上修正伪影font"><font color=Coral><strong>软件上修正伪影:</strong></font></h5>
+<p>        可以通过特殊的软件校正大大减少由超范围引起的条纹。制造商使用各种插值技术来替代衰减曲线中的超范围值。 一种这样的技术的有效性如图15所示。
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201109195633702.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201109195633702.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</p>
+<p>        金属伪影减少软件的有用性有时受到限制，因为尽管去除了与金属植入物相距较远的条纹，但金属组织界面周围的细节仍然被伪影影响，这里通常是诊断的主要领域。 扫描金属物体时也应使用线质硬化校正软件，以最大程度地减少由于线质硬化而产生的其他伪影。</p>
+<h3 id="二patient-motion移动伪影">二、Patient Motion（移动伪影）</h3>
+<h4 id="i移动伪影原因">I.移动伪影原因</h4>
+<p>        患者的运动可能会导致重合失调伪影，通常在重建图像中表现为阴影或条纹（图16）。
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201109200204271.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201109200204271.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</p>
+<p>        可以采取一些步骤来阻止自发运动，但是在图15中，使用金属脊柱植入物，未经任何矫正（a）和减少金属伪影（b）重建的患者的CT图像扫描中可能是不可避免的。 但是，某些扫描仪具有特殊功能，旨在最大程度地减少由此产生的伪像。</p>
+<h4 id="ii移动伪影解决方案">II.移动伪影解决方案</h4>
+<h5 id="font-colorcoral操作上避免移动伪影font"><font color=Coral><strong>操作上避免移动伪影</strong></font></h5>
+<p>        使用定位辅助器足以防止大多数患者自愿活动。但是，在某些情况下（例如，儿科患者），可能需要通过镇静手段来固定患者。 尽可能短的扫描时间有助于在易于移动的区域进行扫描时最大程度地减少伪影。 如果患者能够在扫描期间屏住呼吸，则呼吸运动可以降到最低。
+        图像对运动伪影的敏感性取决于运动的方向。 因此，优选的是，管的开始和结束位置与运动的主要方向对齐，例如，在进行胸部扫描的患者的垂直上方或下方。 与头扫描模式相反，指定身体扫描模式可以在重建过程中自动合并一些运动伪影减少功能。</p>
+<h5 id="font-colorcoral内置功能可最大程度地减少运动伪影font"><font color=Coral><strong>内置功能可最大程度地减少运动伪影</strong></font></h5>
+<p>        制造商通过使用过扫描和欠扫描模式，软件校正和心脏门控来最大程度地减少运动伪影。</p>
+<ul>
+<li>1.<strong>过扫描和欠扫描模式</strong>：检测器读数的最大差异发生在朝向360°扫描开始和结束的视图之间。 某些扫描仪型号使用过扫描模式进行轴向人体扫描，从而在标准360°旋转中增加了10％左右。 对重复的投影进行平均可以帮助降低运动伪影的严重性。 使用部分扫描模式还可以减少运动伪像，但这可能以分辨率较差为代价。</li>
+<li>2.<strong>软件校正</strong>：大多数扫描仪在人体扫描模式下使用时，会自动在开始和结束视图上应用减少的权重，以抑制它们对最终图像的影响。但是，这可能会在最终图像的垂直方向上产生更多噪点 ，这取决于患者的形状。 在某些扫描仪上还可以使用其他专门的运动校正。（图17）展示了一种这样的技术在纠正由于流体界面运动而引起的伪影方面的有效性。</li>
+</ul>
+<p>
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201109201834942.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201109201834942.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</p>
+<ul>
+<li>3.<strong>心脏门控</strong>：：心脏的快速运动会导致心脏图像中出现严重的伪影，并导致伪影能够模仿相关结构（例如解剖的主动脉）中的疾病。 为了克服这些困难，已经开发了通过使用在心动过少时仅来自心动周期的一小部分的数据来产生图像的技术。 这是通过将心电门控技术与图像重建的专用方法相结合来实现的（4）。</li>
+</ul>
+<h3 id="三incomplete-projections不完整的投影">三、Incomplete Projections（不完整的投影）</h3>
+<p>        如果患者的任何部分位于扫描视野之外，则计算机将具有与该部分有关的不完整信息，并且可能会产生条纹或阴影伪影。
+        这在（图18）中进行了说明，该图显示了患者手臂朝下进行扫描而不是抬起来不妨碍扫描。 由于手臂不在扫描场中，因此它们不会出现在图像中，但是在扫描过程中它们在某些视图中的存在已导致整个图像出现如此严重的伪影，从而大大降低了其实用性。 密集物体（例如，位于扫描场外部的包含造影剂的静脉内试管）可能会产生类似的效果。 检测器阵列侧面的参考通道阻塞也可能会干扰数据归一化并导致条纹伪影。
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201109202436124.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201109202436124.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+        为了避免由于投影不完全而导致的伪影，必须将患者放置在适当的位置，以使任何部分都不会位于扫描区域之外。 专为放射治疗计划设计的扫描仪具有比标准扫描仪更大的孔径和更大的视野，并且在患者定位方面具有更大的通用性。 它们还允许对不适合标准扫描仪视野的超大型患者进行扫描。
+        某些制造商会监控参考数据通道是否存在不一致之处，并避免使用看起来可疑的参考数据。 作为替代方案，可以将CT系统设计为在管侧配备参考检测器，或者在机架内部配备射线路径，以消除对参考数据的可能干扰。</p>
+<hr>
+<h2 id="扫描仪伪影">扫描仪伪影</h2>
+<h3 id="一ring-artifacts环状伪影">一、Ring Artifacts（环状伪影）</h3>
+<h4 id="i环装伪影原因">I.环装伪影原因</h4>
+<p>        如果有一个侦测器在第三代扫描器（旋转的x射线管和侦测部件）上的校准器之外，那么侦测在会在每一个角度上得到一个错误的读取，从而形成一个环状的伪影（图19）。具有固态检测器的扫描仪（其中所有检测器都是独立的实体）在原理上比带有气体检测器的扫描仪更容易产生环状伪影，在气体检测仪中，检测器阵列由单个氙气填充且由电极细分的腔室组成 。
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201110113242909.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201110113242909.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+        当宽床位使用的时候，在一个统一的体模或者空气中可以看见的环状伪影（图20）可能在临床上并不可见。即使它们是可见的，也很少会与疾病混淆。 但是，它们可能会损害图像的诊断质量，尤其是当中央探测器受到影响时，图像的中心会出现黑色污点，这尤其可能发生。
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/2020111011405935.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/2020111011405935.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</p>
+<h4 id="ii环状伪影解决方案">II.环状伪影解决方案</h4>
+<p>        图像中存在圆形伪影表明检测器增益需要重新校准或可能需要维修服务。 选择正确的扫描视野可以通过使用更适合患者解剖结构的校准数据来减少伪影。所有现代扫描仪均使用固态检测器，但通过表征和校正检测器变化的软件可以减少其产生环状伪像的可能性。</p>
+<h3 id="二helical-and-multisection-ct-artifacts螺旋多段状伪影">二、Helical and Multisection CT Artifacts（螺旋、多段状伪影）</h3>
+<h4 id="i轴向平面中的螺旋伪影单节扫描">I.轴向平面中的螺旋伪影：单节扫描</h4>
+<p>        通常，在螺旋扫描中会看到与连续扫描相同的伪影。但是，由于螺旋插值和重建过程，在螺旋扫描中可能会出现其他伪影。 当解剖结构在z方向上快速变化时（例如，在头骨的顶部），就会出现伪影，并且对于较大的间距，伪影会更严重。
+        如果对沿扫描仪z轴放置的圆锥形幻像执行螺旋扫描，则结果轴向图像应显示为圆形。实际上，由于螺旋插值算法中使用的加权函数，其形状会失真（图21） 。
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201110115322121.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201110115322121.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</p>
+<p>        对于某些投影角度，图像受扫描平面前面的圆锥体较宽部分的贡献影响更大； 对于其他投影角度，主要来自圆锥体较窄部分的扫描平面后面的贡献。 因此，伪影的取向根据在图像平面的中心处的放射管的位置而变化。 在临床图像中，例如（图22）中所示的一系列肝脏图像，螺旋伪影很容易被误解为疾病。
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201110115513962.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201110115513962.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+        为了使螺旋伪影降到最低，必须采取步骤以减少沿z轴变化的影响。 这意味着，如果可能的话，使用低间距，180°而不是360°的螺旋内插器，以及较薄的采集部分而不是较厚的采集部分。 有时，仍然优选使用轴向成像而不是螺旋成像以避免螺旋伪像（例如，在脑部扫描中）。</p>
+<h4 id="ii多段扫描中的螺旋伪影">II.多段扫描中的螺旋伪影</h4>
+<p>        螺旋内插过程导致多部分扫描仪上的轴向图像变形比单部分扫描仪上更为复杂。形成这种典型风车外观伪影（图23）的原因如下：在每次旋转过程中，几行检测器与重建平面相交。随着螺旋螺距的增加，与图像平面旋转相交的检测器行数增加，风车伪影中的“叶片”数也增加。
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201110140128927.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201110140128927.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+        多段扫描仪通常使用Z滤波器螺旋内插器来代替单段扫描器上通常使用的两点内插器。 z滤波器插值器的好处之一是，它们降低了风车伪影的严重性，尤其是当图像重构宽度大于检测器采集宽度时。通过使用相对于检测器采集宽度的非整数间距值（例如在某些扫描仪上的间距为3.5或4.5），也可以稍微减少伪影。这是因为针对非整数间距优化了z轴采样密度。</p>
+<h4 id="iii锥束效应">III.锥束效应</h4>
+<p>        随着每转获取的切片数量增加，需要更宽的准直度，并且X射线束变成锥形而不是扇形（图24）。
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201110141011701.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201110141011701.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+        （图25）展示了沿z轴的x射线束和检测器的放大图。 当试管和检测器绕患者旋转时（在垂直于图的平面中），每个检测器收集的数据对应于两个锥体之间的体积，而不是理想的平面。 这会导致伪像类似于由离轴对象周围的部分体积引起的伪像。 与内部探测器行相比，外部探测器行的伪影更为明显（图26），其中所收集的数据更接近于一个平面。
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201110141128446.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201110141128446.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201110141148685.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201110141148685.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+        随着探测器行数的增加，锥束效应变得更糟。 因此，与四段扫描仪相比，16段扫描仪应更可能受到伪影的影响。 然而，制造商已经通过采用各种形式的锥形束重建代替了四截面扫描仪上使用的标准重建技术来解决该问题。 图27所示的幻像研究证明了一种这样的技术的有效性。
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201110141411200.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201110141411200.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</p>
+<h4 id="iv多平面和三维重塑">IV.多平面和三维重塑</h4>
+<p>        自从引入螺旋扫描以来，在多平面和三维重建中已取得了重大进步，并且在更大程度上实现了多部分扫描。 扫描所需体积的速度更快，这意味着大大降低了患者运动的影响，并且使用更窄的采集部分和重叠的重建部分可以使重新格式化图像的边缘清晰度更高。</p>
+<h5 id="font-colorcoral阶梯状伪影font"><font color=Coral><strong>阶梯状伪影</strong></font></h5>
+<p>        当使用宽准直和不重叠的重构间隔时，阶梯伪影会出现在多平面和三维重新格式化图像中结构的边缘周围。 螺旋扫描对它们的影响较小，这允许重建重叠的部分，而不会给患者带来额外的剂量（如果获得重叠的轴向扫描，则不会产生额外的剂量）（图28）。
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201110142150377.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201110142150377.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+        从今天的多截面扫描仪获得的薄截面数据中，可以在多平面和三维格式的图像中消除阶梯状伪影（图29）。
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201110142227105.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201110142227105.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</p>
+<h5 id="font-colorcoral斑马伪影font"><font color=Coral><strong>斑马伪影</strong></font></h5>
+<p>        由于螺旋插值过程沿z轴产生一定程度的噪声不均匀性，因此在螺旋数据的多平面和三维重新格式化图像中可能会出现模糊条纹。 这种“斑马”效应（图30）在远离旋转轴的地方变得更加明显，因为离轴的噪声不均匀性更差。
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201110142659242.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201110142659242.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</p>
+<h1 id="总结">总结</h1>
+<p>        伪影来自多种来源，会在不同程度上降低CT图像的质量。 现代扫描仪中包含的设计功能可以最大程度地减少某些伪影，并且某些特征可以通过软件进行部分纠正。 但是，在许多情况下，仔细的患者定位和最佳的扫描参数选择是避免图像伪影的最重要因素。</p>
+
+
+
+      </main>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/grpcio">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Google Groups" aria-label="Google Groups">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://groups.google.com/g/grpc-io">
+      <i class="fab fa-google"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Gitter" aria-label="Gitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://gitter.im/grpc/grpc">
+      <i class="fab fa-gitter"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/grpc">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 gRPC Authors
+          
+        </small>
+        
+        
+      </div>
+    </div>
+    <div class="row text-center text-white small">
+      <div class="col-12 text-center py-2 order-sm-2">
+        <a href="https://www.linuxfoundation.org/terms" target="_blank" rel="noopener">Terms</a> |
+        <a href="https://www.linuxfoundation.org/privacy" target="_blank" rel="noopener">Privacy</a> |
+        <a href="https://www.linuxfoundation.org/trademark-usage" target="_blank" rel="noopener">Trademarks</a> |
+        <a href="https://github.com/grpc/grpc.io/blob/main/LICENSE" target="_blank" rel="noopener">License</a> |
+        <a href="/about/">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.d862e8117d34e02dff1772aeeb47caf7ed851d0f8a3a5345f7a32ccfb2f6b87f.js" integrity="sha256-2GLoEX004C3/F3Ku60fK9&#43;2FHQ&#43;KOlNF96Msz7L2uH8=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

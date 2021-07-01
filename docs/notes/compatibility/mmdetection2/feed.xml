@@ -1,0 +1,75 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – MMDetection 2.12.0</title>
+    <link>https://Joevaen.github.io/docs/notes/compatibility/mmdetection2/</link>
+    <description>Recent content in MMDetection 2.12.0 on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/notes/compatibility/mmdetection2/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: MMCV版本</title>
+      <link>https://Joevaen.github.io/docs/notes/compatibility/mmdetection2/mmcv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/notes/compatibility/mmdetection2/mmcv/</guid>
+      <description>
+        
+        
+        &lt;p&gt;MMDetection v2.12.0 relies on the newest features in MMCV 1.3.3, including &lt;code&gt;BaseModule&lt;/code&gt; for unified parameter initialization, model registry, and the CUDA operator &lt;code&gt;MultiScaleDeformableAttn&lt;/code&gt; for &lt;a href=&#34;https://arxiv.org/abs/2010.04159&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Deformable DETR&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;. Note that MMCV 1.3.2 already contains all the features used by MMDet but has known issues. Therefore, we recommend users to skip MMCV v1.3.2 and use v1.3.2, though v1.3.2 might work for most of the cases.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 统一模型初始化</title>
+      <link>https://Joevaen.github.io/docs/notes/compatibility/mmdetection2/init/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/notes/compatibility/mmdetection2/init/</guid>
+      <description>
+        
+        
+        &lt;p&gt;To unify the parameter initialization in OpenMMLab projects, MMCV supports &lt;code&gt;BaseModule&lt;/code&gt; that accepts &lt;code&gt;init_cfg&lt;/code&gt; to allow the modules&#39; parameters initialized in a flexible and unified manner. Now the users need to explicitly call &lt;code&gt;model.init_weights()&lt;/code&gt; in the training script to initialize the model (as in &lt;a href=&#34;https://github.com/open-mmlab/mmdetection/blob/master/tools/train.py#L162&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, previously this was handled by the detector. &lt;strong&gt;The downstream projects must update their model initialization accordingly to use MMDetection v2.12.0&lt;/strong&gt;. Please refer to PR #4750 for details.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 统一模型注册表</title>
+      <link>https://Joevaen.github.io/docs/notes/compatibility/mmdetection2/regist/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/notes/compatibility/mmdetection2/regist/</guid>
+      <description>
+        
+        
+        &lt;p&gt;To easily use backbones implemented in other OpenMMLab projects, MMDetection v2.12.0 inherits the model registry created in MMCV (#760). In this way, as long as the backbone is supported in an OpenMMLab project and that project also uses the registry in MMCV, users can use that backbone in MMDetection by simply modifying the config without copying the code of that backbone into MMDetection. Please refer to PR #5059 for more details.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: maskAP评估</title>
+      <link>https://Joevaen.github.io/docs/notes/compatibility/mmdetection2/eval/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/notes/compatibility/mmdetection2/eval/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Before &lt;a href=&#34;https://github.com/open-mmlab/mmdetection/pull/4898&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PR 4898&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; and V2.12.0, the mask AP of small, medium, and large instances is calculated based on the bounding box area rather than the real mask area. This leads to higher &lt;code&gt;APs&lt;/code&gt; and &lt;code&gt;APm&lt;/code&gt; but lower &lt;code&gt;APl&lt;/code&gt; but will not affect the overall mask AP. &lt;a href=&#34;https://github.com/open-mmlab/mmdetection/pull/4898&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PR 4898&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; change it to use mask areas by deleting &lt;code&gt;bbox&lt;/code&gt; in mask AP calculation.
+The new calculation does not affect the overall mask AP evaluation and is consistent with &lt;a href=&#34;https://github.com/facebookresearch/detectron2/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Detectron2&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

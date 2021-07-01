@@ -1,0 +1,794 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.82.1" />
+
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-512x512.png" sizes="512x512">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/site.webmanifest">
+<title>nnUNet最全问题收录 | gRPC</title>
+<meta property="og:title" content="nnUNet最全问题收录" />
+<meta property="og:description" content="《Automated Design of Deep Learning Methods for Biomedical Image Segmentation》" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Joevaen.github.io/about/nnunet/nnunet6/" /><meta property="article:section" content="about" />
+
+<meta property="og:site_name" content="gRPC" />
+
+<meta itemprop="name" content="nnUNet最全问题收录">
+<meta itemprop="description" content="《Automated Design of Deep Learning Methods for Biomedical Image Segmentation》">
+
+<meta itemprop="wordCount" content="850">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="nnUNet最全问题收录"/>
+<meta name="twitter:description" content="《Automated Design of Deep Learning Methods for Biomedical Image Segmentation》"/>
+
+
+
+<link rel="preload" href="/css/style.min.e3cf82e558200e98b09736f835e12b188dca1353aad6649d3429c72923031431.css" as="style">
+<link href="/css/style.min.e3cf82e558200e98b09736f835e12b188dca1353aad6649d3429c72923031431.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163836834-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-163836834-2');
+  gtag('config', 'UA-60127042-1');
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="canonical" href="https://Joevaen.github.io/about/nnunet/nnunet6/">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@grpcio">
+<meta name="twitter:creator" content="@grpcio">
+<meta name="twitter:image" content="https://Joevaen.github.io/img/logos/grpc-icon-color.png">
+<meta name="twitter:image:alt" content="gRPC color logo">
+
+<meta property="og:url" content="https://Joevaen.github.io/about/nnunet/nnunet6/">
+<meta property="og:title" content="nnUNet最全问题收录">
+<meta property="og:description" content="《Automated Design of Deep Learning Methods for Biomedical Image Segmentation》">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="gRPC">
+<meta property="og:image" content="https://Joevaen.github.io/img/logos/grpc-icon-color.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="gRPC color logo">
+<meta property="og:locale" content="en_US">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-512x512.png" sizes="512x512">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/site.webmanifest">
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark  td-navbar-cover flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="672pt" height="436pt" viewBox="0 0 672 436"><g transform="translate(0.000000,436.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M3066 3659c-376-41-707-264-894-602-35-63-50-101-45-113 4-12 3-15-5-10s-10 1-5-10c5-13 9-11 23 15 9 18 19 29 22 25 4-3 4 3 1 15-4 14-1 21 9 21 8 0 27 23 42 51 119 218 360 416 607 499 96 33 250 60 337 60 551 0 1009-390 1097-933 48-296-20-597-193-847-24-36-35-56-23-46 35 32 24 2-23-61-49-64-119-128-220-198-36-26-66-49-66-51 0-10 123 74 187 128 63 53 173 174 182 201 2 7 9 19 16 27s36 58 63 110c198 373 185 786-35 1159-25 42-60 95-79 118-42 51-45 68-4 22 68-76 190-285 190-326 0-7 5-12 11-10 6 1 14-4 17-12 2-8 0-11-5-8-6 4-8-4-5-19 3-18 7-22 12-13 6 8 12-2 19-29 6-23 15-59 21-80 31-121 29-332-5-516-9-44-13-81-11-83s16 47 31 109c26 106 27 122 22 268-4 119-12 179-32 260-56 225-191 440-375 598-70 59-261 182-284 182-6 0 25-21 69-47 44-25 105-65 135-89 62-48 149-134 135-134-6 0-32 23-60 51-67 67-224 171-325 215-78 34-249 83-294 85-21 0-21 1-1 9 15 7 8 9-30 10-27 0-72 2-1e2 4-27 2-86 0-129-5z"/><path d="M36e2 3580c8-5 20-10 25-10 6 0 3 5-5 10s-19 10-25 10c-5 0-3-5 5-10z"/><path d="M3519 3276c-69-18-136-62-211-138-191-194-325-488-288-630 12-45 45-88 67-88 18 0 16 19-2 27-24 9-45 57-45 103 0 121 141 397 271 531 111 115 241 189 303 173 1e2-25 76-265-64-626l-40-105-58-13c-79-17-211-65-309-110-197-92-359-233-429-375-35-71-39-87-39-154 0-65 4-83 28-123 61-104 188-133 299-70 70 41 176 152 251 265 67 102 188 333 243 464 37 89 39 92 79 102 43 11 84 36 74 45-3 3-24-2-47-11s-45-14-48-11 15 63 41 133c126 349 145 579 49 615-33 13-68 12-125-4zm-29-794c0-4-47-102-104-218-197-398-362-594-5e2-594-68 0-124 44-151 119-85 243 203 545 645 675 93 27 110 30 110 18z"/><path d="M2081 2794c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M4291 2784c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M2071 2754c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M4302 2740c0-14 2-19 5-12 2 6 2 18 0 25-3 6-5 1-5-13z"/><path d="M2061 2714c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M2052 2660c0-14 2-19 5-12 2 6 2 18 0 25-3 6-5 1-5-13z"/><path d="M2043 2585c0-22 2-30 4-17 2 12 2 30 0 40-3 9-5-1-4-23z"/><path d="M4252 2018c-15-37-19-55-11-63 7-7 8-4 3 9-6 15-4 17 6 11 9-5 11-4 6 3-4 7-3 12 3 12s7 7 4 17c-5 12-3 14 8 8 8-4 11-5 7 0-4 4-4 13 2 19 5 7 5 17 1 24s-15-8-29-40z"/><path d="M4205 1919c-3-4 2-6 10-5 21 3 28 13 10 13-9 0-18-4-20-8z"/><path d="M4024 1668l-19-23 23 19c12 11 22 21 22 23 0 8-8 2-26-19z"/><path d="M4015 1628l-40-43 43 40c39 36 47 45 39 45-2 0-21-19-42-42z"/><path d="M3969 1613c-13-16-12-17 4-4s21 21 13 21c-2 0-10-8-17-17z"/><path d="M3919 1543c-13-16-12-17 4-4 9 7 17 15 17 17 0 8-8 3-21-13z"/><path d="M3705 1428c-11-6-23-15-26-20-3-6-9-9-13-9-19 3-27 0-22-7 7-12-61-35-75-26-8 5-9 3-4-6 6-10 3-12-13-8-14 4-20 2-15-5 4-6-2-8-15-5-12 4-20 2-17-2 3-5 0-10-7-13-7-2-2-2 12 0 39 7 179 63 194 78 7 8 16 12 18 10 3-3 5 2 5 10s-1 15-1 15c-1 0-10-6-21-12z"/><path d="M3448 1313c7-3 16-2 19 1 4 3-2 6-13 5-11 0-14-3-6-6z"/><path d="M3355 13e2c-27-7-27-8-5-8 14 0 39 4 55 8 27 7 27 8 5 8-14 0-38-4-55-8z"/><path d="M3263 1283c9-2 25-2 35 0 9 3 1 5-18 5s-27-2-17-5z"/><path d="M1810 981c0-75-4-103-15-115-17-17-20-66-4-66 6 0 24 13 40 29 29 29 29 31 29 140v111h-25c-25 0-25 0-25-99z"/><path d="M2211 1062c-51-25-73-61-74-120-1-70 33-116 101-137 36-10 28 31-13 69-26 25-35 42-35 66s9 41 35 66c19 18 35 42 35 53 0 25-5 26-49 3z"/><path d="M2290 1060c0-12 16-36 35-54 26-25 35-42 35-66s-9-41-35-66c-41-38-49-79-12-69 66 20 99 65 99 135s-33 115-99 135c-19 5-23 2-23-15z"/><path d="M2692 1053l3-28h1e2 1e2l3 28 3 27h-106-106l3-27z"/><path d="M3150 1068c0-7 23-70 52-140 48-119 53-128 78-128s30 9 78 130c29 72 52 135 52 141s-12 9-27 7c-23-2-31-13-51-63-13-33-31-76-39-95l-14-35-25 59c-13 33-24 63-24 67s15 9 33 11c27 2 32 7 32 28 0 24-3 25-72 28-55 2-73 0-73-10z"/><path d="M3724 1003c-43-93-48-128-19-128 15 0 28 17 50 63l30 62 25-62c14-35 27-66 28-70 2-5-35-8-82-8-76 0-86-2-1e2-22-8-12-13-25-10-30 7-11 261-10 268 1 3 5-19 67-49 137-48 114-57 129-80 132s-29-4-61-75z"/><path d="M4187 1073c-4-3-7-14-7-24 0-25 28-31 125-27 79 3 80 3 83 31l3 27h-99c-54 0-102-3-105-7z"/><path d="M4670 1068c0-7 43-71 96-141 77-105 99-128 117-125 21 3 22 7 25 141l3 138-28-3c-28-3-28-4-33-86l-5-83-62 85c-50 69-68 86-88 86-14 0-25-6-25-12z"/><path d="M2694 955c-14-37 2-45 89-45 88 0 114 11 101 44-9 23-182 24-190 1z"/><path d="M4184 955c-3-8-3-22 0-30 5-13 22-15 98-13 92 3 93 3 93 28s-1 25-93 28c-76 2-93 0-98-13z"/><path d="M1675 890c-10-16 4-48 32-70 32-25 40-25 48 0 13 40-60 103-80 70z"/><path d="M4670 850c0-47 2-50 25-50s25 3 25 50-2 50-25 50-25-3-25-50z"/><path d="M2694 845c-3-8-3-22 0-30 5-13 23-15 103-13 97 3 98 3 98 28s-1 25-98 28c-80 2-98 0-103-13z"/><path d="M4184 845c-15-38 1-45 106-45h101l-3 28-3 27-98 3c-80 2-98 0-103-13z"/></g></svg></span><span class="text-uppercase font-weight-bold">gRPC</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/about/" ><span>nnUNet</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/" ><span>MMDetection</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/showcase/" ><span>论文</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/blog/" ><span>Blog</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/community/" ><span>C&#43;&#43;</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-default td-outer">
+      
+      <main role="main" class="td-main">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="td-cover-block-0" class="row td-cover-block td-cover-block--height-sm js-td-cover td-overlay td-overlay--dark -bg-primary">
+  <div class="container td-overlay__inner">
+    <div class="row">
+      <div class="col-12">
+        <div class="text-center">
+          
+          
+          <div class="pt-3 lead">
+            
+                <div class="text-left">
+  <h1 class="display-1 mb-5">nnUNet最全问题收录</h1><h3 class="font-weight-light">《Automated Design of Deep Learning Methods for Biomedical Image Segmentation》</h3>
+  </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<div class="container l-container--padded">
+<div class="row">
+
+
+
+
+  
+    <div class="d-lg-none col-12">
+      <div class="td-toc td-toc--inline">
+  
+      
+        <a id="td-content__toc-link" class="collapsed" href="#td-content__toc" data-toggle="collapse" aria-controls="td-page-toc" aria-expanded="false" aria-label="Toggle toc navigation">
+          <span class="lead">Contents<i class="fas fa-chevron-right ml-2"></i></span>
+        </a>
+        <div id="td-content__toc" class="collapse">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#font-face华文琥珀-size5--colorpinkbluei-使用上的问题font"><font face="华文琥珀" size=5  color=pinkblue>I. 使用上的问题：</font></a>
+      <ul>
+        <li><a href="#477httpsgithubcommic-dkfznnunetissues477-3d-nnunet支持fp16量化吗"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/477">#477</a> 《3D nnUNet支持FP16量化吗？》</a></li>
+        <li><a href="#474httpsgithubcommic-dkfznnunetissues474-importerror-cannot-import-name-find_namespace_packages"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/474">#474</a> 《ImportError: cannot import name find_namespace_packages》</a></li>
+        <li><a href="#471httpsgithubcommic-dkfznnunetissues471-我怎么在本地评估一些预训练模型的指标呢"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/471">#471</a> 《我怎么在本地评估一些预训练模型的指标呢？》</a></li>
+        <li><a href="#469httpsgithubcommic-dkfznnunetissues469-无任何报错的进程死亡"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/469">#469</a> 《无任何报错的进程死亡》</a></li>
+        <li><a href="#464httpsgithubcommic-dkfznnunetissues464-如何对pet进行归一化"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/464">#464</a> 《如何对PET进行归一化》</a></li>
+        <li><a href="#459httpsgithubcommic-dkfznnunetissues459-orientation这个属性在nnunet里起作用吗"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/459">#459</a> 《<code>orientation</code>这个属性在nnUNet里起作用吗？》</a></li>
+        <li><a href="#456httpsgithubcommic-dkfznnunetissues456-cannot-import-name-spatialtransform_2-from-batchgeneratorstransforms"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/456">#456</a> 《cannot import name &lsquo;SpatialTransform_2&rsquo; from &lsquo;batchgenerators.transforms&rsquo;》</a></li>
+        <li><a href="#454httpsgithubcommic-dkfznnunetissues454-能给个自己编译pytorch解决2d训练问题的教程吗"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/454">#454</a> 《能给个自己编译pytorch解决2d训练问题的教程吗？》</a></li>
+        <li><a href="#449httpsgithubcommic-dkfznnunetissues449-前景多标签有重叠情况怎么解决"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/449">#449</a> 《前景多标签有重叠情况怎么解决？》</a></li>
+        <li><a href="#446httpsgithubcommic-dkfznnunetissues446-在用多gpu训练以后发现推理时候报错"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/446">#446</a> 《在用多GPU训练以后发现推理时候报错》</a></li>
+        <li><a href="#437httpsgithubcommic-dkfznnunetissues437-在microsoft-azure-vm-instance虚拟机中存在的一个bug"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/437">#437</a> 《在Microsoft Azure VM Instance虚拟机中存在的一个bug》</a></li>
+        <li><a href="#427httpsgithubcommic-dkfznnunetissues427-nnunet能不能使用cupy来加速预处理过程呢"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/427">#427</a> 《nnUNet能不能使用cupy来加速预处理过程呢？》</a></li>
+        <li><a href="#425httpsgithubcommic-dkfznnunetissues425-当生成的patch_size大于图像本身的时候会发生什么"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/425">#425</a> 《当生成的patch_size大于图像本身的时候会发生什么？》</a></li>
+        <li><a href="#424httpsgithubcommic-dkfznnunetissues424-能直接把预处理以后的npz文件的patch抽出来在我的新模型上进行训练吗"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/424">#424</a> 《能直接把预处理以后的npz文件的patch抽出来在我的新模型上进行训练吗？》</a></li>
+        <li><a href="#423httpsgithubcommic-dkfznnunetissues423-想在你的模型中添加新的网络块应该怎么做"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/423">#423</a> 《想在你的模型中添加新的网络块，应该怎么做？》</a></li>
+        <li><a href="#422httpsgithubcommic-dkfznnunetissues422-使用find_best_configuration时npz丢失"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/422">#422</a> 《使用find_best_configuration时npz丢失》</a></li>
+        <li><a href="#421httpsgithubcommic-dkfznnunetissues421-cuda100torch12可以训练吗"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/421">#421</a> 《cuda10.0+torch1.2可以训练吗？》</a></li>
+        <li><a href="#420httpsgithubcommic-dkfznnunetissues420-font-colorred怎么训练2d图片font"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/420">#420</a> 《<font color=red>怎么训练2D图片？</font>》</a></li>
+        <li><a href="#417httpsgithubcommic-dkfznnunetissues417-推理时间特别慢32g的ram"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/417">#417</a> 《推理时间特别慢（32g的RAM）》</a></li>
+        <li><a href="#416httpsgithubcommic-dkfznnunetissues416-在docker中运行nnunet遇到错误runtimeerror-multithreadedaugmenterabort_event-was-set-something-went-wrong-maybe-one-of-your-workers-crashed-this-is-not-the-actual-error-message-look-further-up-your-stdout-to-see-what-caused-the-error-please-also-check-whether-your-ram-was-full"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/416">#416</a> 《在docker中运行nnUNet遇到错误<code>RuntimeError: MultiThreadedAugmenter.abort_event was set, something went wrong. Maybe one of your workers crashed. This is not the actual error message! Look further up your stdout to see what caused the error. Please also check whether your RAM was full</code>》</a></li>
+        <li><a href="#322httpsgithubcommic-dkfznnunetissues322-关于修改最大轮数"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/322">#322</a> 《关于修改最大轮数》</a></li>
+        <li><a href="#321httpsgithubcommic-dkfznnunetissues321-在执行plan_preprocess的时候卡住"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/321">#321</a> 《在执行plan_preprocess的时候卡住》</a></li>
+        <li><a href="#318httpsgithubcommic-dkfznnunetissues318-12gb的显存仍然不够的问题"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/318">#318</a> 《12GB的显存仍然不够的问题》</a></li>
+        <li><a href="#312httpsgithubcommic-dkfznnunetissues312-混合精度问题typeerror-predict_preprocessed_data_return_seg_and_softmax-got-an-unexpected-keyword-argument-mixed_precision"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/312">#312</a> 《混合精度问题（TypeError: predict_preprocessed_data_return_seg_and_softmax() got an unexpected keyword argument &lsquo;mixed_precision&rsquo;）》</a></li>
+        <li><a href="#311httpsgithubcommic-dkfznnunetissues311-训练时找不到预处理文件夹"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/311">#311</a> 《训练时找不到预处理文件夹》</a></li>
+        <li><a href="#310httpsgithubcommic-dkfznnunetissues310-segmentation-fault-core-dumped"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/310">#310</a> 《&ldquo;Segmentation fault (core dumped)&quot;》</a></li>
+        <li><a href="#309httpsgithubcommic-dkfznnunetissues309runtimeerror-cuda-error-device-side-assert-triggered---non-consecutive-labels-within-ground-truth-"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/309">#309</a>《&ldquo;RuntimeError: CUDA error: device-side assert triggered&rdquo;》&lt;&mdash;（Non-consecutive labels within ground truth ）</a></li>
+        <li><a href="#304httpsgithubcommic-dkfznnunetissues3041000的epoch太多了我怎么自定义一个epoch"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/304">#304</a>《1000的epoch太多了，我怎么自定义一个epoch？》</a></li>
+        <li><a href="#302httpsgithubcommic-dkfznnunetissues302训练第一个fold的时候正常但是其他四个fold的训练损失是nan"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/302">#302</a>《训练第一个fold的时候正常，但是其他四个fold的训练损失是NaN》</a></li>
+        <li><a href="#299httpsgithubcommic-dkfznnunetissues299五折产生五个fold每个训练出一个模型怎么把这五个合成一个模型呢"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/299">#299</a>《五折产生五个fold，每个训练出一个模型，怎么把这五个合成一个模型呢？》</a></li>
+        <li><a href="#297httpsgithubcommic-dkfznnunetissues297简单修改了batchsize和patchsize并不成功目的是希望在32gb的显卡上充分利用显存"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/297">#297</a>《简单修改了batchsize和patchsize并不成功，目的是希望在32GB的显卡上充分利用显存》</a></li>
+        <li><a href="#296httpsgithubcommic-dkfznnunetissues296typeerror-consolidate_folds-got-an-unexpected-keyword-argument-folds"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/296">#296</a>《&ldquo;TypeError: consolidate_folds() got an unexpected keyword argument &lsquo;folds&rsquo;&quot;》</a></li>
+        <li><a href="#295httpsgithubcommic-dkfznnunetissues295attributeerror-list-object-has-no-attribute-size推理时候卡住并报错"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/295">#295</a>《&ldquo;AttributeError: &lsquo;list&rsquo; object has no attribute &lsquo;size&rsquo;&quot;（推理时候卡住并报错）》</a></li>
+        <li><a href="#290httpsgithubcommic-dkfznnunetissues290预测时候卡主卡了一天没有反应"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/290">#290</a>《预测时候卡主卡了一天没有反应》</a></li>
+        <li><a href="#288httpsgithubcommic-dkfznnunetissues288怎么使用fabiansunet而不是默认的generic_unet"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/288">#288</a>《怎么使用FabiansUNet，而不是默认的generic_Unet》</a></li>
+        <li><a href="#281httpsgithubcommic-dkfznnunetissues281关于怎么评估模型测试结果"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/281">#281</a>《关于怎么评估模型测试结果》</a></li>
+        <li><a href="#280httpsgithubcommic-dkfznnunetissues280怎么关闭deep-supervision"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/280">#280</a>《怎么关闭deep-supervision》</a></li>
+        <li><a href="#273httpsgithubcommic-dkfznnunetissues273代码中的softmax_helper相比torch中的torchnnfunctionalsoftmax有什么优点"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/273">#273</a>《代码中的&quot;softmax_helper&quot;相比torch中的&quot;torch.nn.functional.softmax&quot;有什么优点》</a></li>
+        <li><a href="#271httpsgithubcommic-dkfznnunetissues271怎么读取权重找不到权重文件"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/271">#271</a>《怎么读取权重（找不到权重文件）》</a></li>
+        <li><a href="#270httpsgithubcommic-dkfznnunetissues270怎么在预训练模型的基础上加入一些新的数据以提高模型泛化能力"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/270">#270</a>《怎么在预训练模型的基础上加入一些新的数据以提高模型泛化能力？》</a></li>
+        <li><a href="#268httpsgithubcommic-dkfznnunetissues268训练数据有四个通道而不是五个最后一个通道是一个二进制的map应该是五个通道时候的xy合并在一起的怎么应用数据增强"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/268">#268</a>《训练数据有四个通道（而不是五个），最后一个通道是一个二进制的map（应该是五个通道时候的xy合并在一起的），怎么应用数据增强》</a></li>
+        <li><a href="#263httpsgithubcommic-dkfznnunetissues263有些测试ct推理不出来有些ct推理出来啥也没有"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/263">#263</a>《有些测试CT推理不出来，有些CT推理出来啥也没有》</a></li>
+        <li><a href="#259httpsgithubcommic-dkfznnunetissues259同样的数据集为什么我的训练结果没有作者论文里的效果好呢"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/259">#259</a>《同样的数据集，为什么我的训练结果没有作者论文里的效果好呢？》</a></li>
+        <li><a href="#258httpsgithubcommic-dkfznnunetissues258关于推理速度如此之慢的问题"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/258">#258</a>《关于推理速度如此之慢的问题》</a></li>
+        <li><a href="#257httpsgithubcommic-dkfznnunetissues257nnunet怎么对预处理好的文件进行推理"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/257">#257</a>《nnUNet怎么对预处理好的文件进行推理》</a></li>
+      </ul>
+    </li>
+    <li><a href="#font-face华文琥珀-size5--colorpinkblueii-理论上的问题font"><font face="华文琥珀" size=5  color=pinkblue>II. 理论上的问题：</font></a>
+      <ul>
+        <li><a href="#430httpsgithubcommic-dkfznnunetissues430一种nnunet的改进方向"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/430">#430</a>《一种nnUNet的改进方向》</a></li>
+        <li><a href="#470httpsgithubcommic-dkfznnunetissues470nnunet可以进行一些dense-connection的改进吗"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/470">#470</a>《nnUNet可以进行一些dense-connection的改进吗？》</a></li>
+        <li><a href="#303httpsgithubcommic-dkfznnunetissues303nnunet是怎么在做强度归一化"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/303">#303</a>《nnUNet是怎么在做强度归一化》</a></li>
+        <li><a href="#265httpsgithubcommic-dkfznnunetissues265关于利用crop来生成前景boundingbox的问题"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/265">#265</a>《关于利用crop来生成前景boundingbox的问题》</a></li>
+      </ul>
+    </li>
+    <li><a href="#font-face华文琥珀-size5--colorpinkblueiii-代码上的问题font"><font face="华文琥珀" size=5  color=pinkblue>III. 代码上的问题：</font></a>
+      <ul>
+        <li><a href="#313httpsgithubcommic-dkfznnunetissues313-attributeerror-nonetype-object-has-no-attribute-is_alive"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/313">#313</a> 《AttributeError: &lsquo;NoneType&rsquo; object has no attribute &lsquo;is_alive&rsquo;》</a></li>
+        <li><a href="#294httpsgithubcommic-dkfznnunetissues294runtimeerror-unable-to-write-to-file-torch_15769_1517813162"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/294">#294</a>《&ldquo;RuntimeError: unable to write to file &lt;/torch_15769_1517813162&gt;&quot;》</a></li>
+        <li><a href="#291httpsgithubcommic-dkfznnunetissues291-attributeerror-nonetype-object-has-no-attribute-is_alive与313的问题一样"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/291">#291</a> 《AttributeError: &lsquo;NoneType&rsquo; object has no attribute &lsquo;is_alive&rsquo;》（与#313的问题一样）</a></li>
+        <li><a href="#267httpsgithubcommic-dkfznnunetissues267-typeerror-validate-got-an-unexpected-keyword-argument-force_separate_z"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/267">#267</a> 《TypeError: validate() got an unexpected keyword argument &lsquo;force_separate_z&rsquo;》</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        <button id="td-content__toc-link-expanded" href="#td-content__toc" class="btn btn-small ml-1 my-2 py-0 px-3" data-toggle="collapse" aria-controls="td-docs-toc" aria-expanded="true" aria-label="Toggle toc navigation">
+        </button>
+      
+    </div>
+  </div>
+
+</div>
+<div class="row">
+<div class="col-12 col-lg-8">
+<h1 id="一写在前面">一、写在前面</h1>
+<p><em><strong>1</strong></em>. 发现最近大家的问题有很多，有部分是理论上的问题。但是很多还只是框架使用上的问题，其实个人觉得整个框架就现在来说已经相当的成熟，为了有一个类似于github的issue总结的地方，我希望去写一片问题总结的博客还是具有相当大的意义，一方面处于对工作学习内容的总结，一方面有个很好的反馈问题查找答案的地方。我会慢慢更新到最开始的位置。
+       
+<em><strong>2</strong></em>. 本篇博客总结的内容包括三个来源：</p>
+<ul>
+<li><strong><font color=browngrey>① GITHUB</font></strong>：我会从github的issue界面<a href="https://github.com/MIC-DKFZ/nnUNet/issues" target="_blank" rel="noopener">这里<i class="fas fa-external-link-alt"></i></a>进行全面的检索和内容精要的提取，主要是已经关闭的issue。按照由今至古的时间线进行，同时会将内容分为如下三类：
+<ul>
+<li>I.<strong><font face="华文琥珀" size=3  color=pinkblue> 使用上的问题</font></strong>：主要是使用过程出现的问题总结；</li>
+<li>II. <strong><font face="华文琥珀" size=3  color=pinkblue>理论上的问题</font></strong>： 涉及到理论的新颖知识，基本的概念或常识；</li>
+<li>III. <strong><font face="华文琥珀" size=3  color=pinkblue>代码上的问题</font></strong>：算法的代码实现，以及一些可能存在的bug。</li>
+</ul>
+</li>
+<li><strong><font color=browngrey>② 个人使用经验</font></strong>：总结我在使用nnUNet过程中出现的问题和解决方案。</li>
+<li><strong><font color=browngrey>③ 访客问题</font></strong>：总结大家向我提出的问题，只会涉及到我之前没有遇到过也没有时间常识解决且GITHUB上暂时没有提到的问题。</li>
+</ul>
+<p><em><strong>3</strong></em>. 笔者希望各位看官在方便自己工作学习的同时，也能为贡献自己的一份力，我们距离德国的医疗卫生水平还有着巨大的鸿沟式的差距，人生在世，总得留下点有价值的东西，无论出于什么目的，大家一起加油，不忘初心。</p>
+<hr>
+<h1 id="二github-issue">二、GITHUB ISSUE</h1>
+<h2 id="font-face华文琥珀-size5--colorpinkbluei-使用上的问题font"><font face="华文琥珀" size=5  color=pinkblue>I. 使用上的问题：</font></h2>
+<h3 id="477httpsgithubcommic-dkfznnunetissues477-3d-nnunet支持fp16量化吗"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/477" target="_blank" rel="noopener">#477<i class="fas fa-external-link-alt"></i></a> 《3D nnUNet支持FP16量化吗？》</h3>
+<ul>
+<li><strong><font color=Coral>1. 解决方法</font></strong>：最近的更新将会支持FP16的量化，结果是一样的，有兴趣的同学测试下速度。</li>
+</ul>
+<h3 id="474httpsgithubcommic-dkfznnunetissues474-importerror-cannot-import-name-find_namespace_packages"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/474" target="_blank" rel="noopener">#474<i class="fas fa-external-link-alt"></i></a> 《ImportError: cannot import name find_namespace_packages》</h3>
+<ul>
+<li><strong><font color=Coral>1. 问题描述</font></strong>：在<code>pip install -e .</code>时遇到问题。</li>
+<li><strong><font color=Coral>2. 解决方法</font></strong>：先执行<code>pip install -U setuptools</code>,再<code>pip install -e .</code>。</li>
+</ul>
+<h3 id="471httpsgithubcommic-dkfznnunetissues471-我怎么在本地评估一些预训练模型的指标呢"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/471" target="_blank" rel="noopener">#471<i class="fas fa-external-link-alt"></i></a> 《我怎么在本地评估一些预训练模型的指标呢？》</h3>
+<ul>
+<li><strong><font color=Coral>1. 解决方法</font></strong>：在论文的附录里有的。</li>
+</ul>
+<h3 id="469httpsgithubcommic-dkfznnunetissues469-无任何报错的进程死亡"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/469" target="_blank" rel="noopener">#469<i class="fas fa-external-link-alt"></i></a> 《无任何报错的进程死亡》</h3>
+<ul>
+<li><strong><font color=Coral>1. 问题描述</font></strong>：我正在尝试使用<strong>马萨诸塞州道路分割数据集训练2D模型</strong>。 但是，当训练过程达到第四轮，终端将显示“ killed”，而没有任何错误消息。</li>
+<li><strong><font color=Coral>2. 解决方法</font></strong>：<a href="https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/common_problems_and_solutions.md#nnu-net-training-2d-u-net-high-and-increasing-system-ram-usage-oom" target="_blank" rel="noopener">这里<i class="fas fa-external-link-alt"></i></a>的<code>nnU-Net training (2D U-Net): High (and increasing) system RAM usage, OOM</code>解释了这个原因。</li>
+<li><strong><font color=Coral>3. 问题解决</font></strong>：
+分别将CUDA和CUDNN版本更新为11.0.194和8.0.5，然后我重新编译pyTorch，它可以正常工作。</li>
+<li><strong><font color=Coral>4. 我有话说</font></strong>：几个月没看nnUNet，<font color=red><strong>看来已经可以进行自然场景的2D分割了</strong></font> ，很多同学问过这个问题，不知道你们有没有跟进关注呢？我在<a href="https://github.com/MIC-DKFZ/nnUNet/issues/467" target="_blank" rel="noopener">这个问题<i class="fas fa-external-link-alt"></i></a>发现了这个任务的数据预处理&mdash;-&gt;<a href="https://github.com/MIC-DKFZ/nnUNet/blob/master/nnunet/dataset_conversion/Task120_Massachusetts_RoadSegm.py" target="_blank" rel="noopener">here<i class="fas fa-external-link-alt"></i></a>，看来作者已经把脚本写好了，确实得看一下了。</li>
+</ul>
+<h3 id="464httpsgithubcommic-dkfznnunetissues464-如何对pet进行归一化"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/464" target="_blank" rel="noopener">#464<i class="fas fa-external-link-alt"></i></a> 《如何对PET进行归一化》</h3>
+<ul>
+<li><strong><font color=Coral>1. 解决方法</font></strong>：PET图像将像其他任何非CT图像一样处理：每个样本均使用其自己的均值和标准差进行归一化。</li>
+</ul>
+<h3 id="459httpsgithubcommic-dkfznnunetissues459-orientation这个属性在nnunet里起作用吗"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/459" target="_blank" rel="noopener">#459<i class="fas fa-external-link-alt"></i></a> 《<code>orientation</code>这个属性在nnUNet里起作用吗？》</h3>
+<ul>
+<li><strong><font color=Coral>1. 解决方法</font></strong>：nnUNet不考虑这个属性，你的数据集必须要保证方向一致。</li>
+</ul>
+<h3 id="456httpsgithubcommic-dkfznnunetissues456-cannot-import-name-spatialtransform_2-from-batchgeneratorstransforms"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/456" target="_blank" rel="noopener">#456<i class="fas fa-external-link-alt"></i></a> 《cannot import name &lsquo;SpatialTransform_2&rsquo; from &lsquo;batchgenerators.transforms&rsquo;》</h3>
+<ul>
+<li><strong><font color=Coral>1. 解决方法</font></strong>：更新下<code>batchgenerators</code>或者重新安装下nnUNet。</li>
+</ul>
+<h3 id="454httpsgithubcommic-dkfznnunetissues454-能给个自己编译pytorch解决2d训练问题的教程吗"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/454" target="_blank" rel="noopener">#454<i class="fas fa-external-link-alt"></i></a> 《能给个自己编译pytorch解决2d训练问题的教程吗？》</h3>
+<ul>
+<li><strong><font color=Coral>1. 解决方法</font></strong>：<a href="https://github.com/pytorch/pytorch#from-source" target="_blank" rel="noopener">这里<i class="fas fa-external-link-alt"></i></a>有哦！说真的，只要你编译过ffmpeg的cuda版本这都是小儿科，人都能疯。pytorch已经很友好了。</li>
+</ul>
+<h3 id="449httpsgithubcommic-dkfznnunetissues449-前景多标签有重叠情况怎么解决"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/449" target="_blank" rel="noopener">#449<i class="fas fa-external-link-alt"></i></a> 《前景多标签有重叠情况怎么解决？》</h3>
+<ul>
+<li><strong><font color=Coral>1. 解决方法</font></strong>：多分类的前景标签有重叠的情况现在nnUNet尚不支持。</li>
+</ul>
+<h3 id="446httpsgithubcommic-dkfznnunetissues446-在用多gpu训练以后发现推理时候报错"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/446" target="_blank" rel="noopener">#446<i class="fas fa-external-link-alt"></i></a> 《在用多GPU训练以后发现推理时候报错》</h3>
+<ul>
+<li><strong><font color=Coral>1. 问题描述</font></strong>：
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20210127173404471.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="创建一个新的trainer来继承nnUNettrainerV2，并在初始化的时候给定最大轮数这个参数。" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20210127173404471.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="创建一个新的trainer来继承nnUNettrainerV2，并在初始化的时候给定最大轮数这个参数。"/>
+      </div>
+  </div>
+</figure>
+</li>
+<li><strong><font color=Coral>2. 解决方法</font></strong>：这是当前版本仍然存在的问题，会在未来进行改进，所以不建议去使用多gpu训练。</li>
+</ul>
+<h3 id="437httpsgithubcommic-dkfznnunetissues437-在microsoft-azure-vm-instance虚拟机中存在的一个bug"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/437" target="_blank" rel="noopener">#437<i class="fas fa-external-link-alt"></i></a> 《在Microsoft Azure VM Instance虚拟机中存在的一个bug》</h3>
+<ul>
+<li><strong><font color=Coral>1. 问题描述</font></strong>：<code>shutil.Error: [('/nnUnet/nnUNet_raw_data_base/nnUNet_cropped_data/Task001_Brain/gt_segmentations/BRAIN_000.nii.gz', '/nnUnet/nnUNet_preprocessed/Task001_Brain/gt_segmentations/BRAIN_000.nii.gz', &quot;[Errno 38] Function not implemented: '/nnUnet/nnUNet_raw_data_base/nnUNet_cropped_data/Task001_Brain/gt_segmentations/BRAIN_000.nii.gz'&quot;),  .</code></li>
+<li><strong><font color=Coral>2. 解决方法</font></strong>：<a href="https://stackoverflow.com/questions/51616058/shutil-copystat-fails-inside-docker-on-azure" target="_blank" rel="noopener">https://stackoverflow.com/questions/51616058/shutil-copystat-fails-inside-docker-on-azure<i class="fas fa-external-link-alt"></i></a>。</li>
+</ul>
+<h3 id="427httpsgithubcommic-dkfznnunetissues427-nnunet能不能使用cupy来加速预处理过程呢"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/427" target="_blank" rel="noopener">#427<i class="fas fa-external-link-alt"></i></a> 《nnUNet能不能使用cupy来加速预处理过程呢？》</h3>
+<ul>
+<li><strong><font color=Coral>1.我的理解</font></strong>：我对这个问题的理解应该就是它想通过加速numpy来加速skimage这个库，从而对插值进行加速。后续我会做这部分工作，因为之前我用torch的加速替代了skimage的加速，但发现因为量化或者是我插值方法的原因，速度虽然提升了，但精度损失了很多。</li>
+</ul>
+<h3 id="425httpsgithubcommic-dkfznnunetissues425-当生成的patch_size大于图像本身的时候会发生什么"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/425" target="_blank" rel="noopener">#425<i class="fas fa-external-link-alt"></i></a> 《当生成的patch_size大于图像本身的时候会发生什么？》</h3>
+<ul>
+<li><strong><font color=Coral>1. 解决方法</font></strong>：如果patch大小大于图像，则原始图像将用零填充。<font color=red>这根本不与非零裁剪冲突。 这两个有不同的目的</font>。</li>
+</ul>
+<h3 id="424httpsgithubcommic-dkfznnunetissues424-能直接把预处理以后的npz文件的patch抽出来在我的新模型上进行训练吗"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/424" target="_blank" rel="noopener">#424<i class="fas fa-external-link-alt"></i></a> 《能直接把预处理以后的npz文件的patch抽出来在我的新模型上进行训练吗？》</h3>
+<ul>
+<li><strong><font color=Coral>1. 作者解释</font></strong>：作者认为这样可能效果并不是很好。 因为他们在nnU-Net中解决了许多与之相关的陷阱。 最好的比较是在训练时使用nnU-Net所使用的相同数据加载器（包括增强），这应该很容易从nnU-Net存储库中提取出来。如果由于某种原因不想这样做，那么使用npz也可以，但是您仍然必须报告由原始nnU-Net获得的Dice分数作为基准。</li>
+</ul>
+<h3 id="423httpsgithubcommic-dkfznnunetissues423-想在你的模型中添加新的网络块应该怎么做"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/423" target="_blank" rel="noopener">#423<i class="fas fa-external-link-alt"></i></a> 《想在你的模型中添加新的网络块，应该怎么做？》</h3>
+<ul>
+<li><strong><font color=Coral>1. 问题描述</font></strong>：想把这个<a href="https://github.com/ai-med/squeeze_and_excitation/blob/master/squeeze_and_excitation/squeeze_and_excitation_3D.py" target="_blank" rel="noopener">模块<i class="fas fa-external-link-alt"></i></a>添加到nnUNet的模型当中。</li>
+<li><strong><font color=Coral>2. 作者解释</font></strong>：您需要修改Generic_UNet并将自定义块添加到正确的位置。 那应该很简单。 请注意，这些块不会被用于估计GPU内存消耗，因此您可能需要超过10GB的GPU内存来训练所得模型。</li>
+</ul>
+<h3 id="422httpsgithubcommic-dkfznnunetissues422-使用find_best_configuration时npz丢失"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/422" target="_blank" rel="noopener">#422<i class="fas fa-external-link-alt"></i></a> 《使用find_best_configuration时npz丢失》</h3>
+<ul>
+<li><strong><font color=Coral>1. 解决方法</font></strong>：重新跑一下评估:
+<code>nnUNet_train CONFIG TRAINER TASK FOLD -val --npz</code></li>
+</ul>
+<h3 id="421httpsgithubcommic-dkfznnunetissues421-cuda100torch12可以训练吗"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/421" target="_blank" rel="noopener">#421<i class="fas fa-external-link-alt"></i></a> 《cuda10.0+torch1.2可以训练吗？》</h3>
+<ul>
+<li><strong><font color=Coral>1. 解决方法</font></strong>：最低要求cuda10.1，而torch的版本要用最新的。</li>
+</ul>
+<h3 id="420httpsgithubcommic-dkfznnunetissues420-font-colorred怎么训练2d图片font"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/420" target="_blank" rel="noopener">#420<i class="fas fa-external-link-alt"></i></a> 《<font color=red>怎么训练2D图片？</font>》</h3>
+<ul>
+<li><strong><font color=Coral>1. 解决方法</font></strong>：很多人问我怎么使用2d图片，官方终于把这个作为一个常规武器放在了库中，<a href="https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/dataset_conversion.md" target="_blank" rel="noopener">这里<i class="fas fa-external-link-alt"></i></a>是其解决方案，并且附带有几个相关的任务：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20210129073957886.png" alt="在这里插入图片描述" id="20210129073957886" data-toggle="modal" data-target="#modal-20210129073957886"/>
+
+  <div class="modal" id="modal-20210129073957886">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20210129073957886.png" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+还是之前提到过的思想，将2d图片转换为伪3d nii文件，然后使用2d模式。不过现在有了官方的数据转换的脚本，省的自己写了。</li>
+</ul>
+<h3 id="417httpsgithubcommic-dkfznnunetissues417-推理时间特别慢32g的ram"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/417" target="_blank" rel="noopener">#417<i class="fas fa-external-link-alt"></i></a> 《推理时间特别慢（32g的RAM）》</h3>
+<ul>
+<li><strong><font color=Coral>1. 解决方法</font></strong>：对于医学图像来说这样的内存是不够的，在固态上加一个swap分区会很好的改善情况。</li>
+</ul>
+<h3 id="416httpsgithubcommic-dkfznnunetissues416-在docker中运行nnunet遇到错误runtimeerror-multithreadedaugmenterabort_event-was-set-something-went-wrong-maybe-one-of-your-workers-crashed-this-is-not-the-actual-error-message-look-further-up-your-stdout-to-see-what-caused-the-error-please-also-check-whether-your-ram-was-full"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/416" target="_blank" rel="noopener">#416<i class="fas fa-external-link-alt"></i></a> 《在docker中运行nnUNet遇到错误<code>RuntimeError: MultiThreadedAugmenter.abort_event was set, something went wrong. Maybe one of your workers crashed. This is not the actual error message! Look further up your stdout to see what caused the error. Please also check whether your RAM was full</code>》</h3>
+<ul>
+<li><strong><font color=Coral>1. 解决方法</font></strong>：<a href="https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/common_problems_and_solutions.md#nnu-net-training-in-docker-container-runtimeerror-unable-to-write-to-file-torch_781_2606105346" target="_blank" rel="noopener">这里<i class="fas fa-external-link-alt"></i></a>是解决的方案，需要加上参数<code>--ipc=host</code>。</li>
+</ul>
+<h3 id="322httpsgithubcommic-dkfznnunetissues322-关于修改最大轮数"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/322" target="_blank" rel="noopener">#322<i class="fas fa-external-link-alt"></i></a> 《关于修改最大轮数》</h3>
+<ul>
+<li><strong><font color=Coral>1. 解决方法</font></strong>：创建一个新的trainer来继承nnUNettrainerV2，并在初始化的时候给定最大轮数这个参数。</li>
+</ul>
+<h3 id="321httpsgithubcommic-dkfznnunetissues321-在执行plan_preprocess的时候卡住"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/321" target="_blank" rel="noopener">#321<i class="fas fa-external-link-alt"></i></a> 《在执行plan_preprocess的时候卡住》</h3>
+<ul>
+<li><strong><font color=Coral>1. 问题原因</font></strong>：较小的RAM却使用默认的线程数会导致卡顿，所以要将线程数设置的少一点来进行测试其他是否正常。</li>
+<li><strong><font color=Coral>2. 解决方法</font></strong>：
+<code>nnUNet_plan_and_preprocess -t 100 -tl 1 -tf 1 --verify_dataset_integrity</code>来设置为一个线程。</li>
+</ul>
+<h3 id="318httpsgithubcommic-dkfznnunetissues318-12gb的显存仍然不够的问题"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/318" target="_blank" rel="noopener">#318<i class="fas fa-external-link-alt"></i></a> 《12GB的显存仍然不够的问题》</h3>
+<ul>
+<li><strong><font color=Coral>1. 问题原因</font></strong>：问者在最后发现自己的显存仍有程序在占用，但是nvidia-smi并未将这部分进行显示。</li>
+<li><strong><font color=Coral>2. 其他要点</font></strong>：
+<ul>
+<li>I. 在使用nnUNet时，尽量把代码Update一下，同时将torch的版本进行更新；</li>
+<li>II. 作者建议如果要进行环境的更新安装，不怕工程大的话，将CUDA更新到CUDA11.</li>
+</ul>
+</li>
+</ul>
+<h3 id="312httpsgithubcommic-dkfznnunetissues312-混合精度问题typeerror-predict_preprocessed_data_return_seg_and_softmax-got-an-unexpected-keyword-argument-mixed_precision"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/312" target="_blank" rel="noopener">#312<i class="fas fa-external-link-alt"></i></a> 《混合精度问题（TypeError: predict_preprocessed_data_return_seg_and_softmax() got an unexpected keyword argument &lsquo;mixed_precision&rsquo;）》</h3>
+<ul>
+<li><strong><font color=Coral>1. 问题原因</font></strong>：作者在最近将apex从框架中移除，因为torch1.6支持混合精度训练，没有及时更新出现的错误。</li>
+<li><strong><font color=Coral>2. 解决方案</font></strong>：<code>pip install --upgrade nnunet</code>来更新nnUNet，或者在ide中进行master的update。</li>
+</ul>
+<h3 id="311httpsgithubcommic-dkfznnunetissues311-训练时找不到预处理文件夹"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/311" target="_blank" rel="noopener">#311<i class="fas fa-external-link-alt"></i></a> 《训练时找不到预处理文件夹》</h3>
+<ul>
+<li><strong><font color=Coral>1. 问题原因</font></strong>：环境变量的设置问题，所以无法找到对应文件夹。</li>
+<li><strong><font color=Coral>2. 解决方案</font></strong>：参考第四篇博客教程去进行环境路径的设置。</li>
+<li><strong><font color=Coral>3. 我有话说</font></strong>：如果觉得这样设置不够灵活，且你的磁盘空间有限，想要灵活的设置nnUNet的路径，请按照下面导入临时环境变量：
+<ul>
+<li><code>export nnUNet_raw_data_base=&quot;/home/user/DATASET/nnUNet_raw（对应你的文件夹全路径）&quot;</code>
+<code>export nnUNet_preprocessed=&quot;/home/user/DATASET/nnUNet_preprocessed&quot;（对应你的文件夹全路径）</code>
+<code>export RESULTS_FOLDER=&quot;/home/user/DATASET/nnUNet_trained_models&quot;（对应你的文件夹全路径）</code></li>
+<li>像之前一样执行命令，每进一次终端都要这样做一次，这是设置临时环境变量。</li>
+</ul>
+</li>
+</ul>
+<h3 id="310httpsgithubcommic-dkfznnunetissues310-segmentation-fault-core-dumped"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/310" target="_blank" rel="noopener">#310<i class="fas fa-external-link-alt"></i></a> 《&ldquo;Segmentation fault (core dumped)&quot;》</h3>
+<ul>
+<li><strong><font color=Coral>1. 问题原因</font></strong>：这是个相当奇怪的问题，问者最终结论是觉得<code>torch 1.2.0</code>和<code>batchgenerators 0.20.1</code>有冲突。</li>
+<li><strong><font color=Coral>2. 解决方案</font></strong>：将torch回溯到1.2.0能解决这个问题。</li>
+<li><strong><font color=Coral>3. 我有话说</font></strong>：把torch更新到1.6不香吗？？？</li>
+</ul>
+<h3 id="309httpsgithubcommic-dkfznnunetissues309runtimeerror-cuda-error-device-side-assert-triggered---non-consecutive-labels-within-ground-truth-"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/309" target="_blank" rel="noopener">#309<i class="fas fa-external-link-alt"></i></a>《&ldquo;RuntimeError: CUDA error: device-side assert triggered&rdquo;》&lt;&mdash;（Non-consecutive labels within ground truth ）</h3>
+<ul>
+<li><strong><font color=Coral>1. 问题描述</font></strong>：问者在尝试训练TCGA brain tumour的数据集，格式类似于 BraTS的数据集，但是按照正常的流程开始训练之后出现<code>RuntimeError: CUDA error: device-side assert triggered</code>的问题。</li>
+<li><strong><font color=Coral>2. 问题原因</font></strong>：对于这样格式的数据类型，作者写了一个专门的脚本来进行这个数据集的处理&mdash;-&gt; <code>nnunet/dataset_conversion/Task043_BraTS_2019.py</code>，需要先运行这个脚本继续训练。</li>
+<li><strong><font color=Coral>3. 解决方案</font></strong>：问者先是按照作者说的脚本处理数据，但是仍然有错误，之后他将整个之前产生的文件内容全部删除，只留下一个原始数据，重新训练后解决问题。</li>
+<li><strong><font color=Coral>4. 其他要点</font></strong>：
+<ul>
+<li>I. 在某些时候，如果想要重新处理数据，之前生成的crop文件夹不删除就会出现问题，尽量把这个文件夹删除掉；</li>
+<li>II. 对于不同的数据集处理方式可能会有所不同，对于比较主流的竞赛数据集，作者的代码中都会有对应的脚本。</li>
+</ul>
+</li>
+</ul>
+<h3 id="304httpsgithubcommic-dkfznnunetissues3041000的epoch太多了我怎么自定义一个epoch"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/304" target="_blank" rel="noopener">#304<i class="fas fa-external-link-alt"></i></a>《1000的epoch太多了，我怎么自定义一个epoch？》</h3>
+<ul>
+<li><strong><font color=Coral>1. 解决方案</font></strong>：初始化trainer时在代码里设置：
+<code> self.max_num_epochs=XXX</code></li>
+<li><strong><font color=Coral>3. 我有话说</font></strong>：找了一下位置在这里：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20200910204815161.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20200910204815161.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+修改上面的不起作用，修改这里：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201022164228853.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201022164228853.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</li>
+</ul>
+<h3 id="302httpsgithubcommic-dkfznnunetissues302训练第一个fold的时候正常但是其他四个fold的训练损失是nan"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/302" target="_blank" rel="noopener">#302<i class="fas fa-external-link-alt"></i></a>《训练第一个fold的时候正常，但是其他四个fold的训练损失是NaN》</h3>
+<ul>
+<li><strong><font color=Coral>1. 解决方案</font></strong>：问者的训练任务是MRI，最后发现在自己的训练集中有个图像中存在NaN值。</li>
+</ul>
+<h3 id="299httpsgithubcommic-dkfznnunetissues299五折产生五个fold每个训练出一个模型怎么把这五个合成一个模型呢"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/299" target="_blank" rel="noopener">#299<i class="fas fa-external-link-alt"></i></a>《五折产生五个fold，每个训练出一个模型，怎么把这五个合成一个模型呢？》</h3>
+<ul>
+<li><strong><font color=Coral>1. 作者回答</font></strong>：nnUNet没有这个功能，但是可以用ensemble的方式进行推理，如果是想充分利用所有数据集，就在训练时加上<code>all</code>这个参数，意味着用所有的训练数据来训练，而不是用五折。但是验证的分数就没有意义，因为并没有做五折，这些验证分数实际就是你训练集的分数，而不是验证集的。</li>
+</ul>
+<h3 id="297httpsgithubcommic-dkfznnunetissues297简单修改了batchsize和patchsize并不成功目的是希望在32gb的显卡上充分利用显存"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/297" target="_blank" rel="noopener">#297<i class="fas fa-external-link-alt"></i></a>《简单修改了batchsize和patchsize并不成功，目的是希望在32GB的显卡上充分利用显存》</h3>
+<ul>
+<li><strong><font color=Coral>1. 问题描述</font></strong>：问者在进行迁移学习的nnUNet实践，需要修改batchsize、patchsize和网络结构（深度），于是修改了plan.pkl文件但是并未成功。报错：<code>RuntimeError: Sizes of tensors must match except in dimension 3. Got 7 and 8</code>和<code>RuntimeError: invalid argument 0: Sizes of tensors must match except in dimension 1. Got 41 and 42 in dimension 4 at /pytorch/aten/src/THC/generic/THCTensorMath.cu:71</code>，这很明显是形状出了问题。而且希望能在32GB的显卡上充分应用显存，也就是增大patchsize。</li>
+<li><strong><font color=Coral>2. 问题原因</font></strong>：直接从plan.pkl文件修改超参数会出现问题，在你不知道这些参数的具体作用时，不要修改，因为nnUNet的参数可能相互关联和影响。</li>
+<li><strong><font color=Coral>3. 解决方案</font></strong>：前面的第一个问题没有给出详细的答案，至于如何增大patchsize，采用如下命令：
+<code>nnUNet_plan_and_preprocess [...] -pl2d None -pl3d ExperimentPlanner3D_v21_32GB</code>
+这个计划在代码的这个位置：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20200911184415240.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="2" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20200911184415240.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="2"/>
+      </div>
+  </div>
+</figure>
+
+也就是说，只能通过这种方式来增加patchsize的大小，从而充分应用显存。那些有大显卡的兄弟姐妹可以来试一下了。</li>
+<li><strong><font color=Coral>4. 我有话说</font></strong>：
+<ul>
+<li>I. 一直没有看plan的代码，所以可能也没有深入了解为什么超参数不能乱修改；</li>
+<li>II. 更大的patchsize，意味着推理时更少的迭代次数，也就有可能会对推理速度有一部分加速效果，有兴趣的可以试一下，我还没测。</li>
+</ul>
+</li>
+</ul>
+<h3 id="296httpsgithubcommic-dkfznnunetissues296typeerror-consolidate_folds-got-an-unexpected-keyword-argument-folds"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/296" target="_blank" rel="noopener">#296<i class="fas fa-external-link-alt"></i></a>《&ldquo;TypeError: consolidate_folds() got an unexpected keyword argument &lsquo;folds&rsquo;&quot;》</h3>
+<ul>
+<li><strong><font color=Coral>1. 解决方案</font></strong>：问者采取的方法是将fold文件夹删除以后重新运行命令，从作者的回答来看更新框架可以解决问题。</li>
+</ul>
+<h3 id="295httpsgithubcommic-dkfznnunetissues295attributeerror-list-object-has-no-attribute-size推理时候卡住并报错"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/295" target="_blank" rel="noopener">#295<i class="fas fa-external-link-alt"></i></a>《&ldquo;AttributeError: &lsquo;list&rsquo; object has no attribute &lsquo;size&rsquo;&quot;（推理时候卡住并报错）》</h3>
+<ul>
+<li><strong><font color=Coral>1. 问题描述</font></strong>：问者在进行FabiansResUNet推理时遇到的错误，它运行的是<code>nnUNet_predict -i ./imagesTs -o ./predict_result -t 001 -tr nnUNetTrainerV2_ResencUNet -m 3d_fullres -f 0 -chk model_best</code></li>
+<li><strong><font color=Coral>2. 解决方案</font></strong>：作者稍微更新了下代码然后让问者重新拉取，这种错误应该是数据类型的问题，或者用错了api，如果还有问题可以直接在GITHUB上反馈。</li>
+<li><strong><font color=Coral>3. 我有话说</font></strong>：
+<ul>
+<li>I.我相信很多读者可能都想用<font color=Coral><strong>残差网络</strong></font>来尝试训练一下nnUNet，我在这里给出详细的步骤：
+<ul>
+<li><strong>第一步：<font color=red>更新nnUNet!!!</font></strong>；</li>
+<li>第二步：运行一次普通的预处理，即<code>nnUNet_plan_and_preprocess -t 16</code>，如果之前运行过则不需要；</li>
+<li>第三步：<code>nnUNet_plan_and_preprocess -t 16 -pl2d None</code>；</li>
+<li>第四步：<code>nnUNet_plan_and_preprocess -t 16 -pl3d ExperimentPlanner3DFabiansResUNet_v21 -pl2d None</code>；</li>
+<li>第五步：<code>nnUNet_train 3d_fullres nnUNetTrainerV2_ResencUNet 16 4 -p nnUNetPlans_FabiansResUNet_v2.1</code></li>
+</ul>
+</li>
+<li>II. 我们知道，训练完成后有两个模型文件，一个是model_best，一个是model_latest，如果想在训练中用其中一个进行推理的测试，请在推理的命令后加参数<code>-chk model_best</code>或者<code>-chk model_latest</code>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="290httpsgithubcommic-dkfznnunetissues290预测时候卡主卡了一天没有反应"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/290" target="_blank" rel="noopener">#290<i class="fas fa-external-link-alt"></i></a>《预测时候卡主卡了一天没有反应》</h3>
+<ul>
+<li><strong><font color=Coral>1. 解决方案</font></strong>：因为作者用了tmux而不是我们平常使用的terminal，所以出现这个问题，切换回去普通的terminal后问题就解决了。</li>
+</ul>
+<h3 id="288httpsgithubcommic-dkfznnunetissues288怎么使用fabiansunet而不是默认的generic_unet"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/288" target="_blank" rel="noopener">#288<i class="fas fa-external-link-alt"></i></a>《怎么使用FabiansUNet，而不是默认的generic_Unet》</h3>
+<ul>
+<li><strong><font color=Coral>1. 解决方案</font></strong>：这里的FabiansUNet其实指的是残差网络，参考
+<font color=LightSeaGreen><strong>#295</strong></font>中如何使用残差的步骤。</li>
+</ul>
+<h3 id="281httpsgithubcommic-dkfznnunetissues281关于怎么评估模型测试结果"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/281" target="_blank" rel="noopener">#281<i class="fas fa-external-link-alt"></i></a>《关于怎么评估模型测试结果》</h3>
+<ul>
+<li><strong><font color=Coral>1. 我有话说</font></strong>： <code>nnUNet_find_best_configuration -m 3d_fullres -t 010 --strict </code>
+这个命令可以对你的测试集进行推理，会从fold_0到fold_4进行测试，测试不使用后处理和使用后处理的结果。</li>
+</ul>
+<h3 id="280httpsgithubcommic-dkfznnunetissues280怎么关闭deep-supervision"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/280" target="_blank" rel="noopener">#280<i class="fas fa-external-link-alt"></i></a>《怎么关闭deep-supervision》</h3>
+<ul>
+<li><strong><font color=Coral>1. 解决方案</font></strong>：
+使用<code>nnUNetTrainerV2_noDeepSupervision</code>，替代命令中的<code>nnUNetTrainerV2</code>。</li>
+<li><strong><font color=Coral>2. 关于deep-supervision这个trick</font></strong>：
+参考这篇文章<a href="http://www.360doc.com/content/20/0209/21/7669533_890803845.shtml" target="_blank" rel="noopener">deep-supervision<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<h3 id="273httpsgithubcommic-dkfznnunetissues273代码中的softmax_helper相比torch中的torchnnfunctionalsoftmax有什么优点"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/273" target="_blank" rel="noopener">#273<i class="fas fa-external-link-alt"></i></a>《代码中的&quot;softmax_helper&quot;相比torch中的&quot;torch.nn.functional.softmax&quot;有什么优点》</h3>
+<ul>
+<li><strong><font color=Coral>1. 解决方案</font></strong>：
+作者在做这个的时候torch还不支持多维上的softmax，现在支持了，所以之后会做改进。</li>
+</ul>
+<h3 id="271httpsgithubcommic-dkfznnunetissues271怎么读取权重找不到权重文件"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/271" target="_blank" rel="noopener">#271<i class="fas fa-external-link-alt"></i></a>《怎么读取权重（找不到权重文件）》</h3>
+<ul>
+<li><strong><font color=Coral>1. 解决方案</font></strong>：权重文件，也就是我们所说的.pth文件，其实是这个文件，不过是换成.model结尾的后缀而已：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20200925163123323.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="1" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20200925163123323.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="1"/>
+      </div>
+  </div>
+</figure>
+</li>
+</ul>
+<h3 id="270httpsgithubcommic-dkfznnunetissues270怎么在预训练模型的基础上加入一些新的数据以提高模型泛化能力"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/270" target="_blank" rel="noopener">#270<i class="fas fa-external-link-alt"></i></a>《怎么在预训练模型的基础上加入一些新的数据以提高模型泛化能力？》</h3>
+<ul>
+<li><strong><font color=Coral>1. 解决方案</font></strong>：（这里正在询问作者解决方案）可以直接创建一个新的任务，里面存放添加的数据集，然后加载之前的模型并且训练，作者说这可能需要之前优化器的动量、学习率和轮数。</li>
+</ul>
+<h3 id="268httpsgithubcommic-dkfznnunetissues268训练数据有四个通道而不是五个最后一个通道是一个二进制的map应该是五个通道时候的xy合并在一起的怎么应用数据增强"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/268" target="_blank" rel="noopener">#268<i class="fas fa-external-link-alt"></i></a>《训练数据有四个通道（而不是五个），最后一个通道是一个二进制的map（应该是五个通道时候的xy合并在一起的），怎么应用数据增强》</h3>
+<ul>
+<li><strong><font color=Coral>1. 我有话说</font></strong>：这个问题有点意思，不过我还是不大明白为什么会有这样的数据，我尝试问一下，解决之后更新。</li>
+</ul>
+<h3 id="263httpsgithubcommic-dkfznnunetissues263有些测试ct推理不出来有些ct推理出来啥也没有"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/263" target="_blank" rel="noopener">#263<i class="fas fa-external-link-alt"></i></a>《有些测试CT推理不出来，有些CT推理出来啥也没有》</h3>
+<ul>
+<li><strong><font color=Coral>1. 我有话说</font></strong>：出现这类问题请优先检查自己的CT，尝试换用其他的CT进行推理，正常情况不应该出现这个问题，多半是CT的问题。比如你的CT因为在转nii时操作不当导致里面的灰度值变为0-255的，那么就肯定推理不出结果。</li>
+</ul>
+<h3 id="259httpsgithubcommic-dkfznnunetissues259同样的数据集为什么我的训练结果没有作者论文里的效果好呢"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/259" target="_blank" rel="noopener">#259<i class="fas fa-external-link-alt"></i></a>《同样的数据集，为什么我的训练结果没有作者论文里的效果好呢？》</h3>
+<ul>
+<li><strong><font color=Coral>1. 我有话说</font></strong>：作者认为即使是同样的数据集，同样的代码，实验结果也会有各种各样的不同。问者认为可能和APEX的安装步骤有关，以及torch也可能有影响，这点需要诸位的实验来做下多次的验证。</li>
+</ul>
+<h3 id="258httpsgithubcommic-dkfznnunetissues258关于推理速度如此之慢的问题"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/258" target="_blank" rel="noopener">#258<i class="fas fa-external-link-alt"></i></a>《关于推理速度如此之慢的问题》</h3>
+<ul>
+<li><strong><font color=Coral>1. 我有话说</font></strong>：推理的时间问题在我看来主要来自于三个方面：
+<ul>
+<li>① 数据预处理的时间：预处理的时间分为crop的时间和插值的时间，所用的库都是skimage，可以说是相当的慢，层数较多的时候甚至会10min以上预处理一次。个人建议，将代码中的插值算法从ndimage换成torch的插值算法，基本在几秒内完成插值。</li>
+<li>② 镜像计算的时间：也就是数据增强的时间，在3d的模式中，每次要做8次的镜像，然后每个都要推理，关闭镜像可以把这部分时间减少很多；</li>
+<li>③ patch的迭代和推理时间：这是为什么推理时间那么长的根本原因，因为一个patch要0.3s左右的时间，但是一套ct上会有上百个patch，时间成本自然也就上去了。我尝试过libtorch的推理，看下时间有没有减少，发现也没有什么大的改观；尝试过tensorRT的加速，但是出现3d卷积核的问题至今没能解决。有想法的可以试一下。</li>
+</ul>
+</li>
+</ul>
+<h3 id="257httpsgithubcommic-dkfznnunetissues257nnunet怎么对预处理好的文件进行推理"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/257" target="_blank" rel="noopener">#257<i class="fas fa-external-link-alt"></i></a>《nnUNet怎么对预处理好的文件进行推理》</h3>
+<ul>
+<li><strong><font color=Coral>1. 解决方案</font></strong>：当前nnUNet只支持对原始nii文件进行推理，如果要用预处理好的文件进行推理，我的建议是从传入patch的位置进去，且要把你的数组合理的分成若干个满足模型推理要求的patch。</li>
+</ul>
+<h2 id="font-face华文琥珀-size5--colorpinkblueii-理论上的问题font"><font face="华文琥珀" size=5  color=pinkblue>II. 理论上的问题：</font></h2>
+<h3 id="430httpsgithubcommic-dkfznnunetissues430一种nnunet的改进方向"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/430" target="_blank" rel="noopener">#430<i class="fas fa-external-link-alt"></i></a>《一种nnUNet的改进方向》</h3>
+<ul>
+<li><strong><font color=Coral>1. 问题描述</font></strong>：想把标签mask作为另一个通道加入到训练的数据中以此来指导模型。（<font color=red>有点意思，有谁能指引一下我这个论文？</font>）</li>
+<li><strong><font color=Coral>2. 作者建议</font></strong>：对这个方法没有什么概念所以也不知道作者说的啥意思，有兴趣的自己琢磨下。
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20210128160652757.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20210128160652757.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</li>
+</ul>
+<h3 id="470httpsgithubcommic-dkfznnunetissues470nnunet可以进行一些dense-connection的改进吗"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/470" target="_blank" rel="noopener">#470<i class="fas fa-external-link-alt"></i></a>《nnUNet可以进行一些dense-connection的改进吗？》</h3>
+<ul>
+<li><strong><font color=Coral>1. 作者建议</font></strong>：当你的训练结果并不如预期时，先考虑下是不是你的数据本身和你的使用方法出了问题，不要着急考虑改进网络。先看看图像方向是不是正确的，确保预处理以后的分割图像是否和原图重合。
+再者，Verse的评估方法与nnUNet不同。</li>
+</ul>
+<h3 id="303httpsgithubcommic-dkfznnunetissues303nnunet是怎么在做强度归一化"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/303" target="_blank" rel="noopener">#303<i class="fas fa-external-link-alt"></i></a>《nnUNet是怎么在做强度归一化》</h3>
+<ul>
+<li><strong><font color=Coral>我解释一哈</font></strong>：这个问题是我提出来的，因为在实际的应用中我发现模型在一些明显发灰的CT上表现很差，我希望摸清楚到底归一化在怎么做。其实是这样的：
+<ul>
+<li>I. 将所有训练的数据集的所有体素的强度值进行一个统计，类似于去掉一个最低分和一个最高分的方法，把数值前0.5%和后0.5%的值去掉，只取中间部分的值，然后在剩下的值上计算均值和方差，来进行强度归一化。</li>
+<li>II. 代码在这里：</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">           <span style="color:#069;font-weight:bold">if</span> scheme <span style="color:#555">==</span> <span style="color:#c30">&#34;CT&#34;</span>:
+                <span style="color:#09f;font-style:italic"># clip to lb and ub from train data foreground and use foreground mn and sd from training data</span>
+                <span style="color:#069;font-weight:bold">assert</span> self<span style="color:#555">.</span>intensityproperties <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">not</span> None, <span style="color:#c30">&#34;ERROR: if there is a CT then we need intensity properties&#34;</span>
+                mean_intensity <span style="color:#555">=</span> self<span style="color:#555">.</span>intensityproperties[c][<span style="color:#c30">&#39;mean&#39;</span>]
+                std_intensity <span style="color:#555">=</span> self<span style="color:#555">.</span>intensityproperties[c][<span style="color:#c30">&#39;sd&#39;</span>]
+                lower_bound <span style="color:#555">=</span> self<span style="color:#555">.</span>intensityproperties[c][<span style="color:#c30">&#39;percentile_00_5&#39;</span>]
+                upper_bound <span style="color:#555">=</span> self<span style="color:#555">.</span>intensityproperties[c][<span style="color:#c30">&#39;percentile_99_5&#39;</span>]
+                data[c] <span style="color:#555">=</span> np<span style="color:#555">.</span>clip(data[c], lower_bound, upper_bound)
+                data[c] <span style="color:#555">=</span> (data[c] <span style="color:#555">-</span> mean_intensity) <span style="color:#555">/</span> std_intensity
+                <span style="color:#069;font-weight:bold">if</span> use_nonzero_mask[c]:
+                    data[c][seg[<span style="color:#555">-</span><span style="color:#f60">1</span>] <span style="color:#555">&lt;</span> <span style="color:#f60">0</span>] <span style="color:#555">=</span> <span style="color:#f60">0</span>
+</code></pre></div><h3 id="265httpsgithubcommic-dkfznnunetissues265关于利用crop来生成前景boundingbox的问题"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/265" target="_blank" rel="noopener">#265<i class="fas fa-external-link-alt"></i></a>《关于利用crop来生成前景boundingbox的问题》</h3>
+<ul>
+<li><strong><font color=Coral>1. 我有话说</font></strong>：这部分在ct上没有影响，主要是用在MRI图像上的。</li>
+</ul>
+<h2 id="font-face华文琥珀-size5--colorpinkblueiii-代码上的问题font"><font face="华文琥珀" size=5  color=pinkblue>III. 代码上的问题：</font></h2>
+<h3 id="313httpsgithubcommic-dkfznnunetissues313-attributeerror-nonetype-object-has-no-attribute-is_alive"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/313" target="_blank" rel="noopener">#313<i class="fas fa-external-link-alt"></i></a> 《AttributeError: &lsquo;NoneType&rsquo; object has no attribute &lsquo;is_alive&rsquo;》</h3>
+<ul>
+<li><strong><font color=Coral>1. 问题原因</font></strong>：这是最近编码时产生的bug。</li>
+<li><strong><font color=Coral>2. 解决方案</font></strong>：将代码更新到最新。</li>
+<li><strong><font color=Coral>3. 我有话说</font></strong>：同样遇到了这个问题，在更新完以后可以解决。</li>
+</ul>
+<h3 id="294httpsgithubcommic-dkfznnunetissues294runtimeerror-unable-to-write-to-file-torch_15769_1517813162"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/294" target="_blank" rel="noopener">#294<i class="fas fa-external-link-alt"></i></a>《&ldquo;RuntimeError: unable to write to file &lt;/torch_15769_1517813162&gt;&quot;》</h3>
+<ul>
+<li><strong><font color=Coral>1. 解决方案</font></strong>：这不是nnUNet的问题，是ubuntu系统的问题，具体的解决方案在<a href="https://discuss.pytorch.org/t/unable-to-write-to-file-torch-18692-1954506624/9990/5" target="_blank" rel="noopener">这里<i class="fas fa-external-link-alt"></i></a>。原因是需要修改/dev/shm大小，参考中文解决方案&ndash;&gt;<a href="https://blog.csdn.net/weiwangsisoftstone/article/details/38581843" target="_blank" rel="noopener">这里<i class="fas fa-external-link-alt"></i></a>。</li>
+</ul>
+<h3 id="291httpsgithubcommic-dkfznnunetissues291-attributeerror-nonetype-object-has-no-attribute-is_alive与313的问题一样"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/291" target="_blank" rel="noopener">#291<i class="fas fa-external-link-alt"></i></a> 《AttributeError: &lsquo;NoneType&rsquo; object has no attribute &lsquo;is_alive&rsquo;》（与#313的问题一样）</h3>
+<ul>
+<li><strong><font color=Coral>2. 解决方案</font></strong>：删除preprocess文件夹里的所有 .npy文件，然后重新执行训练命令。</li>
+</ul>
+<h3 id="267httpsgithubcommic-dkfznnunetissues267-typeerror-validate-got-an-unexpected-keyword-argument-force_separate_z"><a href="https://github.com/MIC-DKFZ/nnUNet/issues/267" target="_blank" rel="noopener">#267<i class="fas fa-external-link-alt"></i></a> 《TypeError: validate() got an unexpected keyword argument &lsquo;force_separate_z&rsquo;》</h3>
+<ul>
+<li><strong><font color=Coral>2. 解决方案</font></strong>：之前版本的一个bug，已经修复。</li>
+</ul>
+
+
+
+      </main>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/grpcio">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Google Groups" aria-label="Google Groups">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://groups.google.com/g/grpc-io">
+      <i class="fab fa-google"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Gitter" aria-label="Gitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://gitter.im/grpc/grpc">
+      <i class="fab fa-gitter"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/grpc">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 gRPC Authors
+          
+        </small>
+        
+        
+      </div>
+    </div>
+    <div class="row text-center text-white small">
+      <div class="col-12 text-center py-2 order-sm-2">
+        <a href="https://www.linuxfoundation.org/terms" target="_blank" rel="noopener">Terms</a> |
+        <a href="https://www.linuxfoundation.org/privacy" target="_blank" rel="noopener">Privacy</a> |
+        <a href="https://www.linuxfoundation.org/trademark-usage" target="_blank" rel="noopener">Trademarks</a> |
+        <a href="https://github.com/grpc/grpc.io/blob/main/LICENSE" target="_blank" rel="noopener">License</a> |
+        <a href="/about/">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.d862e8117d34e02dff1772aeeb47caf7ed851d0f8a3a5345f7a32ccfb2f6b87f.js" integrity="sha256-2GLoEX004C3/F3Ku60fK9&#43;2FHQ&#43;KOlNF96Msz7L2uH8=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

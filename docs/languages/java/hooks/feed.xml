@@ -1,0 +1,111 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – 自定义hooks</title>
+    <link>https://Joevaen.github.io/docs/languages/java/hooks/</link>
+    <description>Recent content in 自定义hooks on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/languages/java/hooks/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 自定义自建hooks</title>
+      <link>https://Joevaen.github.io/docs/languages/java/hooks/optimizer_torch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/java/hooks/optimizer_torch/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 使用MMCV中实现的hooks</title>
+      <link>https://Joevaen.github.io/docs/languages/java/hooks/self_implemented/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/java/hooks/self_implemented/</guid>
+      <description>
+        
+        
+        &lt;p&gt;如果hook已在MMCV中实现，则可以直接修改配置以使用以下hook。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 修改默认的运行hooks</title>
+      <link>https://Joevaen.github.io/docs/languages/java/hooks/optimizer_constructor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/java/hooks/optimizer_constructor/</guid>
+      <description>
+        
+        
+        &lt;p&gt;有一些常用的hooks并没有在&lt;code&gt;custom_hooks&lt;/code&gt;中注册，他们是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;log_config&lt;/li&gt;
+&lt;li&gt;checkpoint_config&lt;/li&gt;
+&lt;li&gt;evaluation&lt;/li&gt;
+&lt;li&gt;lr_config&lt;/li&gt;
+&lt;li&gt;optimizer_config&lt;/li&gt;
+&lt;li&gt;momentum_config&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在这些hooks中，仅仅logger的hooks的优先级为&lt;code&gt;VERY_LOW&lt;/code&gt;，其他的优先级都是&lt;code&gt;NORMAL&lt;/code&gt;。
+以上提出的教程仅仅是关于如何修改 &lt;code&gt;optimizer_config&lt;/code&gt;, &lt;code&gt;momentum_config&lt;/code&gt;, 和 &lt;code&gt;lr_config&lt;/code&gt;。
+下面我们会揭露对&lt;code&gt;log_config&lt;/code&gt;, &lt;code&gt;checkpoint_config&lt;/code&gt;, 和 &lt;code&gt;evaluation&lt;/code&gt;应该怎么做。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 额外的设置</title>
+      <link>https://Joevaen.github.io/docs/languages/java/hooks/add_set/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/java/hooks/add_set/</guid>
+      <description>
+        
+        
+        &lt;p&gt;优化器未实现的技巧应通过优化器构造函数（例如，设置参数智能的学习率）或hooks来实现。 我们列出了一些可以稳定训练或加速训练的常见设置。欢迎大家来提出更多的问题。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;使用梯度渐变来稳定训练&lt;/strong&gt;:
+有些模型需要梯度渐变以稳定训练过程。 一个例子如下:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;optimizer_config &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+    _delete_&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;True, grad_clip&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(max_norm&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;35&lt;/span&gt;, norm_type&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;2&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果你的配置文件继承了基本的配置文件，也已经设置好了&lt;code&gt;optimizer_config&lt;/code&gt;，你可能需要&lt;code&gt;_delete_=True&lt;/code&gt;来覆写没必要的设置。查看&lt;a href=&#34;https://mmdetection.readthedocs.io/en/latest/config.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;config documenetation&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 得到更多细节。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;使用动量调度来加速模型收敛&lt;/strong&gt;:
+我们支持使用动量调度来根据学习率修改模型的动量，这样能使模型收敛的更快。
+动量调度通常会和学习率调度一起使用，比如下面这个3d检测的配置文件就通过这种方式加速模型收敛。
+想知道更多的话，请查阅&lt;a href=&#34;https://github.com/open-mmlab/mmcv/blob/f48241a65aebfe07db122e9db320c31b685dc674/mmcv/runner/hooks/lr_updater.py#L327&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CyclicLrUpdater&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 和 &lt;a href=&#34;https://github.com/open-mmlab/mmcv/blob/f48241a65aebfe07db122e9db320c31b685dc674/mmcv/runner/hooks/momentum_updater.py#L130&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CyclicMomentumUpdater&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;lr_config &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+    policy&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;cyclic&amp;#39;&lt;/span&gt;,
+    target_ratio&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;(&lt;span style=&#34;color:#f60&#34;&gt;10&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;1e-4&lt;/span&gt;),
+    cyclic_times&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;,
+    step_ratio_up&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;0.4&lt;/span&gt;,
+)
+momentum_config &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+    policy&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;cyclic&amp;#39;&lt;/span&gt;,
+    target_ratio&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;(&lt;span style=&#34;color:#f60&#34;&gt;0.85&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;0.95&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;),
+    cyclic_times&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;,
+    step_ratio_up&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;0.4&lt;/span&gt;,
+)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,67 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – 可视化</title>
+    <link>https://Joevaen.github.io/docs/guides/visual/</link>
+    <description>Recent content in 可视化 on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/guides/visual/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 可视化数据</title>
+      <link>https://Joevaen.github.io/docs/guides/visual/data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/guides/visual/data/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;code&gt;tools/misc/browse_dataset.py&lt;/code&gt; helps the user to browse a detection dataset (both
+images and bounding box annotations) visually, or save the image to a
+designated directory.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;python tools/misc/browse_dataset.py &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;CONFIG&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;-h&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;--skip-type &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;SKIP_TYPE&lt;/span&gt;[SKIP_TYPE...]&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;--output-dir &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;OUTPUT_DIR&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;--not-show&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;--show-interval &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;SHOW_INTERVAL&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 可视化模型</title>
+      <link>https://Joevaen.github.io/docs/guides/visual/model/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/guides/visual/model/</guid>
+      <description>
+        
+        
+        &lt;p&gt;First, convert the model to ONNX as described
+&lt;a href=&#34;#convert-mmdetection-model-to-onnx-experimental&#34;&gt;here&lt;/a&gt;.
+Note that currently only RetinaNet is supported, support for other models
+will be coming in later versions.
+The converted model could be visualized by tools like &lt;a href=&#34;https://github.com/lutzroeder/netron&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Netron&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 可视化预测</title>
+      <link>https://Joevaen.github.io/docs/guides/visual/predict/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/guides/visual/predict/</guid>
+      <description>
+        
+        
+        &lt;p&gt;If you need a lightweight GUI for visualizing the detection results, you can refer &lt;a href=&#34;https://github.com/Chien-Hung/DetVisGUI/tree/mmdetection&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;DetVisGUI project&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>gRPC – About gRPC</title>
+    <title>gRPC – nnUNet教程</title>
     <link>https://Joevaen.github.io/about/</link>
-    <description>Recent content in About gRPC on gRPC</description>
+    <description>Recent content in nnUNet教程 on gRPC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
@@ -13,6 +13,2144 @@
         
       
     
+    
+    <item>
+      <title>About: nnUNet最全问题收录</title>
+      <link>https://Joevaen.github.io/about/nnunet/nnunet6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/about/nnunet/nnunet6/</guid>
+      <description>
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+&lt;section id=&#34;td-cover-block-0&#34; class=&#34;row td-cover-block td-cover-block--height-sm js-td-cover td-overlay td-overlay--dark -bg-primary&#34;&gt;
+  &lt;div class=&#34;container td-overlay__inner&#34;&gt;
+    &lt;div class=&#34;row&#34;&gt;
+      &lt;div class=&#34;col-12&#34;&gt;
+        &lt;div class=&#34;text-center&#34;&gt;
+          
+          
+          &lt;div class=&#34;pt-3 lead&#34;&gt;
+            
+                &lt;div class=&#34;text-left&#34;&gt;
+  &lt;h1 class=&#34;display-1 mb-5&#34;&gt;nnUNet最全问题收录&lt;/h1&gt;&lt;h3 class=&#34;font-weight-light&#34;&gt;《Automated Design of Deep Learning Methods for Biomedical Image Segmentation》&lt;/h3&gt;
+  &lt;/div&gt;
+
+            
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+&lt;/section&gt;
+
+&lt;div class=&#34;container l-container--padded&#34;&gt;
+&lt;div class=&#34;row&#34;&gt;
+
+
+
+
+  
+    &lt;div class=&#34;d-lg-none col-12&#34;&gt;
+      &lt;div class=&#34;td-toc td-toc--inline&#34;&gt;
+  
+      
+        &lt;a id=&#34;td-content__toc-link&#34; class=&#34;collapsed&#34; href=&#34;#td-content__toc&#34; data-toggle=&#34;collapse&#34; aria-controls=&#34;td-page-toc&#34; aria-expanded=&#34;false&#34; aria-label=&#34;Toggle toc navigation&#34;&gt;
+          &lt;span class=&#34;lead&#34;&gt;Contents&lt;i class=&#34;fas fa-chevron-right ml-2&#34;&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;div id=&#34;td-content__toc&#34; class=&#34;collapse&#34;&gt;
+          &lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#font-face华文琥珀-size5--colorpinkbluei-使用上的问题font&#34;&gt;&lt;font face=&#34;华文琥珀&#34; size=5  color=pinkblue&gt;I. 使用上的问题：&lt;/font&gt;&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#477httpsgithubcommic-dkfznnunetissues477-3d-nnunet支持fp16量化吗&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/477&#34;&gt;#477&lt;/a&gt; 《3D nnUNet支持FP16量化吗？》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#474httpsgithubcommic-dkfznnunetissues474-importerror-cannot-import-name-find_namespace_packages&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/474&#34;&gt;#474&lt;/a&gt; 《ImportError: cannot import name find_namespace_packages》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#471httpsgithubcommic-dkfznnunetissues471-我怎么在本地评估一些预训练模型的指标呢&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/471&#34;&gt;#471&lt;/a&gt; 《我怎么在本地评估一些预训练模型的指标呢？》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#469httpsgithubcommic-dkfznnunetissues469-无任何报错的进程死亡&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/469&#34;&gt;#469&lt;/a&gt; 《无任何报错的进程死亡》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#464httpsgithubcommic-dkfznnunetissues464-如何对pet进行归一化&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/464&#34;&gt;#464&lt;/a&gt; 《如何对PET进行归一化》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#459httpsgithubcommic-dkfznnunetissues459-orientation这个属性在nnunet里起作用吗&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/459&#34;&gt;#459&lt;/a&gt; 《&lt;code&gt;orientation&lt;/code&gt;这个属性在nnUNet里起作用吗？》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#456httpsgithubcommic-dkfznnunetissues456-cannot-import-name-spatialtransform_2-from-batchgeneratorstransforms&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/456&#34;&gt;#456&lt;/a&gt; 《cannot import name &amp;lsquo;SpatialTransform_2&amp;rsquo; from &amp;lsquo;batchgenerators.transforms&amp;rsquo;》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#454httpsgithubcommic-dkfznnunetissues454-能给个自己编译pytorch解决2d训练问题的教程吗&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/454&#34;&gt;#454&lt;/a&gt; 《能给个自己编译pytorch解决2d训练问题的教程吗？》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#449httpsgithubcommic-dkfznnunetissues449-前景多标签有重叠情况怎么解决&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/449&#34;&gt;#449&lt;/a&gt; 《前景多标签有重叠情况怎么解决？》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#446httpsgithubcommic-dkfznnunetissues446-在用多gpu训练以后发现推理时候报错&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/446&#34;&gt;#446&lt;/a&gt; 《在用多GPU训练以后发现推理时候报错》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#437httpsgithubcommic-dkfznnunetissues437-在microsoft-azure-vm-instance虚拟机中存在的一个bug&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/437&#34;&gt;#437&lt;/a&gt; 《在Microsoft Azure VM Instance虚拟机中存在的一个bug》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#427httpsgithubcommic-dkfznnunetissues427-nnunet能不能使用cupy来加速预处理过程呢&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/427&#34;&gt;#427&lt;/a&gt; 《nnUNet能不能使用cupy来加速预处理过程呢？》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#425httpsgithubcommic-dkfznnunetissues425-当生成的patch_size大于图像本身的时候会发生什么&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/425&#34;&gt;#425&lt;/a&gt; 《当生成的patch_size大于图像本身的时候会发生什么？》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#424httpsgithubcommic-dkfznnunetissues424-能直接把预处理以后的npz文件的patch抽出来在我的新模型上进行训练吗&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/424&#34;&gt;#424&lt;/a&gt; 《能直接把预处理以后的npz文件的patch抽出来在我的新模型上进行训练吗？》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#423httpsgithubcommic-dkfznnunetissues423-想在你的模型中添加新的网络块应该怎么做&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/423&#34;&gt;#423&lt;/a&gt; 《想在你的模型中添加新的网络块，应该怎么做？》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#422httpsgithubcommic-dkfznnunetissues422-使用find_best_configuration时npz丢失&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/422&#34;&gt;#422&lt;/a&gt; 《使用find_best_configuration时npz丢失》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#421httpsgithubcommic-dkfznnunetissues421-cuda100torch12可以训练吗&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/421&#34;&gt;#421&lt;/a&gt; 《cuda10.0+torch1.2可以训练吗？》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#420httpsgithubcommic-dkfznnunetissues420-font-colorred怎么训练2d图片font&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/420&#34;&gt;#420&lt;/a&gt; 《&lt;font color=red&gt;怎么训练2D图片？&lt;/font&gt;》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#417httpsgithubcommic-dkfznnunetissues417-推理时间特别慢32g的ram&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/417&#34;&gt;#417&lt;/a&gt; 《推理时间特别慢（32g的RAM）》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#416httpsgithubcommic-dkfznnunetissues416-在docker中运行nnunet遇到错误runtimeerror-multithreadedaugmenterabort_event-was-set-something-went-wrong-maybe-one-of-your-workers-crashed-this-is-not-the-actual-error-message-look-further-up-your-stdout-to-see-what-caused-the-error-please-also-check-whether-your-ram-was-full&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/416&#34;&gt;#416&lt;/a&gt; 《在docker中运行nnUNet遇到错误&lt;code&gt;RuntimeError: MultiThreadedAugmenter.abort_event was set, something went wrong. Maybe one of your workers crashed. This is not the actual error message! Look further up your stdout to see what caused the error. Please also check whether your RAM was full&lt;/code&gt;》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#322httpsgithubcommic-dkfznnunetissues322-关于修改最大轮数&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/322&#34;&gt;#322&lt;/a&gt; 《关于修改最大轮数》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#321httpsgithubcommic-dkfznnunetissues321-在执行plan_preprocess的时候卡住&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/321&#34;&gt;#321&lt;/a&gt; 《在执行plan_preprocess的时候卡住》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#318httpsgithubcommic-dkfznnunetissues318-12gb的显存仍然不够的问题&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/318&#34;&gt;#318&lt;/a&gt; 《12GB的显存仍然不够的问题》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#312httpsgithubcommic-dkfznnunetissues312-混合精度问题typeerror-predict_preprocessed_data_return_seg_and_softmax-got-an-unexpected-keyword-argument-mixed_precision&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/312&#34;&gt;#312&lt;/a&gt; 《混合精度问题（TypeError: predict_preprocessed_data_return_seg_and_softmax() got an unexpected keyword argument &amp;lsquo;mixed_precision&amp;rsquo;）》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#311httpsgithubcommic-dkfznnunetissues311-训练时找不到预处理文件夹&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/311&#34;&gt;#311&lt;/a&gt; 《训练时找不到预处理文件夹》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#310httpsgithubcommic-dkfznnunetissues310-segmentation-fault-core-dumped&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/310&#34;&gt;#310&lt;/a&gt; 《&amp;ldquo;Segmentation fault (core dumped)&amp;quot;》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#309httpsgithubcommic-dkfznnunetissues309runtimeerror-cuda-error-device-side-assert-triggered---non-consecutive-labels-within-ground-truth-&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/309&#34;&gt;#309&lt;/a&gt;《&amp;ldquo;RuntimeError: CUDA error: device-side assert triggered&amp;rdquo;》&amp;lt;&amp;mdash;（Non-consecutive labels within ground truth ）&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#304httpsgithubcommic-dkfznnunetissues3041000的epoch太多了我怎么自定义一个epoch&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/304&#34;&gt;#304&lt;/a&gt;《1000的epoch太多了，我怎么自定义一个epoch？》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#302httpsgithubcommic-dkfznnunetissues302训练第一个fold的时候正常但是其他四个fold的训练损失是nan&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/302&#34;&gt;#302&lt;/a&gt;《训练第一个fold的时候正常，但是其他四个fold的训练损失是NaN》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#299httpsgithubcommic-dkfznnunetissues299五折产生五个fold每个训练出一个模型怎么把这五个合成一个模型呢&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/299&#34;&gt;#299&lt;/a&gt;《五折产生五个fold，每个训练出一个模型，怎么把这五个合成一个模型呢？》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#297httpsgithubcommic-dkfznnunetissues297简单修改了batchsize和patchsize并不成功目的是希望在32gb的显卡上充分利用显存&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/297&#34;&gt;#297&lt;/a&gt;《简单修改了batchsize和patchsize并不成功，目的是希望在32GB的显卡上充分利用显存》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#296httpsgithubcommic-dkfznnunetissues296typeerror-consolidate_folds-got-an-unexpected-keyword-argument-folds&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/296&#34;&gt;#296&lt;/a&gt;《&amp;ldquo;TypeError: consolidate_folds() got an unexpected keyword argument &amp;lsquo;folds&amp;rsquo;&amp;quot;》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#295httpsgithubcommic-dkfznnunetissues295attributeerror-list-object-has-no-attribute-size推理时候卡住并报错&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/295&#34;&gt;#295&lt;/a&gt;《&amp;ldquo;AttributeError: &amp;lsquo;list&amp;rsquo; object has no attribute &amp;lsquo;size&amp;rsquo;&amp;quot;（推理时候卡住并报错）》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#290httpsgithubcommic-dkfznnunetissues290预测时候卡主卡了一天没有反应&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/290&#34;&gt;#290&lt;/a&gt;《预测时候卡主卡了一天没有反应》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#288httpsgithubcommic-dkfznnunetissues288怎么使用fabiansunet而不是默认的generic_unet&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/288&#34;&gt;#288&lt;/a&gt;《怎么使用FabiansUNet，而不是默认的generic_Unet》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#281httpsgithubcommic-dkfznnunetissues281关于怎么评估模型测试结果&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/281&#34;&gt;#281&lt;/a&gt;《关于怎么评估模型测试结果》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#280httpsgithubcommic-dkfznnunetissues280怎么关闭deep-supervision&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/280&#34;&gt;#280&lt;/a&gt;《怎么关闭deep-supervision》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#273httpsgithubcommic-dkfznnunetissues273代码中的softmax_helper相比torch中的torchnnfunctionalsoftmax有什么优点&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/273&#34;&gt;#273&lt;/a&gt;《代码中的&amp;quot;softmax_helper&amp;quot;相比torch中的&amp;quot;torch.nn.functional.softmax&amp;quot;有什么优点》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#271httpsgithubcommic-dkfznnunetissues271怎么读取权重找不到权重文件&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/271&#34;&gt;#271&lt;/a&gt;《怎么读取权重（找不到权重文件）》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#270httpsgithubcommic-dkfznnunetissues270怎么在预训练模型的基础上加入一些新的数据以提高模型泛化能力&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/270&#34;&gt;#270&lt;/a&gt;《怎么在预训练模型的基础上加入一些新的数据以提高模型泛化能力？》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#268httpsgithubcommic-dkfznnunetissues268训练数据有四个通道而不是五个最后一个通道是一个二进制的map应该是五个通道时候的xy合并在一起的怎么应用数据增强&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/268&#34;&gt;#268&lt;/a&gt;《训练数据有四个通道（而不是五个），最后一个通道是一个二进制的map（应该是五个通道时候的xy合并在一起的），怎么应用数据增强》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#263httpsgithubcommic-dkfznnunetissues263有些测试ct推理不出来有些ct推理出来啥也没有&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/263&#34;&gt;#263&lt;/a&gt;《有些测试CT推理不出来，有些CT推理出来啥也没有》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#259httpsgithubcommic-dkfznnunetissues259同样的数据集为什么我的训练结果没有作者论文里的效果好呢&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/259&#34;&gt;#259&lt;/a&gt;《同样的数据集，为什么我的训练结果没有作者论文里的效果好呢？》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#258httpsgithubcommic-dkfznnunetissues258关于推理速度如此之慢的问题&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/258&#34;&gt;#258&lt;/a&gt;《关于推理速度如此之慢的问题》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#257httpsgithubcommic-dkfznnunetissues257nnunet怎么对预处理好的文件进行推理&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/257&#34;&gt;#257&lt;/a&gt;《nnUNet怎么对预处理好的文件进行推理》&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#font-face华文琥珀-size5--colorpinkblueii-理论上的问题font&#34;&gt;&lt;font face=&#34;华文琥珀&#34; size=5  color=pinkblue&gt;II. 理论上的问题：&lt;/font&gt;&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#430httpsgithubcommic-dkfznnunetissues430一种nnunet的改进方向&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/430&#34;&gt;#430&lt;/a&gt;《一种nnUNet的改进方向》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#470httpsgithubcommic-dkfznnunetissues470nnunet可以进行一些dense-connection的改进吗&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/470&#34;&gt;#470&lt;/a&gt;《nnUNet可以进行一些dense-connection的改进吗？》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#303httpsgithubcommic-dkfznnunetissues303nnunet是怎么在做强度归一化&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/303&#34;&gt;#303&lt;/a&gt;《nnUNet是怎么在做强度归一化》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#265httpsgithubcommic-dkfznnunetissues265关于利用crop来生成前景boundingbox的问题&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/265&#34;&gt;#265&lt;/a&gt;《关于利用crop来生成前景boundingbox的问题》&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#font-face华文琥珀-size5--colorpinkblueiii-代码上的问题font&#34;&gt;&lt;font face=&#34;华文琥珀&#34; size=5  color=pinkblue&gt;III. 代码上的问题：&lt;/font&gt;&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#313httpsgithubcommic-dkfznnunetissues313-attributeerror-nonetype-object-has-no-attribute-is_alive&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/313&#34;&gt;#313&lt;/a&gt; 《AttributeError: &amp;lsquo;NoneType&amp;rsquo; object has no attribute &amp;lsquo;is_alive&amp;rsquo;》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#294httpsgithubcommic-dkfznnunetissues294runtimeerror-unable-to-write-to-file-torch_15769_1517813162&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/294&#34;&gt;#294&lt;/a&gt;《&amp;ldquo;RuntimeError: unable to write to file &amp;lt;/torch_15769_1517813162&amp;gt;&amp;quot;》&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#291httpsgithubcommic-dkfznnunetissues291-attributeerror-nonetype-object-has-no-attribute-is_alive与313的问题一样&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/291&#34;&gt;#291&lt;/a&gt; 《AttributeError: &amp;lsquo;NoneType&amp;rsquo; object has no attribute &amp;lsquo;is_alive&amp;rsquo;》（与#313的问题一样）&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#267httpsgithubcommic-dkfznnunetissues267-typeerror-validate-got-an-unexpected-keyword-argument-force_separate_z&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/267&#34;&gt;#267&lt;/a&gt; 《TypeError: validate() got an unexpected keyword argument &amp;lsquo;force_separate_z&amp;rsquo;》&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+        &lt;/div&gt;
+        &lt;button id=&#34;td-content__toc-link-expanded&#34; href=&#34;#td-content__toc&#34; class=&#34;btn btn-small ml-1 my-2 py-0 px-3&#34; data-toggle=&#34;collapse&#34; aria-controls=&#34;td-docs-toc&#34; aria-expanded=&#34;true&#34; aria-label=&#34;Toggle toc navigation&#34;&gt;
+        &lt;/button&gt;
+      
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class=&#34;row&#34;&gt;
+&lt;div class=&#34;col-12 col-lg-8&#34;&gt;
+&lt;h1 id=&#34;一写在前面&#34;&gt;一、写在前面&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;1&lt;/strong&gt;&lt;/em&gt;. 发现最近大家的问题有很多，有部分是理论上的问题。但是很多还只是框架使用上的问题，其实个人觉得整个框架就现在来说已经相当的成熟，为了有一个类似于github的issue总结的地方，我希望去写一片问题总结的博客还是具有相当大的意义，一方面处于对工作学习内容的总结，一方面有个很好的反馈问题查找答案的地方。我会慢慢更新到最开始的位置。
+       
+&lt;em&gt;&lt;strong&gt;2&lt;/strong&gt;&lt;/em&gt;. 本篇博客总结的内容包括三个来源：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=browngrey&gt;① GITHUB&lt;/font&gt;&lt;/strong&gt;：我会从github的issue界面&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;这里&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;进行全面的检索和内容精要的提取，主要是已经关闭的issue。按照由今至古的时间线进行，同时会将内容分为如下三类：
+&lt;ul&gt;
+&lt;li&gt;I.&lt;strong&gt;&lt;font face=&#34;华文琥珀&#34; size=3  color=pinkblue&gt; 使用上的问题&lt;/font&gt;&lt;/strong&gt;：主要是使用过程出现的问题总结；&lt;/li&gt;
+&lt;li&gt;II. &lt;strong&gt;&lt;font face=&#34;华文琥珀&#34; size=3  color=pinkblue&gt;理论上的问题&lt;/font&gt;&lt;/strong&gt;： 涉及到理论的新颖知识，基本的概念或常识；&lt;/li&gt;
+&lt;li&gt;III. &lt;strong&gt;&lt;font face=&#34;华文琥珀&#34; size=3  color=pinkblue&gt;代码上的问题&lt;/font&gt;&lt;/strong&gt;：算法的代码实现，以及一些可能存在的bug。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=browngrey&gt;② 个人使用经验&lt;/font&gt;&lt;/strong&gt;：总结我在使用nnUNet过程中出现的问题和解决方案。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=browngrey&gt;③ 访客问题&lt;/font&gt;&lt;/strong&gt;：总结大家向我提出的问题，只会涉及到我之前没有遇到过也没有时间常识解决且GITHUB上暂时没有提到的问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;3&lt;/strong&gt;&lt;/em&gt;. 笔者希望各位看官在方便自己工作学习的同时，也能为贡献自己的一份力，我们距离德国的医疗卫生水平还有着巨大的鸿沟式的差距，人生在世，总得留下点有价值的东西，无论出于什么目的，大家一起加油，不忘初心。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;二github-issue&#34;&gt;二、GITHUB ISSUE&lt;/h1&gt;
+&lt;h2 id=&#34;font-face华文琥珀-size5--colorpinkbluei-使用上的问题font&#34;&gt;&lt;font face=&#34;华文琥珀&#34; size=5  color=pinkblue&gt;I. 使用上的问题：&lt;/font&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;477httpsgithubcommic-dkfznnunetissues477-3d-nnunet支持fp16量化吗&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/477&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#477&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《3D nnUNet支持FP16量化吗？》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 解决方法&lt;/font&gt;&lt;/strong&gt;：最近的更新将会支持FP16的量化，结果是一样的，有兴趣的同学测试下速度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;474httpsgithubcommic-dkfznnunetissues474-importerror-cannot-import-name-find_namespace_packages&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/474&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#474&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《ImportError: cannot import name find_namespace_packages》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 问题描述&lt;/font&gt;&lt;/strong&gt;：在&lt;code&gt;pip install -e .&lt;/code&gt;时遇到问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;2. 解决方法&lt;/font&gt;&lt;/strong&gt;：先执行&lt;code&gt;pip install -U setuptools&lt;/code&gt;,再&lt;code&gt;pip install -e .&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;471httpsgithubcommic-dkfznnunetissues471-我怎么在本地评估一些预训练模型的指标呢&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/471&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#471&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《我怎么在本地评估一些预训练模型的指标呢？》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 解决方法&lt;/font&gt;&lt;/strong&gt;：在论文的附录里有的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;469httpsgithubcommic-dkfznnunetissues469-无任何报错的进程死亡&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/469&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#469&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《无任何报错的进程死亡》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 问题描述&lt;/font&gt;&lt;/strong&gt;：我正在尝试使用&lt;strong&gt;马萨诸塞州道路分割数据集训练2D模型&lt;/strong&gt;。 但是，当训练过程达到第四轮，终端将显示“ killed”，而没有任何错误消息。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;2. 解决方法&lt;/font&gt;&lt;/strong&gt;：&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/common_problems_and_solutions.md#nnu-net-training-2d-u-net-high-and-increasing-system-ram-usage-oom&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;这里&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;的&lt;code&gt;nnU-Net training (2D U-Net): High (and increasing) system RAM usage, OOM&lt;/code&gt;解释了这个原因。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;3. 问题解决&lt;/font&gt;&lt;/strong&gt;：
+分别将CUDA和CUDNN版本更新为11.0.194和8.0.5，然后我重新编译pyTorch，它可以正常工作。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;4. 我有话说&lt;/font&gt;&lt;/strong&gt;：几个月没看nnUNet，&lt;font color=red&gt;&lt;strong&gt;看来已经可以进行自然场景的2D分割了&lt;/strong&gt;&lt;/font&gt; ，很多同学问过这个问题，不知道你们有没有跟进关注呢？我在&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/467&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;这个问题&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;发现了这个任务的数据预处理&amp;mdash;-&amp;gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/blob/master/nnunet/dataset_conversion/Task120_Massachusetts_RoadSegm.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;，看来作者已经把脚本写好了，确实得看一下了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;464httpsgithubcommic-dkfznnunetissues464-如何对pet进行归一化&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/464&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#464&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《如何对PET进行归一化》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 解决方法&lt;/font&gt;&lt;/strong&gt;：PET图像将像其他任何非CT图像一样处理：每个样本均使用其自己的均值和标准差进行归一化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;459httpsgithubcommic-dkfznnunetissues459-orientation这个属性在nnunet里起作用吗&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/459&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#459&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《&lt;code&gt;orientation&lt;/code&gt;这个属性在nnUNet里起作用吗？》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 解决方法&lt;/font&gt;&lt;/strong&gt;：nnUNet不考虑这个属性，你的数据集必须要保证方向一致。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;456httpsgithubcommic-dkfznnunetissues456-cannot-import-name-spatialtransform_2-from-batchgeneratorstransforms&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/456&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#456&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《cannot import name &amp;lsquo;SpatialTransform_2&amp;rsquo; from &amp;lsquo;batchgenerators.transforms&amp;rsquo;》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 解决方法&lt;/font&gt;&lt;/strong&gt;：更新下&lt;code&gt;batchgenerators&lt;/code&gt;或者重新安装下nnUNet。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;454httpsgithubcommic-dkfznnunetissues454-能给个自己编译pytorch解决2d训练问题的教程吗&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/454&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#454&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《能给个自己编译pytorch解决2d训练问题的教程吗？》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 解决方法&lt;/font&gt;&lt;/strong&gt;：&lt;a href=&#34;https://github.com/pytorch/pytorch#from-source&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;这里&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;有哦！说真的，只要你编译过ffmpeg的cuda版本这都是小儿科，人都能疯。pytorch已经很友好了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;449httpsgithubcommic-dkfznnunetissues449-前景多标签有重叠情况怎么解决&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/449&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#449&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《前景多标签有重叠情况怎么解决？》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 解决方法&lt;/font&gt;&lt;/strong&gt;：多分类的前景标签有重叠的情况现在nnUNet尚不支持。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;446httpsgithubcommic-dkfznnunetissues446-在用多gpu训练以后发现推理时候报错&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/446&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#446&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《在用多GPU训练以后发现推理时候报错》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 问题描述&lt;/font&gt;&lt;/strong&gt;：
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/20210127173404471.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34; alt=&#34;创建一个新的trainer来继承nnUNettrainerV2，并在初始化的时候给定最大轮数这个参数。&#34; id=&#34;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/20210127173404471.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34; alt=&#34;创建一个新的trainer来继承nnUNettrainerV2，并在初始化的时候给定最大轮数这个参数。&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;2. 解决方法&lt;/font&gt;&lt;/strong&gt;：这是当前版本仍然存在的问题，会在未来进行改进，所以不建议去使用多gpu训练。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;437httpsgithubcommic-dkfznnunetissues437-在microsoft-azure-vm-instance虚拟机中存在的一个bug&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/437&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#437&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《在Microsoft Azure VM Instance虚拟机中存在的一个bug》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 问题描述&lt;/font&gt;&lt;/strong&gt;：&lt;code&gt;shutil.Error: [(&#39;/nnUnet/nnUNet_raw_data_base/nnUNet_cropped_data/Task001_Brain/gt_segmentations/BRAIN_000.nii.gz&#39;, &#39;/nnUnet/nnUNet_preprocessed/Task001_Brain/gt_segmentations/BRAIN_000.nii.gz&#39;, &amp;quot;[Errno 38] Function not implemented: &#39;/nnUnet/nnUNet_raw_data_base/nnUNet_cropped_data/Task001_Brain/gt_segmentations/BRAIN_000.nii.gz&#39;&amp;quot;),  .&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;2. 解决方法&lt;/font&gt;&lt;/strong&gt;：&lt;a href=&#34;https://stackoverflow.com/questions/51616058/shutil-copystat-fails-inside-docker-on-azure&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://stackoverflow.com/questions/51616058/shutil-copystat-fails-inside-docker-on-azure&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;427httpsgithubcommic-dkfznnunetissues427-nnunet能不能使用cupy来加速预处理过程呢&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/427&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#427&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《nnUNet能不能使用cupy来加速预处理过程呢？》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1.我的理解&lt;/font&gt;&lt;/strong&gt;：我对这个问题的理解应该就是它想通过加速numpy来加速skimage这个库，从而对插值进行加速。后续我会做这部分工作，因为之前我用torch的加速替代了skimage的加速，但发现因为量化或者是我插值方法的原因，速度虽然提升了，但精度损失了很多。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;425httpsgithubcommic-dkfznnunetissues425-当生成的patch_size大于图像本身的时候会发生什么&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/425&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#425&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《当生成的patch_size大于图像本身的时候会发生什么？》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 解决方法&lt;/font&gt;&lt;/strong&gt;：如果patch大小大于图像，则原始图像将用零填充。&lt;font color=red&gt;这根本不与非零裁剪冲突。 这两个有不同的目的&lt;/font&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;424httpsgithubcommic-dkfznnunetissues424-能直接把预处理以后的npz文件的patch抽出来在我的新模型上进行训练吗&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/424&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#424&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《能直接把预处理以后的npz文件的patch抽出来在我的新模型上进行训练吗？》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 作者解释&lt;/font&gt;&lt;/strong&gt;：作者认为这样可能效果并不是很好。 因为他们在nnU-Net中解决了许多与之相关的陷阱。 最好的比较是在训练时使用nnU-Net所使用的相同数据加载器（包括增强），这应该很容易从nnU-Net存储库中提取出来。如果由于某种原因不想这样做，那么使用npz也可以，但是您仍然必须报告由原始nnU-Net获得的Dice分数作为基准。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;423httpsgithubcommic-dkfznnunetissues423-想在你的模型中添加新的网络块应该怎么做&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/423&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#423&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《想在你的模型中添加新的网络块，应该怎么做？》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 问题描述&lt;/font&gt;&lt;/strong&gt;：想把这个&lt;a href=&#34;https://github.com/ai-med/squeeze_and_excitation/blob/master/squeeze_and_excitation/squeeze_and_excitation_3D.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;模块&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;添加到nnUNet的模型当中。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;2. 作者解释&lt;/font&gt;&lt;/strong&gt;：您需要修改Generic_UNet并将自定义块添加到正确的位置。 那应该很简单。 请注意，这些块不会被用于估计GPU内存消耗，因此您可能需要超过10GB的GPU内存来训练所得模型。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;422httpsgithubcommic-dkfznnunetissues422-使用find_best_configuration时npz丢失&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/422&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#422&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《使用find_best_configuration时npz丢失》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 解决方法&lt;/font&gt;&lt;/strong&gt;：重新跑一下评估:
+&lt;code&gt;nnUNet_train CONFIG TRAINER TASK FOLD -val --npz&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;421httpsgithubcommic-dkfznnunetissues421-cuda100torch12可以训练吗&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/421&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#421&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《cuda10.0+torch1.2可以训练吗？》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 解决方法&lt;/font&gt;&lt;/strong&gt;：最低要求cuda10.1，而torch的版本要用最新的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;420httpsgithubcommic-dkfznnunetissues420-font-colorred怎么训练2d图片font&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/420&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#420&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《&lt;font color=red&gt;怎么训练2D图片？&lt;/font&gt;》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 解决方法&lt;/font&gt;&lt;/strong&gt;：很多人问我怎么使用2d图片，官方终于把这个作为一个常规武器放在了库中，&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/dataset_conversion.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;这里&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;是其解决方案，并且附带有几个相关的任务：
+
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/20210129073957886.png&#34; alt=&#34;在这里插入图片描述&#34; id=&#34;20210129073957886&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-20210129073957886&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-20210129073957886&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/20210129073957886.png&#34; alt=&#34;在这里插入图片描述&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+
+还是之前提到过的思想，将2d图片转换为伪3d nii文件，然后使用2d模式。不过现在有了官方的数据转换的脚本，省的自己写了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;417httpsgithubcommic-dkfznnunetissues417-推理时间特别慢32g的ram&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/417&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#417&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《推理时间特别慢（32g的RAM）》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 解决方法&lt;/font&gt;&lt;/strong&gt;：对于医学图像来说这样的内存是不够的，在固态上加一个swap分区会很好的改善情况。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;416httpsgithubcommic-dkfznnunetissues416-在docker中运行nnunet遇到错误runtimeerror-multithreadedaugmenterabort_event-was-set-something-went-wrong-maybe-one-of-your-workers-crashed-this-is-not-the-actual-error-message-look-further-up-your-stdout-to-see-what-caused-the-error-please-also-check-whether-your-ram-was-full&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/416&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#416&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《在docker中运行nnUNet遇到错误&lt;code&gt;RuntimeError: MultiThreadedAugmenter.abort_event was set, something went wrong. Maybe one of your workers crashed. This is not the actual error message! Look further up your stdout to see what caused the error. Please also check whether your RAM was full&lt;/code&gt;》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 解决方法&lt;/font&gt;&lt;/strong&gt;：&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/common_problems_and_solutions.md#nnu-net-training-in-docker-container-runtimeerror-unable-to-write-to-file-torch_781_2606105346&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;这里&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;是解决的方案，需要加上参数&lt;code&gt;--ipc=host&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;322httpsgithubcommic-dkfznnunetissues322-关于修改最大轮数&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/322&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#322&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《关于修改最大轮数》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 解决方法&lt;/font&gt;&lt;/strong&gt;：创建一个新的trainer来继承nnUNettrainerV2，并在初始化的时候给定最大轮数这个参数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;321httpsgithubcommic-dkfznnunetissues321-在执行plan_preprocess的时候卡住&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/321&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#321&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《在执行plan_preprocess的时候卡住》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 问题原因&lt;/font&gt;&lt;/strong&gt;：较小的RAM却使用默认的线程数会导致卡顿，所以要将线程数设置的少一点来进行测试其他是否正常。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;2. 解决方法&lt;/font&gt;&lt;/strong&gt;：
+&lt;code&gt;nnUNet_plan_and_preprocess -t 100 -tl 1 -tf 1 --verify_dataset_integrity&lt;/code&gt;来设置为一个线程。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;318httpsgithubcommic-dkfznnunetissues318-12gb的显存仍然不够的问题&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/318&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#318&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《12GB的显存仍然不够的问题》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 问题原因&lt;/font&gt;&lt;/strong&gt;：问者在最后发现自己的显存仍有程序在占用，但是nvidia-smi并未将这部分进行显示。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;2. 其他要点&lt;/font&gt;&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;I. 在使用nnUNet时，尽量把代码Update一下，同时将torch的版本进行更新；&lt;/li&gt;
+&lt;li&gt;II. 作者建议如果要进行环境的更新安装，不怕工程大的话，将CUDA更新到CUDA11.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;312httpsgithubcommic-dkfznnunetissues312-混合精度问题typeerror-predict_preprocessed_data_return_seg_and_softmax-got-an-unexpected-keyword-argument-mixed_precision&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/312&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#312&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《混合精度问题（TypeError: predict_preprocessed_data_return_seg_and_softmax() got an unexpected keyword argument &amp;lsquo;mixed_precision&amp;rsquo;）》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 问题原因&lt;/font&gt;&lt;/strong&gt;：作者在最近将apex从框架中移除，因为torch1.6支持混合精度训练，没有及时更新出现的错误。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;2. 解决方案&lt;/font&gt;&lt;/strong&gt;：&lt;code&gt;pip install --upgrade nnunet&lt;/code&gt;来更新nnUNet，或者在ide中进行master的update。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;311httpsgithubcommic-dkfznnunetissues311-训练时找不到预处理文件夹&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/311&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#311&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《训练时找不到预处理文件夹》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 问题原因&lt;/font&gt;&lt;/strong&gt;：环境变量的设置问题，所以无法找到对应文件夹。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;2. 解决方案&lt;/font&gt;&lt;/strong&gt;：参考第四篇博客教程去进行环境路径的设置。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;3. 我有话说&lt;/font&gt;&lt;/strong&gt;：如果觉得这样设置不够灵活，且你的磁盘空间有限，想要灵活的设置nnUNet的路径，请按照下面导入临时环境变量：
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;export nnUNet_raw_data_base=&amp;quot;/home/user/DATASET/nnUNet_raw（对应你的文件夹全路径）&amp;quot;&lt;/code&gt;
+&lt;code&gt;export nnUNet_preprocessed=&amp;quot;/home/user/DATASET/nnUNet_preprocessed&amp;quot;（对应你的文件夹全路径）&lt;/code&gt;
+&lt;code&gt;export RESULTS_FOLDER=&amp;quot;/home/user/DATASET/nnUNet_trained_models&amp;quot;（对应你的文件夹全路径）&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;像之前一样执行命令，每进一次终端都要这样做一次，这是设置临时环境变量。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;310httpsgithubcommic-dkfznnunetissues310-segmentation-fault-core-dumped&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/310&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#310&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《&amp;ldquo;Segmentation fault (core dumped)&amp;quot;》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 问题原因&lt;/font&gt;&lt;/strong&gt;：这是个相当奇怪的问题，问者最终结论是觉得&lt;code&gt;torch 1.2.0&lt;/code&gt;和&lt;code&gt;batchgenerators 0.20.1&lt;/code&gt;有冲突。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;2. 解决方案&lt;/font&gt;&lt;/strong&gt;：将torch回溯到1.2.0能解决这个问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;3. 我有话说&lt;/font&gt;&lt;/strong&gt;：把torch更新到1.6不香吗？？？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;309httpsgithubcommic-dkfznnunetissues309runtimeerror-cuda-error-device-side-assert-triggered---non-consecutive-labels-within-ground-truth-&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/309&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#309&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;《&amp;ldquo;RuntimeError: CUDA error: device-side assert triggered&amp;rdquo;》&amp;lt;&amp;mdash;（Non-consecutive labels within ground truth ）&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 问题描述&lt;/font&gt;&lt;/strong&gt;：问者在尝试训练TCGA brain tumour的数据集，格式类似于 BraTS的数据集，但是按照正常的流程开始训练之后出现&lt;code&gt;RuntimeError: CUDA error: device-side assert triggered&lt;/code&gt;的问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;2. 问题原因&lt;/font&gt;&lt;/strong&gt;：对于这样格式的数据类型，作者写了一个专门的脚本来进行这个数据集的处理&amp;mdash;-&amp;gt; &lt;code&gt;nnunet/dataset_conversion/Task043_BraTS_2019.py&lt;/code&gt;，需要先运行这个脚本继续训练。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;3. 解决方案&lt;/font&gt;&lt;/strong&gt;：问者先是按照作者说的脚本处理数据，但是仍然有错误，之后他将整个之前产生的文件内容全部删除，只留下一个原始数据，重新训练后解决问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;4. 其他要点&lt;/font&gt;&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;I. 在某些时候，如果想要重新处理数据，之前生成的crop文件夹不删除就会出现问题，尽量把这个文件夹删除掉；&lt;/li&gt;
+&lt;li&gt;II. 对于不同的数据集处理方式可能会有所不同，对于比较主流的竞赛数据集，作者的代码中都会有对应的脚本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;304httpsgithubcommic-dkfznnunetissues3041000的epoch太多了我怎么自定义一个epoch&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/304&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#304&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;《1000的epoch太多了，我怎么自定义一个epoch？》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 解决方案&lt;/font&gt;&lt;/strong&gt;：初始化trainer时在代码里设置：
+&lt;code&gt; self.max_num_epochs=XXX&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;3. 我有话说&lt;/font&gt;&lt;/strong&gt;：找了一下位置在这里：
+
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/20200910204815161.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34; id=&#34;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/20200910204815161.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+
+修改上面的不起作用，修改这里：
+
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/20201022164228853.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34; id=&#34;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/20201022164228853.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;302httpsgithubcommic-dkfznnunetissues302训练第一个fold的时候正常但是其他四个fold的训练损失是nan&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/302&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#302&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;《训练第一个fold的时候正常，但是其他四个fold的训练损失是NaN》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 解决方案&lt;/font&gt;&lt;/strong&gt;：问者的训练任务是MRI，最后发现在自己的训练集中有个图像中存在NaN值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;299httpsgithubcommic-dkfznnunetissues299五折产生五个fold每个训练出一个模型怎么把这五个合成一个模型呢&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/299&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#299&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;《五折产生五个fold，每个训练出一个模型，怎么把这五个合成一个模型呢？》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 作者回答&lt;/font&gt;&lt;/strong&gt;：nnUNet没有这个功能，但是可以用ensemble的方式进行推理，如果是想充分利用所有数据集，就在训练时加上&lt;code&gt;all&lt;/code&gt;这个参数，意味着用所有的训练数据来训练，而不是用五折。但是验证的分数就没有意义，因为并没有做五折，这些验证分数实际就是你训练集的分数，而不是验证集的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;297httpsgithubcommic-dkfznnunetissues297简单修改了batchsize和patchsize并不成功目的是希望在32gb的显卡上充分利用显存&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/297&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#297&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;《简单修改了batchsize和patchsize并不成功，目的是希望在32GB的显卡上充分利用显存》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 问题描述&lt;/font&gt;&lt;/strong&gt;：问者在进行迁移学习的nnUNet实践，需要修改batchsize、patchsize和网络结构（深度），于是修改了plan.pkl文件但是并未成功。报错：&lt;code&gt;RuntimeError: Sizes of tensors must match except in dimension 3. Got 7 and 8&lt;/code&gt;和&lt;code&gt;RuntimeError: invalid argument 0: Sizes of tensors must match except in dimension 1. Got 41 and 42 in dimension 4 at /pytorch/aten/src/THC/generic/THCTensorMath.cu:71&lt;/code&gt;，这很明显是形状出了问题。而且希望能在32GB的显卡上充分应用显存，也就是增大patchsize。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;2. 问题原因&lt;/font&gt;&lt;/strong&gt;：直接从plan.pkl文件修改超参数会出现问题，在你不知道这些参数的具体作用时，不要修改，因为nnUNet的参数可能相互关联和影响。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;3. 解决方案&lt;/font&gt;&lt;/strong&gt;：前面的第一个问题没有给出详细的答案，至于如何增大patchsize，采用如下命令：
+&lt;code&gt;nnUNet_plan_and_preprocess [...] -pl2d None -pl3d ExperimentPlanner3D_v21_32GB&lt;/code&gt;
+这个计划在代码的这个位置：
+
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/20200911184415240.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;2&#34; id=&#34;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/20200911184415240.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;2&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+
+也就是说，只能通过这种方式来增加patchsize的大小，从而充分应用显存。那些有大显卡的兄弟姐妹可以来试一下了。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;4. 我有话说&lt;/font&gt;&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;I. 一直没有看plan的代码，所以可能也没有深入了解为什么超参数不能乱修改；&lt;/li&gt;
+&lt;li&gt;II. 更大的patchsize，意味着推理时更少的迭代次数，也就有可能会对推理速度有一部分加速效果，有兴趣的可以试一下，我还没测。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;296httpsgithubcommic-dkfznnunetissues296typeerror-consolidate_folds-got-an-unexpected-keyword-argument-folds&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/296&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#296&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;《&amp;ldquo;TypeError: consolidate_folds() got an unexpected keyword argument &amp;lsquo;folds&amp;rsquo;&amp;quot;》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 解决方案&lt;/font&gt;&lt;/strong&gt;：问者采取的方法是将fold文件夹删除以后重新运行命令，从作者的回答来看更新框架可以解决问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;295httpsgithubcommic-dkfznnunetissues295attributeerror-list-object-has-no-attribute-size推理时候卡住并报错&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/295&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#295&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;《&amp;ldquo;AttributeError: &amp;lsquo;list&amp;rsquo; object has no attribute &amp;lsquo;size&amp;rsquo;&amp;quot;（推理时候卡住并报错）》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 问题描述&lt;/font&gt;&lt;/strong&gt;：问者在进行FabiansResUNet推理时遇到的错误，它运行的是&lt;code&gt;nnUNet_predict -i ./imagesTs -o ./predict_result -t 001 -tr nnUNetTrainerV2_ResencUNet -m 3d_fullres -f 0 -chk model_best&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;2. 解决方案&lt;/font&gt;&lt;/strong&gt;：作者稍微更新了下代码然后让问者重新拉取，这种错误应该是数据类型的问题，或者用错了api，如果还有问题可以直接在GITHUB上反馈。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;3. 我有话说&lt;/font&gt;&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;I.我相信很多读者可能都想用&lt;font color=Coral&gt;&lt;strong&gt;残差网络&lt;/strong&gt;&lt;/font&gt;来尝试训练一下nnUNet，我在这里给出详细的步骤：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;第一步：&lt;font color=red&gt;更新nnUNet!!!&lt;/font&gt;&lt;/strong&gt;；&lt;/li&gt;
+&lt;li&gt;第二步：运行一次普通的预处理，即&lt;code&gt;nnUNet_plan_and_preprocess -t 16&lt;/code&gt;，如果之前运行过则不需要；&lt;/li&gt;
+&lt;li&gt;第三步：&lt;code&gt;nnUNet_plan_and_preprocess -t 16 -pl2d None&lt;/code&gt;；&lt;/li&gt;
+&lt;li&gt;第四步：&lt;code&gt;nnUNet_plan_and_preprocess -t 16 -pl3d ExperimentPlanner3DFabiansResUNet_v21 -pl2d None&lt;/code&gt;；&lt;/li&gt;
+&lt;li&gt;第五步：&lt;code&gt;nnUNet_train 3d_fullres nnUNetTrainerV2_ResencUNet 16 4 -p nnUNetPlans_FabiansResUNet_v2.1&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;II. 我们知道，训练完成后有两个模型文件，一个是model_best，一个是model_latest，如果想在训练中用其中一个进行推理的测试，请在推理的命令后加参数&lt;code&gt;-chk model_best&lt;/code&gt;或者&lt;code&gt;-chk model_latest&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;290httpsgithubcommic-dkfznnunetissues290预测时候卡主卡了一天没有反应&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/290&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#290&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;《预测时候卡主卡了一天没有反应》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 解决方案&lt;/font&gt;&lt;/strong&gt;：因为作者用了tmux而不是我们平常使用的terminal，所以出现这个问题，切换回去普通的terminal后问题就解决了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;288httpsgithubcommic-dkfznnunetissues288怎么使用fabiansunet而不是默认的generic_unet&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/288&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#288&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;《怎么使用FabiansUNet，而不是默认的generic_Unet》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 解决方案&lt;/font&gt;&lt;/strong&gt;：这里的FabiansUNet其实指的是残差网络，参考
+&lt;font color=LightSeaGreen&gt;&lt;strong&gt;#295&lt;/strong&gt;&lt;/font&gt;中如何使用残差的步骤。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;281httpsgithubcommic-dkfznnunetissues281关于怎么评估模型测试结果&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/281&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#281&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;《关于怎么评估模型测试结果》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 我有话说&lt;/font&gt;&lt;/strong&gt;： &lt;code&gt;nnUNet_find_best_configuration -m 3d_fullres -t 010 --strict &lt;/code&gt;
+这个命令可以对你的测试集进行推理，会从fold_0到fold_4进行测试，测试不使用后处理和使用后处理的结果。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;280httpsgithubcommic-dkfznnunetissues280怎么关闭deep-supervision&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/280&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#280&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;《怎么关闭deep-supervision》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 解决方案&lt;/font&gt;&lt;/strong&gt;：
+使用&lt;code&gt;nnUNetTrainerV2_noDeepSupervision&lt;/code&gt;，替代命令中的&lt;code&gt;nnUNetTrainerV2&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;2. 关于deep-supervision这个trick&lt;/font&gt;&lt;/strong&gt;：
+参考这篇文章&lt;a href=&#34;http://www.360doc.com/content/20/0209/21/7669533_890803845.shtml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;deep-supervision&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;273httpsgithubcommic-dkfznnunetissues273代码中的softmax_helper相比torch中的torchnnfunctionalsoftmax有什么优点&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/273&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#273&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;《代码中的&amp;quot;softmax_helper&amp;quot;相比torch中的&amp;quot;torch.nn.functional.softmax&amp;quot;有什么优点》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 解决方案&lt;/font&gt;&lt;/strong&gt;：
+作者在做这个的时候torch还不支持多维上的softmax，现在支持了，所以之后会做改进。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;271httpsgithubcommic-dkfznnunetissues271怎么读取权重找不到权重文件&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/271&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#271&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;《怎么读取权重（找不到权重文件）》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 解决方案&lt;/font&gt;&lt;/strong&gt;：权重文件，也就是我们所说的.pth文件，其实是这个文件，不过是换成.model结尾的后缀而已：
+
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/20200925163123323.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;1&#34; id=&#34;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/20200925163123323.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;1&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;270httpsgithubcommic-dkfznnunetissues270怎么在预训练模型的基础上加入一些新的数据以提高模型泛化能力&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/270&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#270&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;《怎么在预训练模型的基础上加入一些新的数据以提高模型泛化能力？》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 解决方案&lt;/font&gt;&lt;/strong&gt;：（这里正在询问作者解决方案）可以直接创建一个新的任务，里面存放添加的数据集，然后加载之前的模型并且训练，作者说这可能需要之前优化器的动量、学习率和轮数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;268httpsgithubcommic-dkfznnunetissues268训练数据有四个通道而不是五个最后一个通道是一个二进制的map应该是五个通道时候的xy合并在一起的怎么应用数据增强&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/268&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#268&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;《训练数据有四个通道（而不是五个），最后一个通道是一个二进制的map（应该是五个通道时候的xy合并在一起的），怎么应用数据增强》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 我有话说&lt;/font&gt;&lt;/strong&gt;：这个问题有点意思，不过我还是不大明白为什么会有这样的数据，我尝试问一下，解决之后更新。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;263httpsgithubcommic-dkfznnunetissues263有些测试ct推理不出来有些ct推理出来啥也没有&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/263&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#263&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;《有些测试CT推理不出来，有些CT推理出来啥也没有》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 我有话说&lt;/font&gt;&lt;/strong&gt;：出现这类问题请优先检查自己的CT，尝试换用其他的CT进行推理，正常情况不应该出现这个问题，多半是CT的问题。比如你的CT因为在转nii时操作不当导致里面的灰度值变为0-255的，那么就肯定推理不出结果。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;259httpsgithubcommic-dkfznnunetissues259同样的数据集为什么我的训练结果没有作者论文里的效果好呢&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/259&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#259&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;《同样的数据集，为什么我的训练结果没有作者论文里的效果好呢？》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 我有话说&lt;/font&gt;&lt;/strong&gt;：作者认为即使是同样的数据集，同样的代码，实验结果也会有各种各样的不同。问者认为可能和APEX的安装步骤有关，以及torch也可能有影响，这点需要诸位的实验来做下多次的验证。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;258httpsgithubcommic-dkfznnunetissues258关于推理速度如此之慢的问题&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/258&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#258&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;《关于推理速度如此之慢的问题》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 我有话说&lt;/font&gt;&lt;/strong&gt;：推理的时间问题在我看来主要来自于三个方面：
+&lt;ul&gt;
+&lt;li&gt;① 数据预处理的时间：预处理的时间分为crop的时间和插值的时间，所用的库都是skimage，可以说是相当的慢，层数较多的时候甚至会10min以上预处理一次。个人建议，将代码中的插值算法从ndimage换成torch的插值算法，基本在几秒内完成插值。&lt;/li&gt;
+&lt;li&gt;② 镜像计算的时间：也就是数据增强的时间，在3d的模式中，每次要做8次的镜像，然后每个都要推理，关闭镜像可以把这部分时间减少很多；&lt;/li&gt;
+&lt;li&gt;③ patch的迭代和推理时间：这是为什么推理时间那么长的根本原因，因为一个patch要0.3s左右的时间，但是一套ct上会有上百个patch，时间成本自然也就上去了。我尝试过libtorch的推理，看下时间有没有减少，发现也没有什么大的改观；尝试过tensorRT的加速，但是出现3d卷积核的问题至今没能解决。有想法的可以试一下。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;257httpsgithubcommic-dkfznnunetissues257nnunet怎么对预处理好的文件进行推理&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/257&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#257&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;《nnUNet怎么对预处理好的文件进行推理》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 解决方案&lt;/font&gt;&lt;/strong&gt;：当前nnUNet只支持对原始nii文件进行推理，如果要用预处理好的文件进行推理，我的建议是从传入patch的位置进去，且要把你的数组合理的分成若干个满足模型推理要求的patch。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;font-face华文琥珀-size5--colorpinkblueii-理论上的问题font&#34;&gt;&lt;font face=&#34;华文琥珀&#34; size=5  color=pinkblue&gt;II. 理论上的问题：&lt;/font&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;430httpsgithubcommic-dkfznnunetissues430一种nnunet的改进方向&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/430&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#430&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;《一种nnUNet的改进方向》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 问题描述&lt;/font&gt;&lt;/strong&gt;：想把标签mask作为另一个通道加入到训练的数据中以此来指导模型。（&lt;font color=red&gt;有点意思，有谁能指引一下我这个论文？&lt;/font&gt;）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;2. 作者建议&lt;/font&gt;&lt;/strong&gt;：对这个方法没有什么概念所以也不知道作者说的啥意思，有兴趣的自己琢磨下。
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/20210128160652757.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34; alt=&#34;在这里插入图片描述&#34; id=&#34;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/20210128160652757.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34; alt=&#34;在这里插入图片描述&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;470httpsgithubcommic-dkfznnunetissues470nnunet可以进行一些dense-connection的改进吗&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/470&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#470&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;《nnUNet可以进行一些dense-connection的改进吗？》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 作者建议&lt;/font&gt;&lt;/strong&gt;：当你的训练结果并不如预期时，先考虑下是不是你的数据本身和你的使用方法出了问题，不要着急考虑改进网络。先看看图像方向是不是正确的，确保预处理以后的分割图像是否和原图重合。
+再者，Verse的评估方法与nnUNet不同。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;303httpsgithubcommic-dkfznnunetissues303nnunet是怎么在做强度归一化&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/303&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#303&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;《nnUNet是怎么在做强度归一化》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;我解释一哈&lt;/font&gt;&lt;/strong&gt;：这个问题是我提出来的，因为在实际的应用中我发现模型在一些明显发灰的CT上表现很差，我希望摸清楚到底归一化在怎么做。其实是这样的：
+&lt;ul&gt;
+&lt;li&gt;I. 将所有训练的数据集的所有体素的强度值进行一个统计，类似于去掉一个最低分和一个最高分的方法，把数值前0.5%和后0.5%的值去掉，只取中间部分的值，然后在剩下的值上计算均值和方差，来进行强度归一化。&lt;/li&gt;
+&lt;li&gt;II. 代码在这里：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;           &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;if&lt;/span&gt; scheme &lt;span style=&#34;color:#555&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;CT&amp;#34;&lt;/span&gt;:
+                &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# clip to lb and ub from train data foreground and use foreground mn and sd from training data&lt;/span&gt;
+                &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;assert&lt;/span&gt; self&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;intensityproperties &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;is&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;not&lt;/span&gt; None, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;ERROR: if there is a CT then we need intensity properties&amp;#34;&lt;/span&gt;
+                mean_intensity &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; self&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;intensityproperties[c][&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;mean&amp;#39;&lt;/span&gt;]
+                std_intensity &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; self&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;intensityproperties[c][&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;sd&amp;#39;&lt;/span&gt;]
+                lower_bound &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; self&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;intensityproperties[c][&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;percentile_00_5&amp;#39;&lt;/span&gt;]
+                upper_bound &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; self&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;intensityproperties[c][&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;percentile_99_5&amp;#39;&lt;/span&gt;]
+                data[c] &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; np&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;clip(data[c], lower_bound, upper_bound)
+                data[c] &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; (data[c] &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt; mean_intensity) &lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt; std_intensity
+                &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;if&lt;/span&gt; use_nonzero_mask[c]:
+                    data[c][seg[&lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#555&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;265httpsgithubcommic-dkfznnunetissues265关于利用crop来生成前景boundingbox的问题&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/265&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#265&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;《关于利用crop来生成前景boundingbox的问题》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 我有话说&lt;/font&gt;&lt;/strong&gt;：这部分在ct上没有影响，主要是用在MRI图像上的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;font-face华文琥珀-size5--colorpinkblueiii-代码上的问题font&#34;&gt;&lt;font face=&#34;华文琥珀&#34; size=5  color=pinkblue&gt;III. 代码上的问题：&lt;/font&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;313httpsgithubcommic-dkfznnunetissues313-attributeerror-nonetype-object-has-no-attribute-is_alive&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/313&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#313&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《AttributeError: &amp;lsquo;NoneType&amp;rsquo; object has no attribute &amp;lsquo;is_alive&amp;rsquo;》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 问题原因&lt;/font&gt;&lt;/strong&gt;：这是最近编码时产生的bug。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;2. 解决方案&lt;/font&gt;&lt;/strong&gt;：将代码更新到最新。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;3. 我有话说&lt;/font&gt;&lt;/strong&gt;：同样遇到了这个问题，在更新完以后可以解决。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;294httpsgithubcommic-dkfznnunetissues294runtimeerror-unable-to-write-to-file-torch_15769_1517813162&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/294&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#294&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;《&amp;ldquo;RuntimeError: unable to write to file &amp;lt;/torch_15769_1517813162&amp;gt;&amp;quot;》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;1. 解决方案&lt;/font&gt;&lt;/strong&gt;：这不是nnUNet的问题，是ubuntu系统的问题，具体的解决方案在&lt;a href=&#34;https://discuss.pytorch.org/t/unable-to-write-to-file-torch-18692-1954506624/9990/5&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;这里&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;。原因是需要修改/dev/shm大小，参考中文解决方案&amp;ndash;&amp;gt;&lt;a href=&#34;https://blog.csdn.net/weiwangsisoftstone/article/details/38581843&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;这里&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;291httpsgithubcommic-dkfznnunetissues291-attributeerror-nonetype-object-has-no-attribute-is_alive与313的问题一样&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/291&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#291&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《AttributeError: &amp;lsquo;NoneType&amp;rsquo; object has no attribute &amp;lsquo;is_alive&amp;rsquo;》（与#313的问题一样）&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;2. 解决方案&lt;/font&gt;&lt;/strong&gt;：删除preprocess文件夹里的所有 .npy文件，然后重新执行训练命令。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;267httpsgithubcommic-dkfznnunetissues267-typeerror-validate-got-an-unexpected-keyword-argument-force_separate_z&#34;&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet/issues/267&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#267&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 《TypeError: validate() got an unexpected keyword argument &amp;lsquo;force_separate_z&amp;rsquo;》&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=Coral&gt;2. 解决方案&lt;/font&gt;&lt;/strong&gt;：之前版本的一个bug，已经修复。&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>About: nnUNet最简单的推理教程（让我的奶奶也会用nnUNet（下））</title>
+      <link>https://Joevaen.github.io/about/nnunet/nnunet5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/about/nnunet/nnunet5/</guid>
+      <description>
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+&lt;section id=&#34;td-cover-block-0&#34; class=&#34;row td-cover-block td-cover-block--height-sm js-td-cover td-overlay td-overlay--dark -bg-primary&#34;&gt;
+  &lt;div class=&#34;container td-overlay__inner&#34;&gt;
+    &lt;div class=&#34;row&#34;&gt;
+      &lt;div class=&#34;col-12&#34;&gt;
+        &lt;div class=&#34;text-center&#34;&gt;
+          
+          
+          &lt;div class=&#34;pt-3 lead&#34;&gt;
+            
+                &lt;div class=&#34;text-left&#34;&gt;
+  &lt;h1 class=&#34;display-1 mb-5&#34;&gt;nnUNet最简单的推理教程（让我的奶奶也会用nnUNet（下））&lt;/h1&gt;&lt;h3 class=&#34;font-weight-light&#34;&gt;《Automated Design of Deep Learning Methods for Biomedical Image Segmentation》&lt;/h3&gt;
+  &lt;/div&gt;
+
+            
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+&lt;/section&gt;
+
+&lt;div class=&#34;container l-container--padded&#34;&gt;
+&lt;div class=&#34;row&#34;&gt;
+
+
+
+
+  
+    &lt;div class=&#34;d-lg-none col-12&#34;&gt;
+      &lt;div class=&#34;td-toc td-toc--inline&#34;&gt;
+  
+      
+        &lt;a id=&#34;td-content__toc-link&#34; class=&#34;collapsed&#34; href=&#34;#td-content__toc&#34; data-toggle=&#34;collapse&#34; aria-controls=&#34;td-page-toc&#34; aria-expanded=&#34;false&#34; aria-label=&#34;Toggle toc navigation&#34;&gt;
+          &lt;span class=&#34;lead&#34;&gt;Contents&lt;i class=&#34;fas fa-chevron-right ml-2&#34;&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;div id=&#34;td-content__toc&#34; class=&#34;collapse&#34;&gt;
+          &lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#1-准备好你的测试集&#34;&gt;1. 准备好你的测试集。&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#2-下载预训练模型或使用自己的模型&#34;&gt;2. 下载预训练模型或使用自己的模型。&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#3-进行推理&#34;&gt;3. 进行推理。&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#4-注意&#34;&gt;4. 注意!&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+        &lt;/div&gt;
+        &lt;button id=&#34;td-content__toc-link-expanded&#34; href=&#34;#td-content__toc&#34; class=&#34;btn btn-small ml-1 my-2 py-0 px-3&#34; data-toggle=&#34;collapse&#34; aria-controls=&#34;td-docs-toc&#34; aria-expanded=&#34;true&#34; aria-label=&#34;Toggle toc navigation&#34;&gt;
+        &lt;/button&gt;
+      
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class=&#34;row&#34;&gt;
+&lt;div class=&#34;col-12 col-lg-8&#34;&gt;
+&lt;h1 id=&#34;一写在前面&#34;&gt;一、写在前面&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;1.为了承接上一篇的训练教程，我会在这篇博客中仍然采用简单的方式对如何推理进行讲述。除此之外，我会对最近的研究成果做一个总结和温习，这种温习大致会融合在整个nnUNet的推理代码中，我会尽可能详细的对代码进行解读；&lt;/li&gt;
+&lt;li&gt;2.尽管写出这些教程只是为了方便大家使用，但是希望有时间有精力的能够在前面三篇博客花点时间并提出质疑，毕竟最精髓的算法都在这些部分。&lt;/li&gt;
+&lt;li&gt;有点啰嗦，开始吧！有问题请添加私人微信号&lt;strong&gt;JoeVaen3&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;二nnunet的推理很简单仅针对简单的推理模式不包括ensemble&#34;&gt;二、nnUNet的推理很简单！（仅针对简单的推理模式，不包括ensemble）&lt;/h1&gt;
+&lt;h2 id=&#34;1-准备好你的测试集&#34;&gt;1. 准备好你的测试集。&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;第一种情况：你认真地执行了我在上一篇给出的训练流程，并且没有对原Task08数据集做任何调整，那么恭喜你，你不需要做任何的准备，仅仅创建两个空文件夹使你的Task008文件底下像这样：
+
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/20200802090017549.png&#34; alt=&#34;2&#34; id=&#34;20200802090017549&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-20200802090017549&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-20200802090017549&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/20200802090017549.png&#34; alt=&#34;2&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+
+可以看出，相比原来的Task008，我多创建了两个文件夹，这是按照我的习惯进行整合的，方便我进行最后的指标的测试。labelsTs中我存放了测试集的标签，inferTs是我待推理测试集的推理结果。由于原本的imagesTs中有100多个nii文件，会花费巨额的时间，我建议你先找个地方把其他文件拷贝出来，只留一个nii.gz文件进行推理，至于为什么这么慢，我会在后面做详细的解析；&lt;/li&gt;
+&lt;li&gt;第二种情况：你想要在自己的数据集上进行推理，我们姑且把这种你自己的数据集叫做“生肉”，那么我们要让它变成“熟肉”，就要进行下面这一步操作：
+&lt;ul&gt;
+&lt;li&gt;① 假如你的“生肉”是dicom序列文件或者.nii文件，那么你必须把dicom、nii文件转成&lt;font color=red&gt;&lt;strong&gt;nii.gz&lt;/strong&gt;&lt;/font&gt;。必须是nii.gz，其他格式nnUNet源码无法识别，自己有兴趣可以把这部分代码加进去。&lt;/li&gt;
+&lt;li&gt;② 现在，你的“生肉”变成了nii.gz，我们假设它文件名为test.nii.gz。之后，把你的nii.gz文件（可以是一个也可以是多个）放在一个新建文件夹里面（新建文件夹名字随便，我们命名为Input）。然后，修改文件名为&lt;font color=red&gt;&lt;strong&gt;test_0000.nii.gz&lt;/strong&gt;&lt;/font&gt;，这就是熟肉。（当然，你也可以使用&lt;code&gt;nnUNet_convert_decathlon_task -i /home/你的主机用户名/nnUNetFrame/DATASET/nnUNet_raw/nnUNet_raw_data/Task008_HepaticVessel&lt;/code&gt;来进行文件名的转换）&lt;/li&gt;
+&lt;li&gt;③ 创建一个推理结果的输出文件夹，我一般是这样整合我的数据的（下图），这样比较方便：
+
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/20200731195003521.png&#34; alt=&#34;1&#34; id=&#34;20200731195003521&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-20200731195003521&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-20200731195003521&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/20200731195003521.png&#34; alt=&#34;1&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+
+这些文件夹上面已经介绍过，我不做赘述。再次强调这是按照我自己的习惯进行整合的，方便我进行最后的指标的测试。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2-下载预训练模型或使用自己的模型&#34;&gt;2. 下载预训练模型或使用自己的模型。&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;第一种情况：你并未进行我之间介绍的训练，仅仅想做推理。
+       这是预训练模型的&lt;a href=&#34;https://zenodo.org/record/3734294#.XyYR5mMzY5n&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;下载地址&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;。日常建议读者拥有属于自己的稳定的冲浪工具和谷歌账号，我这里有相当稳定的airport有兴趣的可以私聊我。请将里面的Task008的模型进行下载，下载后解压保存至：
+&lt;code&gt;/home/你的主机用户名/nnUNetFrame/DATASET/nnUNet_trained_models/nnUNet&lt;/code&gt;下面。&lt;/li&gt;
+&lt;li&gt;第二种情况：你只进行了几轮训练（确定是按照上一篇训练教程一步步来的），模型远远达不到可以使用的状态。
+       进入&lt;code&gt;/home/你的主机用户名/nnUNetFrame/DATASET/nnUNet_trained_models/nnUNet&lt;/code&gt;，你会发现这个文件夹地下会有一个&lt;code&gt;Task008_HepaticVessel&lt;/code&gt;的文件夹，这个其实就是该任务的训练模型，也就是你模型的存放位置，请用你下载好的预训练模型将这个文件夹替换掉。&lt;/li&gt;
+&lt;li&gt;第三种情况：经过漫长的等待，你终于训练出了属于自己的模型，恭喜你拥有&lt;font color=red&gt;&lt;strong&gt;SOTA&lt;/strong&gt;&lt;/font&gt;级别的模型。你什么也不用做啦，因为你的模型在它该在的位置。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;3-进行推理&#34;&gt;3. 进行推理。&lt;/h2&gt;
+&lt;p&gt;       经过上面两步的准备，现在可以进行推理了。请在终端中执行下面命令行：
+&lt;code&gt;nnUNet_predict -i /home/你的主机用户名/nnUNetFrame/DATASET/nnUNet_raw/nnUNet_raw_data/Task008_HepaticVessel/imagesTs/ -o /home/你的主机用户名/nnUNetFrame/DATASET/nnUNet_raw/nnUNet_raw_data/Task008_HepaticVessel/inferTs -t 8 -m 3d_fullres -f 4&lt;/code&gt;
+       &lt;code&gt;nnUNet_predict&lt;/code&gt;：执行预测的命令；
+       &lt;code&gt;-i&lt;/code&gt;: 输入（你的待推理测试集）；
+       &lt;code&gt;-o&lt;/code&gt;: 输出（测试集的推理结果）；
+       &lt;code&gt;-t&lt;/code&gt;: 你的任务对应的数字ID；
+       &lt;code&gt;-m&lt;/code&gt;: 对应的训练时使用的网络架构；
+       &lt;code&gt;-f&lt;/code&gt;: 数字4代表使用五折交叉验证训练出的模型；
+       推理完全部需要消耗相当长的时间，建议先只用一个测试文件进行推理。&lt;/p&gt;
+&lt;h2 id=&#34;4-注意&#34;&gt;4. 注意!&lt;/h2&gt;
+&lt;p&gt;       nnUNet的推理是在多线程池中进行设置的,默认为8 线程,也就是如果你要做很多个case的推理,你的机器其实在处理多个线程,这也就会导致电脑负荷过大从而推理过程卡死不动,所以尽量推理的时候,推理文件夹中只放一个case,即只放一个nii.gz文件.
+       或者可以在setup或者代码中设置下线程的数目.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;三nnunet的推理又很难&#34;&gt;三、nnUNet的推理又很难。&lt;/h1&gt;
+&lt;p&gt;这部分是非教程的代码解析部分，因为会涉及很大的代码量，所以我会在下一篇中想详细解释。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>About: nnUNet最舒服的训练教程（让我的奶奶也会用nnUNet（上））</title>
+      <link>https://Joevaen.github.io/about/nnunet/nnunet4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/about/nnunet/nnunet4/</guid>
+      <description>
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+&lt;section id=&#34;td-cover-block-0&#34; class=&#34;row td-cover-block td-cover-block--height-sm js-td-cover td-overlay td-overlay--dark -bg-primary&#34;&gt;
+  &lt;div class=&#34;container td-overlay__inner&#34;&gt;
+    &lt;div class=&#34;row&#34;&gt;
+      &lt;div class=&#34;col-12&#34;&gt;
+        &lt;div class=&#34;text-center&#34;&gt;
+          
+          
+          &lt;div class=&#34;pt-3 lead&#34;&gt;
+            
+                &lt;div class=&#34;text-left&#34;&gt;
+  &lt;h1 class=&#34;display-1 mb-5&#34;&gt;nnUNet最舒服的训练教程（让我的奶奶也会用nnUNet（上））&lt;/h1&gt;&lt;h3 class=&#34;font-weight-light&#34;&gt;《Automated Design of Deep Learning Methods for Biomedical Image Segmentation》&lt;/h3&gt;
+  &lt;/div&gt;
+
+            
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+&lt;/section&gt;
+
+&lt;div class=&#34;container l-container--padded&#34;&gt;
+&lt;div class=&#34;row&#34;&gt;
+
+
+
+
+  
+    &lt;div class=&#34;d-lg-none col-12&#34;&gt;
+      &lt;div class=&#34;td-toc td-toc--inline&#34;&gt;
+  
+      
+        &lt;a id=&#34;td-content__toc-link&#34; class=&#34;collapsed&#34; href=&#34;#td-content__toc&#34; data-toggle=&#34;collapse&#34; aria-controls=&#34;td-page-toc&#34; aria-expanded=&#34;false&#34; aria-label=&#34;Toggle toc navigation&#34;&gt;
+          &lt;span class=&#34;lead&#34;&gt;Contents&lt;i class=&#34;fas fa-chevron-right ml-2&#34;&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;div id=&#34;td-content__toc&#34; class=&#34;collapse&#34;&gt;
+          &lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#1-你应该配置哪些环境&#34;&gt;1. 你应该配置哪些环境？&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#2-整理你的数据&#34;&gt;2. 整理你的数据！&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#-nnunet需要你把你要训练的数据做一个好好的整理初学者请务必按照我的做法等你熟练掌握以后再考虑新的姿势有些文件夹的创建时多余的但是你还是跟着我这样做最好&#34;&gt;① nnUNet需要你把你要训练的数据做一个好好的整理，初学者请务必按照我的做法，等你熟练掌握以后再考虑新的姿势（有些文件夹的创建时多余的，但是你还是跟着我这样做最好）：&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#3设置nnunet读取文件的路径&#34;&gt;3.设置nnUNet读取文件的路径&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#1-转换一下你的数据集让它可以被nnunet识别&#34;&gt;1. 转换一下你的数据集，让它可以被nnUNet识别&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#2-预处理&#34;&gt;2. 预处理&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#3开始训练&#34;&gt;3.开始训练&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#4简单说下配置&#34;&gt;4.简单说下配置&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#5至于调参&#34;&gt;5.至于调参&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#5关于预训练模型&#34;&gt;5.关于预训练模型&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+        &lt;/div&gt;
+        &lt;button id=&#34;td-content__toc-link-expanded&#34; href=&#34;#td-content__toc&#34; class=&#34;btn btn-small ml-1 my-2 py-0 px-3&#34; data-toggle=&#34;collapse&#34; aria-controls=&#34;td-docs-toc&#34; aria-expanded=&#34;true&#34; aria-label=&#34;Toggle toc navigation&#34;&gt;
+        &lt;/button&gt;
+      
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class=&#34;row&#34;&gt;
+&lt;div class=&#34;col-12 col-lg-8&#34;&gt;
+&lt;h1 id=&#34;一写在前面&#34;&gt;一、写在前面&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;&lt;font face=&#34;华文琥珀&#34; size=7  color=red&gt;重要！！！&lt;/font&gt;&lt;/strong&gt;
+&lt;strong&gt;&lt;font face=&#34;华文琥珀&#34; size=6  color=red&gt;各位读者有时间请务必到我&lt;a href=&#34;https://blog.csdn.net/weixin_42061636/article/details/108520695&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;第十七篇博客&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;查看更多的细节，包括如何使用nnUNet的残差网络、如何选择模型其中一个去训练等。更多的细节会慢慢更新，建议直接把那篇收藏了。&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;&lt;font face=&#34;华文琥珀&#34; size=5  color=purple&gt;1.更新于8.02，添加“如何训练自己的数据集”部分。&lt;/font&gt;&lt;/strong&gt;
+&lt;strong&gt;&lt;font face=&#34;华文琥珀&#34; size=5  color=purple&gt;2.更新于9.07，修改恶心的apex部分，新更新的torch1.6支持混合精度训练，即你不用再安装apex啦！！！&lt;/font&gt;&lt;/strong&gt;
+&lt;strong&gt;&lt;font face=&#34;华文琥珀&#34; size=5  color=purple&gt;3.更新于9.09，修改五折交叉验证理解！以及在整理好训练的数据集以后如何自动化地生成对应的json文件。&lt;/font&gt;&lt;/strong&gt;
+&lt;strong&gt;&lt;font face=&#34;华文琥珀&#34; size=5  color=purple&gt;3.更新于11.05，添加如何在Windows上使用nnUNet。windows的使用仍然面临很多问题，预处理是可以跑的，但是在推理或者训练的时候就会出现torch的一些环境和兼容问题，现在仍未解决，也不是目前的工作重心，有时间有能力的读者可以自己挖掘一下，非常的不好意思。&lt;/font&gt;&lt;/strong&gt;
+&lt;strong&gt;&lt;font face=&#34;华文琥珀&#34; size=5  color=purple&gt;4.更新于21.04.20，解决windows平台无法使用nnUNet问题。&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.笔者对nnUNet的使用也才一个多月，真正进入医疗影像领域也才三个月。对于nnUNet的理解肯定还停留在表层，希望大家在使用的时候能抱着一种纠错的态度，我会很感谢大家的指点！&lt;/li&gt;
+&lt;li&gt;2.nnUNet是德国癌症研究中心的工程师编写的框架，迄今为止依旧在维护和更新，希望大家共勉，“抄”出自己的水平的同时，协助框架的维护，也是在帮助中国医疗行业（手动狗头）。&lt;/li&gt;
+&lt;li&gt;3.此框架仅在Ubuntu18.04上进行过安装，win上需要键入参数运行，框架作者的建议也是在linux系统。作者建议不在conda的环境下，但我的框架在两个服务器三台主机上都未遇到什么conda的问题。1.5.1+cu10.1&lt;/li&gt;
+&lt;li&gt;4.本篇博客的目的是为了让大家在迅速上手的同时更深入的研究，如此有魅力的框架，希望大家别玩玩就浪费，好好看看原论文及代码（作者代码中已经给出了相当详细的安装教程），或者我之前的博客（有很多错误的地方，但我一有时间就会更新理解，望海涵！）&lt;/li&gt;
+&lt;li&gt;5.这个教程是在本地主机进行，服务器上的操作就是对服务器进行接下来的所有操作。教程不需要修改源码中的任何成分，我会在之后的博客中对源码如何调参做说明，刚接触的铁子们先完全按照步骤走。如果服务器是看不到图形界面的，需要用ssh进入服务器进行接下来的所有操作。&lt;/li&gt;
+&lt;li&gt;有点啰嗦，开始吧！有问题请添加私人微信号&lt;strong&gt;JoeVaen3&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;二nnunet框架如何安装&#34;&gt;二、nnUNet框架如何安装？&lt;/h1&gt;
+&lt;h2 id=&#34;1-你应该配置哪些环境&#34;&gt;1. 你应该配置哪些环境？&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;① anaconda + pytorch1.5.1 + cuda10.1：
+       pytorch和anaconda的安装应该不用多说，这里着重说一下，安装torch时装上的cuda10.1为阉割版，会不利于我们接下来安装Apex，所以请安装完整版的，B乎的这个还可以&lt;a href=&#34;https://zhuanlan.zhihu.com/p/112138261&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cuda10.1安装&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;。
+       当我后面想玩一下TensorRT的时候，发现TensorRT7不支持cuda10.1，所以有其他需求的，装cuda10.2也ok。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font face=&#34;华文琥珀&#34; color=purple&gt;因为支持新更新的nnunet使用了最近更新的
+pytorch1.6，所以可以使用混合精度训练而不必再使用APEX,这一步我删除了，安装变得更简单了，直接下一步。&lt;/font&gt;&lt;/strong&gt;
+~~* ② 安装NVIDIA-Apex：
+       这是英伟达的一个用于混合精度训练的插件，请不要直接pip，跟着下面的操作来：
+       第一步：打开&lt;a href=&#34;https://github.com/NVIDIA/apex&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Apex所在项目网站&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;，往下拉便可以看到QuickStart，已经很详细。
+       第二步：在你用来安装环境的目录下打开终端，&lt;code&gt;git clone https://github.com/NVIDIA/apex&lt;/code&gt;；
+       第三步：&lt;code&gt;cd apex&lt;/code&gt; 进入你刚才下载下来的apex文件夹里面
+       第四步：&lt;code&gt;pip install -v --no-cache-dir --global-option=&amp;quot;--cpp_ext&amp;quot; --global-option=&amp;quot;--cuda_ext&amp;quot; ./&lt;/code&gt;&lt;font color=green&gt;**【这步出现问题尝试使用 &lt;code&gt;python setup.py install --cuda_ext --cpp_ext&lt;/code&gt; ，更多问题参考&lt;a href=&#34;https://github.com/NVIDIA/apex/issues/802&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;这里&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;】**&lt;/font&gt;
+       当你在安装好cuda的情况下完成这四步时，应该不会有问题，我用阉割版的cuda就会出现安装失败的问题。如果有问题请在下方评论反馈。~~&lt;/li&gt;
+&lt;li&gt;② 安装hiddenlayer（用来生成什么网络拓扑图？管他呢，装吧）
+&lt;code&gt;pip install --upgrade   git+https://github.com/nanohanno/hiddenlayer.git@bugfix/get_trace_graph#egg=hiddenlayer&lt;/code&gt;(没有换行，这是一行代码)&lt;/li&gt;
+&lt;li&gt;③ 安装心爱的nnUNet
+       第一步：在home下创建nnUNetFrame文件夹，在这个文件夹内打开终端&lt;code&gt;git clone https://github.com/MIC-DKFZ/nnUNet.git&lt;/code&gt;
+       第二步：&lt;code&gt;cd nnUNet&lt;/code&gt;
+       第三步：&lt;code&gt;pip install -e .&lt;/code&gt;（兄弟们和集美们别忘了加  .  ）
+       当你安装完成这些以后，你的每一次对nnUNet的操作，都会在命令行里以nnUNet_开头，代表着你的nnUNet开始工作的指令。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;2-整理你的数据&#34;&gt;2. 整理你的数据！&lt;/h2&gt;
+&lt;h3 id=&#34;-nnunet需要你把你要训练的数据做一个好好的整理初学者请务必按照我的做法等你熟练掌握以后再考虑新的姿势有些文件夹的创建时多余的但是你还是跟着我这样做最好&#34;&gt;① nnUNet需要你把你要训练的数据做一个好好的整理，初学者请务必按照我的做法，等你熟练掌握以后再考虑新的姿势（有些文件夹的创建时多余的，但是你还是跟着我这样做最好）：&lt;/h3&gt;
+&lt;p&gt;       第一步：进入你之前创建的nnUNetFrame文件夹里面，创建一个名为DATASET的文件夹，现在你的nnUNetFrame文件夹下有两个文件夹，nnUNet是代码源，另一个DATASET就是我们接下来用来放数据的地方；
+       第二步：进入创建好的DATASET文件夹下面，创建下面三个文件夹
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/20200728000527248.png&#34; alt=&#34;1&#34; id=&#34;20200728000527248&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-20200728000527248&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-20200728000527248&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/20200728000527248.png&#34; alt=&#34;1&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+
+       第二个用来存放原始的你要训练的数据，第一个用来存放原始数据预处理之后的数据，第三个用来存放训练的结果。
+       第三步：进入上面第二个文件夹nnUNet_raw，创建下面两个，右边为原始数据，左边为crop以后的数据。
+
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/20200728000952449.png&#34; alt=&#34;在这里插入图片描述&#34; id=&#34;20200728000952449&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-20200728000952449&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-20200728000952449&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/20200728000952449.png&#34; alt=&#34;在这里插入图片描述&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;       第四步：进入右边文件夹nnUNet_raw_data，创建一个名为Task08_HepaticVessel的文件夹（&lt;font color=red&gt;&lt;strong&gt;解释：这个Task08_HepaticVessel是nnUNet的作者参加的一个十项全能竞赛的子任务名，你可以对这个任务的数字ID进行任意的命名，比如你要分割心脏，你可以起名为Task01_Heart，比如你要分割肾脏，你可以起名为Task02_Kidney，前提是必须按照这种格式&lt;/strong&gt;&lt;/font&gt;）
+       第五步：将下载好的公开数据集或者自己的数据集放在上面创建好的任务文件夹下，下面还以作者参加的Task08_HepaticVessel竞赛为例，解释下数据应该怎么存放和编辑：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A. 进入这个&lt;a href=&#34;https://drive.google.com/drive/folders/1HqEgzS8BV2c7xYNrZdEAnrHk7osJJ--2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;网站&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;下载对应的数据集（&amp;lt;&amp;ndash;网上学科议建&amp;lt;&amp;ndash;），取代上面你自己创建的Task08_HepaticVessel文件夹。&lt;/li&gt;
+&lt;li&gt;B. 你会发现目录是这个样子的：json文件是对三个文件夹内容的字典呈现（关乎你的训练），imagesTr是你的训练数据集，打开后你会发现很多的有序的nii.gz的训练文件，而labelsTr里时对应这个imagesTr的标签文件，同样为nii.gz。目前只能是nii.gz文件，nii文件都不行。训练阶段的imageTs文件夹先不管，其实这个文件夹出现在任何位置都可以。（&lt;font color=red&gt;&lt;strong&gt;解释：nnUNet使用的是五折交叉验证，并没有验证集&lt;/strong&gt;&lt;/font&gt;）
+
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/20200728002735389.png&#34; alt=&#34;2&#34; id=&#34;20200728002735389&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-20200728002735389&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-20200728002735389&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/20200728002735389.png&#34; alt=&#34;2&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;3设置nnunet读取文件的路径&#34;&gt;3.设置nnUNet读取文件的路径&lt;/h2&gt;
+&lt;p&gt;       nnUNet是如何知道你的文件存放在哪儿呢，当然要在环境中创建一个路径，按照我的步骤，别做更改，因为到现在为止，你的路径和我的路径是一致的。
+       第一步：在home目录下按ctrl + h，显示隐藏文件；
+       第二步：找到.bashrc文件，打开（vim当然可以，但是毕竟教给我奶奶用的）；
+       第三步：在文档末尾添加下面三行，右上角保存文件，观察下面保存成功后关闭。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;export nnUNet_raw_data_base&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;/home/qiao/nnUNetFrame/DATASET/nnUNet_raw&amp;#34;&lt;/span&gt;
+export nnUNet_preprocessed&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;/home/qiao/nnUNetFrame/DATASET/nnUNet_preprocessed&amp;#34;&lt;/span&gt;
+export RESULTS_FOLDER&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;/home/qiao/nnUNetFrame/DATASET/nnUNet_trained_models&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;       第四步：在home下打开终端，输入&lt;code&gt;source .bashrc&lt;/code&gt;来更新该文档。
+       nnUNet已经知道怎么读取你的文件了。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;三在task08_hepaticvessel上进行训练&#34;&gt;三、在Task08_HepaticVessel上进行训练！&lt;/h1&gt;
+&lt;h2 id=&#34;1-转换一下你的数据集让它可以被nnunet识别&#34;&gt;1. 转换一下你的数据集，让它可以被nnUNet识别&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;nnUNet_convert_decathlon_task -i /home/qiao/nnUNetFrame/DATASET/nnUNet_raw/nnUNet_raw_data/Task08_HepaticVessel&lt;/code&gt;
+转换之后会发现，在这个Task08_HepaticVessel文件夹旁边多了一个Task008_HepaticVessel，对的，这说明框架已经安装成功了，之后的操作要在这个文件夹上进行。
+让我们看一下这两个文件夹里面的训练文件有什么不同：
+① Task08的imagesTr和labelsTr内:
+
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/20200728081921550.png&#34; alt=&#34;在这里插入图片描述&#34; id=&#34;20200728081921550&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-20200728081921550&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-20200728081921550&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/20200728081921550.png&#34; alt=&#34;在这里插入图片描述&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;② Task008的imagesTr和labelsTr内：
+
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/2020072808230572.png&#34; alt=&#34;在这里插入图片描述&#34; id=&#34;2020072808230572&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-2020072808230572&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-2020072808230572&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/2020072808230572.png&#34; alt=&#34;在这里插入图片描述&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+
+可以看出文件末尾多了_0000，是的，这就是你的数据格式是否正确的标志。不仅训练需要这个格式，之后你在推理的时候，也应当把你的文件名设置为这样，后面我会详细的说。
+③ jason文件的解释：
+json文件中包含着你的训练数据信息和任务信息：
+
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/20200728083631778.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34; alt=&#34;在这里插入图片描述&#34; id=&#34;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/20200728083631778.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34; alt=&#34;在这里插入图片描述&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+
+尤其注意上图中的labels，里面有0 、1 、2三个标签，这是因为Task08的任务是分割出肝血管和肝血管瘤，三分类自然有三个标签。可以看到这个任务的训练集为303个，测试集为140个（用来进行模型训练好以后的推理测试，而不是验证！）自然，如果你需要做2分类，请自行去掉2这个标签，nnUNet会自动识别你应该做什么几分类。
+建议将数据集都下下来进行观察，有些的模态也不一样。&lt;/p&gt;
+&lt;h2 id=&#34;2-预处理&#34;&gt;2. 预处理&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;nnUNet_plan_and_preprocess -t 8&lt;/code&gt;
+因为你的任务ID为8，所以参数t为8。这个过程会消耗很多的时间，速度慢的原因在于对要进行插值等各种操作。&lt;font color=red&gt;&lt;strong&gt;预处理要求你一定一定一定要在SSD【固态硬盘】上进行，Task08预处理后的数据会占据大约100多个g，请保证自己的SSD足够大，空间不够请自己筛选一部分的训练文件，不要200多套全拿来训练。&lt;/strong&gt;&lt;/font&gt;&lt;/p&gt;
+&lt;h2 id=&#34;3开始训练&#34;&gt;3.开始训练&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;nnUNet_train 3d_fullres nnUNetTrainerV2 8 4&lt;/code&gt;
+8代表你的任务ID，&lt;font color=purple&gt;&lt;strong&gt;4代表五折交叉验证中的第4折（0代表分成五折后的第一折）&lt;/strong&gt;&lt;/font&gt;。所有的任务都应当在“4”的情况下，也就是五折交叉验证中的第一折数据集下进行。&lt;font color=red&gt;&lt;strong&gt;具体的参数和作用，我会在详谈训练的新博客中进行解释。&lt;/strong&gt;&lt;/font&gt;迄今为止，我共用3d_fullres +  nnUNetTrainerV2的方式训练了十个分割模型，除了本身在论文中表现就较差的模型外，大多数的分割效果都较为理想，请相信你手中的工具。
+如果出现训练终端,你要继续训练的情况请在这行命令之后加上:
+&lt;code&gt;-c&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;4简单说下配置&#34;&gt;4.简单说下配置&lt;/h2&gt;
+&lt;p&gt;最少需要8g显存，一轮的时间很慢，在11g2080ti上时间一轮为550s，作者训练1000轮为一个实验结果，时间很慢，需要付出多一点耐心。&lt;/p&gt;
+&lt;h2 id=&#34;5至于调参&#34;&gt;5.至于调参&lt;/h2&gt;
+&lt;p&gt;在这个框架里，调参侠是没有尊严的，你引以为傲的各种trick，在这里并没有太大作用，这就是为什么我奶奶都能用的原因。你只需要这三行命令，然后等待1000轮结束，请在训练的时候翻翻我之前的博客，毫无疑问那才是nnUNet的魅力所在。&lt;/p&gt;
+&lt;h2 id=&#34;5关于预训练模型&#34;&gt;5.关于预训练模型&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://zenodo.org/record/3734294#.XyYR5mMzY5n&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;这里&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;是预训练模型的下载地址，使用方法参见下一篇博客。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;四怎么在自己的训练集上训练&#34;&gt;四、怎么在自己的训练集上训练？&lt;/h1&gt;
+&lt;p&gt;&lt;font color=purple&gt;&lt;strong&gt;8.02更新：&lt;/strong&gt;&lt;/font&gt;
+所有的步骤，都是在上面训练步骤的基础上展开的，我仍然建议您对上面的训练步骤做详细的理解：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;第一步：创建一个属于这个任务的文件夹，我们假设这个任务是要分割心脏，那么我们给这个任务赋予一个数字ID: &lt;font color=red&gt;&lt;strong&gt;58&lt;/strong&gt;&lt;/font&gt;(炮哥对不起)，这个任务名就为&lt;font color=red&gt;&lt;strong&gt;Task58_Heart&lt;/strong&gt;&lt;/font&gt;。在&lt;code&gt;/home/你的主机用户名/nnUNetFrame/DATASET/nnUNet_raw&lt;/code&gt;下创建这个文件夹，并在其下添加如下三个文件夹，json文件的操作在下面解释：
+
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/20200802101912938.png&#34; alt=&#34;3&#34; id=&#34;20200802101912938&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-20200802101912938&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-20200802101912938&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/20200802101912938.png&#34; alt=&#34;3&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;第二步：整理你训练集数据和训练集标签：请整合为下图的格式并使数据和标签进行对应（heart代替pancreas，数据和标签名字均为如此）。
+
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/20200802102556733.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34; alt=&#34;2&#34; id=&#34;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/20200802102556733.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34; alt=&#34;2&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+
+整合完成以后，训练集数据放在你刚刚创建的imagesTr文件夹下，训练集标签放在你刚刚创建的labelsTs文件夹下。imagesTs是我习惯存放测试集的位置（可以看下篇）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;第三步：制作你的json文件，让训练器知道你要干些什么：
+&lt;del&gt;笔者的做法有些笨，因为还没在源码中找到脚本，也没自己去写生成json的脚本，数据集少的情况下，可以这样做。&lt;/del&gt;&lt;font color=purple&gt;&lt;strong&gt;&lt;code&gt;batchgenerators.utilities.file_and_folder_operations&lt;/code&gt;里的&lt;code&gt;save_json()&lt;/code&gt;函数可以生成对应你数据集的json文件&lt;/strong&gt;&lt;/font&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首先，将原来Task08中的json文件拷贝到Task58中对应的位置，也就是上面那个图中的json文件；&lt;/li&gt;
+&lt;li&gt;然后，打开文件进行修改并保存，json文件中是一个字典，也就是字典键值对应的你要修改成自己需要的形式，请参考我针对自己的Task03_TVessel任务进行的修改（上面有Task08的图）：
+
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/20200802104019242.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34; alt=&#34;3&#34; id=&#34;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/20200802104019242.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34; alt=&#34;3&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+
+&lt;font color=red&gt;&lt;strong&gt;两个地方是一定要注意的&lt;/strong&gt;&lt;/font&gt;：
+       ① labels内的值：根据分类任务进行修改；
+       ② training内文件名及其数目：训练集及标签的数目、文件名都要对应正确。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;第四步：将你的Task58转换成Task058，正如前面所说，nnUNet只认识得到这样文件夹和以_0000结尾的文件，执行命令
+&lt;code&gt;nnUNet_convert_decathlon_task -i /home/你的主机用户名/nnUNetFrame/DATASET/nnUNet_raw/nnUNet_raw_data/Task58_Heart&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;第五步：预处理文件，执行命令，等待预处理完成
+&lt;code&gt;nnUNet_plan_and_preprocess -t 58&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;第六步：开始训练。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;font color=red&gt;&lt;strong&gt;单卡训练：&lt;/strong&gt;&lt;/font&gt;执行&lt;code&gt;nnUNet_train 3d_fullres nnUNetTrainerV2 58 4&lt;/code&gt;
+&lt;font color=red&gt;&lt;strong&gt;注意：&lt;/strong&gt;&lt;/font&gt;默认在第一块gpu（索引为0）上进行训练，如果想指定某个gpu，请先执行：
+&lt;code&gt;export CUDA_VISIBLE_DEVICES=X&lt;/code&gt;，X为你指定的gpu索引。再执行上面的命令。&lt;/li&gt;
+&lt;li&gt;&lt;font color=red&gt;&lt;strong&gt;多卡训练：&lt;/strong&gt;&lt;/font&gt;比如我现在要在0和1两张卡上执行训练：
+&lt;ul&gt;
+&lt;li&gt;先执行 &lt;code&gt;export CUDA_VISIBLE_DEVICES=0,1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;再执行&lt;code&gt;nnUNet_train_DP 3d_fullres nnUNetTrainerV2_DP 58 4 -gpus 2&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;实验证明多卡训练速度和单卡训练速度的差别不大，只是为了减少每张卡的使用显存来弥补单卡显存不足的情况（&lt;font color=green&gt;&lt;strong&gt;这里感谢张同学的测试&lt;/strong&gt;&lt;/font&gt;）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;五怎么在windows系统上使用nnunet&#34;&gt;五、怎么在Windows系统上使用nnUNet？&lt;/h1&gt;
+&lt;p&gt;&lt;font color=purple&gt;&lt;strong&gt;2021.4.20更新：&lt;/strong&gt;&lt;/font&gt;
+直接到&lt;a href=&#34;https://github.com/MRCWirtz/nnUNet-1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;这个项目&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;，用上述同样方法在win上进行安装，无需再进行繁琐的多线程修正。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>About: nnUNet论文主体解析</title>
+      <link>https://Joevaen.github.io/about/nnunet/nnunet1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/about/nnunet/nnunet1/</guid>
+      <description>
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+&lt;section id=&#34;td-cover-block-0&#34; class=&#34;row td-cover-block td-cover-block--height-sm js-td-cover td-overlay td-overlay--dark -bg-primary&#34;&gt;
+  &lt;div class=&#34;container td-overlay__inner&#34;&gt;
+    &lt;div class=&#34;row&#34;&gt;
+      &lt;div class=&#34;col-12&#34;&gt;
+        &lt;div class=&#34;text-center&#34;&gt;
+          
+          
+          &lt;div class=&#34;pt-3 lead&#34;&gt;
+            
+                &lt;div class=&#34;text-left&#34;&gt;
+  &lt;h1 class=&#34;display-1 mb-5&#34;&gt;nnUNet论文主体解析&lt;/h1&gt;&lt;h3 class=&#34;font-weight-light&#34;&gt;《Automated Design of Deep Learning Methods for Biomedical Image Segmentation》&lt;/h3&gt;
+  &lt;/div&gt;
+
+            
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+&lt;/section&gt;
+
+&lt;div class=&#34;container l-container--padded&#34;&gt;
+&lt;div class=&#34;row&#34;&gt;
+
+
+
+
+  
+    &lt;div class=&#34;d-lg-none col-12&#34;&gt;
+      &lt;div class=&#34;td-toc td-toc--inline&#34;&gt;
+  
+      
+        &lt;a id=&#34;td-content__toc-link&#34; class=&#34;collapsed&#34; href=&#34;#td-content__toc&#34; data-toggle=&#34;collapse&#34; aria-controls=&#34;td-page-toc&#34; aria-expanded=&#34;false&#34; aria-label=&#34;Toggle toc navigation&#34;&gt;
+          &lt;span class=&#34;lead&#34;&gt;Contents&lt;i class=&#34;fas fa-chevron-right ml-2&#34;&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;div id=&#34;td-content__toc&#34; class=&#34;collapse&#34;&gt;
+          &lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#1介绍&#34;&gt;1.介绍&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#2结果&#34;&gt;2.结果&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#1nnunet可以自动适应任何新的数据&#34;&gt;1.nnUNet可以自动适应任何新的数据&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#2nnunet极佳地掌握了目标标签的结构和数据图片的属性&#34;&gt;2.nnUNet极佳地掌握了目标标签的结构和数据图片的属性&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#3nnunet在多个不同任务中的表现都要比一些刻意设计的管道要好&#34;&gt;3.nnUNet在多个不同任务中的表现，都要比一些刻意设计的“管道”要好&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#4管道配置对结果的影响要比网络结构变化对结果的影响大&#34;&gt;4.“管道”配置对结果的影响要比网络结构变化对结果的影响大&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#5不同的数据集需要不同管道配置&#34;&gt;5.不同的数据集需要不同“管道”配置&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#6多任务提升了决策方案的鲁棒性&#34;&gt;6.多任务提升了决策（方案）的鲁棒性&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#3讨论&#34;&gt;3.讨论&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+        &lt;/div&gt;
+        &lt;button id=&#34;td-content__toc-link-expanded&#34; href=&#34;#td-content__toc&#34; class=&#34;btn btn-small ml-1 my-2 py-0 px-3&#34; data-toggle=&#34;collapse&#34; aria-controls=&#34;td-docs-toc&#34; aria-expanded=&#34;true&#34; aria-label=&#34;Toggle toc navigation&#34;&gt;
+        &lt;/button&gt;
+      
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class=&#34;row&#34;&gt;
+&lt;div class=&#34;col-12 col-lg-8&#34;&gt;
+&lt;h1 id=&#34;讲在前面&#34;&gt;讲在前面&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;一.更新于2020.07.10，读完整篇nnUNet的20年4月份发表的论文，在更深的理解之后，做一些修正；&lt;/li&gt;
+&lt;li&gt;二.我设计了几种字体颜色用于更加醒目地表现关键的思想和主题：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=red&gt;红色表示尚未理解透彻的一些概念&lt;/font&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=blue&gt;蓝色表示对原来的理解做的一些修改或补充&lt;/font&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=green&gt;绿色表示此处需要参考的论文其他部分&lt;/font&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=orange&gt;橙色表示本文的重要关键字&lt;/font&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;del&gt;我会用删除线将自己曾经不到位的理解进行删除&lt;/del&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;三.&lt;strong&gt;&lt;font color=orange&gt;一些关键字总结&lt;/font&gt;&lt;/strong&gt;（对于理解整篇论文都相当有必要，按照文中意思进行的理解）：
+&lt;ul&gt;
+&lt;li&gt;1.&lt;font color=orange&gt;&lt;strong&gt;实验者（ end-users）：&lt;/strong&gt;&lt;/font&gt;医学图像分割的实践者和研究人员&lt;/li&gt;
+&lt;li&gt;2.&lt;font color=orange&gt;&lt;strong&gt;病例（cases）：&lt;/strong&gt;&lt;/font&gt;在本文包括之后的文章，我都会把case翻译成病例，一个病例指的就是一套CT。&lt;/li&gt;
+&lt;li&gt;3.&lt;font color=orange&gt;&lt;strong&gt;数据指纹（data fingerprint）：&lt;/strong&gt;&lt;/font&gt;数据属性的集合&lt;/li&gt;
+&lt;li&gt;4.&lt;font color=orange&gt;&lt;strong&gt;管道指纹（pipeline fingerprint）：&lt;/strong&gt;&lt;/font&gt;从数据到模型这个过程中所经历的参数和设计方法；&lt;/li&gt;
+&lt;li&gt;5.&lt;font color=orange&gt;&lt;strong&gt;启发性规则（ heuristic rules）：&lt;/strong&gt;&lt;/font&gt;一些医学图像处理的专业知识的集成和经验的总结，当你想通过数据指纹计算出所需要的管道指纹时，正是依靠的这些算法和方法；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
+&lt;p&gt;        医学图像作为科学研究的重要驱动和医疗界的核心元素，最近被深度学习深深的刺激。而语义分割使得很多领域的3D图像分析和应用成为可能，而且针对不同的任务的不同的方法都是不简单的，而且相当依赖数据集的质量和硬件条件。我们提出&lt;strong&gt;nnUNet&lt;/strong&gt;，一种浓缩了该领域的大部分知识，并且具备自动为不同任务设计不同训练方案的框架（源自一个最基本框架的衍生）。不需要人工进行调参，nnUNet在19个国际竞赛中取得最优结果，而且在49个任务的大多数中，都达到了SOTA级别。结果证明了这种深度学习的自适应机制具有巨大的潜力。我们将该框架开源，使得它变得开箱即用，只是为了使得这种SOTA级别的方法更加平民化，从而来促进自动化框架设计的发展。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;论文内容&#34;&gt;论文内容&lt;/h1&gt;
+&lt;h2 id=&#34;1介绍&#34;&gt;1.介绍&lt;/h2&gt;
+&lt;p&gt;        语义分割将医学图像转化成有意义的空间结构信息，因此对医学的发展有相当必要的作用，尤其对于很多临床应用来说是十分必要的元素，比如一些与人工智能相关的诊断系统、治疗计划、术中协助以及肿瘤的生长监视。自动的医学图像分割是如此的火热，以至于国际上的图像分析赛事有将近70%是有关于医学图像的。
+        尽管最近基于深度学习的图像分割方法取得了重大的进展，但是对于&lt;del&gt;终端用户&lt;/del&gt;&lt;font color=orange&gt;&lt;strong&gt;实验者&lt;/strong&gt;&lt;/font&gt; 来说，这些方法都有特定问题上的局限性。某个特定的分割任务的设计往往需要大量的实验时间和很高的训练水平，往往一个很小的错误就会导致一个巨大的效果落差。尤其是在3D医学图像领域，遇到图片质量、图片模态、图片大小、体素大小、类别比率都有差别的这种挑战，这时整个方法的设计可能就会非常笨重和繁琐，因此适应于其他数据或任务的好的优化方法（参数）可能对你手头的任务和数据并没有太大作用。大部分专业的人士做的事情，都是从网络结构的优化设计，到数据增强和后处理。每一个子组件都由一些基础的超参数所决定，例如learn       rate、batch size、或者&lt;font color=red&gt;class sample&lt;/font&gt;。
+        还有另一个问题就是训练和推理对于硬件的需求。算法的优化往往依赖于对高纬度的超参数的需求，由于训练&lt;del&gt;范例&lt;/del&gt; &lt;font color=orange&gt;&lt;strong&gt;病例（cases）：&lt;/strong&gt;&lt;/font&gt;的增多也会使得计算资源几何式增长。导致的结果就是，实验者通常都会经过千百次的实验之后得到一个不好的结果，其实这是和他们自己的任务和数据集特性相关的，而且这种错误很难说明也不好复制，他们便不可避免的得到了并不是最佳的方法或者并不适用于其他数据集的研究成果。
+        有篇论文对这些情况做了一些解释反而使情况变得更加复杂，这个研究的很大一部分对于非专业人士来说是难以理解的，甚至对于专业人士来说也很难评估。2015年共有将近12000片论文引用了UNet用来作为医学图像分割的工具，并且很多对UNet做了拓展和改进。我们假设最原始的UNet仍然是足够强大的，只要它具备足够合适的设计。
+        最后，我们提出了nnUNet，最终这个网络使得医学研究的实际应用成为了可能，至于这个框架为什么可以适应任意的数据集并且能够开箱即用，主要缘于以下两点:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.我们用公式来明确表示与数据的关键属性有关的“管道”（方法）优化问题和分割算法的一些关键的设计选择；
+&lt;ul&gt;
+&lt;li&gt;&lt;font color=orange&gt;&lt;strong&gt;数据指纹（data fingerprint）：&lt;/strong&gt;&lt;/font&gt;(表示数据集的关键属性)&lt;/li&gt;
+&lt;li&gt;&lt;font color=orange&gt;&lt;strong&gt;管道指纹（pipeline fingerprint）：&lt;/strong&gt;&lt;/font&gt;（表示‘管道’关键的优化设计）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;2.我们通过将大多数的理论知识集成为一种启发性规则，来使得上面两者的关系更加的准确，这个规则可以从原有的&lt;strong&gt;data fingerprint&lt;/strong&gt;中生成出&lt;strong&gt;pipeline fingerprint&lt;/strong&gt;（即我可以通过数据的性质来推出它可能需要进行什么样子的训练），同时将硬件的局限条件考虑进去。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;        与专门为不同的训练任务调节不同的参数设置不同的算法不一样的是，nnUNet很容易就能执行系统性的规则，并依据看不见的数据集来生成相关的深度学习的方法，而且还不需要进一步的优化。
+        接下来，我们会证实我们概念的先进性，看看各项挑战究竟是如何在我们的算法之下实现最优的效果的。这些强有力的结果更加证明了，对于那些想要做语义分割的使用者来说，nnUNet的巨大意义：nnUNet作为一款开源工具，可以被轻松的下载和使用，并且轻而易举就可以训练出SOTA级别的模型，甚至不需要专业的知识储备。我们进一步证实了最近的很多医学图像分割方法的缺点。我们尤其深入的的了解了2019年的KiTS挑战，同时证明了与选择一些相当顶尖的先进的Unet网络架构相比，针对不同任务而进行的不同的设计和参数的调整方法似乎更加重要。nnUNet让所有的研究人员对此更加充满热情，这样也就有了更多的实验结论可供参考，无形中为医学图像领域的方法论发展也起到了促进作用。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;2结果&#34;&gt;2.结果&lt;/h2&gt;
+&lt;p&gt;        nnUNet是一个不需要任何实验设计和参数调节就可以为你训练3D医学图像的深度学习语义分割框架。一些对于比较典型的数据集的分割效果在&lt;strong&gt;图一&lt;/strong&gt;中展示。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;(图一)：&lt;strong&gt;nnUNet掌握了数据集的多样性和标签的属性：&lt;/strong&gt; 以上所有的测试集都来自nnUNet对国际上各项挑战赛事的数据集的应用，左边是原数据的标签，右边是nnUNet模型的推理结果。所有这些可视化操作是在MITK上进行的。
+
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/20200704222638819.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;图一&#34; id=&#34;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/20200704222638819.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;图一&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;(图二)：&lt;strong&gt;人为调节的参数和本文提出的自动参数调节对比：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a) 最近普遍的深度学习的步骤：进行迭代式的训练和调参，训练之后评估结果，效果不好则进行调参，调参之后继续训练，最终进行侦测，反复如此；&lt;/li&gt;
+&lt;li&gt;b) nnUNet：
+&lt;ul&gt;
+&lt;li&gt;1.数据&lt;font color=blue&gt;&lt;strong&gt;【无论是训练数据还是测试数据，都具有相对应的属性，即指纹】&lt;/strong&gt;&lt;/font&gt;的属性会被总结成一种“数据指纹”；&lt;/li&gt;
+&lt;li&gt;2.一系列的&lt;font color=orange&gt;&lt;strong&gt;启发式的规则&lt;/strong&gt;&lt;/font&gt;会推理出适合这种指纹的“管道”（由蓝图参数（计划参数）推理得出）：&lt;/li&gt;
+&lt;li&gt;3.上一步推理出的参数，例如image resample、batch_size等，联合起来成为“管道指纹”：&lt;/li&gt;
+&lt;li&gt;4.2D、3D和3D_Cascaded三个网络分别训练，得出各自的模型（三个网络结构共享一个“管道指纹”，&lt;strong&gt;五折交叉&lt;/strong&gt;验证）&lt;/li&gt;
+&lt;li&gt;5.选择出最优的模型进行推理（可以单个进行推理，也可以三个模型一起进行推理）
+
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/20200704231733153.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34; id=&#34;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/20200704231733153.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;在这里插入图片描述&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;1nnunet可以自动适应任何新的数据&#34;&gt;1.nnUNet可以自动适应任何新的数据&lt;/h3&gt;
+&lt;p&gt;        图二(a)展示了近来的多数医学图像分割是如何进行一个新的数据集的训练的。这个过程是“专家驱动”的，而且需要长时间的人为的试错的过程，显然，这样的训练方式对于手头上要处理的数据可能极少有先兆的参考。图二(b)中nnUNet却将这个自适应的过程系统化。
+        因此，我们在此定义了一个类似于“图片大小”这样的标准数据集的属性——&lt;strong&gt;dataset fingerprint&lt;/strong&gt;(数据指纹)，和一个&lt;strong&gt;pipeline fingerprint&lt;/strong&gt;(管道指纹)[&lt;strong&gt;一个训练计划中各个配置的合体&lt;/strong&gt;]。对于一个给定的“数据指纹”，nnUNet负责生成一个指定的“管道指纹”。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在nnUNet中，这些“管道指纹”被分为&lt;strong&gt;蓝图参数&lt;/strong&gt;、&lt;strong&gt;推理参数&lt;/strong&gt;和&lt;strong&gt;经验参数&lt;/strong&gt;。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;1.蓝图参数&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;① 基础的网络架构选择：比如一个朴素的nnUNet网络；&lt;/li&gt;
+&lt;li&gt;② 易于选择的一些表现较好的常用超参数：比如损失函数、训练进度表、数据增强方式；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2.推理参数&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;① 对一个新数据集进行适应性的编码，包括新的网络拓扑结构、patch_size、batch_size和图像预处理；&lt;/li&gt;
+&lt;li&gt;② ‘数据指纹’和‘管道指纹’两者之间的关系可以通过执行一系列&lt;strong&gt;启发式的规则&lt;/strong&gt;来进行建立，而且遇到未知的数据集时也不需要昂贵的反复训练的代价；&lt;/li&gt;
+&lt;li&gt;③ 注意许多的设计选择都是相互依赖的：举个栗子
+&lt;ul&gt;
+&lt;li&gt;
+&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34; data-lang=&#34;mermaid&#34;&gt;  graph LR
+  A[目标图像image_spacing] -- 影响 --&amp;gt; B[image_size]
+  B -- 确定 --&amp;gt; C[训练时的patch]
+  C -- 影响 --&amp;gt; D[网络的拓扑结构]
+  E[mini_batch] --为防止超显存而调整 --&amp;gt; C
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;nnUNet卸去了人为解释这些依赖关系的压力&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;3.经验参数&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;① 经验参数只会在后面的推理时使用，这点从图b可以看出。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;        每进行一次训练，nnUNet都会为此创建三个不同的配置：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2D、3D、3D_cascade
+&lt;ul&gt;
+&lt;li&gt;2D_Unet: 普通的2D_Unet&lt;/li&gt;
+&lt;li&gt;3D_Unet: 对一整张图片像素进行操作&lt;/li&gt;
+&lt;li&gt;3D_cascade: 级联网络：第一个网络对下采样图片进行操作，而第二个网络对前一个网络产生的结果在整个图片的像素上进行调整。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;在进行完交叉验证之后，nnUNet会经验性的选择表现最好的参数，可能是独个的推理结果，也可能是一起推理的结果。在结果可以评估的情况下，把对次优效果的抑制作为一项后处理操作。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;        nnUNet的输出是自适应的，对于未知的数据集，训练完整的模型同样能够做良好的预测。我们通过网络平台对nnUNet背后的方法论进行了深入的描述。我们最重要的设计原则（也就是我们对一个新的数据集训练提出的建议），都在后面附录的B中。而所有分割任务的“管道”的手稿，都放在附录的F中。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2nnunet极佳地掌握了目标标签的结构和数据图片的属性&#34;&gt;2.nnUNet极佳地掌握了目标标签的结构和数据图片的属性&lt;/h3&gt;
+&lt;p&gt;        我们证明了nnUNet作为一个开箱即用的框架的价值：在19个数据集、共囊括49个分割任务上都有良好表现，这些任务包括器官的分割、器官的子结构分割、肿瘤分割、病灶分割等，而且实在多个模态下，例如MRI、CT、EM等。这些竞赛都是国际性的赛事，且被认为是临床实验算法的基准。很明显，举办赛事的人、机构、会社等都是不同的，所以挑战任务也具备独特性，他们的目的是评估在一个标准化的环境下，多个算法的表现。在所有的分割任务中，nnUNet仅仅使用竞赛公布的数据集。nnUNet对“十项全能数据”的方法论做了解释，其他的数据和任务也都进行了独立测试（简单应用并未进行调优）。从本质上说，nnUNet很好的处理了不同数据集的属性和不同标签的结构差异（所有生成的“管道”都被该领域的专家认为是合理甚至明智的）。结果在图一中有展示。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;3nnunet在多个不同任务中的表现都要比一些刻意设计的管道要好&#34;&gt;3.nnUNet在多个不同任务中的表现，都要比一些刻意设计的“管道”要好&lt;/h3&gt;
+&lt;p&gt;        大多数的国际挑战使用dice系数来作为效果的评估标准，dice的衡量标准是1为最优，但也有人用normalized_surface_dice（越大越好）和霍夫距离（越小越好），这两个都可以作为分割的边缘效果的衡量标准。&lt;strong&gt;图三&lt;/strong&gt;展示了nnUNet在49项任务上的量化结果。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;(图三)：&lt;strong&gt;nnUNet的优越之处：&lt;/strong&gt; 这是参加的49项竞赛的结果，红色点是nnUNet的表现结果，而蓝色点是其他队伍的结果。右下角的&lt;strong&gt;rank&lt;/strong&gt;指的是&lt;strong&gt;nnUNet的此次排名/此次竞赛共提交的论文数&lt;/strong&gt;。&lt;strong&gt;DC&lt;/strong&gt;表示&lt;strong&gt;dice&lt;/strong&gt;，&lt;strong&gt;OH&lt;/strong&gt;是另一种衡量的分数（越高越好），&lt;strong&gt;OL&lt;/strong&gt;也是一种衡量分数（越低越好）。该排行截止到2019.12。
+
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/20200705093803405.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;图三&#34; id=&#34;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/20200705093803405.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;图三&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+
+        尽管其他参赛人员针对不同任务进行了反复的调优，但是效果仍然不如自然发生的nnUNet。总的来说，nnUNet总共有29项竞赛表现都成为了SOTA级别，而其他的也相当接近顶级水准。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;4管道配置对结果的影响要比网络结构变化对结果的影响大&#34;&gt;4.“管道”配置对结果的影响要比网络结构变化对结果的影响大&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;(图四)：&lt;strong&gt;来自KiT2019的“管道指纹”：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;a) 展示了各种各样的网络结构的变化，但是前15名全都用了skip_connection、3D卷积和类似于3D_Unet的网络结构，并没有新的变异的结构脱颖而出。同时，这些结构都无法保证足够优秀的结果，这说明网络结构的变化不足以支撑起好的模型效果；&lt;/li&gt;
+&lt;li&gt;b) 这是从所有参赛作品中挑选出来的非级联型且带有残差的、形如3D_Unet的网络的“管道指纹”，他们排名和“管道指纹”差别都相当大。看起来，这些模型的表现和一个独立的参数之间也没有明显的关联。&lt;strong&gt;CE&lt;/strong&gt;: 交叉熵损失；&lt;strong&gt;Dice&lt;/strong&gt;: soft dice loss; &lt;strong&gt;WBCE&lt;/strong&gt;: weighted binary CE。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/2020070510011363.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;图四&#34; id=&#34;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/2020070510011363.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;图四&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+
+        为了强调任务设计的针对性和具体方法的配置的重要性要比整些花里胡哨的网络结构要重要的多，我们对KiT2019的参赛者的作品进行了分析，KiT2019属于MICCAI的竞赛，而MICCAI每年举办几乎一半的医学图像竞赛，该竞赛有100个参赛成员，是竞赛项目里人数最多的。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;我们对这项竞赛的数据分析透露了我们对于近期医学图像分割领域的一些看法：
+&lt;ul&gt;
+&lt;li&gt;1.排名前15的研究都是2016年的3D_UNet的产物；&lt;/li&gt;
+&lt;li&gt;2.使用相同的网络却会产生不同的结果；&lt;/li&gt;
+&lt;li&gt;3.更近一步的观察得出，前15名的研究普遍都没有用一些“高级”的网络设计（残差连接、稠密连接、注意力机制、膨胀卷积），由此可以看出最近很多的网络设计可能还没有最基础的网络效果好。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;        图四则体现了对于使用同样的带有残差的3D_Unet网络架构来说，通过分析算法来进行超参数的调节是多么重要。当一个参赛者用这种方法赢得了竞赛，其他的基于这种规则的参赛作品可能覆盖整个的排行榜。图中选出了所有非级联型的带残差的Unet，并展示了他们的“管道指纹”，结果表明，每个队伍在进行“管道指纹”的设计都依据着这些“指纹”的相关性。这些看起来各有千秋的“管道指纹”，也恰恰证明了利用深度学习做医学图像分割时，超参数要进行高纬度优化的潜在复杂度。
+        nnUNet通过对KiTS的数据集进行实验证明了，好的超参数对结果的利好大于网络结构的变异，而且仅仅用了一个3D_Unet。我们的结论通过被各种参赛者的采纳和引用，不断的被证实。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;5不同的数据集需要不同管道配置&#34;&gt;5.不同的数据集需要不同“管道”配置&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;(图五)：&lt;strong&gt;来自不同竞赛的不同数据集的“管道指纹”：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;以下时nnUNet在19个数据集上的“管道指纹”（&lt;font color=green&gt;&lt;strong&gt;附录A&lt;/strong&gt;&lt;/font&gt;），可见“管道指纹”体现了数据集的关键性质（&lt;font color=red&gt;displayed on z-score normalized scale&lt;/font&gt;）。数据集在他们的属性上体现出了巨大的差异，所以一方面需要很努力的适应不同的数据集，另一方面需要很大量的数据的支撑来得到其方法结论。右下角时三个模态。
+
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/20200705114842912.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;图五&#34; id=&#34;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/20200705114842912.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;图五&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;        我们抽取了19个实验数据集和相对应的“管道指纹”，并展示在图五中。这记录了在医学图像领域，数据集具有超乎寻常的复杂性。同时也暴露了为什么其他算法不如nnUNet的原因：
+        我们进行一次“管道指纹”的设计，要么就是人为的设置，要么就是利用各个“数据指纹”之间的隐藏关系进行设置。结果可能就是，对于一个数据集来说优化的效果很好，而对于其他数据集可能没有什么作用，对于一个新的数据集，就需要人为的不断的进行再建计划和再次优化。比如图片的尺寸会影响patch_size，patch_size会反过来影像网络的拓扑结构（下采样的次数和卷积核的尺寸等），而网络的拓扑结构将再次影响其他的超参数。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;6多任务提升了决策方案的鲁棒性&#34;&gt;6.多任务提升了决策（方案）的鲁棒性&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;(图六)：&lt;strong&gt;对多个任务的决策进行评估”：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;以下时nnUNet在19个数据集上的“管道指纹”（&lt;font color=green&gt;&lt;strong&gt;附录A&lt;/strong&gt;&lt;/font&gt;），可见“管道指纹”体现了数据集的关键性质（&lt;font color=red&gt;displayed on z-score normalized scale&lt;/font&gt;）。数据集在他们的属性上体现出了巨大的差异，所以一方面需要很努力的适应不同的数据集，另一方面需要很大量的数据的支撑来得到其方法结论。右下角时三个模态。&lt;/li&gt;
+&lt;li&gt;&lt;font color=purple&gt;&lt;strong&gt;上段话我省略了作者对该图的解释，所以对该图增加解释，确实只看图难以理解&lt;/strong&gt;&lt;/font&gt;
+&lt;ul&gt;
+&lt;li&gt;1.参考作者对该问题的回答：
+
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/20200802113519465.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34; alt=&#34;1&#34; id=&#34;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/20200802113519465.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70&#34; alt=&#34;1&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;2.下面是我对该图的理解：
+&lt;ul&gt;
+&lt;li&gt;① 只单看左上角的a), 每种颜色对应的是使用了什么样的优化方式，这个BrainTumor的训练集会被作者在进行1000次的5折交叉验证时生成1000个虚拟验证集（这里作者的回答应该是说错了），然后我们在这个训练集上进行9种训练，分别对应下面9种颜色，每种都基于nnUNet本身的“蓝图参数”做一些小的更改（控制变量法），然后让训练的九个模型分别在1000个不同的验证集上进行推理和测试，并将他们进行分数（dice）的排名，mean（就是那个竖线）是1000个排名的平均排名。你所看到的每一个颜色的柱状都是一个模型在不同验证集上的结果。其他几个表一样是这个道理，除了最后一个。&lt;/li&gt;
+&lt;li&gt;② 最后一个是对前面10个做的一次整体性的评估，也就是不管哪个任务的排名，全部总结在这个表里，最终得出的结果是，nnUNet不适用这些方法和技巧，依然可以排名第一保持极高的水平。
+
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/2020070512281911.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;图六&#34; id=&#34;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/2020070512281911.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;图六&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+
+        nnUNet是能够使研发人员不必为不同的数据集人为的调整整个“管道”。为了证明这一点，同时为了支持我们在nnUNet中做的一些核心的设计，我们系统的测试了，nnUNet的蓝图参数结合下面这些用的比较多的配置在十项全能的十个数据集上表现。（图六包含了两个备选损失函数【①CE和②TopK10】、③编码阶段的残差连接、④每层的下采样从两次卷积变为三次卷积【使得网络更深】、两种优化器的修改【⑤一种使减小优化器的冲量，⑥一种是备用的Adam优化器】、⑦用batch_normal来替代instance_normal、以及⑧完全不用任何优化【最最普通的unet网络】）。根据挑战者工具的建议，通过bootstrapping来估计排名的稳定性。
+        各数据集排名的波动性表明，超参数影像图像分割表现的程度取决于数据集。结果清晰的显示，如果是对 一个数目不足的数据集做方法论的评估一定要十分的小心。&lt;font color=red&gt;虽然9个变量中的5个在至少一个数据集中达到了排名1，但它们都没有在10个任务中显示出一致的改进。原始的nnU-Net配置在聚合所有数据集的结果时表现出最佳的泛化效果。&lt;/font&gt;
+        在最近的研究中，一次评估很少用在两个以上的不同的数据集上，甚至两个不同的数据集还可能使同一模态，比如全是CT。就像我们展示的一样，这样的评估方法对于方法论的总结来说使不合理的。我们将缺乏足够广泛的评估与将现有管道调整到单个数据集所需的手动调优工作联系起来。nnU-Net以两种方式缓解了这一缺点：
+&lt;ul&gt;
+&lt;li&gt;作为一个可扩展的框架，支持跨多个任务有效地评估新概念；&lt;/li&gt;
+&lt;li&gt;作为一个即插即用的、标准化和最先进的基准，用于和一些评估做比较。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;3讨论&#34;&gt;3.讨论&lt;/h2&gt;
+&lt;p&gt;        第一段重复了nnUNet无需人为介入且表现优异的先进性。
+        第二段重复改变网络结构对于提升效果的意义不大，而且很多基于一种数据集训练的模型对于新的数据集没有参考价值。
+        第三段重复nnUNet的实际意义：一、对任意数据集可进行相应的调整；二、其对任意数据集的实验结果可以作为一种基准，来评判其他分割算法的好坏。
+        第四段将nnUNet和AutoML等作比较，阐述了它的优点，自动创建决策的时候会消耗更少的资源，而且具有很强的适应性和稳定性。
+        第五段提出nnUNet的局限性：1.举例说明了对于显微镜光学图像的预处理很可能会提升nnUNet的效果；2.nnUNet在两个方面仍然不是最优：&lt;font color=red&gt;① 对于一些潜在的cases，nnUNet自身的启发机制很有可能会随之扩展&lt;/font&gt;；② 对于一些极其专业的领域cases，nnUNet只能作为一个起点。
+        第六段继续重复自己的牛逼之处。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;本文依赖：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/MIC-DKFZ/nnUNet&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;框架源码&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://arxiv.org/pdf/1904.08128.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;论文源址&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;font color=blue&gt;个人对于本文章的解释：
+&lt;ul&gt;
+&lt;li&gt;1.本文的翻译仅建立在个人的知识储备和截止现在为止对nnUNet的使用理解，非常欢迎各位的指正，本人分享理解的目的与论文作者的开源目的如出一辙，希望本框架乃至医学图像分割领域有更广阔的发展空间；&lt;/li&gt;
+&lt;li&gt;2.红字标识是亟待继续理解的部分，很多部分仍然理解的较为浅显，因为尚未进行框架的完全开发使用和对随文目录的理解，本论文附录内容我将持续解读并发表；&lt;/li&gt;
+&lt;li&gt;3.本文将会持续进行修改和更新，框架的相关使用方法和错误处理将会毫无保留的在之后的更新中推出，但碍于研发工作的私密性，训练数据和表现将不便透露，希望老铁们理解。&lt;/li&gt;
+&lt;li&gt;4.nnUNet牛逼！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>About: nnUNet论文方法解析</title>
+      <link>https://Joevaen.github.io/about/nnunet/nnunet2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/about/nnunet/nnunet2/</guid>
+      <description>
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+&lt;section id=&#34;td-cover-block-0&#34; class=&#34;row td-cover-block td-cover-block--height-sm js-td-cover td-overlay td-overlay--dark -bg-primary&#34;&gt;
+  &lt;div class=&#34;container td-overlay__inner&#34;&gt;
+    &lt;div class=&#34;row&#34;&gt;
+      &lt;div class=&#34;col-12&#34;&gt;
+        &lt;div class=&#34;text-center&#34;&gt;
+          
+          
+          &lt;div class=&#34;pt-3 lead&#34;&gt;
+            
+                &lt;div class=&#34;text-left&#34;&gt;
+  &lt;h1 class=&#34;display-1 mb-5&#34;&gt;nnUNet论文方法解析&lt;/h1&gt;&lt;h3 class=&#34;font-weight-light&#34;&gt;《Automated Design of Deep Learning Methods for Biomedical Image Segmentation》&lt;/h3&gt;
+  &lt;/div&gt;
+
+            
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+&lt;/section&gt;
+
+&lt;div class=&#34;container l-container--padded&#34;&gt;
+&lt;div class=&#34;row&#34;&gt;
+
+
+
+
+  
+    &lt;div class=&#34;d-lg-none col-12&#34;&gt;
+      &lt;div class=&#34;td-toc td-toc--inline&#34;&gt;
+  
+      
+        &lt;a id=&#34;td-content__toc-link&#34; class=&#34;collapsed&#34; href=&#34;#td-content__toc&#34; data-toggle=&#34;collapse&#34; aria-controls=&#34;td-page-toc&#34; aria-expanded=&#34;false&#34; aria-label=&#34;Toggle toc navigation&#34;&gt;
+          &lt;span class=&#34;lead&#34;&gt;Contents&lt;i class=&#34;fas fa-chevron-right ml-2&#34;&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;div id=&#34;td-content__toc&#34; class=&#34;collapse&#34;&gt;
+          &lt;nav id=&#34;TableOfContents&#34;&gt;&lt;/nav&gt;
+        &lt;/div&gt;
+        &lt;button id=&#34;td-content__toc-link-expanded&#34; href=&#34;#td-content__toc&#34; class=&#34;btn btn-small ml-1 my-2 py-0 px-3&#34; data-toggle=&#34;collapse&#34; aria-controls=&#34;td-docs-toc&#34; aria-expanded=&#34;true&#34; aria-label=&#34;Toggle toc navigation&#34;&gt;
+        &lt;/button&gt;
+      
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class=&#34;row&#34;&gt;
+&lt;div class=&#34;col-12 col-lg-8&#34;&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;font size=7&gt;&lt;strong&gt;写在前面&lt;/strong&gt;&lt;/font&gt;&lt;font color=purple size=6&gt;&lt;strong&gt;（更新于07.27，由于最近在对推理部分进行加速，更新的有点慢，今天添加一些最近的新理解。紫色字体为更新的认识）&lt;/strong&gt;&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.本文是对该论文涉及的&lt;font face=&#34;华文琥珀&#34; size=4  color=brown&gt;Methods&lt;/font&gt;进行解读和理解，参考上一篇的解读&lt;a href=&#34;https://Joevaen.github.io/about/nnunet/nnunet1/&#34;&gt;论文主体解读&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.&lt;font face=&#34;华文琥珀&#34; size=4  color=red&gt;红色是理解困难部分，正在进行结合附录、第一版nnunet论文、源码进行理解&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3.&lt;font face=&#34;华文琥珀&#34; size=4  color=green&gt;绿色是提到附录的部分&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4.&lt;font face=&#34;华文琥珀&#34; size=4  color=orange&gt;橙色是本文关键字&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5.&lt;font face=&#34;华文琥珀&#34; size=4  color=blue&gt;蓝色是抛出的问题&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;font size=7&gt;&lt;strong&gt;Methods&lt;/strong&gt;&lt;/font&gt; (该部分提到的设计规则可以在&lt;font color=green&gt;&lt;strong&gt;附录B&lt;/strong&gt;&lt;/font&gt;中查看)&lt;/p&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;font size=6&gt;&lt;strong&gt;1.“数据指纹”&lt;/strong&gt;&lt;/font&gt;
+&lt;ul&gt;
+&lt;li&gt;① 整个训练的第一步是将即将要训练的数据集的前景给抠出来（&lt;strong&gt;作者在这里说这个操作对于他们实验的数据来说没有影响，这可能是我在进行预处理时看到前后的图像尺寸没有变化的原因&lt;/strong&gt;）；&lt;/li&gt;
+&lt;li&gt;② nnUNet根据这个得到的crop，来抓取它的相关参数和属性，来组成这个&lt;strong&gt;数据指纹&lt;/strong&gt;，这些参数和属性包括：
+&lt;ul&gt;
+&lt;li&gt;Ⅰ. image_size： 每个空间维度上的体素的个数；&lt;/li&gt;
+&lt;li&gt;Ⅱ. image_spacing：每个体素的物理体积大小；&lt;/li&gt;
+&lt;li&gt;Ⅲ. 模态：头文件获取到的信息；&lt;/li&gt;
+&lt;li&gt;Ⅳ. 类别数：比如我是做单纯的二分类还多分类；&lt;/li&gt;
+&lt;li&gt;Ⅴ. &lt;font color=red&gt;此外，还包括在所有训练案例上计算得到平均值、标准差以及属于任何标签的体素的灰度值的99.5%和0.5%&lt;/font&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/font&gt;&lt;font color=purple size=3&gt;&lt;strong&gt;这部分灰度值的记录在plan.pkl中可以找到，简单的理解就是做归一化的一种行之有效的方式，通过找到训练集中每一套CT的前景像素值进行全局归一化。（具体我会继续研究）&lt;/strong&gt;&lt;/font&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;font size=6&gt;&lt;strong&gt;2.“管道指纹”&lt;/strong&gt;&lt;/font&gt;
+&lt;ul&gt;
+&lt;li&gt;nnUNet将所有应该进行设计的参数缩减到必要的那几个，并且使用&lt;font color=orange&gt;&lt;strong&gt;启发性规则&lt;/strong&gt;&lt;/font&gt;对这些参数进行推理，该规则集成了很多行业内专业的知识，同时对上面提到的“数据指纹”和本地的硬件约束都能起到作用。&lt;/li&gt;
+&lt;li&gt;这些得到的&lt;font color=orange&gt;&lt;strong&gt;推理参数&lt;/strong&gt;&lt;/font&gt;被两种参数所完善：
+&lt;ul&gt;
+&lt;li&gt;第一种：&lt;font color=orange&gt;&lt;strong&gt;蓝图参数&lt;/strong&gt;&lt;/font&gt;，具有数据独立性，不同数据的该参数不同；&lt;/li&gt;
+&lt;li&gt;第二种：&lt;font color=orange&gt;&lt;strong&gt;经验参数&lt;/strong&gt;&lt;/font&gt;，训练期间被优化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;font size=6&gt;&lt;strong&gt;3.“蓝图（计划）参数”&lt;/strong&gt;&lt;/font&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;font color=orange&gt;&lt;strong&gt;一、结构模板&lt;/strong&gt;&lt;/font&gt;：
+&lt;ul&gt;
+&lt;li&gt;nnUNet配置的这几个不同的网络结构都来自于相同的网络模板，这个模板和原始的UNet及其3D版本十分的相近。我们的理论认为，一个配置完好的nnUNet仍然很难被打败，我们提出的网络架构没有使用任何最近十分流行的网络结构，只是进行了一点相对前者那种大刀阔斧的改动来说&lt;font color=orange&gt;&lt;strong&gt;小&lt;/strong&gt;&lt;/font&gt;的多的&lt;font color=orange&gt;&lt;strong&gt;改变&lt;/strong&gt;&lt;/font&gt;。为了适应更大的patch_size，nnUNet把网络的batch_size设计的更小。事实上，大多数3D-Unet的batch_size都只有2（参见&lt;font color=green&gt;&lt;strong&gt;附录E.1a&lt;/strong&gt;&lt;/font&gt;）。Batch_normalization是用来干什么的呢？BN是用来加速训练同时保持训练稳定的，小的batch_size往往无法体现BN的价值。针对这种情况，&lt;font color=orange&gt;&lt;strong&gt;我们所有的nnUNet的架构都使用了instance_normalization&lt;/strong&gt;&lt;/font&gt;。更进一步的，我们用&lt;font color=orange&gt;&lt;strong&gt;Leaky_Relu代替Relu（负轴上斜率为0.01）&lt;/strong&gt;&lt;/font&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;font color=orange&gt;&lt;strong&gt;二、深监督训练&lt;/strong&gt;&lt;/font&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;font color=orange&gt;&lt;strong&gt;1.网络结构的一些改变&lt;/strong&gt;&lt;/font&gt;：.除了解码阶段的最底下两层，我们给解码器的每一层都加了额外的损失，&lt;font color=red&gt;这样使得梯度信息能够更深层的注入网络，同时促进网络中所有层的训练&lt;/font&gt;。所有的Unet网络在同一个像素层次上，都用的一样的操作，无论是编码区还是在解码区（都是一个卷积 + 一个instance_normalization + Leaky_Relu）。下采样是一个具有步幅长度的卷积，上采样是一次卷积的转置操作。为了平衡训练效果和显存消耗，最初的feature_map的大小被设定为32，如果要做一次下采样那么这个大小缩小一半，如果做上采样则会变成原来的两倍。为了限制最终生成的模型的大小，feature_map的数量也被做了一定的限制，比如，3D_Unet被限制在320而2D_Unet被限制在512。&lt;/li&gt;
+&lt;li&gt;&lt;font color=orange&gt;&lt;strong&gt;2.训练时间表&lt;/strong&gt;&lt;/font&gt;：
+&lt;ul&gt;
+&lt;li&gt;Ⅰ.根据以往的一些经验，同时为了增加训练的时效性，我们用一轮大于 &lt;font color=orange&gt;&lt;strong&gt;250的mini_batch&lt;/strong&gt;&lt;/font&gt;，来把网络训练&lt;font color=orange&gt;&lt;strong&gt;1000轮&lt;/strong&gt;&lt;/font&gt;。随机梯度下降的方法采用&lt;font color=orange&gt;&lt;strong&gt;μ = 0.99的nesterov的梯度下降&lt;/strong&gt;&lt;/font&gt;，同时&lt;font color=orange&gt;&lt;strong&gt;初始学习率为0.01.学习率的衰减遵循poly原则&lt;/strong&gt;&lt;/font&gt;，即
+$$
+(1-epoch/epoch_{max})^{0.9},
+$$
+设计的损失函数是&lt;font color=orange&gt;**（交叉熵损失和 + dice_loss）**&lt;/font&gt;，&lt;font color=purple&gt;**所以你得到的损失最优为-1，只要是在下降的就是正确的，损失的最小值没有意义**&lt;/font&gt;。
+为了得到每一个深度监督的输出，它对应的每一次分割后mask的ground_truth都用来计算损失，训练的对象就是这每一层的损失的和：
+$$
+L=w_1*L_1|w_2*L_2|w_3*L_3|&amp;hellip;,
+$$
+根据这种方式，在每一次分辨率降低（下采样）时&lt;font color=orange&gt;**权重减半**&lt;/font&gt;，就会使得：
+$$
+w_2=(1/2)*w_1;w_3=(1/4)*w_1,&amp;hellip;
+$$
+同时将这些&lt;font color=orange&gt;**权重归一化**&lt;/font&gt;到和为1。&lt;/li&gt;
+&lt;li&gt;Ⅱ. mini_batch的样本都是从训练案例之中随机选择的，通过采用&lt;font color=orange&gt;&lt;strong&gt;过采样&lt;/strong&gt;&lt;/font&gt;的方式来控制样本不均衡的带来的稳定性问题：&lt;font color=red&gt;Oversampling is implemented to ensure robust handling of class imbalances: 66.7% of samples are from random locations within the selected training case while 33.3% of patches are guaranteed to contain one of the foreground classes that are present in the selected training sample (randomly selected ).The number of foreground patches is rounded with a forced minimum of 1 (resulting in 1 random and 1 foreground patch with batch size 2).&lt;/font&gt;&lt;/li&gt;
+&lt;li&gt;Ⅲ.在训练的运行过程中其实是用到了很多的数据增强的方法，详情参照&lt;font color=green&gt;&lt;strong&gt;附录D&lt;/strong&gt;&lt;/font&gt;：
+&lt;ul&gt;
+&lt;li&gt;① 旋转&lt;/li&gt;
+&lt;li&gt;② 缩放&lt;/li&gt;
+&lt;li&gt;③ 高斯加噪&lt;/li&gt;
+&lt;li&gt;④ 高斯模糊&lt;/li&gt;
+&lt;li&gt;⑤ 亮度处理&lt;/li&gt;
+&lt;li&gt;⑥ 对比度处理&lt;/li&gt;
+&lt;li&gt;⑦ &lt;font color=red&gt;低分辨率仿真&lt;/font&gt;&lt;/li&gt;
+&lt;li&gt;⑧ &lt;font color=red&gt;Gamma（灰度系数）&lt;/font&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;font color=orange&gt;&lt;strong&gt;3.推理部分&lt;/strong&gt;&lt;/font&gt;：
+图像的推理预测是通过滑动窗口进行的，而窗口的大小等于训练时的patch_size，相邻的patch尺寸的预测（即滑动一次的两个块）具有一半的重叠比例。&lt;font color=purple&gt;&lt;strong&gt;分割的准确率随着窗口边界的增大而降低。为了抑制拼接伪影，减少靠近边界位置的影响，采用高斯重要度加权，增加softmax聚合中中心体素的权重&lt;/strong&gt;&lt;/font&gt;。&lt;font color=red&gt;&lt;strong&gt;（我现在的理解是这部分与推理一并进行，一个个的patch类似于一yolo的滑动窗口，但是这部分的时间真的太慢了！！！）&lt;/strong&gt;&lt;/font&gt;&lt;font color=purple&gt;&lt;strong&gt;通过沿所有轴进行镜像来增加测试时间,我将镜像去掉剪短了推理时间，一定程度上也损失了精度&lt;/strong&gt;&lt;/font&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;font size=6&gt;&lt;strong&gt;4.“推理参数”&lt;/strong&gt;&lt;/font&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;font color=orange&gt;&lt;strong&gt;1.色彩强度（灰度）归一化&lt;/strong&gt;&lt;/font&gt;：
+nnUNet支持两种灰度归一化的方式：
+* ① 对于除了CT之外的其他所有模态的归一化方法是z-scoring：在训练和推理过程中，先对每幅图像分别进行减去他们的强度平均值，同时除以他们的标准差来进行归一化。&lt;font color=red&gt;If cropping resulted inan average size decrease of 25% or more, a mask for central non-zero voxels is created and the normalization is applied within that mask only, ignoring the surrounding zero voxels&lt;/font&gt;（如果裁剪导致平均尺寸减少25%或更多，则创建中心体素不是0的mask&lt;font color=red&gt;&lt;strong&gt;（mask的大小？）&lt;/strong&gt;&lt;/font&gt;，并只在该掩模内应用标准化，忽略周围的零体素）
+* ② 那么对于CT图的计算，就换用了另外一种方法：因为CT图的每一层各个像素的灰度值是一个定量并且反映的是该切片上的一些物理属性，因此这种有利于使用全局归一化的方式，来应用到所有的图片上面。&lt;font color=red&gt;To this end, nnU-Net uses the 0.5 and 99.5 percentiles of the foreground voxels for clipping as well as the global foreground mean a standard deviation for normalization on all images. &lt;/font&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;font color=orange&gt;&lt;strong&gt;2.重采样&lt;/strong&gt;&lt;/font&gt;：
+       在一些数据集中，尤其是医学图像中，&lt;font color=purple&gt;&lt;strong&gt;voxel_spacing&lt;/strong&gt;&lt;/font&gt;（体素块间距）是一个非常重要的属性，而且这个属性通常是很多样的（有些厚有些薄）。但是我们卷积处理图像的时候是在处理一个数组或者tensor，是没有这个voxel_spacing的信息的，为了适应这种spacing很多样的特征，就需要用到一些插值算法，比如说三阶样条插值、线性插值、临近插值等。对于具备各向异性的图片（spacing最大的那个轴的spacing / spacing最小的那个轴的spacing 是大于3的）来说，平面内（x轴, y轴）的插值采用的是&lt;font color=purple&gt;&lt;strong&gt;三阶样条插值&lt;/strong&gt;&lt;/font&gt;，而平面外（z轴）的插值用的是&lt;font color=purple&gt;&lt;strong&gt;最邻近插值&lt;/strong&gt;&lt;/font&gt;。对z轴进行不同的插值方法会抑制重采样的伪影，比如如果voxel_spacing很大，那两个相邻切片的边缘的变化就通常很大。
+       对于分割图像的重采样其实是通过将他们转换成&lt;font color=purple&gt;&lt;strong&gt;独热编码&lt;/strong&gt;&lt;/font&gt;。每一个通道都要用一次&lt;font color=purple&gt;&lt;strong&gt;线性插值&lt;/strong&gt;&lt;/font&gt;，然后再用&lt;font color=purple&gt;&lt;strong&gt;argmax&lt;/strong&gt;&lt;/font&gt;对分割图片进行恢复。再者，对于各项异性图片来说，是在低分辨率的那几层进行&lt;font color=purple&gt;&lt;strong&gt;最邻近插值&lt;/strong&gt;&lt;/font&gt;。
+&lt;ul&gt;
+&lt;li&gt;&lt;font color=purple size=4&gt;&lt;strong&gt;2.1 谈一下推理部分的重采样到底是如何进行的，结合第三篇的B.2的4&lt;/strong&gt;&lt;/font&gt;
+       这里说起来有点绕，我们这样做分析：
+&lt;ul&gt;
+&lt;li&gt;采样的对象：
+&lt;ul&gt;
+&lt;li&gt;① 训练时输入的标签和推理时输出的标签：独热编码后进行线性插值，&lt;/li&gt;
+&lt;li&gt;② 训练时输入的数据和推理时输入的数据：
+&lt;ul&gt;
+&lt;li&gt;Ⅰ. 各向同性则不进行z轴的插值，xy使用临近插值；&lt;/li&gt;
+&lt;li&gt;Ⅱ. 各向异性则对xy进行最邻近插值，对z进行三阶样条插值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;显然，和我上面说的有出入，但这是代码里的呈现，所以我怀疑论文里面的部分写反了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;font color=orange&gt;&lt;strong&gt;3.Target-Spacing(&lt;font color=purple&gt;&lt;strong&gt;看上面部分&lt;/strong&gt;&lt;/font&gt;)&lt;/strong&gt;&lt;/font&gt;：
+       目标间距:选择的目标间距是一个关键参数。更大的间隔导致更小的图像，从而丢失细节，而更小的间隔导致更大的图像，阻止网络积累足够的上下文信息，因为patch的大小受到给定GPU内存预算的限制。虽然3D U-Net级联部分解决了这个问题，但仍然需要合理的目标间距来实现低分辨率和全分辨率。对于3D全分辨率U-Net, nnU-Net使用每个轴独立计算的训练用例中间隔的中值作为默认目标间距。对于各向异性数据集，这种默认会导致严重的插值伪影，或者由于训练数据在分辨率上的巨大差异而导致大量信息丢失。因此，当体素和间距各向异性(即最低间距轴与最高间距轴之比)均大于3时，在训练案例中，选择最低分辨率轴的目标间距为间距的第10个百分位。对于2D U-Net, nnU-Net通常在分辨率最高的两个轴上运行。如果三个轴都是各向同性的，则利用两个后向轴进行切片提取。目标间距是训练案例的中值间距(每个轴独立计算)。对于基于切片的处理，不需要沿面外轴重新采样。
+&lt;ul&gt;
+&lt;li&gt;&lt;font color=purple size=4&gt;&lt;strong&gt;3.1 谈一下推理部分的target_spacing到底是如何选择的，结合第三篇的B.2的4&lt;/strong&gt;&lt;/font&gt;
+       以我自己训练的50套CT数据为例，这些CT原来的spacing有些一样，有些不一样。我将训练生成的plan.pkl文件进行了具体的查看，里面汇总了训练数据集所有的相关属性，包括他们的模态、尺寸、三个方向上的spacing等。我选取了一个尺寸为（ 122, 512, 512），spacing为（[3.        , 0.64999998, 0.64999998]）的数据进行推理测试。推理时，我将采样后的结果打印，为{&amp;lsquo;spacing&amp;rsquo;: ([1.25      , 0.74121118, 0.74121118]), &amp;lsquo;data.shape : ( 293, 449, 449)}。
+       按照作者对该算法的描述，因为3 &amp;gt; 0.64x3，所以这个数据属于各向异性的数据，那么z轴的插值应当取排列后的10%的数。我对此进行了计算，50个数据中，spacing为1.25的有11个，其余都比1.25大，显然我的target_spacing就应该是1.25(作者诚不欺我)。而当我计算x轴和y轴上的target_spacing时，发现并不是10%的那个值，反而是中位数。说明一点，无论我待测的CT是各向同性还是各向异性的，x，y轴上的target_spacing应当是所有排列以后的中位数（median），而z轴的target_spacing则因性而异，各向同性则为中位数，各项异性则为10%的那个数。
+       因为仍然怀疑正确性，我找了另一个各向同性的CT来进行测试。但是我发现，target_spacing仍然和上面一样，于是我检查代码，发现在推理的时候，target_spacing是从训练时生成的plan.pkl中读取的，也就是一个固定的值，无关异性还是同性。这个问题我会在github上做一个提问。
+       让我做一下思考：
+       ①我的推理结果和我的训练数据息息相关，假如我的训练数据的spacing都相等，那么我的推理数据也会以同样的spacing进行插值。
+       ②我的待推理数据与他自身属性之间的关系，反而没有它和训练数据属性之间的关系大？无论你原来什么样子，你的spacing终究会和输进网络训练的那个东西的spacing一样。这是否意味着，训练集的质量相当重要？如果我的训练数据的源头一致，那么这个源头产生的测试集，也会具有更好的精准度？
+       ③z轴越大插值时间越久，CT的原spacing越小需要插值的次数就越多。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;font color=orange&gt;&lt;strong&gt;4.网络拓扑、patch_size、batch_size的自适应性&lt;/strong&gt;&lt;/font&gt;：
+&lt;ul&gt;
+&lt;li&gt;① 寻找一个合适网络拓扑结构对于得到一个优秀的分割表现相当的重要。在一定的GPU显存的限制下，nnUNet优先选择一个大的patch_size，更大的patch_size会获取到更多的上下文的信息，这显然能提高模型的表现。但是，相对应的代价就是要减小batch_size（同时很大肯定占显存），而减小batch_size就会使反向传播的梯度下降变得不稳定（有时候学的好有时候学的坏，因为输入的不同batch的数据差距大）。为了提高训练的稳定性，我们提出一个值为2的mini_batch同时在网络训练时加入一个大的动量项（&lt;strong&gt;蓝图参数&lt;/strong&gt;里有）。&lt;/li&gt;
+&lt;li&gt;② 图像的spacing也被作为自适应的一部分去考虑：
+&lt;font color=red&gt;下采样的操作很可能只在某个特定的轴上进行操作，3D_Unet的卷积核可能对特定的平面进行操作（伪2D）。所有U-Net配置的网络拓扑都是根据重新采样后图像尺寸的中值以及重新采样到的目标间距来选择的。&lt;/font&gt;&lt;font color=green&gt;&lt;strong&gt;附录E.1&lt;/strong&gt;&lt;/font&gt;有一个流程图展示了这个自适应的流程。接下来会探讨更多的网络结构模板的自适应的细节，通常都不会以昂贵的计算力为代价。因为GPU的内存消耗估计是基于feature_map的大小，而这个适应过程和feature_map的关系很小，所以不需要GPU参与这个进程。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;font color=orange&gt;&lt;strong&gt;5.初始化&lt;/strong&gt;&lt;/font&gt;：
+       patch_size被初始化成重采样以后的图像尺寸的中位数，如果这个patch_size不能被$$2^{n_d}（下采样的次数）$$整除，那么将会对图像进行填充。&lt;/li&gt;
+&lt;li&gt;&lt;font color=orange&gt;&lt;strong&gt;6.拓扑结构&lt;/strong&gt;&lt;/font&gt;：
+&lt;ul&gt;
+&lt;li&gt;① 网络结构通过确定每根轴上的下采样次数，而这个下采样的次数，又取决于patch_size的大小和voxel_spacing的大小。&lt;/li&gt;
+&lt;li&gt;② 下采样会一直进行，除非上一个下采样会把feature_map的尺寸减小到4个体素以下，或者特征图的spacing是各向异性的。&lt;/li&gt;
+&lt;li&gt;③ 下采样策略是被体素间隔（voxel_spacing）来确定的，&lt;font color=red&gt;&lt;strong&gt;high resolution axes are downsampled separately until their resolution is within factor 2 of the lower resolution axis（高分辨率轴分别向下采样，直到它们的分辨率在低分辨率轴的2倍之内？）&lt;/strong&gt;&lt;/font&gt;&lt;font color=blue&gt;&lt;strong&gt;【低分辨率是如何设计好的？】&lt;/strong&gt;&lt;/font&gt;，随后所有的轴同时进行下采样。所有轴的下采样是分别中止的，分别终止于他们的特征图的尺寸达到某个它们各自的限制条件。&lt;/li&gt;
+&lt;li&gt;④ 3D_Unet和2D_Unet默认的卷积核的大小分别是3x3x3和3x3。&lt;font color=red&gt;&lt;strong&gt;If there is an initial resolution discrepancy between axes (defined as a spacing ratio larger than 2), the kernel size for the out-of-plane axis is set to 1 until the resolutions are within a factor of 2. Note that the convolutional kernel size then remains at 3 for all axes.&lt;/strong&gt;&lt;/font&gt; &lt;font color=blue&gt;&lt;strong&gt;【这里的轴到到底是什么意思？通道上也采样？卷积核为1尺寸不是不变化？】&lt;/strong&gt;&lt;/font&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;font color=orange&gt;&lt;strong&gt;7.对GPU内存限制的自适应&lt;/strong&gt;&lt;/font&gt;：
+       patch_size的大小是根据GPU 的大小尽可能大的进行设定的。由于在重新采样后，patch_size的大小被初始化为图像尺寸的中值大小，所以对于大多数数据集来说，patch_size最初太大了，无法适应GPU。nnU-Net根据网络feature_map的大小来估计给定架构的内存消耗，并将其与已知内存消耗的参考值进行比较。然后在迭代过程中减少patch_size的大小，同时在每个步骤中相应地更新架构配置，直到达到所需的预算(参见&lt;font color=green&gt;&lt;strong&gt;附录E.1&lt;/strong&gt;&lt;/font&gt;)。缩小patch_size的大小总是应用在数据相对于图像中值形状的最大轴上。 &lt;font color=red&gt;&lt;strong&gt;The reduction in one step amounts to 2^(n_d) voxels of that axis, where nd is the number of downsampling operations.&lt;/strong&gt;&lt;/font&gt;&lt;/li&gt;
+&lt;li&gt;&lt;font color=orange&gt;&lt;strong&gt;8.batch_size&lt;/strong&gt;&lt;/font&gt;：
+       最后一步是配置batch_size。如果执行了减少patch_size大小的操作，则批大小设置为2。否则，剩余的GPU内存空间将会用来增加batch_size，直到GPU被充分利用为止。为了防止过拟合，对batch_size进行了限制，使mini_batch中的体素总数不超过所有训练案例体素总数的5%。&lt;font color=green&gt;&lt;strong&gt;附录C1&amp;amp;C2&lt;/strong&gt;&lt;/font&gt;给出了生成U-Net架构的例子。&lt;/li&gt;
+&lt;li&gt;&lt;font color=orange&gt;&lt;strong&gt;9.3D_Unet_cascade是如何配置的&lt;/strong&gt;&lt;/font&gt;：
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;① 在下采样数据上进行模型分割增大了与图像相关的patch_size，这样可以使网络获取更多的上下文信息，但这是以牺牲模型在一些细节或者纹理上的分割表现为代价的。假设有一个显存无穷大的GPU，那么最好的patch_size应当覆盖整个图像大小。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;② 3D_UNet_cascade是如何模拟patch_size无穷大这个过程：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ⅰ 先用3D_Unet在下采样数据集上跑一个模型；&lt;/li&gt;
+&lt;li&gt;Ⅱ 再用一个全像素的3D_Unet来修正前者的分割效果；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;利用这种方法，低分辨率下采样层会获得更大的上下文信息，以此来生成它的分割输出，这个输出作为一个新的通道加入到下一个模块的输入中。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;③ 这个级联什么时候会被使用：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ⅰ仅仅当3d_full_resolution的patch_size小于图像尺寸中值的12.5%使会使用级联，如果这个事件发生了，那么下采样数据的target_spacing和低分辨率部分的网络架构将会再一个迭代过程中被共同配置。&lt;/li&gt;
+&lt;li&gt;Ⅱ 这个迭代过程是这样的：初始化的target_spacing是全像素的target_spacing，为了让patch_size占据整个图的合适的一部分，在更新网络结构的过程中，逐渐每次增加1%的target_spacing，直到网络拓扑的patch_size超过目前图像尺寸中值的25%，如果目前的spacing是各向异性的（ &lt;font color=red&gt;factor 2 difference between lowest and highest resolution axis&lt;/font&gt;）&lt;font color=blue&gt;&lt;strong&gt;【究竟医学图像的各向异性如何解释？】&lt;/strong&gt;&lt;/font&gt;，那就只有更高分辨率的轴的spacing会被增大。&lt;/li&gt;
+&lt;li&gt;Ⅲ 第二个3D_Unet的配置和独立的3D_Unet的上面的配置是一样的，除了第一个UNet的上采样的分割图与它的输入是condatenated。&lt;font color=green&gt;&lt;strong&gt;附录E.1b&lt;/strong&gt;&lt;/font&gt;就是这个优化过程的描述。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;font size=6&gt;&lt;strong&gt;5.“经验参数”&lt;/strong&gt;&lt;/font&gt; ：
+&lt;ul&gt;
+&lt;li&gt;① &lt;font color=orange&gt;&lt;strong&gt;推理模式&lt;/strong&gt;&lt;/font&gt;：
+       nnUNet会在推理时根据训练集中的验证dice表现来自动选择配置——是选择单个推理方式还是选择一起推理方式。
+       四种单个推理模式：2D、3D_full resolution、3Dliangl_lower resolution &amp;amp;the full resolution of the cascade。
+       合作推理模式：四个模式中两两进行组合来实现合作推理。
+       &lt;font color=red&gt;&lt;strong&gt;通过平均sofmax概率对模型进行综合。&lt;/strong&gt;&lt;/font&gt;&lt;/li&gt;
+&lt;li&gt;② &lt;font color=orange&gt;&lt;strong&gt;后处理&lt;/strong&gt;&lt;/font&gt;：
+       &lt;font color=red&gt;&lt;strong&gt;Connected Components算法（连通分支算法）&lt;/strong&gt;&lt;/font&gt;在医学图像领域非常常用，尤其是在器官分割中，经常用于去除最大的连接组件，从而来消除假阳性。nnU-Net同样用到这个方法，并自动对交叉验证中抑制较小组件的效果进行测试：首先所有的前景会被当做一个组件（多类别的1、2、3都被当做1），如果对除最大区域以外的所有分支的抑制提高了前景的平均dice而没有减小任何类别的dice，这一步将会被选择作为第一步的后处理步骤。最终，nnUNet会依靠这个步骤的表现来衡量要不要把相同的步骤用于不同的类别上。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>About: nnUNet论文附录解析</title>
+      <link>https://Joevaen.github.io/about/nnunet/nnunet3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/about/nnunet/nnunet3/</guid>
+      <description>
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+&lt;section id=&#34;td-cover-block-0&#34; class=&#34;row td-cover-block td-cover-block--height-sm js-td-cover td-overlay td-overlay--dark -bg-primary&#34;&gt;
+  &lt;div class=&#34;container td-overlay__inner&#34;&gt;
+    &lt;div class=&#34;row&#34;&gt;
+      &lt;div class=&#34;col-12&#34;&gt;
+        &lt;div class=&#34;text-center&#34;&gt;
+          
+          
+          &lt;div class=&#34;pt-3 lead&#34;&gt;
+            
+                &lt;div class=&#34;text-left&#34;&gt;
+  &lt;h1 class=&#34;display-1 mb-5&#34;&gt;nnUNet论文附录解析&lt;/h1&gt;&lt;h3 class=&#34;font-weight-light&#34;&gt;《Automated Design of Deep Learning Methods for Biomedical Image Segmentation》&lt;/h3&gt;
+  &lt;/div&gt;
+
+            
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+&lt;/section&gt;
+
+&lt;div class=&#34;container l-container--padded&#34;&gt;
+&lt;div class=&#34;row&#34;&gt;
+
+
+
+
+  
+    &lt;div class=&#34;d-lg-none col-12&#34;&gt;
+      &lt;div class=&#34;td-toc td-toc--inline&#34;&gt;
+  
+      
+        &lt;a id=&#34;td-content__toc-link&#34; class=&#34;collapsed&#34; href=&#34;#td-content__toc&#34; data-toggle=&#34;collapse&#34; aria-controls=&#34;td-page-toc&#34; aria-expanded=&#34;false&#34; aria-label=&#34;Toggle toc navigation&#34;&gt;
+          &lt;span class=&#34;lead&#34;&gt;Contents&lt;i class=&#34;fas fa-chevron-right ml-2&#34;&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;div id=&#34;td-content__toc&#34; class=&#34;collapse&#34;&gt;
+          &lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#b1-蓝图参数&#34;&gt;B.1 蓝图参数&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#1-网络架构设计决策&#34;&gt;1. 网络架构设计决策&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#2-选择最好的unet配置&#34;&gt;2. 选择最好的UNet配置&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#3-训练计划&#34;&gt;3. 训练计划&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#4-推理&#34;&gt;4. 推理&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#b2-推理参数&#34;&gt;B.2 推理参数&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#1网络动态自适应&#34;&gt;1.网络动态自适应&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#2输入patch_size的配置&#34;&gt;2.输入patch_size的配置&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#3-batch_size&#34;&gt;3. batch_size&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#4目标间隔和重采样&#34;&gt;4.目标间隔和重采样&lt;/a&gt;
+          &lt;ul&gt;
+            &lt;li&gt;&lt;a href=&#34;#font-face华文琥珀-size5--colorpurple41-更新于727修改了对于推理中的预处理部分的理解请务必仔细看第二篇解读新增部分421来理解font&#34;&gt;&lt;font face=&#34;华文琥珀&#34; size=5  color=purple&gt;4.1： 更新于7.27，修改了对于推理中的预处理部分的理解，请务必仔细看第二篇解读新增部分4.2.1来理解。&lt;/font&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#5强度归一化&#34;&gt;5.强度归一化&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#b3-经验参数&#34;&gt;B.3 经验参数&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#c1-acdc&#34;&gt;C.1 ACDC&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#figure-c1是nnunet为acdc生成的管道&#34;&gt;Figure C.1是nnUNet为ACDC生成的“管道”：&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#1-数据描述&#34;&gt;1. 数据描述&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#2-强度归一化&#34;&gt;2. 强度归一化&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#3-2d_unet&#34;&gt;3. 2D_UNet&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#4-3d_unet&#34;&gt;4. 3D_UNet&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#5-3d_unet_cascade&#34;&gt;5. 3D_UNet_cascade&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#6-训练和后处理&#34;&gt;6. 训练和后处理&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#c2-lits&#34;&gt;C.2 LiTS&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#figure-c1是nnunet为lits生成的管道&#34;&gt;Figure C.1是nnUNet为LiTS生成的“管道”：&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#1-数据描述-1&#34;&gt;1. 数据描述&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#2-强度归一化-1&#34;&gt;2. 强度归一化&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#3-2d_unet-1&#34;&gt;3. 2D_UNet&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#4-3d_unet-1&#34;&gt;4. 3D_UNet&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#font-colorred5-3d_unet_cascadefont&#34;&gt;&lt;font color=red&gt;&lt;strong&gt;5. 3D_UNet_cascade&lt;/strong&gt;&lt;/font&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#5训练和后处理&#34;&gt;5.训练和后处理&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#1-一般数据增强&#34;&gt;1. 一般数据增强&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#2-特别数据增强&#34;&gt;2. 特别数据增强&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#g1-减少网络训练的数目&#34;&gt;G.1 减少网络训练的数目&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#g2-减少gpu的显存&#34;&gt;G.2 减少GPU的显存&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+        &lt;/div&gt;
+        &lt;button id=&#34;td-content__toc-link-expanded&#34; href=&#34;#td-content__toc&#34; class=&#34;btn btn-small ml-1 my-2 py-0 px-3&#34; data-toggle=&#34;collapse&#34; aria-controls=&#34;td-docs-toc&#34; aria-expanded=&#34;true&#34; aria-label=&#34;Toggle toc navigation&#34;&gt;
+        &lt;/button&gt;
+      
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class=&#34;row&#34;&gt;
+&lt;div class=&#34;col-12 col-lg-8&#34;&gt;
+&lt;p&gt;&lt;strong&gt;1.本文是对该论文涉及的&lt;font face=&#34;华文琥珀&#34; size=4  color=brown&gt;Methods&lt;/font&gt;进行解读和理解，参考前两篇的解读&lt;a href=&#34;https://blog.csdn.net/weixin_42061636/article/details/107132396&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;论文主题解读&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;和&lt;a href=&#34;https://blog.csdn.net/weixin_42061636/article/details/107160735&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;主要方法解读&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/strong&gt;
+&lt;strong&gt;&lt;font face=&#34;华文琥珀&#34; size=5  color=purple&gt;1.更新于7.27，添加对于推理中的预处理部分的理解，请务必参考第二篇解读来理解。
+2.更新于7.31，添加对网络配置等的理解&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;a-font-face华文琥珀-size5dataset-detailsfont&#34;&gt;A. &lt;font face=&#34;华文琥珀&#34; size=5&gt;Dataset details&lt;/font&gt;&lt;/h1&gt;
+&lt;p&gt;       table A提供了包含数据集来源的手稿，这里记录的数值都是通过这些对应的数据集计算出来的。
+           1.打 * 的代表数据集中有多重标注（还没有具体看一下有什么差别）
+           2.MSD的肝脏数据集做了一些小的修改&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;b-font-face华文琥珀-size5--colorrednnu-net-design-principles启发式规则的设计font&#34;&gt;B. &lt;font face=&#34;华文琥珀&#34; size=5  color=red&gt;nnU-Net Design Principles（启发式规则的设计）&lt;/font&gt;&lt;/h1&gt;
+&lt;p&gt;       这里提到了一些nnUNet的principles，阐述了他们的概念。可以根据网上的代码来具体了解下这些是怎么实现的。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;b1-蓝图参数&#34;&gt;B.1 蓝图参数&lt;/h2&gt;
+&lt;h3 id=&#34;1-网络架构设计决策&#34;&gt;1. 网络架构设计决策&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;① 形如UNet的网络架构，只要设置足够好管道参数，就能达到SOTA水平。根据我们的经验，花里胡哨的网络结构的变异对于提升模型表现并不是必要的。&lt;/li&gt;
+&lt;li&gt;② 我们的网络仅仅使用了平面的卷积、instance_normalization和Leaky_Relu，每一个采样块的操作就是卷积 &amp;mdash;-&amp;gt; instance_normalization &amp;mdash;&amp;ndash;&amp;gt; Leaky_Relu。&lt;/li&gt;
+&lt;li&gt;③ 我们在同一像素的stage（对称位置）的编码区域和解码区域都使用这个采样块（需要看下拓扑图确定有几块）&lt;/li&gt;
+&lt;li&gt;④ 下采样是有步长的卷积（新的分辨率层的第一块的卷积的步长 &amp;gt; 1）。上采样采用的是转置卷积。我们注意到，并未观察到该方法与其他方法(如最大池法、bi/ triinear上行采样法)在分割精度上的实质性差异。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-选择最好的unet配置&#34;&gt;2. 选择最好的UNet配置&lt;/h3&gt;
+&lt;p&gt;       很难确切的说在某种数据集上哪种配置最好。为了达到这个目的，nnUNet设计了以下三个独立的网络配置，同时，nnUNet可以根据交叉验证（看下后面的推理参数）的结果为你自动选择一个最好的网络配置。预测什么数据集需要什么配置是未来的一个研究方向。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;① 2D_Unet：在全像素数据上运行。对于具备各向异性的数据，我们期待这个发挥更大的功效；&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;② 3D_full_resolution_Unet：在全像素数据上运行。patch_size被GPU的显存所限制，但这个基本在所有的数据上的都保证了好的表现。但是，对于一些大的数据来说，patch_size可能会有点小，不足以获得足够的上下文信息。&lt;/li&gt;
+&lt;li&gt;③ 3D_low_resolution_Unet: 这部分要先训练，才能进行cascade的训练。本身这个网络也具备一定的分割能力。&lt;/li&gt;
+&lt;li&gt;③ 3D_UNet_cascade：专门为一些大体积的数据而设计，首先，用一个3D_Unet在低分辨率上进行一次粗糙的图像分割，然后通过第二个3D_Unet对之前生成的分割图像进行一次在高分辨率上的操作。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;3-训练计划&#34;&gt;3. 训练计划&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;① 首先使epoch：所有的训练都按照初始的1000epoch在跑，每一轮要进行250次的迭代（使用nnUNet）。经验之谈，训练的时间越短可能效果越好。&lt;/li&gt;
+&lt;li&gt;② 现在说一下优化阶段：经验之谈，0.01的初始学习率和nesterov动量规则会有最好的效果。训练之中使用&amp;quot;poly_Learning_Rate&amp;quot;来进行学习率的衰减，几乎使学习率线性下降为0。&lt;/li&gt;
+&lt;li&gt;③ 数据增强：数据增强对于实现最好的效果十分有必要，但是在整个训练过程中运用动态的数据增强会更好，同时.&lt;font color=red&gt; with associated probabilities to obtain a never ending stream of unique examples (&lt;font color=green&gt;&lt;strong&gt;参考Section D&lt;/strong&gt;&lt;/font&gt; )&lt;/font&gt;。&lt;/li&gt;
+&lt;li&gt;④ 样本类别平衡问题：对于医学图像领域来说，这是一个棘手的问题。对于前景的过采样可以很好的解决找个问题，但是也别采样的太过分，因为网络也会注意到背景数据的一些变化。&lt;/li&gt;
+&lt;li&gt;⑤ Dice损失函数对于处理样本类别平衡问题也很合适，但是也有它自己的缺点。Dice损失直接可以对评估算法进行优化，但是因为patch是基于训练的，所以实际中仅仅是近似它。而且，实验中发现类别的过采样会使得类别分布有一定的倾斜。因此，经验之谈，我们将Dice loss和CE loss进行组合，以此来增加训练的稳定性和分割的精度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;4-推理&#34;&gt;4. 推理&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;① 每一折的验证集都会被这一折独立训练出来的模型进行验证。每一折训练一个模型只是为了之后做组合来预测。&lt;/li&gt;
+&lt;li&gt;② 推理阶段的patch和训练阶段的patch是一致的，&lt;font color=red&gt;不建议使用全卷积的推理方式，因为这样会导致0填充卷积和Instance_normalization的问题&lt;/font&gt;。&lt;/li&gt;
+&lt;li&gt;③ 为了避免拼接出现的伪影，通过设置1/2的patch_size大小的距离来进行临近点预测。边缘部分的预测将更不精确，这就是为什么我们要为softmax的聚类使用&lt;font color=red&gt;高斯重要性加权&lt;/font&gt;（中心点的权重比边缘的权重更高）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;b2-推理参数&#34;&gt;B.2 推理参数&lt;/h2&gt;
+&lt;p&gt;       这些参数在数据集中不是固定的，而是根据你自己的准备训练的数据的“数据指纹”（数据属性的低纬度表示），在训练过程中进行动态调整的。&lt;/p&gt;
+&lt;h3 id=&#34;1网络动态自适应&#34;&gt;1.网络动态自适应&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;① 在训练过程中，网络结构需要自动适应输入patch的尺寸和spacing，以确保网络能接受的区域大小覆盖整个输入；&lt;/li&gt;
+&lt;li&gt;② 不断的进行下采样来聚合信息，直到特征图达到最小值（4x4x4）。&lt;/li&gt;
+&lt;li&gt;③ &lt;font color=red&gt;因为编码阶段和解码阶段的每个像素层的block的数量都是固定的，那么网络的深度就会与输入patch_size的大小相对应。网络中卷积层的总数（包括分割层）应该是
+$$
+5 * k +2,
+$$
+其中，k是下采样的次数（5 per downsampling stems from 2 convs in
+the encoder, 2 in the decoder plus the convolution transpose）&lt;/font&gt;。&lt;/li&gt;
+&lt;li&gt;④ 除了解码器的最底下两层之外，所有的解码层都用了额外的损失函数，只为让更多的梯度信息注入网络中。&lt;/li&gt;
+&lt;li&gt;⑤ 对于各向异性的数据来说，池化会只在平面之间进行，&lt;font color=red&gt;直到轴之间的像素值匹配为止&lt;/font&gt;。刚开始时3D卷积会使用一个1x1大小的卷积核来在平面外的轴（z）上进行卷积，通过这种方式来防止离得较远的切片产生信息的聚合。一旦这个轴越卷越小，下采样就会单独为这个轴停止卷积。【&lt;font color=blue&gt;&lt;strong&gt;z轴的1x1卷积核什么时候变的，不变的话如何让z越卷越小的呢？&lt;/strong&gt;&lt;/font&gt;】&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2输入patch_size的配置&#34;&gt;2.输入patch_size的配置&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;① 在batch_size为2的基础上，同时受到GPU的限制patch_size应当越大越好，这样所能得到的上下文的信息就越大。&lt;/li&gt;
+&lt;li&gt;② patch大小的纵横比应该是，训练的每一套CT重采样以后的中值形状。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;3-batch_size&#34;&gt;3. batch_size&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;batch_size的最小值应当为2，因为如果是在minibatch的更少的样本下训练，梯度下降中的噪声将会增多。&lt;/li&gt;
+&lt;li&gt;&lt;font color=red&gt;如果GPU的显存在设置完patch_size之后仍然有剩余，那么应该不断增大batch_size直到显存溢出&lt;/font&gt;【&lt;font color=blue&gt;&lt;strong&gt;为什么我训练的时候并不增长呢？&lt;/strong&gt;&lt;/font&gt;】。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;4目标间隔和重采样&#34;&gt;4.目标间隔和重采样&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;① 对于各向同性的数据，所有训练集CT的体素尺寸的中位数作为默认值。然后利用三阶样条插值（对数据）和线性插值（像训练的标签那样的独热编码分割图）进行重采样，会得出一个比较好的结果。&lt;/li&gt;
+&lt;li&gt;② 对于各向异性的数据，平面以外的轴（z）的目标间隔应当比这个轴上的中位数要小，这样就会生成尽量高分辨率的图像，可以减少重采样的伪影。为了实现这样的操作，我们把所有该轴上的spacing的值从小到大排列，取在第10%位置的那个数，作为最终的目标间隔。z轴的重采样无论是对数据还是对标签（one-hot），都采用最临近插值算法插值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;font-face华文琥珀-size5--colorpurple41-更新于727修改了对于推理中的预处理部分的理解请务必仔细看第二篇解读新增部分421来理解font&#34;&gt;&lt;font face=&#34;华文琥珀&#34; size=5  color=purple&gt;4.1： 更新于7.27，修改了对于推理中的预处理部分的理解，请务必仔细看第二篇解读新增部分4.2.1来理解。&lt;/font&gt;&lt;/h4&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;5强度归一化&#34;&gt;5.强度归一化&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;对除了CT外的其他模态的方法：对每张图片进行Z-Score（每个像素值减去所有像素平均值，然后除以标准差）是一个好的默认方法。&lt;/li&gt;
+&lt;li&gt;对CT的方法：上面设置的Z-Score是默认的，而nnUNet对CT采用不同的方法，比如通过找到训练集中每一套CT的前景像素值进行全局归一化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;b3-经验参数&#34;&gt;B.3 经验参数&lt;/h2&gt;
+&lt;p&gt;       这些参数是不能通过数据指纹简单得到的，是需要监督训练过后的验证表现来确定的。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;① 模型选择：
+即使是当3D_full_resolution_UNet整体表现都不错的时候，一个特定任务的最好模型选择都不可能很精准。因此，nnUNet会生成3个UNet配置并且会在交叉验证后自动选择一个表现最好的方法（独立或者结合）；&lt;/li&gt;
+&lt;li&gt;② 后处理：
+医学图像数据的目标结构经常包含一个实例，所以这个先验知识经常被来进行图像分割，即通过连接分支分析算法来进行预测，同时移除除了最大组件外的所有其他组件。是否应用这个算法是由交叉验证之后的验证表现决定的。总的来说，就是通过移除最大组件之外的其他组件可以明显提高Dice系数的时候，后处理会被触发。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;c-font-face华文琥珀-size5--colorredanalysis-of-exemplary-nnu-net-generated-pipelines可效仿的nnunet自生成管道的分析font&#34;&gt;C. &lt;font face=&#34;华文琥珀&#34; size=5  color=red&gt;Analysis of exemplary nnU-Net-generated pipelines（可效仿的nnUNet自生成管道的分析）&lt;/font&gt;&lt;/h1&gt;
+&lt;p&gt;       在这个部分，我们会简短的介绍以下D13(ACDC)和D14(LiTS)两个数据集的实验结果，这样对于nnUNet怎么设计“管道”以及为什么设计“管道”就会有一个直观的理解。&lt;/p&gt;
+&lt;h2 id=&#34;c1-acdc&#34;&gt;C.1 ACDC&lt;/h2&gt;
+&lt;h3 id=&#34;figure-c1是nnunet为acdc生成的管道&#34;&gt;Figure C.1是nnUNet为ACDC生成的“管道”：&lt;/h3&gt;
+&lt;p&gt;
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/20200708203008530.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;pipe&#34; id=&#34;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/20200708203008530.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;pipe&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;1-数据描述&#34;&gt;1. 数据描述&lt;/h3&gt;
+&lt;p&gt;       ACDC是MICCAI在2017年举办的竞赛，这是&lt;a href=&#34;https://acdc.creatis.insa-lyon.fr&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;数据集地址&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;。在这个竞赛中，参赛者被要求从心脏的MRI中分割出右心室、左心肌和左心室的腔。每个病例对应着两个标签，所以100个病例对应的标签的个数总共是200。电影磁共振成像的一个关键特性是切片采集在多个心跳周期和屏气中进行。这将导致有限的切片数量，从而导致低的平面外分辨率（z）以及切片图像失调的可能性。图C.1提供了nnUNet为这个数据集生成的“管道”的一个摘要。这个典型的图片形状是（每个轴上的中位数）9x237x256，而体素大小是10x1.56x1.56mm。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-强度归一化&#34;&gt;2. 强度归一化&lt;/h3&gt;
+&lt;p&gt;       对于MRI图像来说，nnUNet的归一化方式是：图片的像素值（强度值）先减去他们的均值，再除以他们的标准差。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;3-2d_unet&#34;&gt;3. 2D_UNet&lt;/h3&gt;
+&lt;p&gt;       1.56x1.56mm是确定的平面内的目标间隔的大小，这一点上是和3D_full_resolution_UNet一样的。因为2D_Unet仅仅对每一层的切片进行操作，所以它的平面外的轴（z）的像素值不会发生变化，这就导致不同的数据集往往这个值都是不同的。按照线上的方法，2D_Unet有一个256x224大小的patch_size，能够完全覆盖典型的图像重采样之后的尺寸（237x208）。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;4-3d_unet&#34;&gt;4. 3D_UNet&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;这个数据集尺寸和间隔的各向异性导致了，在3D_full_resolution_UNet的情况下，平面外轴（z）的目标间隔被设定为5mm（这个值依旧是按照之前所述的规则，即将所有病例的目标间隔进行排序，然后选择处于第10%这个位置的目标间隔的值）。在这个ACDC数据集中，因为层与层的间隔很大，所以层与层的分割边缘也会很大。选择更小的目标间隔就会使得上采样用于训练和下采样用于输出分割的图片更多。选择这个变量而不是中值变量的原因正是如此，产生更多的图片用于上采样和下采样，自然也就能够有利于消除插值伪影。&lt;/li&gt;
+&lt;li&gt;同时，注意这个z轴的重采样要用最邻近插值，3D_full_resolution在重采样之后的中值图片形状是18x237x208.而线上的方法所述的这个nnUNet进行网络训练的patch_size是20x256x224，对用的能够适应GPU的batch_size是3。&lt;/li&gt;
+&lt;li&gt;注意在3D_UNet中，卷积核是如何从1x3x3（2D的3x3卷积核对于本身是十分有效的）开始计算的。原因是因为，体素间隔的差距很大并且每一层有太大的差距，所以图像信息的聚合可能并不是那么有用（卷积核的z轴方向大小为1，即使是换成2，因为z轴方向上的体素大小不同，信息差距也大，这样卷没有意义）。类似地，平面内的池化也用1x2x2的卷积核，&lt;font color=red&gt;直到平面内轴和平面外轴的间距小于1/2，仅仅在间隔大小和池化的大小大致相当时，卷积核才变得各向同性&lt;/font&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;5-3d_unet_cascade&#34;&gt;5. 3D_UNet_cascade&lt;/h3&gt;
+&lt;p&gt;       由于上一个3D_UNet已经覆盖了整个中值图像尺寸，因此UNet_cascade是没必要的。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;6-训练和后处理&#34;&gt;6. 训练和后处理&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;在训练过程中，为3D_UNet在平面内使用空间增强的手段（例如缩放和旋转），仅仅是为了消除不同的切片进行重采样以后造成的插值伪影。&lt;/li&gt;
+&lt;li&gt;对于每个UNet配置都使用五折交叉验证，我们分别进行推理，以确保病例被合适地分层（因为每个病例有两张图片）。幸亏有交叉验证这种手段，让nnUNet可以在整个数据集上进行验证和结合。最后，着五个交叉验证被合在一起。nnUNet通过计算所有病例所有分割出来地前景地平均dice，得出一个标量值，从而来衡量模型的表现。详细的信息在这里不做赘述（&lt;font color=green&gt;&lt;strong&gt;附录F&lt;/strong&gt;&lt;/font&gt;里有提到）。根据这个评估的方法，2D_UNet的得分是0.9165，3D_full_resolution的得分是0.9181，结合推理的得分是0.9228。因此，结合推理的方法将会用来进行预测测试集的效果。&lt;/li&gt;
+&lt;li&gt;后处理在结合推理中进行了配置，去小分支算法对于分割右心房和左心腔十分有用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;c2-lits&#34;&gt;C.2 LiTS&lt;/h2&gt;
+&lt;h3 id=&#34;figure-c1是nnunet为lits生成的管道&#34;&gt;Figure C.1是nnUNet为LiTS生成的“管道”：&lt;/h3&gt;
+&lt;p&gt;
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/20200709155158244.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;LiTS&#34; id=&#34;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/20200709155158244.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;LiTS&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;1-数据描述-1&#34;&gt;1. 数据描述&lt;/h3&gt;
+&lt;p&gt;       LiTS也是2017的MICCAI的竞赛项目，并且提供了质量相当高的数据集，是用来分割肝脏和肝脏肿瘤的数据集。有131套CT用来训练，70套用来测试，同时测试的标签只有举办方知道。 中值图像尺寸为432x512x512，对应的体素间隔是1x0.77x0.77。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-强度归一化-1&#34;&gt;2. 强度归一化&lt;/h3&gt;
+&lt;p&gt;       CT的每个体素的强度值是和每层切片的定量物理属性有关系的，因此我们期望得到的强度值是相对连续的。nnUNet将这个属性加以利用，所以采用了全局强度归一化的方法（与上一个ACDC相反）。
+       最后，nnUNet将归一化以后的强度信息作为数据指纹的一部分：所有的样本中，属于任何前景（肝脏和肝脏瘤）的归一化后的强度值被收集起来，然后，&lt;font color=red&gt;&lt;strong&gt;Then, the mean and standard deviations of these values as well as their 0.5 and 99.5 percentiles are computed. Subsequently, all images are normalized by clipping them to the 0.5 and 99.5 percentiles, followed by subtraction of the global mean and division by the global standard deviation.（这些强度值的均值和标准差，以及均值的0.5%和标准差的99.5%都会用来计算。随后，所有的图像会被归一化到0.5%和99.5%，之后减去全局均值再除以全局标准差。）&lt;/strong&gt;&lt;/font&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;3-2d_unet-1&#34;&gt;3. 2D_UNet&lt;/h3&gt;
+&lt;p&gt;       2D_UNet的目标间隔被设定为NAx0.77x0.77mm（通过所有训练案例中的中值体素间隔来确定）。因为2D_UNet仅仅在切片上进行操作，所以z轴不用管。对训练案例的重采样会导致一个NAx512x512的中值图像尺寸（NA说明这个轴没有进行重采样）。由于这个尺寸是中值尺寸，所以在训练集中的CT尺寸可能大于它也可能小于它。2D_UNet配置patch_size是512x512，batch_size为12。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;4-3d_unet-1&#34;&gt;4. 3D_UNet&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;1.3D_UNet的目标间隔被设定为1x0.77x0.77mm（通过所有训练案例中的中值体素间隔来确定）。因为中值间隔几乎是各向同性的，nnUNet在此不会使用ACDC中的10th_percentile的方法来确定z轴上的间隔。&lt;/li&gt;
+&lt;li&gt;2.重采样的策略是由每张切片决定的：
+&lt;ul&gt;
+&lt;li&gt;如果该切片是各向同性的（间隔最大的轴的间隔 / 间隔最小的轴的间隔 &amp;lt; 3），就会用三阶样条插值对原始训练数据切片进行插值，然后用线性插值对数据切片对应的标签切片进行插值（对标签的插值，要在重采样之前将标签切片转换成独热编码，之后插值完了以后再转换成标签格式）。&lt;/li&gt;
+&lt;li&gt;如果该切片是各向异性的，nnUNet在z轴的重采样应该像ACDC那样做。（&lt;font color=blue&gt;&lt;strong&gt;这里说明了一点：对于CT图像的3D_UNet来说，xyz的插值都要进行，如果一个切片是各向同性的，在三个轴上的插值算法都一样，均为三阶样条插值（data）和线性插值（seg），如果一个切片是各向异性的，xy仍然采取之前的策略，而z轴的插值就要采用ACDC的方法进行插值&lt;/strong&gt;&lt;/font&gt;）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;3.在重采样以后，中值图像尺寸为482x512x512。因为要在GPU允许的情况下尽可能给大patch_size，在这个大的patch_size情况下尽可能增大batch_size。因此3D_UNet的patch_size的大小为128x128x128，对应的batch_size为2（启发性规则限定下允许的最小值）。由于输入的patch基本上都有各向同性的间隔，所以所有的卷积核尺寸和下采样的步长都是各向同性的（3x3x3和2x2x2）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;font-colorred5-3d_unet_cascadefont&#34;&gt;&lt;font color=red&gt;&lt;strong&gt;5. 3D_UNet_cascade&lt;/strong&gt;&lt;/font&gt;&lt;/h3&gt;
+&lt;p&gt;       尽管nnUNet优先选择较大的patch，3D_full_resolution_UNet对于覆盖更多的上下文信息来说仍然太小了（仅仅覆盖了重采样后的中值图片尺寸的1/60），这可能会导致分类的错误，因为缩小的太严重了，比如说，这样就会很难区分脾脏和肝脏。nnUNet就是为了应对这种问题，通过首先用3D_UNet训练一个下采样的数据，然后提取出低分辨率的输出作为第二个UNet的输入。使用我们线上描述的步骤（比如&lt;font color=green&gt;&lt;strong&gt;方法4&lt;/strong&gt;&lt;/font&gt;和&lt;font color=green&gt;&lt;strong&gt;图E.1 b&lt;/strong&gt; &lt;/font&gt;），low_resolution_3D_UNet的目标间隔被设定为2.47x1.9x1.9，会生成一个尺寸为195x207x207的中值图像。3D_UNet_low_resolution的patch为128x128x128，batch_size为2。注意这些配置和3D_UNet是完全一致的，但是其他对于其他数据集来说不一定是这样。如果3D_full_resolution_UNet的数据是各向异性的，那么nnUNet会优先对高分辨率的轴进行下采样，从而生成一个不同的网络结构、patch_size和batch_size。在3D_low_resolution_UNet进行完五折交叉验证之后，每次交叉验证的验证集的分割图像就会上采样至3D_full_resolution_UNet的目标间隔。而这个级联方式中的full_resolution_UNet（和一般的3D_full_resolution_UNet一样）就会被训练用于修正粗糙的分割图像，并且改正遇到的错误（通过把上采样分割图的独热编码和网络的输入联系起来）。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;5训练和后处理&#34;&gt;5.训练和后处理&lt;/h3&gt;
+&lt;p&gt;       所有的网络配置都依赖于五折交叉验证，nnUNet会一次次地计算所有类别地前景的dice分数，由此生成一个标量，从而估计所该有的配置。基于这个评估方法，2D的score是0.7625，3D_full_resolution_UNet是0.8044，cascade的low_resolution的分数为0.7796而full_resolution的分数为0.8017，组合后的最好分数是0.8111。后处理会在组合模式的基础上进行，会通过对前景使用去小连接分支算法，通过这样的方法可以比较好的提升模型的表现。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;d-font-face华文琥珀-size5--colorreddetails-on-nnu-nets-data-augmentationnnunet数据增强的细节font&#34;&gt;D &lt;font face=&#34;华文琥珀&#34; size=5  color=red&gt;Details on nnU-Net’s Data AugmentationnnUNet（数据增强的细节）&lt;/font&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;1-一般数据增强&#34;&gt;1. 一般数据增强&lt;/h2&gt;
+&lt;p&gt;       训练期间应用了很多数据增强的手段，所有的数据增强都在CPU上进行计算。数据增强的“管道”使用了我们之前分享的一个数据增强包：&lt;a href=&#34;https://github.com/MIC-DKFZ/batchgenerators&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;batchgenerators&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;。不同数据集之间的数据增强参数不变。
+       采样的patch比刚开始的用于训练的patch_size要大，这导致在应用旋转和缩放时，在数据增强期间引入的边界值(这里是0)更少。所以，要在旋转和缩放的时候，将patch从中心开始抠图成最后的patch_size大小。为了确保原始数据的边界出现在最终的patch中，最开始的抠图部分可能会延伸到图像的边界外。
+       空间内的增强（旋转、缩放、低分辨率模拟）被应用在3D_Unet的3D、2D_Unet的2D、或者带有各向异性patch_size的3D_UNet（patch_size的最长边比最小边大三倍）。
+       为了增强生成patch的可变性，大多数的增强都因为一些参数而不同（取自好的某个范围之内）。比如，x ∼ U(a, b)就代表x是从a和b的均匀分布间进行取值。而且，所有的增强都是根据预先设定的概率随机地应用的。
+       下面是nnUNet运用的数据增强方法（按照标出的顺序）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;font size=4 color=red&gt;&lt;strong&gt;1. 旋转和缩放&lt;/strong&gt;&lt;/font&gt;
+&lt;ul&gt;
+&lt;li&gt;旋转和缩放的一起应用有助于加快计算的速度，这个方法将需要的数据插值的次数减少到1。使用缩放和旋转的概率各为0.2（只缩放的概率为0.16，只旋转的概率为0.16，两个都触发的概率为0.08）。&lt;/li&gt;
+&lt;li&gt;旋转：如果是要处理各向同性的3D patch，应该让x、y、z三个轴分别在（-30，30）之间均匀随机取值。如果这个patch是各向异性的（或者2D）旋转的角度采样范围应为（-180，180）。如果2D的patch_size是各向异性的，角度应当在（-15，15）采样。&lt;/li&gt;
+&lt;li&gt;缩放：缩放是通过将坐标与体素网格中的缩放因子相乘实现的。因此，比例因子小于1会产生“缩小”效果，而数值大于1会产生“放大”效果。对于所有的patch类型，尺度因子从U(0.7, 1.4)中采样。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;font size=4 color=red&gt;&lt;strong&gt;2. 高斯加噪&lt;/strong&gt;&lt;/font&gt;
+&lt;ul&gt;
+&lt;li&gt;将零中心的加性高斯噪声独立地添加到样本中的每个体素中。这个增加的概率为0.15。噪声的方差是从U(0, 0.1)提取的(注意，由于强度归一化，所有样本中的体素强度均值和单位方差都接近于零)。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;font size=4 color=red&gt;&lt;strong&gt;3. 高斯模糊&lt;/strong&gt;&lt;/font&gt;
+&lt;ul&gt;
+&lt;li&gt;每个样本使用高斯模糊的概率是0.2。但是如果在一个样本中应用了这个模糊，与之相关的模态的应用概率变为0.5（单一模态为0.1）。&lt;/li&gt;
+&lt;li&gt;高斯核的宽应当从每一个模态在（0.5，1.5）均匀随机采样。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;font size=4&gt;&lt;strong&gt;4. 亮度处理&lt;/strong&gt;&lt;/font&gt;
+&lt;ul&gt;
+&lt;li&gt;体素强度要以0.15的概率与在（0.7， 1.3）均匀随机采样的值相乘。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;font size=4&gt;&lt;strong&gt;5. 对比度处理&lt;/strong&gt;&lt;/font&gt;
+&lt;ul&gt;
+&lt;li&gt;体素强度以0.15的概率与在（0.65，1.5）均匀随机采样的值相乘，乘完之后把这个值裁剪到他们原始强度范围内。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;font size=4 color=red&gt;&lt;strong&gt;6. 低像素仿真&lt;/strong&gt;&lt;/font&gt;
+&lt;ul&gt;
+&lt;li&gt;这种增强以每个样本0.25和每个相关模态0.5的概率应用。触发的模态需要采用最近邻插值以U（1，2）向下采样，然后使用三次插值将其采样回原始大小。对于2D patch或各向异性3D patch，这种增强只应用于2D中，而使平面外轴(如果适用)保持其原始状态。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;font size=4 color=red&gt;&lt;strong&gt;7. 伽马增强&lt;/strong&gt;&lt;/font&gt;
+&lt;ul&gt;
+&lt;li&gt;This augmentation is applied with a probability of 0.15. The patch intensities are scaled to a factor of [0, 1] of their respective value range. Then, a nonlinear intensity transformation is applied per voxel: inew = iγold with γ ∼ U(0.7, 1.5). The voxel intensities are subsequently scaled back to their original value range. With a probability of 0.15, this augmentation is applied with the voxel intensities being inverted prior to transformation: (1 1 inew) = (1 1 iold)γ. 【32页】&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;font size=4 color=red&gt;&lt;strong&gt;8. 镜像&lt;/strong&gt;&lt;/font&gt;
+&lt;ul&gt;
+&lt;li&gt;patch的所有轴都按照0.5的概率进行镜像。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2-特别数据增强&#34;&gt;2. 特别数据增强&lt;/h2&gt;
+&lt;p&gt;       对于UNet_cascade的full_resolution_UNet来说，额外对low_resolution_3D_UNet生成的mask采用下面的增强方法。注意这个mask是按独热编码进行保存的。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;font size=4 color=red&gt;&lt;strong&gt;1. 二值操作&lt;/strong&gt;&lt;/font&gt;
+&lt;ul&gt;
+&lt;li&gt;对所有的labels以0.4的概率进行这个二值操作，这个操作是从膨胀、腐蚀、开操作、闭操作中随机选取的。结构元素是一个半径为r ~ U(1,8)的球体。该操作以随机顺序应用于标签。因此，独热编码特性被保留。例如，一个标签的膨胀会导致膨胀区域的所有其他标签被移除。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;font size=4 color=red&gt;&lt;strong&gt;2. 小连接分支移除&lt;/strong&gt;&lt;/font&gt;
+&lt;ul&gt;
+&lt;li&gt;小于15% patch大小的连通分支以0.2的概率从独热编码中移除。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;e--font-face华文琥珀-size5-colorrednetwork-architecture-configuration网络结构配置font&#34;&gt;E  &lt;font face=&#34;华文琥珀&#34; size=5 color=red&gt;Network Architecture Configuration（网络结构配置）&lt;/font&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;font color=green&gt;&lt;strong&gt;图E.1&lt;/strong&gt; &lt;/font&gt;为在线方法中描述的架构配置的迭代过程提供了可视化的帮助。
+
+
+&lt;figure class=&#34;text-center&#34;&gt;
+  &lt;img class=&#34;modal-trigger&#34; src=&#34;https://img-blog.csdnimg.cn/20200710112942644.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;图E.1&#34; id=&#34;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; data-toggle=&#34;modal&#34; data-target=&#34;#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;/&gt;
+
+  &lt;div class=&#34;modal&#34; id=&#34;modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34;&gt;
+    &lt;div class=&#34;modal-dialog modal-lg modal-dialog-centered&#34;&gt;
+      &lt;div class=&#34;modal-body&#34;&gt;
+        &lt;img src=&#34;https://img-blog.csdnimg.cn/20200710112942644.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center&#34; alt=&#34;图E.1&#34;/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;f-font-face华文琥珀-size5-colorred-summary-of-nnu-net-challenge-participationsnnunet参加过的一些竞赛的摘要font&#34;&gt;F &lt;font face=&#34;华文琥珀&#34; size=5 color=red&gt; Summary of nnU-Net Challenge Participations（nnUNet参加过的一些竞赛的摘要）&lt;/font&gt;&lt;/h1&gt;
+&lt;p&gt;       这一块的总结我会另开一篇文章来讲，会设计到具体的实践项目分析。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;g-font-face华文琥珀-size5-colorredusing-nnu-net-with-limited-compute-resources在有限的资源下使用nnunetfont&#34;&gt;G &lt;font face=&#34;华文琥珀&#34; size=5 color=red&gt;Using nnU-Net with limited compute resources（在有限的资源下使用nnUNet）&lt;/font&gt;&lt;/h1&gt;
+&lt;p&gt;       降低计算复杂度是驱动网络设计的关键动机之一。对于大多数用户和研究人员来说，运行由nnU-Net生成的所有配置应该是可管理的。然而，在计算资源极其稀缺的情况下，也有一些捷径可走。&lt;/p&gt;
+&lt;h2 id=&#34;g1-减少网络训练的数目&#34;&gt;G.1 减少网络训练的数目&lt;/h2&gt;
+&lt;p&gt;       nnUNet总共有四种网络类型：2D、3D_full_res、3D_lower_res、3D_cascade。每个进行五种交叉验证，就是共有20个模型要训练，每个模型都需要几天时间训练，所以必然会面对计算资源的匮乏。我们提出了两个策略去解决接下来的问题。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.人工的选择UNet的网络模板配置
+       总的来说，3D_full_res表现出最好的效果。因此，这个配置是一个好的起点，并且能很简单的作为一个默认设置。使用者能够决定是否需要进行这么多个训练，只训练一个nnUNet的配置也是可行的，比如只用3D_full_res的五折交叉运算。
+       要学会利用一些专业知识来大致估计你最适合的网络模板是什么。比如对于高度各向异性的图片，就很有可能最适合跑2D_Unet，但这也不是绝对的。对于一些非常大的图片，3D级联的方法就很有可能表现最好，因为包含了足够的上下文信息，但是这也只是在目标需要一个大的接受野时才成立。比如你需要检测神经突触这种结构，就只需要关注局部信息，这时候3D_full_res效果最好。&lt;/li&gt;
+&lt;li&gt;2.不要用五折交叉验证跑所有的模型。
+       选一个可能不错的来跑五折交叉验证，但是对于级联的网络一定要用五折交叉验证，因为他会生成一些可靠的mask去输入下一个网络，而这个mask就是依赖五折交叉验证来得到的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;g2-减少gpu的显存&#34;&gt;G.2 减少GPU的显存&lt;/h2&gt;
+&lt;p&gt;       【笔者经验】我的nnUNet框架在RTX8000（48g）上运行速度，占用8g左右显存，运行时间450s一轮，时间和2080Ti基本相同。在1070上也可以运行，一轮650s左右（只要小于8g都可以）。
+       但是，当我在一个GPU上同时运行nnUNet的两项训练任务，计算时间成线性增加，比如两个nnUNet训练进程在一张卡上，每个的速度都会降低一倍，三个就会降低三倍。
+       加入准备用于个人学习，20系列只要显存满足都可以，假如作为研究使用，建议多购置几张2080ti（11g），每张卡上跑一个。&lt;/p&gt;
+
+      </description>
+    </item>
     
   </channel>
 </rss>

@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.82.1" />
+
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-512x512.png" sizes="512x512">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/site.webmanifest">
+<title>对多个单分类数据集中训练，实现单个多分类的分割 | gRPC</title>
+<meta property="og:title" content="对多个单分类数据集中训练，实现单个多分类的分割" />
+<meta property="og:description" content="对多个单分类数据集中训练，实现单个多分类的分割       Contents   1.介绍 2.相关工作 3.方法  假设条件： 目标： 原理图： 3.1 基础模型 3.2 Conditioning（条件限制） 3.3 应用与问题   4. 实验  4.1 Ablation experiments  4.1.1 主要内容 4.1.2 不同类别之间空间连接信息的重要性 4.1.3 自然图像的适用性     5 讨论        讲在前面  一.论文地址在这里 一.首先要非常感谢张同学提供的这么一篇论文以及相当重要的理解，为了进一步的理解和学习这篇论文，我决定对其进行深层的挖掘： 二.我设计了几种字体颜色用于更加醒目地表现关键的思想和主题：  红色表示本文的重要关键信息 绿色表示此处需要参考的论文其他部分 橙色表示尚未理解透彻的一些概念 我会用删除线将自己曾经不到位的理解进行删除   三.一些关键信息总结（对于理解整篇论文都相当有必要，按照文中意思进行的理解）： 四.目的：我现在面临模型线性推理的耗时问题，因为一个器官对应一个模型，我想进行多器官分割的时候就会面对时间成本提高的问题，同时我的不同器官的标签暂时还存在于不同的数据源上，且以现在的能力和资源无法解决将多个单器官模型融合为一个多器官模型从而实现多分类的问题。只能从训练的起点来寻找解决问题的方案。 五.意义：  1.腹部多器官分割模型性能的提升； 2.解决某器官的数据集标注耗时问题（胰腺）； 3." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Joevaen.github.io/showcase/paper/paper8/" /><meta property="article:section" content="showcase" />
+
+<meta property="og:site_name" content="gRPC" />
+
+<meta itemprop="name" content="对多个单分类数据集中训练，实现单个多分类的分割">
+<meta itemprop="description" content="对多个单分类数据集中训练，实现单个多分类的分割       Contents   1.介绍 2.相关工作 3.方法  假设条件： 目标： 原理图： 3.1 基础模型 3.2 Conditioning（条件限制） 3.3 应用与问题   4. 实验  4.1 Ablation experiments  4.1.1 主要内容 4.1.2 不同类别之间空间连接信息的重要性 4.1.3 自然图像的适用性     5 讨论        讲在前面  一.论文地址在这里 一.首先要非常感谢张同学提供的这么一篇论文以及相当重要的理解，为了进一步的理解和学习这篇论文，我决定对其进行深层的挖掘： 二.我设计了几种字体颜色用于更加醒目地表现关键的思想和主题：  红色表示本文的重要关键信息 绿色表示此处需要参考的论文其他部分 橙色表示尚未理解透彻的一些概念 我会用删除线将自己曾经不到位的理解进行删除   三.一些关键信息总结（对于理解整篇论文都相当有必要，按照文中意思进行的理解）： 四.目的：我现在面临模型线性推理的耗时问题，因为一个器官对应一个模型，我想进行多器官分割的时候就会面对时间成本提高的问题，同时我的不同器官的标签暂时还存在于不同的数据源上，且以现在的能力和资源无法解决将多个单器官模型融合为一个多器官模型从而实现多分类的问题。只能从训练的起点来寻找解决问题的方案。 五.意义：  1.腹部多器官分割模型性能的提升； 2.解决某器官的数据集标注耗时问题（胰腺）； 3.">
+
+<meta itemprop="wordCount" content="281">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="对多个单分类数据集中训练，实现单个多分类的分割"/>
+<meta name="twitter:description" content="对多个单分类数据集中训练，实现单个多分类的分割       Contents   1.介绍 2.相关工作 3.方法  假设条件： 目标： 原理图： 3.1 基础模型 3.2 Conditioning（条件限制） 3.3 应用与问题   4. 实验  4.1 Ablation experiments  4.1.1 主要内容 4.1.2 不同类别之间空间连接信息的重要性 4.1.3 自然图像的适用性     5 讨论        讲在前面  一.论文地址在这里 一.首先要非常感谢张同学提供的这么一篇论文以及相当重要的理解，为了进一步的理解和学习这篇论文，我决定对其进行深层的挖掘： 二.我设计了几种字体颜色用于更加醒目地表现关键的思想和主题：  红色表示本文的重要关键信息 绿色表示此处需要参考的论文其他部分 橙色表示尚未理解透彻的一些概念 我会用删除线将自己曾经不到位的理解进行删除   三.一些关键信息总结（对于理解整篇论文都相当有必要，按照文中意思进行的理解）： 四.目的：我现在面临模型线性推理的耗时问题，因为一个器官对应一个模型，我想进行多器官分割的时候就会面对时间成本提高的问题，同时我的不同器官的标签暂时还存在于不同的数据源上，且以现在的能力和资源无法解决将多个单器官模型融合为一个多器官模型从而实现多分类的问题。只能从训练的起点来寻找解决问题的方案。 五.意义：  1.腹部多器官分割模型性能的提升； 2.解决某器官的数据集标注耗时问题（胰腺）； 3."/>
+
+
+
+<link rel="preload" href="/css/style.min.e3cf82e558200e98b09736f835e12b188dca1353aad6649d3429c72923031431.css" as="style">
+<link href="/css/style.min.e3cf82e558200e98b09736f835e12b188dca1353aad6649d3429c72923031431.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163836834-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-163836834-2');
+  gtag('config', 'UA-60127042-1');
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="canonical" href="https://Joevaen.github.io/showcase/paper/paper8/">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@grpcio">
+<meta name="twitter:creator" content="@grpcio">
+<meta name="twitter:image" content="https://Joevaen.github.io/img/logos/grpc-icon-color.png">
+<meta name="twitter:image:alt" content="gRPC color logo">
+
+<meta property="og:url" content="https://Joevaen.github.io/showcase/paper/paper8/">
+<meta property="og:title" content="对多个单分类数据集中训练，实现单个多分类的分割">
+<meta property="og:description" content="A high-performance, open source universal RPC framework">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="gRPC">
+<meta property="og:image" content="https://Joevaen.github.io/img/logos/grpc-icon-color.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="gRPC color logo">
+<meta property="og:locale" content="en_US">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-512x512.png" sizes="512x512">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/site.webmanifest">
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark  td-navbar-cover flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="672pt" height="436pt" viewBox="0 0 672 436"><g transform="translate(0.000000,436.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M3066 3659c-376-41-707-264-894-602-35-63-50-101-45-113 4-12 3-15-5-10s-10 1-5-10c5-13 9-11 23 15 9 18 19 29 22 25 4-3 4 3 1 15-4 14-1 21 9 21 8 0 27 23 42 51 119 218 360 416 607 499 96 33 250 60 337 60 551 0 1009-390 1097-933 48-296-20-597-193-847-24-36-35-56-23-46 35 32 24 2-23-61-49-64-119-128-220-198-36-26-66-49-66-51 0-10 123 74 187 128 63 53 173 174 182 201 2 7 9 19 16 27s36 58 63 110c198 373 185 786-35 1159-25 42-60 95-79 118-42 51-45 68-4 22 68-76 190-285 190-326 0-7 5-12 11-10 6 1 14-4 17-12 2-8 0-11-5-8-6 4-8-4-5-19 3-18 7-22 12-13 6 8 12-2 19-29 6-23 15-59 21-80 31-121 29-332-5-516-9-44-13-81-11-83s16 47 31 109c26 106 27 122 22 268-4 119-12 179-32 260-56 225-191 440-375 598-70 59-261 182-284 182-6 0 25-21 69-47 44-25 105-65 135-89 62-48 149-134 135-134-6 0-32 23-60 51-67 67-224 171-325 215-78 34-249 83-294 85-21 0-21 1-1 9 15 7 8 9-30 10-27 0-72 2-1e2 4-27 2-86 0-129-5z"/><path d="M36e2 3580c8-5 20-10 25-10 6 0 3 5-5 10s-19 10-25 10c-5 0-3-5 5-10z"/><path d="M3519 3276c-69-18-136-62-211-138-191-194-325-488-288-630 12-45 45-88 67-88 18 0 16 19-2 27-24 9-45 57-45 103 0 121 141 397 271 531 111 115 241 189 303 173 1e2-25 76-265-64-626l-40-105-58-13c-79-17-211-65-309-110-197-92-359-233-429-375-35-71-39-87-39-154 0-65 4-83 28-123 61-104 188-133 299-70 70 41 176 152 251 265 67 102 188 333 243 464 37 89 39 92 79 102 43 11 84 36 74 45-3 3-24-2-47-11s-45-14-48-11 15 63 41 133c126 349 145 579 49 615-33 13-68 12-125-4zm-29-794c0-4-47-102-104-218-197-398-362-594-5e2-594-68 0-124 44-151 119-85 243 203 545 645 675 93 27 110 30 110 18z"/><path d="M2081 2794c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M4291 2784c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M2071 2754c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M4302 2740c0-14 2-19 5-12 2 6 2 18 0 25-3 6-5 1-5-13z"/><path d="M2061 2714c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M2052 2660c0-14 2-19 5-12 2 6 2 18 0 25-3 6-5 1-5-13z"/><path d="M2043 2585c0-22 2-30 4-17 2 12 2 30 0 40-3 9-5-1-4-23z"/><path d="M4252 2018c-15-37-19-55-11-63 7-7 8-4 3 9-6 15-4 17 6 11 9-5 11-4 6 3-4 7-3 12 3 12s7 7 4 17c-5 12-3 14 8 8 8-4 11-5 7 0-4 4-4 13 2 19 5 7 5 17 1 24s-15-8-29-40z"/><path d="M4205 1919c-3-4 2-6 10-5 21 3 28 13 10 13-9 0-18-4-20-8z"/><path d="M4024 1668l-19-23 23 19c12 11 22 21 22 23 0 8-8 2-26-19z"/><path d="M4015 1628l-40-43 43 40c39 36 47 45 39 45-2 0-21-19-42-42z"/><path d="M3969 1613c-13-16-12-17 4-4s21 21 13 21c-2 0-10-8-17-17z"/><path d="M3919 1543c-13-16-12-17 4-4 9 7 17 15 17 17 0 8-8 3-21-13z"/><path d="M3705 1428c-11-6-23-15-26-20-3-6-9-9-13-9-19 3-27 0-22-7 7-12-61-35-75-26-8 5-9 3-4-6 6-10 3-12-13-8-14 4-20 2-15-5 4-6-2-8-15-5-12 4-20 2-17-2 3-5 0-10-7-13-7-2-2-2 12 0 39 7 179 63 194 78 7 8 16 12 18 10 3-3 5 2 5 10s-1 15-1 15c-1 0-10-6-21-12z"/><path d="M3448 1313c7-3 16-2 19 1 4 3-2 6-13 5-11 0-14-3-6-6z"/><path d="M3355 13e2c-27-7-27-8-5-8 14 0 39 4 55 8 27 7 27 8 5 8-14 0-38-4-55-8z"/><path d="M3263 1283c9-2 25-2 35 0 9 3 1 5-18 5s-27-2-17-5z"/><path d="M1810 981c0-75-4-103-15-115-17-17-20-66-4-66 6 0 24 13 40 29 29 29 29 31 29 140v111h-25c-25 0-25 0-25-99z"/><path d="M2211 1062c-51-25-73-61-74-120-1-70 33-116 101-137 36-10 28 31-13 69-26 25-35 42-35 66s9 41 35 66c19 18 35 42 35 53 0 25-5 26-49 3z"/><path d="M2290 1060c0-12 16-36 35-54 26-25 35-42 35-66s-9-41-35-66c-41-38-49-79-12-69 66 20 99 65 99 135s-33 115-99 135c-19 5-23 2-23-15z"/><path d="M2692 1053l3-28h1e2 1e2l3 28 3 27h-106-106l3-27z"/><path d="M3150 1068c0-7 23-70 52-140 48-119 53-128 78-128s30 9 78 130c29 72 52 135 52 141s-12 9-27 7c-23-2-31-13-51-63-13-33-31-76-39-95l-14-35-25 59c-13 33-24 63-24 67s15 9 33 11c27 2 32 7 32 28 0 24-3 25-72 28-55 2-73 0-73-10z"/><path d="M3724 1003c-43-93-48-128-19-128 15 0 28 17 50 63l30 62 25-62c14-35 27-66 28-70 2-5-35-8-82-8-76 0-86-2-1e2-22-8-12-13-25-10-30 7-11 261-10 268 1 3 5-19 67-49 137-48 114-57 129-80 132s-29-4-61-75z"/><path d="M4187 1073c-4-3-7-14-7-24 0-25 28-31 125-27 79 3 80 3 83 31l3 27h-99c-54 0-102-3-105-7z"/><path d="M4670 1068c0-7 43-71 96-141 77-105 99-128 117-125 21 3 22 7 25 141l3 138-28-3c-28-3-28-4-33-86l-5-83-62 85c-50 69-68 86-88 86-14 0-25-6-25-12z"/><path d="M2694 955c-14-37 2-45 89-45 88 0 114 11 101 44-9 23-182 24-190 1z"/><path d="M4184 955c-3-8-3-22 0-30 5-13 22-15 98-13 92 3 93 3 93 28s-1 25-93 28c-76 2-93 0-98-13z"/><path d="M1675 890c-10-16 4-48 32-70 32-25 40-25 48 0 13 40-60 103-80 70z"/><path d="M4670 850c0-47 2-50 25-50s25 3 25 50-2 50-25 50-25-3-25-50z"/><path d="M2694 845c-3-8-3-22 0-30 5-13 23-15 103-13 97 3 98 3 98 28s-1 25-98 28c-80 2-98 0-103-13z"/><path d="M4184 845c-15-38 1-45 106-45h101l-3 28-3 27-98 3c-80 2-98 0-103-13z"/></g></svg></span><span class="text-uppercase font-weight-bold">gRPC</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/about/" ><span>nnUNet</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/" ><span>MMDetection</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/showcase/" ><span>论文</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/blog/" ><span>Blog</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/community/" ><span>C&#43;&#43;</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-default td-outer">
+      
+      <main role="main" class="td-main">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="td-cover-block-0" class="row td-cover-block td-cover-block--height-sm js-td-cover td-overlay td-overlay--dark -bg-primary">
+  <div class="container td-overlay__inner">
+    <div class="row">
+      <div class="col-12">
+        <div class="text-center">
+          
+          
+          <div class="pt-3 lead">
+            
+                <div class="text-left">
+  <h1 class="display-1 mb-5">对多个单分类数据集中训练，实现单个多分类的分割</h1></div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<div class="container l-container--padded">
+<div class="row">
+
+
+
+
+  
+    <div class="d-lg-none col-12">
+      <div class="td-toc td-toc--inline">
+  
+      
+        <a id="td-content__toc-link" class="collapsed" href="#td-content__toc" data-toggle="collapse" aria-controls="td-page-toc" aria-expanded="false" aria-label="Toggle toc navigation">
+          <span class="lead">Contents<i class="fas fa-chevron-right ml-2"></i></span>
+        </a>
+        <div id="td-content__toc" class="collapse">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1介绍">1.介绍</a></li>
+    <li><a href="#2相关工作">2.相关工作</a></li>
+    <li><a href="#3方法">3.方法</a>
+      <ul>
+        <li><a href="#假设条件">假设条件：</a></li>
+        <li><a href="#目标">目标：</a></li>
+        <li><a href="#原理图">原理图：</a></li>
+        <li><a href="#31-基础模型">3.1 基础模型</a></li>
+        <li><a href="#32-conditioning条件限制">3.2 Conditioning（条件限制）</a></li>
+        <li><a href="#33-应用与问题">3.3 应用与问题</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-实验">4. 实验</a>
+      <ul>
+        <li><a href="#41-font-colorredablation-experimentsfont">4.1 <strong><font color=red>Ablation experiments</font></strong></a>
+          <ul>
+            <li><a href="#411-主要内容">4.1.1 主要内容</a></li>
+            <li><a href="#412-不同类别之间空间连接信息的重要性">4.1.2 不同类别之间空间连接信息的重要性</a></li>
+            <li><a href="#413-自然图像的适用性">4.1.3 自然图像的适用性</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#5-讨论">5 讨论</a></li>
+  </ul>
+</nav>
+        </div>
+        <button id="td-content__toc-link-expanded" href="#td-content__toc" class="btn btn-small ml-1 my-2 py-0 px-3" data-toggle="collapse" aria-controls="td-docs-toc" aria-expanded="true" aria-label="Toggle toc navigation">
+        </button>
+      
+    </div>
+  </div>
+
+</div>
+<div class="row">
+<div class="col-12 col-lg-8">
+<h1 id="讲在前面">讲在前面</h1>
+<ul>
+<li>一.论文地址在<a href="https://openaccess.thecvf.com/content_CVPR_2019/papers/Dmitriev_Learning_Multi-Class_Segmentations_From_Single-Class_Datasets_CVPR_2019_paper.pdf" target="_blank" rel="noopener">这里<i class="fas fa-external-link-alt"></i></a></li>
+<li>一.<strong><font color=red>首先要非常感谢张同学提供的这么一篇论文以及相当重要的理解，为了进一步的理解和学习这篇论文，我决定对其进行深层的挖掘：</font></strong></li>
+<li>二.我设计了几种字体颜色用于更加醒目地表现关键的思想和主题：
+<ul>
+<li><strong><font color=red>红色表示本文的重要关键信息</font></strong></li>
+<li><strong><font color=green>绿色表示此处需要参考的论文其他部分</font></strong></li>
+<li><strong><font color=orange>橙色表示尚未理解透彻的一些概念</font></strong></li>
+<li><strong><del>我会用删除线将自己曾经不到位的理解进行删除</del></strong></li>
+</ul>
+</li>
+<li>三.<strong><font color=red>一些关键信息总结</font></strong>（对于理解整篇论文都相当有必要，按照文中意思进行的理解）：</li>
+<li>四.<strong><font color=red>目的</font></strong>：我现在面临模型线性推理的耗时问题，因为一个器官对应一个模型，我想进行多器官分割的时候就会面对时间成本提高的问题，同时我的不同器官的标签暂时还存在于不同的数据源上，且以现在的能力和资源无法解决<font color=red><strong>将多个单器官模型融合为一个多器官模型从而实现多分类</strong></font>的问题。只能从训练的起点来寻找解决问题的方案。</li>
+<li>五.<font color=red><strong>意义</strong></font>：
+<ul>
+<li>1.腹部多器官分割模型性能的提升；</li>
+<li>2.解决某器官的数据集标注耗时问题（胰腺）；</li>
+<li>3.对GAN在医学领域的使用进行一个初步的探索。</li>
+</ul>
+</li>
+<li>六.<font color=red><strong>思考</strong></font>：
+<ul>
+<li>创建一个与某层输入形状大小完全一致的张量会使得张量形状变得更大，会不会降低推理的速度，这个有点要不得哦，如果真是如此，那么这个算法最大的意义在于能够减少算力，在最短时间内出尽量好的效果，但对于一个本就有着长远打算且又具备较为可靠的研发基础的开发项目来说，似乎并没有太大的意义；</li>
+<li>现在只能通过在推理之前传入带有对应值的张量（因为每个器官的标签都置为1），以推理对应的器官，既然模型参数包含了三个信息，如何实现一次全推理；</li>
+</ul>
+</li>
+</ul>
+<h1 id="摘要">摘要</h1>
+<p>        在自然图像与视频领域，多类别分割最近越来越具备重大意义，这样的成就主要依赖于庞大的多分类的公共数据集。但是，类似于医学图像这种比较特殊的领域，想要制作巨大带有标签的医学数据是十分损耗人力的，甚至有时相当难以实现，但是这些领域有很多的但标签数据集可供使用。由于现在的研究都普遍关注单分类的实现，我们提出一个统一的高性能框架，这个框架可以通过把多个单标签的数据集当做一整个大的数据集，从而实现对单分类中各个器官的多分类。我们论证了多种合并条件信息的方式，并进行广泛的评估，最终这个框架在医学图像的分割任务上展现出了相当惊人的表现——比当前最好的解决方案还要高出2.7%。与当前很多单分类分割的解决方案不同的是，单分类分割十分精细的去使用单个标签的数据集，而我们应用的来自于多个数据源。而且经过验证，我们的框架在自然图像上仍然有效，同时我们将进一步评估该框架的其他可能性。</p>
+<h1 id="论文内容">论文内容</h1>
+<h2 id="1介绍">1.介绍</h2>
+<p>        公共数据的不断庞大催生了自然图像分割的进步，而医学分割图像的数据集来源是十分稀缺的。尤其在临床研究领域，医学图像的分割相当的重要。在传统的临床实践中，诊断阶段的分割经常被忽略。但是人为的分析或者衡量医学图像，却会具有很大的不确定性，这可以取决于很多元素，比如组织的结构、图像的质量和临床医生的经验。同时，在各种各样的医学系统中，包括CAD、外科手术和诊疗计划等，分割又是不可或缺的元素。再者，早期癌症的诊断也经常需要图像分割的帮助。
+        MRI和CT的图像分割已经取得了长足的进步，这些图像展现出各种各样的对象，比如一张图像中展现出一整个腹部，里面包含有很多的器官和组织。但是，为这套CT建立一个专业的标签是一个耗时费力的工作，因此多标签的数据标签就会很难生成。现在很多算法针对多类别的分类任务都已经得到了评估，而这些算法依赖于一些公共数据集，但公共的有些数据集因为资金短缺而无法继续使用。其他的就是私人的数据集，但这些多标签数据集往往都有数目限制，而且可能各自来自于不同的组织，这些数据集的产生应用了同样的图像方案或者图像策略，那么运用这些数据集的这些算法，由于是在相同的数据集上进行应用的，就会对这些数据的参数十分敏感。另一方面，制作单标签数据集更快速简单，而且经常很多是竞赛数据，而且这些数据因为来源不同所以会展现出不同的性质，比如癌病种的不同、图像方案的不同、重构算法的不同。
+        然而，如果简单的将多个单标签的数据集组合在一起训练的话，网络会因为数据集中的正样本或者负样本进行不统一的学习（比如数据集A的标签中带有背景0和organ1，数据集B的标签中带有背景0和organ2，数据集C中的标签中带有背景0和organ3，那么1\2\3在有些数据中是正样本，但在有些数据中却是负样本）。在传统的算法中，单分类数据集是被高度定制用于进行单目标分割的。我们在这篇论文中设计的是一种可以让这些不同源的数据集不进行重叠地卷积网络。我们的算法允许模型隐秘的保留所有类别的模型参数，这使得模型同时能够学习到这些不同布标之间的空间关系从而提升其泛化能力。
+        据我们所知，我们这项工作是第一次通过给卷积网络加上条件约束来实现在多个不同的单标签数据源上，不重叠的进行多分类模型的训练。我们工作的贡献有以下几点：</p>
+<ul>
+<li>（1）通过给语义分割的卷积网络添加条件约束，来实现目的；</li>
+<li>（2）这个框架现在可以使得在多个单标签数据源上训练的多个模型成为一个多分类分割的模型，与单标签模型训练相比，大幅地减少了训练的复杂度和需要训练的总参数；</li>
+<li>（3）在显著减少计算损耗的基础上，提升了肝脏、脾脏、胰腺公共数据集上分割的SOTA指标（2.7%）。
+        而且，我们评估了它在自然场景中的有效性，同时我们会在未来验证它的更多可能性。
+        <strong>图一</strong>：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20200825071615464.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20200825071615464.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+                                                                                        <strong>（图一）</strong></li>
+</ul>
+<h2 id="2相关工作">2.相关工作</h2>
+<p>        收集大批而且精确的标签具有相当大的难度，现在也有很多算法是通过弱标签的方式来实现和我们同样的目的。现在的弱监督学习是基于图像标签、点、边界框的，但是他们的中心思想基本一直，我们的方法却与其有很大的不同。他们仍然认为如果一组预定义的目标类存在于图像中，则每个对象的注释都可用。 对于CT图像，每个切片都需要为切片上存在的每个目标器官（无论是种子，边界框还是标签）设置一组注释。 但是，单类数据集没有附带此类注释，仅提供了一个特定类的详细信息。
+        解剖结构分割，尤其是腹部器官的分割被认为是一个难题，因为这些器官在尺寸、位置和形状上都展现了高度的可变性。当前有很多卷积网络都可以进行不错的腹部多器官分割，这些方法很多都是针对特定器官的分割，而且这些算法往往都是通过多阶段实现。通常都是每个单器官模型各自推理完之后，再最终融合在一起得到最后的分割结果。但是，如果你想要都达到SOTA级别的表现，那这每个模型都必须要独立推理，可见对于算力和时间是相当大的消耗。而且，这些模型的训练是无视这些不同器官的空间联系信息的，这就使得单一模型的显示会出现过度的拟合。另外，这些模型往往都要求很多的前后处理，这让整个推理更加复杂而且特定化。
+        现在也有一些研究是在研究腹部多器官分割的，其中大多数利用概率图谱和统计形状模型。这些方法要求所有的训练Volume都必须是配准好的。这些方法的前处理会耗费昂贵的算力，而且，因为不同病人的腹部器官的位置、尺寸、形状等都会不同，有些甚至差距很大。最近，一些基于卷积的同时多分类分割方法逐渐出现，但是这些方法都是在不公开的数据集上进行评估和使用的，而且，所使用的多类数据集是由单个机构获取的，表现出相同的图像质量并且没有慢性异常。与此不同的是，我们对这些数据集进行平衡，然后提出一种特别的方法，这种方法给卷积网络施加条件限制（Conditioning），从而生成一种具备高度概括能力的多类别分割模型。
+        Conditioning这种方法在图像合成领域已经被广泛使用，在特定的属性（例如类别和标签）限制的下的图像生成已经有很多的研究成果。Ma等人提出了一个基于任意姿势的人体图像生成框架；Zhu等人对图-&gt;图翻译的潜在结果的分布进行了建模；Reed等人设计了给定想要的图像内容和图像中的位置从而生成图像的方法。但是，医学领域内条件卷积网络的使用还没有开发，并没有人进行这方面的探索。我们在这里提出这种方法并讨论其可能的应用方向。</p>
+<h2 id="3方法">3.方法</h2>
+<p>        接下来进行方法的阐述，下面的假设拓宽了初始化的条件，同时使得问题的描述更加通用和具有挑战性：</p>
+<h3 id="假设条件">假设条件：</h3>
+<ul>
+<li>1.现在我们有D1、D2、D3、D4四个来源不同的数据集，代表四个器官，每个里面含有多个训练对（一个case及一个对应的label是一对）；</li>
+<li>2.四个数据集两两互斥（任意两个数据集中没有同一个一模一样的训练对）；</li>
+<li>3.不同数据集中所包含的类别标签可以是多个也可以是单个。</li>
+</ul>
+<h3 id="目标">目标：</h3>
+<p>        输入一个case，实现多个标签的预测分割。</p>
+<h3 id="原理图">原理图：</h3>
+<p>
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20200824190545822.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="1" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20200824190545822.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="1"/>
+      </div>
+  </div>
+</figure>
+
+                                                                                        <strong>（图二）</strong>
+        上图是一个训练过程中的 Conditioning 原理图：</p>
+<ul>
+<li>总共的数据集有 $k$ 个不同的源，即有 $k$ 种数据集，Conditioning 可以单独在编码器上进行，或者单独在解码器上进行，或者编解码上同时进行。</li>
+</ul>
+<h3 id="31-基础模型">3.1 基础模型</h3>
+<p>        基础网络模型是一个添加了skip-connection的3DUNet网络，同时使用了dense块来提升网络的信息收集能力，具体来说，我们加入了一个与dense有关的复合函数$F_l$：
+$$
+x_l = F_l([x_0, x_1, x_2, &hellip; , x_{l-1}])
+$$</p>
+<ul>
+<li>（1）$x_l$是第$l$层的输出，表示第$l$层的输出是由前面几层的输出决定的；</li>
+<li>（2）$[]$是对前面几层进行的concate操作；</li>
+<li>（3）该实验中的$F_l$被定义为$α = 0.3$的LRelu，且卷积核大小为$3 × 3 × 3$；</li>
+</ul>
+<p>        该模型的编码器部分包括一个卷积层，然后是六个dense块，依次通过$2×2×2$ 的maxpooling层连接。每个dense块中特征通道的数量与其深度成正比。而上采样则用了转置卷积，与下采样结构对称，最后的输出层为sigmoid。附录上有具体的细节。</p>
+<h3 id="32-conditioning条件限制">3.2 Conditioning（条件限制）</h3>
+<p>        不像传统的图像分割算法进行单个器官的分割，我们的方法可以学习不同数据集标签之间的联系，并且只利用一个模型来实现$c_m$个类别分割。为了给模型注入这种能力，我们利用一个需要分割的标签类别$c_m$来Conditioning卷积网络。这种方式已经在GAN中得到广泛的使用，就我们所知，至今为止还没有人在医学分割领域进行这项工作。
+        我们的目标是保持网络结构最基本的简单有效的样子，从而避免一些不必要的开销和负面影响。为了实现这个目标，我们决定将这个条件信息作为一个一个网络块，添加到卷积块之后和非线性层（激活层）之前。因为有些Conditioned GAN建议让网络自己学习这个条件信息，所以我们为这个分割任务设计了一个可计算且有效的方法。我们尤其建议使用下面这个函数：
+$$
+φ(c_m,  H_j, W_j, D_j) =  \textit{\textbf{O}}^{H_j ×W_j×D_j} \odot hash(c_m)
+$$</p>
+<ul>
+<li>（1）$\odot$是矩阵对应元素相乘，即点乘；</li>
+<li>（2）$\textit{\textbf{O}}^{H_j ×W_j×D_j}$是一个元素值全为 <strong>1</strong> 的且尺寸为 $H_j ×W_j×D_j$的张量；</li>
+<li>（3）$hash（·）$是预定义查找表的哈希函数。</li>
+<li>也就是说，$φ(c_m,  H_j, W_j, D_j)$ 创建了一个尺寸为${H_j ×W_j×D_j}$的张量，并且这个张量
+所有的值都是$hash(c_m)$。</li>
+</ul>
+<p>        因此，对第 $l^{th}$ 层形状为 ${H_j ×W_j×D_j}$ 的输入 $x_l$ 进行 Conditioning 的操作就被定义为：
+$$
+x_l = [x_{l-1}, φ(c_m,  H_j, W_j, D_j)]
+$$</p>
+<ul>
+<li>$x_{l-1}$ 是上一层的输出；</li>
+<li>非常要注意的是，所提出的 Conditioning 并不取决于类的可能属性，例如位置，形状等。这样做是为了提高所提出框架的通用性。</li>
+</ul>
+<h3 id="33-应用与问题">3.3 应用与问题</h3>
+<p>        在训练阶段，网络会从不同的数据集中进行随机选择进行训练，同时根据输入的数据集类别 $c_m$ 来进行约束。
+        在推理阶段，网络会依次根据限制条件 $c_m$ 来为输入的case进行分割。
+        使用预定义查找表的这种方法保持了框架的简单性和紧缩性，而无需训练其他变量，但是它也具有一些实际的好处。 特别是，在添加新的目标细分类$c_{m+1}$的情况下，该框架将只需要向查找表添加一个新条目并进行简单的微调，这与如果我们学习了条件函数所需要的更昂贵的重新训练成本不同。
+        但是，就会很自然的出现下一个问题：给定一个深度卷积网络，究竟在哪里进行Conditioning是最好的呢？哪一层的Conditioning是最有效果的呢？我们假设这个网络结构的形状类似于UNet，那么编码器进行Conditioning应该是可以提高效果的，因为下采样的时候不断再收集细节信息，如果在这些特征图上使用Conditioning来添加条件限制，那么机会把这两种信息对解码器进行很好的映射。而且，我们希望通过直接获取每层的Conditioning以使得优化变得更简单。在Section4.1我们测试了自己的假设并且报告了各种Conditioning设置的表现。</p>
+<hr>
+<h2 id="4-实验">4. 实验</h2>
+<p>        在这一部分中，我们对框架进行了拓展的分析，同时应用不同的损失函数和Conditioning方法进行了实验，并将结果与专门进行单标签分类和多标签分类的一些方法结果进行对比。结果表明，我们的条件化框架优于生物医学图像的当前最先进的单分类方法。 此外，我们证明了该方法在城市场景分割中的适用性。</p>
+<ul>
+<li>① <strong>数据集</strong>：为了评估框架并测试我们的假设，我们使用三个不同的腹部数据集（CT），20个肝数据（Sliver07）、82个胰腺（NIH）和74个肝脏和脾脏（自己的）。因此，在我们的实验中，$c_m \in{C}={{}肝脏、胰腺、脾脏}$。最后这个包含两个标签的数据的每类标签被单独进行了保存。图一和图六中是这些器官表现直观看起来的样子。接下来用一个传统的策略，每一种数据集按照4:1的比例随机分为训练集和测试集。每种数据集中Volume的形状是$512×512×Z_0$，$Z_0$是层数。每个数据集都是在不同的机构使用不同的扫描仪和协议收集的，所以这些spacing都是多样的，此外还展示了多种病理学，例如肝肿瘤和脾肿瘤。 数据集中的这种多样性使我们能够在充满挑战的环境中测试提出的方法。
+        我们尽可能少的对这些数据进行预处理：每一种数据集按照同样的可能性去采样，<strong><font color=orange>同时提取大小为256×256×32的子卷并将其标准化以创建输入图像</font></strong>。所有的训练集都经过了一些小的增强，比如旋转、放大和平移。</li>
+<li>② <strong>训练</strong>：该框架是在所有单分类数据集上进行训练的，依据下面的损失函数进行的优化：
+<ul>
+<li>$\mathcal L(\textbf{Y}，\hat\textbf{Y})=\alpha_1\beta_1\mathcal L_1(\textbf{Y}^{c_1}，\hat{\textbf{Y}^{c_1}})+&hellip;+\alpha_n\beta_k\mathcal L_k(\textbf{Y}^{c_m}，\hat{\textbf{Y}^{c_m}})$        （4）</li>
+<li>（1）$\mathcal L_i(\textbf{Y}^{c_i}，\hat{\textbf{Y}^{c_i}})$是对于数据集$\mathcal D_i$来说单类别分割的损失函数；</li>
+<li>（2）$\alpha_i$用来指定每个类别$c_i$的损失对总损失的影响程度；</li>
+<li>（3）$\beta_i$的值为0或者1，如果为0，则说明$c_i$这个类别在将训练batch中没有；如果是1，则说明$c_i$这个类别在将训练batch中有。</li>
+</ul>
+</li>
+<li>③ <strong>推理</strong>：在推理的时候，可以手动的指定你想要的类别$c_i$，但是，为了简化推理期间框架的使用，我们建议通过迭代遍历查找表的方式，对所有case自动化指定目标类别。另外，对于腹部器官分割来说，可以做一些预设置，比如肝脏和胆囊在临床应用中经常被用来一起做分析。</li>
+<li>④ <strong>改进</strong>：我们提出的设计是在TensorFlow的Keras库中进行的，利用Adam优化器，且初始学习率为0.00005。$\beta_1=0.9$,$\beta_2=0.999$,进行 $batchsize=2$ 的 $25K$ 次的迭代。</li>
+</ul>
+<h3 id="41-font-colorredablation-experimentsfont">4.1 <strong><font color=red>Ablation experiments</font></strong></h3>
+<h4 id="411-主要内容">4.1.1 主要内容</h4>
+<ul>
+<li><strong>&lt;1&gt;</strong> 在阐述论文内容之前，笔者先理解一下<font color=red><strong>Ablation experiments</strong></font>，简单来说就是可以用控制变量的方式来评估各个模型的性能：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20200825084619525.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="3" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20200825084619525.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="3"/>
+      </div>
+  </div>
+</figure>
+</li>
+<li><strong>&lt;2&gt;</strong> 预测的结果是通过0.5的阈值来进行二值化的处理的，为了测量预测值和实际标签之间的相似度，我们使用了Dice相似度系数（DSC）这个算法，定义如下：
+$$
+DSC(\textbf{Y}，\hat\textbf{Y})=\frac{2\sum{{\textbf{Y}}\odot{\hat\textbf{Y}}}}{\sum \textbf{Y}+ \sum \hat\textbf{Y}}
+$$</li>
+<li><strong>&lt;3&gt;</strong> 我们将分割的结果与一些SOTA级别的分割算法进行了对比，这些算法往往都是专门对单类别分割进行设计的。我们专门和Zhou的算法进行对比，他的算法基于卷积网络，利用两个阶段，实现从粗糙到精细的胰腺分割。在NIH上的分割dice为0.824。我们也与Yang的卷积分割算法进行对比，他的算法在1000CT上对肝进行分割，得出的dice为0.95 。最后，我们将算法和Roth的两阶段由粗到细的多器官分割算法比较，它的算法在多类别数据上的表现是0.954、 0.928、 0.822（肝、脾、胰腺）。</li>
+<li><strong>&lt;4&gt;</strong> 在所有的实验中，我们让$\alpha_i=1$，然后使用dice-loss：
+$$
+\mathcal L_i(\textbf{Y}^{c_i}，\hat{\textbf{Y}^{c_i}})=1-DSC(\textbf{Y}，\hat\textbf{Y})
+$$</li>
+<li><strong>&lt;5&gt;</strong> 我们用BCEloss进行测试，性能较差。</li>
+<li><strong>&lt;6&gt;</strong> ：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20200825114907191.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20200825114907191.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+                                                                                        <strong>（图三）</strong>
+<ul>
+<li>x轴为训练的迭代次数；</li>
+<li>y轴为dice，即精度值；</li>
+<li>有点灰绿色的线是训练精度（dice）；</li>
+<li>橙色的线是验证精度（dice）；</li>
+<li>红色直线是SOTA水平的dice线。</li>
+</ul>
+</li>
+<li><strong>&lt;7&gt;</strong> 分别对上图五个实验做个解释
+<ul>
+<li>
+<p><strong>indivs</strong>：原始网络训练三个单标签模型；</p>
+</li>
+<li>
+<p><strong>no cond</strong>：<font color=orange>暂时认为：在训练单标签模型这个网络的基础上，把输入的训练集设计成三个通道，每个通道对应一个类别的数据集，而不是在一个通道内简单的相加在一起（训练一个单标签是一个通道的数据集）。显然，这样训练会更占显存（这点符合论文描述），但是这样简单的加通道我还不知道意味着什么。</font></p>
+</li>
+<li>
+<p><strong>cond-2nd</strong>：<font color=orange>暂时认为：是给输入的Volume加入一个通道，这个通道存放一个全为（-1，0，1）的与Volume形状相同的一个张量，以此来使得卷积的同时，这个条件信息也在融合，同时会根据设计好的查找表来决定训练哪个类别的数据。</font></p>
+</li>
+<li>
+<p><strong>cond-enc</strong>：下采样加入Conditioning</p>
+</li>
+<li>
+<p><strong>cond-dec</strong>：上采样加入Conditioning：出色的分割效果和能力，主要源于两点：</p>
+<ul>
+<li>① 生成的这个模型具备高度的隐式参数共享能力，也就是说，模型共用了很多单个模型的参数；</li>
+<li>② 解码器可以利用条件信息，从而来恢复要分类的那些目标的空间信息和边界信息。</li>
+<li>③ 分割效果：
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20200825172929610.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20200825172929610.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>附加实验</strong> ：在编码器和解码器都进行Conditioning、对解码器的部分层进行Conditioning，结果都没上面的实验效果好。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="412-不同类别之间空间连接信息的重要性">4.1.2 不同类别之间空间连接信息的重要性</h4>
+<ul>
+<li><strong>&lt;1&gt;</strong> 这是一张破坏的ct图，其中脾脏的70%都被器官间的组织或脂肪的强度值代替；
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20200825170728770.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20200825170728770.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+	                                                                                        <strong>（图四）</strong></li>
+<li><strong>&lt;2&gt;</strong> 下面是各个实验的分割dice，以及一些优秀算法的dice：
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20200825171049456.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20200825171049456.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+                                                                                        <strong>（表一）</strong></li>
+<li><strong>&lt;3&gt;</strong> 为了检验我们的假设并探索模型之间的空间相关性对模型性能的重要性，我们评估了损坏图像的Conditioning模型。 对于上图的CT图像，我们用脂肪间体素强度值来随机替换70%的器官的体素，以达到破坏CT的目的。 脾脏图像不完整的一个例子如图4所示。有趣的是，脾脏和胰腺的这些单独的损坏实际上对肝脏分割的准确性没有影响，仅在2％的范围内降低。 然而，当其他器官受损时，脾脏和胰脏的分割都会受到显着影响，与基线相比平均降低了15.3％。 我们相信这支持我们的假设，即模型在推理过程中学习并利用目标类之间的空间相关性，而剥夺这些相关性会降低性能。</li>
+</ul>
+<h4 id="413-自然图像的适用性">4.1.3 自然图像的适用性</h4>
+<ul>
+<li>笔者暂时不关心现实场景部分。
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20200825171959838.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20200825171959838.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</li>
+</ul>
+<h2 id="5-讨论">5 讨论</h2>
+<ul>
+<li>&lt;1&gt; 在解码器上添加Conditioning效果最好；</li>
+<li>&lt;2&gt; 该框架可以扩充到病理学领域（活检等）和实例分割领域；</li>
+<li>&lt;3&gt; 未来将会先对MRI进行一定的实验。</li>
+</ul>
+
+
+
+      </main>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/grpcio">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Google Groups" aria-label="Google Groups">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://groups.google.com/g/grpc-io">
+      <i class="fab fa-google"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Gitter" aria-label="Gitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://gitter.im/grpc/grpc">
+      <i class="fab fa-gitter"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/grpc">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 gRPC Authors
+          
+        </small>
+        
+        
+      </div>
+    </div>
+    <div class="row text-center text-white small">
+      <div class="col-12 text-center py-2 order-sm-2">
+        <a href="https://www.linuxfoundation.org/terms" target="_blank" rel="noopener">Terms</a> |
+        <a href="https://www.linuxfoundation.org/privacy" target="_blank" rel="noopener">Privacy</a> |
+        <a href="https://www.linuxfoundation.org/trademark-usage" target="_blank" rel="noopener">Trademarks</a> |
+        <a href="https://github.com/grpc/grpc.io/blob/main/LICENSE" target="_blank" rel="noopener">License</a> |
+        <a href="/about/">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.d862e8117d34e02dff1772aeeb47caf7ed851d0f8a3a5345f7a32ccfb2f6b87f.js" integrity="sha256-2GLoEX004C3/F3Ku60fK9&#43;2FHQ&#43;KOlNF96Msz7L2uH8=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

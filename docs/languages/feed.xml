@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>gRPC – Supported languages</title>
+    <title>gRPC – 教程</title>
     <link>https://Joevaen.github.io/docs/languages/</link>
-    <description>Recent content in Supported languages on gRPC</description>
+    <description>Recent content in 教程 on gRPC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
@@ -15,43 +15,7 @@
     
     
     <item>
-      <title>Docs: C#</title>
-      <link>https://Joevaen.github.io/docs/languages/csharp/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/docs/languages/csharp/</guid>
-      <description>
-        
-        
-        &lt;div class=&#34;row flex-col flex-md-row o-lang-home__list&#34;&gt;
-&lt;div class=&#34;col-12 col-md-4&#34;&gt;
-&lt;h3 id=&#34;learn-more&#34;&gt;Learn more&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&#34;https://github.com/grpc/grpc/tree/master/doc/csharp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Additional docs&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#34;https://github.com/grpc/grpc/tree/master/examples/csharp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Examples&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&#34;col-12 col-md-4&#34;&gt;
-&lt;h3 id=&#34;reference&#34;&gt;Reference&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&#34;api/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;API&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&#34;col-12 col-md-4&#34;&gt;
-&lt;h3 id=&#34;other&#34;&gt;Other&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&#34;dotnet/&#34;&gt;gRPC for .NET&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#34;https://github.com/grpc/grpc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;grpc repo&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#34;daily-builds&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Daily builds&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: C&#43;&#43;</title>
+      <title>Docs: 1.学习如何使用Configs</title>
       <link>https://Joevaen.github.io/docs/languages/cpp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -59,35 +23,26 @@
       <description>
         
         
-        &lt;div class=&#34;row flex-col flex-md-row o-lang-home__list&#34;&gt;
-&lt;div class=&#34;col-12 col-md-4&#34;&gt;
-&lt;h3 id=&#34;learn-more&#34;&gt;Learn more&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&#34;async/&#34;&gt;Async-API tutorial&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#34;alts/&#34;&gt;ALTS authentication&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#34;https://github.com/grpc/grpc/tree/master/doc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Additional docs&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#34;https://github.com/grpc/grpc/tree/master/examples/cpp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Examples&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&#34;col-12 col-md-4&#34;&gt;
-&lt;h3 id=&#34;reference&#34;&gt;Reference&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&#34;api/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;API&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&#34;col-12 col-md-4&#34;&gt;
-&lt;h3 id=&#34;other&#34;&gt;Other&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&#34;https://github.com/grpc/grpc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;grpc repo&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+        &lt;p&gt;我们将模块化和继承设计纳入我们的config系统，这方便进行各种实验。 如果要检查配置文件，则可以运行&lt;code&gt;python tools/misc/print_config.py /PATH/TO/CONFIG&lt;/code&gt; 以查看完整配置。&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
-      <title>Docs: Dart</title>
+      <title>Docs: 2.定制数据集</title>
+      <link>https://Joevaen.github.io/docs/languages/csharp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/csharp/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 3.自定义数据管道</title>
       <link>https://Joevaen.github.io/docs/languages/dart/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -95,33 +50,12 @@
       <description>
         
         
-        &lt;div class=&#34;row flex-col flex-md-row o-lang-home__list&#34;&gt;
-&lt;div class=&#34;col-12 col-md-4&#34;&gt;
-&lt;h3 id=&#34;learn-more&#34;&gt;Learn more&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&#34;https://github.com/grpc/grpc-dart/tree/master/example/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Examples&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&#34;col-12 col-md-4&#34;&gt;
-&lt;h3 id=&#34;reference&#34;&gt;Reference&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&#34;api/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;API&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&#34;col-12 col-md-4&#34;&gt;
-&lt;h3 id=&#34;other&#34;&gt;Other&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&#34;https://github.com/grpc/grpc-dart&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;grpc-dart repo&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#34;https://pub.dev/packages/grpc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;pub package&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
+        
       </description>
     </item>
     
     <item>
-      <title>Docs: Go</title>
+      <title>Docs: 4.自定义模型</title>
       <link>https://Joevaen.github.io/docs/languages/go/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -129,48 +63,20 @@
       <description>
         
         
-        &lt;div class=&#34;row flex-col flex-md-row o-lang-home__list&#34;&gt;
-&lt;div class=&#34;col-12 col-md-4&#34;&gt;
-&lt;h3 id=&#34;learn-more&#34;&gt;Learn more&lt;/h3&gt;
+        &lt;p&gt;我们将模型组件基本上分为5种。&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&#34;alts/&#34;&gt;ALTS authentication&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#34;https://github.com/grpc/grpc-go/tree/master/Documentation&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Additional docs&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#34;https://github.com/grpc/grpc-go/tree/master/examples&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Examples&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#34;https://github.com/grpc/grpc-go#faq&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;FAQ&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&#34;col-12 col-md-4&#34;&gt;
-&lt;h3 id=&#34;reference&#34;&gt;Reference&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&#34;api/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;API&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#34;generated-code/&#34;&gt;Generated code&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&#34;col-12 col-md-4&#34;&gt;
-&lt;h3 id=&#34;other&#34;&gt;Other&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&#34;https://github.com/grpc/grpc-go&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;grpc-go repo&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#34;https://performance-dot-grpc-testing.appspot.com/explore?dashboard=5652536396611584&amp;amp;widget=490377658&amp;amp;container=1286539696&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Performance benchmark&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#34;https://github.com/grpc/grpc-go#installation&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Installation&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 id=&#34;dev-stories&#34;&gt;Developer stories and talks&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://jadekler.github.io/2020/10/08/stubbing-grpc.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Stubbing gRPC in Go&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/strong&gt;,
-by &lt;a href=&#34;https://github.com/jadekler&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Jean de Klerk&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, Google. October 8, 2020.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Talking to Go gRPC Services Via HTTP/1&lt;/strong&gt;
-&lt;a class=&#34;o-icon&#34; href=&#34;https://youtu.be/Vbw8h0RCn2E&#34;&gt;&lt;i class=&#34;fab fa-youtube&#34;&gt;&lt;/i&gt;&lt;/a&gt;
-&lt;a class=&#34;o-icon&#34; href=&#34;https://static.sched.com/hosted_files/grpcconf20/c9/TalkingToGoGRPCviaHTTP1-gRPCConf2020-MalteIsberner.pdf&#34;&gt;&lt;i class=&#34;fas fa-file&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;br&gt;
-A &lt;a href=&#34;https://sched.co/cRfW&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gRPC Conf 2020 presentation&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;
-by Malte Isberner, StackRox.&lt;/li&gt;
+&lt;li&gt;backbone: 通常是一个用来抽取特征图的FCN神经网络，e.g., ResNet, MobileNet。&lt;/li&gt;
+&lt;li&gt;neck: 在backbone和head之间的组件, e.g., FPN, PAFPN。&lt;/li&gt;
+&lt;li&gt;head: 特定任务的组件, e.g., bbox预测和mask预测。&lt;/li&gt;
+&lt;li&gt;roi extractor: 从特征图中提取ROI部分, e.g., RoI Align。&lt;/li&gt;
+&lt;li&gt;loss: head中计算损失的部分, e.g., FocalLoss, L1Loss, 和 GHMLoss。&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
     </item>
     
     <item>
-      <title>Docs: Java</title>
+      <title>Docs: 5.自定义runtime设置</title>
       <link>https://Joevaen.github.io/docs/languages/java/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -178,57 +84,12 @@ by Malte Isberner, StackRox.&lt;/li&gt;
       <description>
         
         
-        &lt;div class=&#34;row flex-col flex-md-row o-lang-home__list&#34;&gt;
-&lt;div class=&#34;col-12 col-md-4&#34;&gt;
-&lt;h3 id=&#34;learn-more&#34;&gt;Learn more&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&#34;alts/&#34;&gt;ALTS authentication&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#34;https://github.com/grpc/grpc-java/tree/master/documentation&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Additional docs&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#34;https://github.com/grpc/grpc-java/tree/master/examples&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Examples&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&#34;col-12 col-md-4&#34;&gt;
-&lt;h3 id=&#34;reference&#34;&gt;Reference&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&#34;api/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;API&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#34;generated-code/&#34;&gt;Generated code&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&#34;col-12 col-md-4&#34;&gt;
-&lt;h3 id=&#34;other&#34;&gt;Other&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&#34;https://Joevaen.github.io/docs/platforms/android/java&#34;&gt;Android Java&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#34;https://github.com/grpc/grpc-java&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;grpc-java repo&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#34;https://github.com/grpc/grpc-java#download&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Download&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 id=&#34;dev-stories&#34;&gt;Developer stories and talks&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://medium.com/expedia-group-tech/introducing-grpc-to-our-hotels-com-platform-part-1-61716af50b13&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Introducing gRPC to our Hotels.com Platform — Part 1&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;,
-by Nikos Katirtzis, Software Engineer, &lt;a href=&#34;https://hotels.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Hotels.com&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;,
-&lt;span title=&#34;2020-12-17&#34;&gt;December 2019&lt;/span&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://medium.com/expedia-group-tech/introducing-grpc-to-our-hotels-com-platform-part-2-8024a1dda0aa&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Introducing gRPC to our Hotels.com Platform — Part 2&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;,
-by Nikos Katirtzis, Software Engineer, &lt;a href=&#34;https://hotels.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Hotels.com&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;,
-&lt;span title=&#34;2020-03-05&#34;&gt;March 2020&lt;/span&gt;.&lt;/li&gt;
-&lt;li&gt;Service Interoperability With gRPC: gRPC in Action
-&lt;a class=&#34;o-icon&#34; href=&#34;https://youtu.be/MLS7TFHrn_c&#34;&gt;&lt;i class=&#34;fab fa-youtube&#34;&gt;&lt;/i&gt;
-&lt;/a&gt;&lt;a class=&#34;o-icon&#34; href=&#34;https://static.sched.com/hosted_files/grpcconf20/d3/Service%20Interoperability%20with%20gRPC.pdf&#34;&gt;&lt;i class=&#34;fas fa-file&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;br&gt;
-A &lt;a href=&#34;https://sched.co/cRfl&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gRPC Conf 2020 presentation&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;
-by Varun Gupta &amp;amp; Tuhin Kanti Sharma, Salesforce.&lt;/li&gt;
-&lt;li&gt;gRPC and Java Diamond Dependency Conflicts
-&lt;a class=&#34;o-icon&#34; href=&#34;https://youtu.be/4M5fC9XrtKs&#34;&gt;
-&lt;i class=&#34;fab fa-youtube&#34;&gt;&lt;/i&gt;
-&lt;/a&gt;&lt;a class=&#34;o-icon&#34; href=&#34;https://static.sched.com/hosted_files/grpcconf20/7a/gRPC%20and%20Java%20Diamond%20Dependency%20Conflicts.pdf&#34;&gt;&lt;i class=&#34;fas fa-file&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;br&gt;
-A &lt;a href=&#34;https://sched.co/cRfT&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gRPC Conf 2020 presentation&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;
-by Tomo Suzuki, Google.&lt;/li&gt;
-&lt;/ul&gt;
-
+        
       </description>
     </item>
     
     <item>
-      <title>Docs: Kotlin</title>
+      <title>Docs: 6.自定义loss</title>
       <link>https://Joevaen.github.io/docs/languages/kotlin/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -236,57 +97,14 @@ by Tomo Suzuki, Google.&lt;/li&gt;
       <description>
         
         
-        &lt;div class=&#34;row flex-col flex-md-row o-lang-home__list&#34;&gt;
-&lt;div class=&#34;col-12 col-md-4&#34;&gt;
-&lt;h3 id=&#34;learn-more&#34;&gt;Learn more&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&#34;https://github.com/grpc/grpc-kotlin/tree/master/examples&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Examples&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&#34;col-12 col-md-4&#34;&gt;
-&lt;h3 id=&#34;reference&#34;&gt;Reference&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&#34;api/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;API&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&#34;col-12 col-md-4&#34;&gt;
-&lt;h3 id=&#34;other&#34;&gt;Other&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&#34;https://Joevaen.github.io/docs/platforms/android/kotlin&#34;&gt;Kotlin for Android&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#34;https://github.com/grpc/grpc-kotlin&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;grpc-kotlin repo&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#34;https://search.maven.org/search?q=g:io.grpc%20AND%20grpc-kotlin&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Download&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 id=&#34;join-the-conversation&#34;&gt;Join the conversation&lt;/h3&gt;
-&lt;p&gt;The JetBrains &lt;a href=&#34;https://kotlinlang.slack.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Kotlin Slack&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; has a &lt;em&gt;gRPC channel&lt;/em&gt; where you can ask technical
-questions specific to gRPC Kotlin and chat with other developers. If you would
-like an invitation to join the Kotlin Slack, complete and submit the &lt;a href=&#34;https://surveys.jetbrains.com/s3/kotlin-slack-sign-up&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Kotlin
-Slack Sign-up&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; form.&lt;/p&gt;
-&lt;p&gt;For more community resources, see the gRPC &lt;a href=&#34;https://Joevaen.github.io/community/&#34;&gt;Community&lt;/a&gt; and the &lt;a href=&#34;https://kotlinlang.org/community/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Kotlin
-community&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; pages.&lt;/p&gt;
-&lt;h3 id=&#34;dev-stories&#34;&gt;Developer stories and talks&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://blog.jetbrains.com/kotlin/2020/12/expedia-group-bootiful-apis-with-graphql-and-kotlin/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Expedia Group Case Study: Bootiful APIs With GraphQL and Kotlin&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/strong&gt;,
-by &lt;a href=&#34;https://blog.jetbrains.com/author/antonarhipov&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Anton Arhipov&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;,
-&lt;a href=&#34;https://www.jetbrains.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;JetBrains&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;,
-&lt;span title=&#34;2020-12-13&#34;&gt;December 2020&lt;/span&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://blog.jetbrains.com/kotlin/2020/12/doordash-building-scalable-backend-services-with-kotlin/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;DoorDash Case Study: Building Scalable Backend Services with Kotlin&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/strong&gt;,
-by &lt;a href=&#34;https://blog.jetbrains.com/author/alinadolgikh&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Alina Dolgikh&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;,
-&lt;a href=&#34;https://www.jetbrains.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;JetBrains&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;,
-&lt;span title=&#34;2020-12-06&#34;&gt;December 2020&lt;/span&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Next Level gRPC With Kotlin and Coroutines&lt;/strong&gt;
-&lt;a class=&#34;o-icon&#34; href=&#34;https://youtu.be/SfmdAA2kwWI&#34;&gt;&lt;i class=&#34;fab fa-youtube&#34;&gt;&lt;/i&gt;&lt;/a&gt;
-&lt;a class=&#34;o-icon&#34; href=&#34;https://static.sched.com/hosted_files/grpcconf20/e6/grpc-session.pdf&#34;&gt;&lt;i class=&#34;fas fa-file&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;br&gt;
-A &lt;a href=&#34;https://sched.co/cRfc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gRPC Conf 2020 presentation&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;
-by Marco Ferrer, OfferUp.&lt;/li&gt;
-&lt;/ul&gt;
+        &lt;p&gt;MMDetection为用户提供不同的损失函数。 但默认配置可能不适用于不同的数据集或模型，因此用户可能想要修改特定损失以适应新情况。&lt;/p&gt;
+&lt;p&gt;本教程首先要详细阐述损失的计算流水线，然后提供有关如何修改每个步骤的一些说明。 修改可以作为调整和加权进行分类。&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
-      <title>Docs: Node</title>
+      <title>Docs: 7.微调模型</title>
       <link>https://Joevaen.github.io/docs/languages/node/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -294,18 +112,20 @@ by Marco Ferrer, OfferUp.&lt;/li&gt;
       <description>
         
         
-        &lt;p&gt;These language-specific pages are available:&lt;/p&gt;
+        &lt;p&gt;在COCO数据集上预训练的模型是一个比较好的其他数据集的预训练模型，比如：CityScapes 和 KITTI Dataset。
+这个教程为使用者提供了使用模型的方法。&lt;/p&gt;
+&lt;p&gt;如果要在新数据上微调一个模型，需要下面两步：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;quickstart/&#34;&gt;Quick start&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;basics/&#34;&gt;Basics tutorial&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;api&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;API reference&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;根据上面所述如何自定义数据集来整理自己的数据集。&lt;/li&gt;
+&lt;li&gt;根据这个教程所述来修改配置文件。&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;下面会用Cityscapes Dataset来实现这个微调步骤，需要修改配置文件中的5个部分。&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
-      <title>Docs: Objective-C</title>
+      <title>Docs: 8.Pytorch to ONNX</title>
       <link>https://Joevaen.github.io/docs/languages/objective-c/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -313,24 +133,12 @@ by Marco Ferrer, OfferUp.&lt;/li&gt;
       <description>
         
         
-        &lt;p&gt;These language-specific pages are available:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;quickstart/&#34;&gt;Quick start&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;basics/&#34;&gt;Basics tutorial&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;oauth2/&#34;&gt;OAuth2 tutorial&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;api&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;API reference&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Related resources:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/GoogleCloudPlatform/ios-docs-samples/tree/master/speech/Objective-C/Speech-gRPC-Streaming&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Bidirectional streaming iOS client using Cloud Speech
-API&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
+        
       </description>
     </item>
     
     <item>
-      <title>Docs: PHP</title>
+      <title>Docs: 9.ONNX to TensorRT</title>
       <link>https://Joevaen.github.io/docs/languages/php/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -338,85 +146,7 @@ API&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li
       <description>
         
         
-        &lt;div class=&#34;row flex-col flex-md-row o-lang-home__list&#34;&gt;
-&lt;div class=&#34;col-12 col-md-4&#34;&gt;
-&lt;h3 id=&#34;learn-more&#34;&gt;Learn more&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&#34;https://github.com/grpc/grpc/tree/master/examples/php&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Examples&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&#34;col-12 col-md-4&#34;&gt;
-&lt;h3 id=&#34;reference&#34;&gt;Reference&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&#34;api/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;API&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&#34;col-12 col-md-4&#34;&gt;
-&lt;h3 id=&#34;other&#34;&gt;Other&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&#34;https://github.com/grpc/grpc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;grpc repo&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#34;daily-builds&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Daily builds&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Python</title>
-      <link>https://Joevaen.github.io/docs/languages/python/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/docs/languages/python/</guid>
-      <description>
         
-        
-        &lt;div class=&#34;row flex-col flex-md-row o-lang-home__list&#34;&gt;
-&lt;div class=&#34;col-12 col-md-4&#34;&gt;
-&lt;h3 id=&#34;learn-more&#34;&gt;Learn more&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&#34;alts/&#34;&gt;ALTS authentication&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#34;https://github.com/grpc/grpc/tree/master/doc/python&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Additional docs&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#34;https://github.com/grpc/grpc/tree/master/examples/python&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Examples&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&#34;col-12 col-md-4&#34;&gt;
-&lt;h3 id=&#34;reference&#34;&gt;Reference&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&#34;api/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;API&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#34;generated-code/&#34;&gt;Generated code&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&#34;col-12 col-md-4&#34;&gt;
-&lt;h3 id=&#34;other&#34;&gt;Other&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&#34;https://github.com/grpc/grpc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;grpc repo&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#34;daily-builds&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Daily builds&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Ruby</title>
-      <link>https://Joevaen.github.io/docs/languages/ruby/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/docs/languages/ruby/</guid>
-      <description>
-        
-        
-        &lt;p&gt;These language-specific pages are available:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;quickstart/&#34;&gt;Quick start&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;basics/&#34;&gt;Basics tutorial&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;api&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;API reference&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;daily-builds&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Daily builds&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
       </description>
     </item>
     

@@ -1,0 +1,79 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – 微调损失</title>
+    <link>https://Joevaen.github.io/docs/languages/kotlin/tweak/</link>
+    <description>Recent content in 微调损失 on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/languages/kotlin/tweak/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 调整超参数（步骤1）</title>
+      <link>https://Joevaen.github.io/docs/languages/kotlin/tweak/hyper_parameters/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/kotlin/tweak/hyper_parameters/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Focal Loss有两个超参数 &lt;code&gt;gamma&lt;/code&gt; 和 &lt;code&gt;beta&lt;/code&gt; ，也就说如果我们想修改这两个值，需要在下面的配置文件中进行修改：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;loss_cls&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+    &lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;FocalLoss&amp;#39;&lt;/span&gt;,
+    use_sigmoid&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;True,
+    gamma&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;1.5&lt;/span&gt;,
+    alpha&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;0.5&lt;/span&gt;,
+    loss_weight&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;1.0&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 调整损失减少的方式（步骤3）</title>
+      <link>https://Joevaen.github.io/docs/languages/kotlin/tweak/recuction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/kotlin/tweak/recuction/</guid>
+      <description>
+        
+        
+        &lt;p&gt;FL默认的减少方式是&lt;code&gt;mean&lt;/code&gt;，如果你想把&lt;code&gt;mean&lt;/code&gt;改成&lt;code&gt;sum&lt;/code&gt;，在下面配置文件进行修改：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;loss_cls&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+    &lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;FocalLoss&amp;#39;&lt;/span&gt;,
+    use_sigmoid&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;True,
+    gamma&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;2.0&lt;/span&gt;,
+    alpha&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;0.25&lt;/span&gt;,
+    loss_weight&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;1.0&lt;/span&gt;,
+    reduction&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;sum&amp;#39;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 调整损失权重（步骤4）</title>
+      <link>https://Joevaen.github.io/docs/languages/kotlin/tweak/weight/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/kotlin/tweak/weight/</guid>
+      <description>
+        
+        
+        &lt;p&gt;损失权重是一个可以在多任务学习中控制不同损失权重的标量，如果想把分类的损失权重减少到0.5，要像下面这样修改：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;loss_cls&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+    &lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;FocalLoss&amp;#39;&lt;/span&gt;,
+    use_sigmoid&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;True,
+    gamma&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;2.0&lt;/span&gt;,
+    alpha&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;0.25&lt;/span&gt;,
+    loss_weight&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;0.5&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

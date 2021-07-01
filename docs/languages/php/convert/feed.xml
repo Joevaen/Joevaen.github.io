@@ -1,0 +1,87 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – 怎样把模型从ONNX转到TensorRT</title>
+    <link>https://Joevaen.github.io/docs/languages/php/convert/</link>
+    <description>Recent content in 怎样把模型从ONNX转到TensorRT on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/languages/php/convert/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 前提</title>
+      <link>https://Joevaen.github.io/docs/languages/php/convert/pre/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/php/convert/pre/</guid>
+      <description>
+        
+        
+        &lt;ol&gt;
+&lt;li&gt;参考上面提到的方法安装MMCV和MMDetection。&lt;/li&gt;
+&lt;li&gt;参考&lt;a href=&#34;https://mmcv.readthedocs.io/en/latest/onnxruntime_op.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ONNXRuntime in mmcv&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 和 &lt;a href=&#34;https://github.com/open-mmlab/mmcv/blob/master/docs/tensorrt_plugin.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;TensorRT plugin in mmcv&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 安装带有ONNXRuntime定制操作的和TensorRT插件。&lt;/li&gt;
+&lt;li&gt;使用 &lt;a href=&#34;https://mmdetection.readthedocs.io/en/latest/tutorials/pytorch2onnx.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;pytorch2onnx&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; 把PyTorch模型转换为ONNX.&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 用法</title>
+      <link>https://Joevaen.github.io/docs/languages/php/convert/usage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/php/convert/usage/</guid>
+      <description>
+        
+        
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;python tools/deployment/onnx2tensorrt.py &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;MODEL&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --trt-file &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;TRT_FILE&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --input-img &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;INPUT_IMAGE_PATH&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --shape &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;IMAGE_SHAPE&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --max-shape &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;MAX_IMAGE_SHAPE&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --mean &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;IMAGE_MEAN&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --std &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;IMAGE_STD&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --dataset &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;DATASET_NAME&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --workspace-size &lt;span style=&#34;color:#555&#34;&gt;{&lt;/span&gt;WORKSPACE_SIZE&lt;span style=&#34;color:#555&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --show &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --verify &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;参数描述:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;model&lt;/code&gt; : The path of an ONNX model file.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--trt-file&lt;/code&gt;: The Path of output TensorRT engine file. If not specified, it will be set to &lt;code&gt;tmp.trt&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--input-img&lt;/code&gt; : The path of an input image for tracing and conversion. By default, it will be set to &lt;code&gt;demo/demo.jpg&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--shape&lt;/code&gt;: The height and width of model input. If not specified, it will be set to &lt;code&gt;400 600&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--max-shape&lt;/code&gt;: The maximum height and width of model input. If not specified, it will be set to the same as &lt;code&gt;--shape&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--mean&lt;/code&gt; : Three mean values for the input image. If not specified, it will be set to &lt;code&gt;123.675 116.28 103.53&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--std&lt;/code&gt; : Three std values for the input image. If not specified, it will be set to &lt;code&gt;58.395 57.12 57.375&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--dataset&lt;/code&gt; : The dataset name for the input model. If not specified, it will be set to &lt;code&gt;coco&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--workspace-size&lt;/code&gt; : The required GPU workspace size in GiB to build TensorRT engine. If not specified, it will be set to &lt;code&gt;1&lt;/code&gt; GiB.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--show&lt;/code&gt;: Determines whether to show the outputs of the model. If not specified, it will be set to &lt;code&gt;False&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--verify&lt;/code&gt;: Determines whether to verify the correctness of models between ONNXRuntime and TensorRT. If not specified, it will be set to &lt;code&gt;False&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--to-rgb&lt;/code&gt;: Determines whether to convert the input image to RGB mode. If not specified, it will be set to &lt;code&gt;True&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--verbose&lt;/code&gt;: Determines whether to print logging messages. It&amp;rsquo;s useful for debugging. If not specified, it will be set to &lt;code&gt;False&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;python tools/deployment/onnx2tensorrt.py &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    checkpoints/retinanet_r50_fpn_1x_coco.onnx &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --trt-file checkpoints/retinanet_r50_fpn_1x_coco.trt &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --input-img demo/demo.jpg &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --shape &lt;span style=&#34;color:#f60&#34;&gt;400&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;600&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --mean 123.675 116.28 103.53 &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --std 58.395 57.12 57.375 &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --show &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --verify &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

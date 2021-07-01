@@ -1,0 +1,152 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – 数据管道的设计</title>
+    <link>https://Joevaen.github.io/docs/languages/dart/design_pipeline/</link>
+    <description>Recent content in 数据管道的设计 on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/languages/dart/design_pipeline/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 数据加载</title>
+      <link>https://Joevaen.github.io/docs/languages/dart/design_pipeline/data_load/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/dart/design_pipeline/data_load/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;code&gt;LoadImageFromFile&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;add: img, img_shape, ori_shape&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;LoadAnnotations&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;add: gt_bboxes, gt_bboxes_ignore, gt_labels, gt_masks, gt_semantic_seg, bbox_fields, mask_fields&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;LoadProposals&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;add: proposals&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 预处理</title>
+      <link>https://Joevaen.github.io/docs/languages/dart/design_pipeline/pre_process/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/dart/design_pipeline/pre_process/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;code&gt;Resize&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;add: scale, scale_idx, pad_shape, scale_factor, keep_ratio&lt;/li&gt;
+&lt;li&gt;update: img, img_shape, *bbox_fields, *mask_fields, *seg_fields&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;RandomFlip&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;add: flip&lt;/li&gt;
+&lt;li&gt;update: img, *bbox_fields, *mask_fields, *seg_fields&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;Pad&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;add: pad_fixed_size, pad_size_divisor&lt;/li&gt;
+&lt;li&gt;update: img, pad_shape, *mask_fields, *seg_fields&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;RandomCrop&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;update: img, pad_shape, gt_bboxes, gt_labels, gt_masks, *bbox_fields&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;Normalize&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;add: img_norm_cfg&lt;/li&gt;
+&lt;li&gt;update: img&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;SegRescale&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;update: gt_semantic_seg&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;PhotoMetricDistortion&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;update: img&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;Expand&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;update: img, gt_bboxes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;MinIoURandomCrop&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;update: img, gt_bboxes, gt_labels&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;Corrupt&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;update: img&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 格式化</title>
+      <link>https://Joevaen.github.io/docs/languages/dart/design_pipeline/format/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/dart/design_pipeline/format/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;code&gt;ToTensor&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;update: specified by &lt;code&gt;keys&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;ImageToTensor&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;update: specified by &lt;code&gt;keys&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;Transpose&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;update: specified by &lt;code&gt;keys&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;ToDataContainer&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;update: specified by &lt;code&gt;fields&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;DefaultFormatBundle&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;update: img, proposals, gt_bboxes, gt_bboxes_ignore, gt_labels, gt_masks, gt_semantic_seg&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;Collect&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;add: img_meta (the keys of img_meta is specified by &lt;code&gt;meta_keys&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;remove: all other keys except for those specified by &lt;code&gt;keys&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 测试时间增强</title>
+      <link>https://Joevaen.github.io/docs/languages/dart/design_pipeline/time_aug/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/dart/design_pipeline/time_aug/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;code&gt;MultiScaleFlipAug&lt;/code&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

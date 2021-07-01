@@ -1,0 +1,109 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – 模型转换</title>
+    <link>https://Joevaen.github.io/docs/guides/model_conversion/</link>
+    <description>Recent content in 模型转换 on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/guides/model_conversion/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 从MMDetection模型到ONNX</title>
+      <link>https://Joevaen.github.io/docs/guides/model_conversion/onnx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/guides/model_conversion/onnx/</guid>
+      <description>
+        
+        
+        &lt;p&gt;We provide a script to convert model to &lt;a href=&#34;https://github.com/onnx/onnx&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ONNX&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; format. We also support comparing the output results between Pytorch and ONNX model for verification.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;python tools/deployment/pytorch2onnx.py &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;CONFIG_FILE&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;CHECKPOINT_FILE&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; --output_file &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;ONNX_FILE&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;--shape &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;INPUT_SHAPE&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; --verify&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: This tool is still experimental. Some customized operators are not supported for now. For a detailed description of the usage and the list of supported models, please refer to &lt;a href=&#34;tutorials/pytorch2onnx.md&#34;&gt;pytorch2onnx&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: MMDetection 1.x模型到MMDetection 2.x</title>
+      <link>https://Joevaen.github.io/docs/guides/model_conversion/mmdetection/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/guides/model_conversion/mmdetection/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;code&gt;tools/model_converters/upgrade_model_version.py&lt;/code&gt; upgrades a previous MMDetection checkpoint
+to the new version. Note that this script is not guaranteed to work as some
+breaking changes are introduced in the new version. It is recommended to
+directly use the new checkpoints.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;python tools/model_converters/upgrade_model_version.py &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;IN_FILE&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;OUT_FILE&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;-h&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;--num-classes NUM_CLASSES&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: RegNet模型到MMDetection</title>
+      <link>https://Joevaen.github.io/docs/guides/model_conversion/regnet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/guides/model_conversion/regnet/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;code&gt;tools/model_converters/regnet2mmdet.py&lt;/code&gt; convert keys in pycls pretrained RegNet models to
+MMDetection style.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;python tools/model_converters/regnet2mmdet.py &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;SRC&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;DST&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;-h&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: detectron ResNet到Pytorch</title>
+      <link>https://Joevaen.github.io/docs/guides/model_conversion/detectron/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/guides/model_conversion/detectron/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;code&gt;tools/model_converters/detectron2pytorch.py&lt;/code&gt; converts keys in the original detectron pretrained
+ResNet models to PyTorch style.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;python tools/model_converters/detectron2pytorch.py &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;SRC&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;DST&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;DEPTH&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;[&lt;/span&gt;-h&lt;span style=&#34;color:#555&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 准备出版的模型</title>
+      <link>https://Joevaen.github.io/docs/guides/model_conversion/publish/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/guides/model_conversion/publish/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;code&gt;tools/model_converters/publish_model.py&lt;/code&gt; helps users to prepare their model for publishing.&lt;/p&gt;
+&lt;p&gt;Before you upload a model to AWS, you may want to&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;convert model weights to CPU tensors&lt;/li&gt;
+&lt;li&gt;delete the optimizer states and&lt;/li&gt;
+&lt;li&gt;compute the hash of the checkpoint file and append the hash id to the
+filename.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;python tools/model_converters/publish_model.py &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;INPUT_FILENAME&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;OUTPUT_FILENAME&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;E.g.,&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;python tools/model_converters/publish_model.py work_dirs/faster_rcnn/latest.pth faster_rcnn_r50_fpn_1x_20190801.pth
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The final output filename will be &lt;code&gt;faster_rcnn_r50_fpn_1x_20190801-{hash id}.pth&lt;/code&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

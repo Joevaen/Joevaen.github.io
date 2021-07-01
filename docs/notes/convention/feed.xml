@@ -1,0 +1,50 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – 惯例</title>
+    <link>https://Joevaen.github.io/docs/notes/convention/</link>
+    <description>Recent content in 惯例 on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/notes/convention/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 损失</title>
+      <link>https://Joevaen.github.io/docs/notes/convention/loss/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/notes/convention/loss/</guid>
+      <description>
+        
+        
+        &lt;p&gt;In MMDetection, a &lt;code&gt;dict&lt;/code&gt; containing losses and metrics will be returned by &lt;code&gt;model(**data)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;For example, in bbox head,&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#0a8;font-weight:bold&#34;&gt;BBoxHead&lt;/span&gt;(nn&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;Module):
+    &lt;span style=&#34;color:#555&#34;&gt;...&lt;/span&gt;
+    &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#c0f&#34;&gt;loss&lt;/span&gt;(self, &lt;span style=&#34;color:#555&#34;&gt;...&lt;/span&gt;):
+        losses &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;()
+        &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# classification loss&lt;/span&gt;
+        losses[&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;loss_cls&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; self&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;loss_cls(&lt;span style=&#34;color:#555&#34;&gt;...&lt;/span&gt;)
+        &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# classification accuracy&lt;/span&gt;
+        losses[&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;acc&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; accuracy(&lt;span style=&#34;color:#555&#34;&gt;...&lt;/span&gt;)
+        &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# bbox regression loss&lt;/span&gt;
+        losses[&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;loss_bbox&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; self&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;loss_bbox(&lt;span style=&#34;color:#555&#34;&gt;...&lt;/span&gt;)
+        &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;return&lt;/span&gt; losses
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;bbox_head.loss()&lt;/code&gt; will be called during model forward.
+The returned dict contains &lt;code&gt;&#39;loss_bbox&#39;&lt;/code&gt;, &lt;code&gt;&#39;loss_cls&#39;&lt;/code&gt;, &lt;code&gt;&#39;acc&#39;&lt;/code&gt; .
+Only &lt;code&gt;&#39;loss_bbox&#39;&lt;/code&gt;, &lt;code&gt;&#39;loss_cls&#39;&lt;/code&gt; will be used during back propagation,
+&lt;code&gt;&#39;acc&#39;&lt;/code&gt; will only be used as a metric to monitor training process.&lt;/p&gt;
+&lt;p&gt;By default, only values whose keys contain &lt;code&gt;&#39;loss&#39;&lt;/code&gt; will be back propagated.
+This behavior could be changed by modifying &lt;code&gt;BaseDetector.train_step()&lt;/code&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

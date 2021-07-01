@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.82.1" />
+
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-512x512.png" sizes="512x512">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/site.webmanifest">
+<title>U^2 Net借助嵌套U型结构深入研究显着物体 | gRPC</title>
+<meta property="og:title" content="U^2 Net借助嵌套U型结构深入研究显着物体" />
+<meta property="og:description" content="U^2 Net借助嵌套U型结构深入研究显着物体       Contents   1.介绍 2.之前的相关工作  2.1 多级的深度特征整合 2.2 多尺度特征提取   3.我们提出的方法  3.1 残差U型块 3.2 U2-Net的结构 3.3 监督策略   4.实验结果  4.1 数据集 4.2 评估方法 4.3 实现细节 4.4 Ablation Study（消融研究）  4.4.1 基本块上的消融研究 4.4.2 结构上的消融研究 4.4.3 骨干网络上的消融研究   4.5 与SOTA进行对比  4.5.1 定量比较 4.5.1 定性比较     5.总结        讲在前面  一." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Joevaen.github.io/showcase/paper/paper5/" /><meta property="article:section" content="showcase" />
+
+<meta property="og:site_name" content="gRPC" />
+
+<meta itemprop="name" content="U^2 Net借助嵌套U型结构深入研究显着物体">
+<meta itemprop="description" content="U^2 Net借助嵌套U型结构深入研究显着物体       Contents   1.介绍 2.之前的相关工作  2.1 多级的深度特征整合 2.2 多尺度特征提取   3.我们提出的方法  3.1 残差U型块 3.2 U2-Net的结构 3.3 监督策略   4.实验结果  4.1 数据集 4.2 评估方法 4.3 实现细节 4.4 Ablation Study（消融研究）  4.4.1 基本块上的消融研究 4.4.2 结构上的消融研究 4.4.3 骨干网络上的消融研究   4.5 与SOTA进行对比  4.5.1 定量比较 4.5.1 定性比较     5.总结        讲在前面  一.">
+
+<meta itemprop="wordCount" content="405">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="U^2 Net借助嵌套U型结构深入研究显着物体"/>
+<meta name="twitter:description" content="U^2 Net借助嵌套U型结构深入研究显着物体       Contents   1.介绍 2.之前的相关工作  2.1 多级的深度特征整合 2.2 多尺度特征提取   3.我们提出的方法  3.1 残差U型块 3.2 U2-Net的结构 3.3 监督策略   4.实验结果  4.1 数据集 4.2 评估方法 4.3 实现细节 4.4 Ablation Study（消融研究）  4.4.1 基本块上的消融研究 4.4.2 结构上的消融研究 4.4.3 骨干网络上的消融研究   4.5 与SOTA进行对比  4.5.1 定量比较 4.5.1 定性比较     5.总结        讲在前面  一."/>
+
+
+
+<link rel="preload" href="/css/style.min.e3cf82e558200e98b09736f835e12b188dca1353aad6649d3429c72923031431.css" as="style">
+<link href="/css/style.min.e3cf82e558200e98b09736f835e12b188dca1353aad6649d3429c72923031431.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163836834-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-163836834-2');
+  gtag('config', 'UA-60127042-1');
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="canonical" href="https://Joevaen.github.io/showcase/paper/paper5/">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@grpcio">
+<meta name="twitter:creator" content="@grpcio">
+<meta name="twitter:image" content="https://Joevaen.github.io/img/logos/grpc-icon-color.png">
+<meta name="twitter:image:alt" content="gRPC color logo">
+
+<meta property="og:url" content="https://Joevaen.github.io/showcase/paper/paper5/">
+<meta property="og:title" content="U^2 Net借助嵌套U型结构深入研究显着物体">
+<meta property="og:description" content="A high-performance, open source universal RPC framework">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="gRPC">
+<meta property="og:image" content="https://Joevaen.github.io/img/logos/grpc-icon-color.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="gRPC color logo">
+<meta property="og:locale" content="en_US">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-512x512.png" sizes="512x512">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/site.webmanifest">
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark  td-navbar-cover flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="672pt" height="436pt" viewBox="0 0 672 436"><g transform="translate(0.000000,436.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M3066 3659c-376-41-707-264-894-602-35-63-50-101-45-113 4-12 3-15-5-10s-10 1-5-10c5-13 9-11 23 15 9 18 19 29 22 25 4-3 4 3 1 15-4 14-1 21 9 21 8 0 27 23 42 51 119 218 360 416 607 499 96 33 250 60 337 60 551 0 1009-390 1097-933 48-296-20-597-193-847-24-36-35-56-23-46 35 32 24 2-23-61-49-64-119-128-220-198-36-26-66-49-66-51 0-10 123 74 187 128 63 53 173 174 182 201 2 7 9 19 16 27s36 58 63 110c198 373 185 786-35 1159-25 42-60 95-79 118-42 51-45 68-4 22 68-76 190-285 190-326 0-7 5-12 11-10 6 1 14-4 17-12 2-8 0-11-5-8-6 4-8-4-5-19 3-18 7-22 12-13 6 8 12-2 19-29 6-23 15-59 21-80 31-121 29-332-5-516-9-44-13-81-11-83s16 47 31 109c26 106 27 122 22 268-4 119-12 179-32 260-56 225-191 440-375 598-70 59-261 182-284 182-6 0 25-21 69-47 44-25 105-65 135-89 62-48 149-134 135-134-6 0-32 23-60 51-67 67-224 171-325 215-78 34-249 83-294 85-21 0-21 1-1 9 15 7 8 9-30 10-27 0-72 2-1e2 4-27 2-86 0-129-5z"/><path d="M36e2 3580c8-5 20-10 25-10 6 0 3 5-5 10s-19 10-25 10c-5 0-3-5 5-10z"/><path d="M3519 3276c-69-18-136-62-211-138-191-194-325-488-288-630 12-45 45-88 67-88 18 0 16 19-2 27-24 9-45 57-45 103 0 121 141 397 271 531 111 115 241 189 303 173 1e2-25 76-265-64-626l-40-105-58-13c-79-17-211-65-309-110-197-92-359-233-429-375-35-71-39-87-39-154 0-65 4-83 28-123 61-104 188-133 299-70 70 41 176 152 251 265 67 102 188 333 243 464 37 89 39 92 79 102 43 11 84 36 74 45-3 3-24-2-47-11s-45-14-48-11 15 63 41 133c126 349 145 579 49 615-33 13-68 12-125-4zm-29-794c0-4-47-102-104-218-197-398-362-594-5e2-594-68 0-124 44-151 119-85 243 203 545 645 675 93 27 110 30 110 18z"/><path d="M2081 2794c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M4291 2784c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M2071 2754c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M4302 2740c0-14 2-19 5-12 2 6 2 18 0 25-3 6-5 1-5-13z"/><path d="M2061 2714c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M2052 2660c0-14 2-19 5-12 2 6 2 18 0 25-3 6-5 1-5-13z"/><path d="M2043 2585c0-22 2-30 4-17 2 12 2 30 0 40-3 9-5-1-4-23z"/><path d="M4252 2018c-15-37-19-55-11-63 7-7 8-4 3 9-6 15-4 17 6 11 9-5 11-4 6 3-4 7-3 12 3 12s7 7 4 17c-5 12-3 14 8 8 8-4 11-5 7 0-4 4-4 13 2 19 5 7 5 17 1 24s-15-8-29-40z"/><path d="M4205 1919c-3-4 2-6 10-5 21 3 28 13 10 13-9 0-18-4-20-8z"/><path d="M4024 1668l-19-23 23 19c12 11 22 21 22 23 0 8-8 2-26-19z"/><path d="M4015 1628l-40-43 43 40c39 36 47 45 39 45-2 0-21-19-42-42z"/><path d="M3969 1613c-13-16-12-17 4-4s21 21 13 21c-2 0-10-8-17-17z"/><path d="M3919 1543c-13-16-12-17 4-4 9 7 17 15 17 17 0 8-8 3-21-13z"/><path d="M3705 1428c-11-6-23-15-26-20-3-6-9-9-13-9-19 3-27 0-22-7 7-12-61-35-75-26-8 5-9 3-4-6 6-10 3-12-13-8-14 4-20 2-15-5 4-6-2-8-15-5-12 4-20 2-17-2 3-5 0-10-7-13-7-2-2-2 12 0 39 7 179 63 194 78 7 8 16 12 18 10 3-3 5 2 5 10s-1 15-1 15c-1 0-10-6-21-12z"/><path d="M3448 1313c7-3 16-2 19 1 4 3-2 6-13 5-11 0-14-3-6-6z"/><path d="M3355 13e2c-27-7-27-8-5-8 14 0 39 4 55 8 27 7 27 8 5 8-14 0-38-4-55-8z"/><path d="M3263 1283c9-2 25-2 35 0 9 3 1 5-18 5s-27-2-17-5z"/><path d="M1810 981c0-75-4-103-15-115-17-17-20-66-4-66 6 0 24 13 40 29 29 29 29 31 29 140v111h-25c-25 0-25 0-25-99z"/><path d="M2211 1062c-51-25-73-61-74-120-1-70 33-116 101-137 36-10 28 31-13 69-26 25-35 42-35 66s9 41 35 66c19 18 35 42 35 53 0 25-5 26-49 3z"/><path d="M2290 1060c0-12 16-36 35-54 26-25 35-42 35-66s-9-41-35-66c-41-38-49-79-12-69 66 20 99 65 99 135s-33 115-99 135c-19 5-23 2-23-15z"/><path d="M2692 1053l3-28h1e2 1e2l3 28 3 27h-106-106l3-27z"/><path d="M3150 1068c0-7 23-70 52-140 48-119 53-128 78-128s30 9 78 130c29 72 52 135 52 141s-12 9-27 7c-23-2-31-13-51-63-13-33-31-76-39-95l-14-35-25 59c-13 33-24 63-24 67s15 9 33 11c27 2 32 7 32 28 0 24-3 25-72 28-55 2-73 0-73-10z"/><path d="M3724 1003c-43-93-48-128-19-128 15 0 28 17 50 63l30 62 25-62c14-35 27-66 28-70 2-5-35-8-82-8-76 0-86-2-1e2-22-8-12-13-25-10-30 7-11 261-10 268 1 3 5-19 67-49 137-48 114-57 129-80 132s-29-4-61-75z"/><path d="M4187 1073c-4-3-7-14-7-24 0-25 28-31 125-27 79 3 80 3 83 31l3 27h-99c-54 0-102-3-105-7z"/><path d="M4670 1068c0-7 43-71 96-141 77-105 99-128 117-125 21 3 22 7 25 141l3 138-28-3c-28-3-28-4-33-86l-5-83-62 85c-50 69-68 86-88 86-14 0-25-6-25-12z"/><path d="M2694 955c-14-37 2-45 89-45 88 0 114 11 101 44-9 23-182 24-190 1z"/><path d="M4184 955c-3-8-3-22 0-30 5-13 22-15 98-13 92 3 93 3 93 28s-1 25-93 28c-76 2-93 0-98-13z"/><path d="M1675 890c-10-16 4-48 32-70 32-25 40-25 48 0 13 40-60 103-80 70z"/><path d="M4670 850c0-47 2-50 25-50s25 3 25 50-2 50-25 50-25-3-25-50z"/><path d="M2694 845c-3-8-3-22 0-30 5-13 23-15 103-13 97 3 98 3 98 28s-1 25-98 28c-80 2-98 0-103-13z"/><path d="M4184 845c-15-38 1-45 106-45h101l-3 28-3 27-98 3c-80 2-98 0-103-13z"/></g></svg></span><span class="text-uppercase font-weight-bold">gRPC</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/about/" ><span>nnUNet</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/" ><span>MMDetection</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/showcase/" ><span>论文</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/blog/" ><span>Blog</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/community/" ><span>C&#43;&#43;</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-default td-outer">
+      
+      <main role="main" class="td-main">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="td-cover-block-0" class="row td-cover-block td-cover-block--height-sm js-td-cover td-overlay td-overlay--dark -bg-primary">
+  <div class="container td-overlay__inner">
+    <div class="row">
+      <div class="col-12">
+        <div class="text-center">
+          
+          
+          <div class="pt-3 lead">
+            
+                <div class="text-left">
+  <h1 class="display-1 mb-5">U^2 Net借助嵌套U型结构深入研究显着物体</h1></div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<div class="container l-container--padded">
+<div class="row">
+
+
+
+
+  
+    <div class="d-lg-none col-12">
+      <div class="td-toc td-toc--inline">
+  
+      
+        <a id="td-content__toc-link" class="collapsed" href="#td-content__toc" data-toggle="collapse" aria-controls="td-page-toc" aria-expanded="false" aria-label="Toggle toc navigation">
+          <span class="lead">Contents<i class="fas fa-chevron-right ml-2"></i></span>
+        </a>
+        <div id="td-content__toc" class="collapse">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1介绍">1.介绍</a></li>
+    <li><a href="#2之前的相关工作">2.之前的相关工作</a>
+      <ul>
+        <li><a href="#21-多级的深度特征整合">2.1 多级的深度特征整合</a></li>
+        <li><a href="#22-多尺度特征提取">2.2 多尺度特征提取</a></li>
+      </ul>
+    </li>
+    <li><a href="#3我们提出的方法">3.我们提出的方法</a>
+      <ul>
+        <li><a href="#31-残差u型块">3.1 残差U型块</a></li>
+        <li><a href="#32-usup2sup-net的结构">3.2 U<sup>2</sup>-Net的结构</a></li>
+        <li><a href="#33-监督策略">3.3 监督策略</a></li>
+      </ul>
+    </li>
+    <li><a href="#4实验结果">4.实验结果</a>
+      <ul>
+        <li><a href="#41-数据集">4.1 数据集</a></li>
+        <li><a href="#42-评估方法">4.2 评估方法</a></li>
+        <li><a href="#43-实现细节">4.3 实现细节</a></li>
+        <li><a href="#44-ablation-study消融研究">4.4 Ablation Study（消融研究）</a>
+          <ul>
+            <li><a href="#441-基本块上的消融研究">4.4.1 基本块上的消融研究</a></li>
+            <li><a href="#442-结构上的消融研究">4.4.2 结构上的消融研究</a></li>
+            <li><a href="#443-骨干网络上的消融研究">4.4.3 骨干网络上的消融研究</a></li>
+          </ul>
+        </li>
+        <li><a href="#45-与sota进行对比">4.5 与SOTA进行对比</a>
+          <ul>
+            <li><a href="#451-定量比较">4.5.1 定量比较</a></li>
+            <li><a href="#451-定性比较">4.5.1 定性比较</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#5总结">5.总结</a></li>
+  </ul>
+</nav>
+        </div>
+        <button id="td-content__toc-link-expanded" href="#td-content__toc" class="btn btn-small ml-1 my-2 py-0 px-3" data-toggle="collapse" aria-controls="td-docs-toc" aria-expanded="true" aria-label="Toggle toc navigation">
+        </button>
+      
+    </div>
+  </div>
+
+</div>
+<div class="row">
+<div class="col-12 col-lg-8">
+<h1 id="讲在前面">讲在前面</h1>
+<ul>
+<li>一.学习该算法的目的：替换针道的FLD算法和粒子检测的算子，以及测试其在器官分割上的性能；</li>
+<li>二.我设计了几种字体颜色用于更加醒目地表现关键的思想和主题：
+<ul>
+<li><strong><font color=red>红色表示尚未理解透彻的一些概念</font></strong></li>
+<li><strong><font color=blue>蓝色表示对原来的理解做的一些修改或补充</font></strong></li>
+<li><strong><font color=green>绿色表示此处需要参考的论文其他部分</font></strong></li>
+<li><strong><font color=orange>橙色表示本文的重要关键字</font></strong></li>
+<li><strong><font color=purple>紫色表示后续更新的内容</font></strong></li>
+<li><strong><del>我会用删除线将自己曾经不到位的理解进行删除</del></strong></li>
+</ul>
+</li>
+<li>三.这篇论文最近一度登上github热榜，我都以为自己产生了幻觉，很期待它到底能发挥什么功效，其实就全文来看，想法和思路是很好理解的，阅读起来甚至没有什么难度。所以重在如何使用，以及如何用代码实现这样一个网络。所以请关注我之后的应用的文章，我会尽可能地体现代码实现网络的细节。</li>
+</ul>
+<h1 id="摘要">摘要</h1>
+<p>        在这篇文章中，我们为<strong>突出物体检测</strong>（SOD）设计了一种深度网络结构——U^2^-net。这个网络的结构是两层嵌套的U型结构。这样的设计具备一下优点：</p>
+<ul>
+<li>1.借助我们建议的ReSidual U块（RSU）中不同大小的感受野的混合，它能够从不同的尺度捕获更多的上下文信息。</li>
+<li>2.由于在这些RSU块中使用了池化操作，因此它在不显着增加计算成本的情况下增加了整个体系结构的深度。这种架构使我们无需使用图像分类任务中的主干就可以从头开始训练深度网络。我们公开了所建议架构的两个模型：U2-Net（GTX 1080Ti GPU上为176.3 MB，30 FPS）和U2-Net†（4.7 MB，40 FPS），以促进在不同环境中的使用。 两种模型在六个SOD数据集上均实现了较好的效果。这里有<a href="https://github.com/NathanUA/U-2-Net" target="_blank" rel="noopener">开源代码<i class="fas fa-external-link-alt"></i></a>。</li>
+</ul>
+<h1 id="论文内容">论文内容</h1>
+<h2 id="1介绍">1.介绍</h2>
+<p>        <strong>显着物体检测</strong>（SOD）旨在分割图像中最具视觉吸引力的物体。 它在视觉跟踪和图像分割等许多领域得到了广泛使用。 近年来，随着深度卷积神经网络（CNN）的发展，尤其是全卷积网络（FCN）在图像分割中的兴起，显着目标检测得到了显着改善。 那么接下来面对的是什么挑战呢？
+        大多数SOD网络的设计都有一个共同的模式，也就是说，它们专注于充分利用现有主干网提取的深度特征，例如Alexnet，VGG，ResNet，ResNeXt，DenseNet等。但是，这些主干都是为图像分类而设计的。他们提取代表语义含义的特征，而不是代表局部性和全局对比信息，然而后者对于显着性检测至关重要。前者首先要在ImageNet上进行预训练，然而当目标数据和ImageNet的数据分布不匹配时，就会出现数据效率低下的问题。
+        这就引出了我们的第一个问题：<strong>我们是否可以设计一个新的SOD网络，该网络可以从头开始进行培训，并且与基于现有预训练骨干的网络相比，具有可比或更好的性能？</strong>
+        SOD的网络体系结构还有很多问题：</p>
+<ul>
+<li>首先，它们通常过于复杂。 部分原因是由于将附加的功能聚合模块添加到现有主干中，以从这些主干中提取多级显着性功能。</li>
+<li>其次，现有的骨干网通常通过牺牲高分辨率的特征图来实现更深的架构。 为了使用负担得起的内存和计算成本来运行这些深度模型，功能图将按比例缩小以在早期降低分辨率。例如，在ResNet和DenseNet的早期层，使用了步幅为2的卷积，然后是步幅为2的maxpooling，以将特征图的大小减小到输入图的四分之一。 然而，除了深度架构外，高分辨率在分割中也起着重要作用。我们需要解决分辨率不断降低的问题。</li>
+</ul>
+<p>        因此，我们的后续问题是：我们可以以较低的内存和计算成本在保持高分辨率的特征图的同时更深入吗？
+        我们的主要贡献是一个新颖且简单的网络体系结构，称为U^2^ Net，它解决了上述两个问题。</p>
+<ul>
+<li>第一，U^2^ Net是两层嵌套的U型结构，专为SOD设计，而无需使用来自图像分类的任何预训练主干。 可以从头开始对其进行训练，以实现具有竞争力的性能。</li>
+<li>第二，新颖的架构允许网络更深入，获得更高的分辨率，而不会显着增加存储和计算成本。 这是通过嵌套的U型结构实现的：在底层，我们设计了一种新颖的ReSidual U块（RSU），它能够提取级内多尺度特征而不会降低特征图的分辨率； 在顶层，有一个类似于U-Net的结构，其中每个阶段都由RSU块填充。 两级配置导致嵌套的U型结构（<strong>图5</strong>）。 我们的U2-Net（176.3 MB）在六个公共数据集上与最先进的（SOTA）方法相比具有竞争优势，并在以下条件下实时运行（30 FPS，输入大小为320×320×3） 1080TiGPU。 为了便于在计算和内存受限的环境中使用我们的设计，我们提供了U2-Net的一个小版本，称为U2-Net†（4.7 MB）。 U2-Net†以40 FPS的速度获得了与大多数SOTA模型（<strong>图1</strong>）的竞争结果。
+<ul>
+<li><strong>图5</strong>：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/202012141056315.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/202012141056315.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</li>
+<li><strong>图1</strong>：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201214105738836.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201214105738836.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="2之前的相关工作">2.之前的相关工作</h2>
+<p>        近年来，已经提出了许多深层的显着物体检测网络。 与基于手工特征（如前地面一致性，高光谱信息，超像素相似度，直方图等）的传统方法相比，深显着物体检测网络显示出更具竞争力的性能。</p>
+<h3 id="21-多级的深度特征整合">2.1 多级的深度特征整合</h3>
+<p>        最近的工作表明，来自多个深层的特征能够产生更好的结果。 正是因为如此，针对SOD许多用于集成和聚合多层深度特征的策略和方法被开发。</p>
+<ul>
+<li>Li等人的 <strong>MDF</strong> 提出将目标像素周围的图像块馈送到网络，然后获得用于描述此像素显着性的特征向量。</li>
+<li>Zhang等人的 <strong>Amulet</strong> 通过将多级特征聚合为不同的分辨率来预测显着性图。</li>
+<li>Zhang等人的 <strong>UCF</strong> 提出通过引入重新设计的dropout和混合升序插补模块来减少反卷积算子的棋盘伪影。</li>
+<li>Luo等人设计具有4×5网格结构的显着性检测网络 <strong>NLDF +</strong> ，其中较深的功能与较浅的功能逐渐集成在一起。</li>
+<li>Zhang等人的 <strong>LFR</strong> 通过使用同级架构从原始输入图像及其反射图像中提取特征来预测显着性图。</li>
+<li>Hou等人的 <strong>DSS+</strong> 建议通过引入从深层到浅层的短连接来集成多级功能。</li>
+<li>Chen等人的 <strong>RAS</strong> 通过将骨干网的侧面输出显着性作为特征关注指南来迭代和预测显着性图。</li>
+<li>Zhang等人的 <strong>BMPM</strong> 提出通过受控的双向传递策略来整合深层和深层的特征。</li>
+<li>Deng等人的 <strong>R^3^Net+</strong> 交替结合浅层和深层的功能，以完善预测的显着性图。</li>
+<li>Hu等人的 <strong>RADF+</strong> 建议通过循环聚合多层深度特征来检测目标对象。</li>
+<li>Wu等人的 <strong>MLMS</strong> 通过开发一种新型的互学习模块来更好地利用边界和区域的相关性，从而提高了显着性检测的准确性。</li>
+<li>Wu等人提出使用级联局部解码器 <strong>CPD</strong> 框架进行快速准确的显着目标检测。</li>
+</ul>
+<p>        这类深度方法利用了骨干网络提取的多级深度特征，与传统方法相比，大大提高了显着目标检测的水平。</p>
+<h3 id="22-多尺度特征提取">2.2 多尺度特征提取</h3>
+<p>        如前所述，显着性检测需要本地和全局信息。 3×3的卷积核非常适合在每个图层上提取局部特征。 但是，仅通过增大滤波器的大小就难以提取全局信息，因为这将急剧增加参数的数量和计算成本。
+        有许多工作关注着如何获取全局信息：</p>
+<ul>
+<li>Wang等人的 <strong>SRM</strong> 利用金字塔池模块适应以捕获全局上下文，并提出了一种用于显着图重新细化的多阶段细化机制。</li>
+<li>Zhang等人的 <strong>PAGRN</strong> 开发了一个空间和逐通道注意模块来获取每一层的全局信息，并提出了一种渐进式注意引导机制来完善显着图。</li>
+<li>Wang等人的 <strong>DGRL</strong> 开发了一个类似Inception的连续加权模块来全局定位显着对象，然后使用边界优化模块来局部优化显着性图。</li>
+<li>Liu等人的 <strong>PiCANet</strong> 反复捕获局部和全局像素方面的上下文关注，并通过将其与U-Net体系结构合并来预测显着性图。</li>
+<li>Zhang等人的 <strong>CapSal</strong> 设计了一个本地和全局感知模块，以从骨干网络提取的特征中提取本地和全局信息。</li>
+<li>Zeng等人的 <strong>MSWS</strong> 设计一个注意模块，以预测前景对象在图像区域上的空间分布，同时汇总其特征。</li>
+<li>Feng等人的 <strong>AFNet</strong> 开发了一个全局感知模块和专心的反馈模块，以更好地探索突出对象的结构。</li>
+<li>Qin等人的 <strong>BASNet</strong> 提出了一种预测细化模型，该模型通过依次堆叠两个不同配置的U-Nets和混合损失来进行边界感知的显着物体检测。</li>
+<li>Liu等人的 <strong>PoolNet</strong> 通过引入用于提取全局定位特征的全局指导模块和从金字塔池模块改编而来的用于融合全局和精细级特征的多尺度特征聚合模块，开发了用于显着目标检测的编码器-解码器体系结构。</li>
+</ul>
+<p>        在这些方法中，提出了许多启发性模块，以从现有骨架中提取的多层次深度特征中提取多尺度特征。 这些新颖的模块引入了多样化的接受领域和更丰富的多尺度上下文特征，从而显着提高了显着物体检测模型的性能。</p>
+<p>        综上所述，一方面，<strong>多层深度特征集成</strong>主要集中在开发更好的多层特征聚合策略上。 另一方面，<strong>多尺度特征提取类别</strong>中的方法针对设计新模块以从骨干网络获得的特征中提取局部和全局信息。 如我们所见，几乎所有上述方法都试图更好地利用现有图像分类主干生成的特征图。 我们没有开发和添加更复杂的模块和策略来使用这些主干的功能，而是提出了一种新颖而简单的体系结构，该体系结构会逐步逐步提取多尺度特征，用于显着目标检测。</p>
+<h2 id="3我们提出的方法">3.我们提出的方法</h2>
+<p>        首先我们介绍残差U型块的设计，然后描述利用这个U型块进行设计的嵌套结构，网络监督策略和训练损失将会在这部分的最后进行解释。</p>
+<h3 id="31-残差u型块">3.1 残差U型块</h3>
+<p>        对于显著物体检测来说，局部和全局信息都是非常重要的。在当前许多的CNN设计中，所有的卷积核都是1x1或者3x3，用来提取特征信息，这是非常受欢迎的因为这样所需要消耗的内存小而且效率高。<strong>图2</strong>（a）-（c）展示了典型的现有的具有小接收场的卷积块。浅层的输出特征图仅包含局部特征，因为1×1或3×3卷积核的接受场太小，无法捕获全局信息。为了在浅层高分辨率特征图中获得更多的全局信息，最直接的想法是扩大接收范围。<strong>图2</strong>（d）显示了一个类似块的起始块，它试图通过使用扩大的卷积来扩大接收场来提取局部和非局部特征。 但是，以原始分辨率在输入特征图上（尤其是在早期阶段）进行多次卷积需要太多的计算和内存资源。为了降低计算成本，PoolNet 调整了金字塔池模块（PPM）的并行配置，金字塔模块在降采样特征图上使用了较小的卷积核，而不是在原始尺寸特征图上使用了卷积。 但是通过直接上采样和级联（或相加）来融合不同比例尺的特征可能会导致高分辨率特征的退化。</p>
+<ul>
+<li><strong>图2</strong>：这张图下面的举例写反了，读者要注意一下
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201214140135673.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201214140135673.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+        受U-Net的启发[34]，我们提出了一种新颖的ReSidualU块RSU，以捕获阶段内多尺度特征。 RSU-L（$C_{in}，M，C_{out}$）的结构如图2（e）所示，其中$L$是编码器中的层数，$C_{in}，C_{out}$表示输入和输出通道，$M$表示RSU内部层中的通道数。 因此，我们的RSU主要由三个部分组成：</li>
+<li><em><strong>(i)</strong></em>  输入卷积层，将输入特征映射$x（H×W×C_{in}）$转换为通道为$C_{out}$的中间映射$F_1（x）$。 这是用于局部特征提取的简单卷积层。</li>
+<li><em><strong>(ii)</strong></em> 高度为 $L$ 的类似U-Net的对称编码器/解码器结构，以中间特征图$F_1（x）$作为输入，并学习提取和编码多尺度上下文信息$U（F_1（x））$。$U$表示类似U-Net的结构，如<strong>图2</strong>（e）。 较大的值导致更深的残留U块（RSU），更多的合并操作，较大的接受域范围以及更丰富的局部和全局特征。配置此参数可以从具有任意空间分辨率的输入特征图中提取多尺度特征。 从渐进下采样的特征图中提取多尺度特征，并通过逐步上采样，级联和卷积将其编码为高分辨率特征图。 该过程减轻了由大规模直接上采样引起的精细细节的损失。</li>
+<li><em><strong>(iii)</strong></em> 残差连接，通过将总和融合为局部特征和多尺度特征：$F_1（x）+ U（F_1（x））$
+        为了更好的说明我们设计的意图，我们将原始残差结构和RSU进行了对比，如<strong>图3</strong>。</li>
+<li><strong>图3</strong>：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201214144211540.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201214144211540.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</li>
+</ul>
+<p>        一般残差块的结构可以概括为$H(x) =F_2(F_1(x))+x$，其中$H(x)$表示我们期望得到的特征$x$的映射、$F_1, F_2$代表的是权重层，在这里是卷积操作。RSU与一般残差块的不同点在于：RSU用U形替代了单方向形，同时用权重层（$H_{RSU}(x) =U(F_1(x))+F_1(x)$）转换的局部特征替换原始特征。这种设计更改使网络能够直接从每个残差块中提取多种尺度的特征。 更值得注意的是，由于大多数操作都在降采样特征图上进行，因此由于U型结构而导致的计算开销很小。 这在**图4**中进行了说明，其中我们在**图4**中显示了RSU与其他特征提取模块之间的计算成本比较。  密集块（DSE），起始块（INC）和RSU的FLOP随内部通道M的数量呈二次方增长。 但是RSU在二次项上的系数要小得多，从而提高了效率。 与普通卷积（PLN）和残差块（RES）块（均为线性w.r.t.M）相比，其计算开销并不大。</p>
+<ul>
+<li><strong>图4</strong>：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201214144117116.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201214144117116.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</li>
+</ul>
+<h3 id="32-usup2sup-net的结构">3.2 U<sup>2</sup>-Net的结构</h3>
+<p>        一段时间以来，已经探索了为不同任务堆叠多个类似U-Net的结构。 ，例如 堆叠的hourgalssnetwork，DocUNet，CU-Net进行姿势估计等。这些方法通常按顺序堆叠类似U-Net的结构以构建级联模型，可以概括为“（U× n-Net）”，其中重复的U-Net模块数。 问题在于计算和主题成本会以n倍放大。
+        在本文中，我们提出了一种不同的Un-Net堆叠U结构用于显着目标检测的表示方法。我们的结构是嵌套的U结构而不是级联堆叠。 从理论上讲，可以将指数设置为任意正整数，以实现单层或多层嵌套U型结构。 但是嵌套层次太多的体系结构太复杂而无法在实际应用中实现和使用。
+        在这里，我们设置n=2来构建U<sup>2</sup>-Net。 我们的U<sup>2</sup>-Net是一个两层嵌套的U型结构，如<strong>图5</strong>所示。它的最外边是一个大的U型结构，由11个阶段组成。 每个阶段都由配置良好的残余U块（RSU）（底部U型结构）填充。 因此，嵌套U结构可更加有效地提取阶段内多尺度特征并聚合阶段间多尺度特征。</p>
+<ul>
+<li><strong>图五</strong>：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201214145137551.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201214145137551.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+        正如<strong>图5</strong>所示，U<sup>2</sup>-Net主要包括三个部分：(1) 六个编码器；(2)五个解码器；(3)连接编码器信息和解码器信息的一个混合模块：</li>
+<li><em><strong>(i)</strong></em> 在编码器En1，E​​n2，En3和En4中，我们分别使用了RSU-7，RSU-6，RSU-5和RSU-4。 如前所述，“ 7”，“ 6”，“ 5”和“ 4”表示RSU块的高度（$L$）。$L$通常根据输入要素图的空间分辨率进行配置。 对于高度和宽度较大的要素地图，我们使用更大的 $L$ 捕获更多大规模信息。 En5和​​En6中特征图的分辨率相对较低，这些特征图的进一步下采样导致有用上下文的丢失。因此，在En5和En6中，我们使用的是RSU-4F，其中“ F”表示RSU的扩版本，其中我们用扩张卷积代替了合并和上采样运算（<strong>图5</strong>）。这意味着RSU-4F的所有中间特征图都具有与其输入特征图相同的分辨率。</li>
+<li><em><strong>(ii)</strong></em> 在解码器阶段，在En6时编解码结构相同。在De5，我们使用类似于En5的RSU-4F的扩张卷积版本。每一级解码器都将来自其上一级的上采样特征映射和来自其对称编码器级的特征映射的串联作为输入，参见<strong>图5</strong>。</li>
+<li><em><strong>(iii)</strong></em> 最后一部分是显著性图融合模块，用于生成显著性概率图。
+与HED类似，我们的U^2^-Net首先从En6，De5，De4，De3，De2和De1通过3x3卷积核和sigmoid函数生成六个side输出显着性概率图：$S^{（6）}<em>{side}，S^{（5）}</em>{side}，S^{（4）}<em>{side}，S^{（3）}</em>{side}，S^{（2）}<em>{side}，S^{（1）}</em>{side}$。 然后，它将side输出显着性图的逻辑回归（在Sigmoid函数之前的卷积输出）上采样到输入图像大小，并将它们与级联运算融合，随后是1×1卷积层和sigmoid函数以生成最终显着性概率图$S_{fuse}$（请参见**图5**的右下角）。</li>
+</ul>
+<p>        总而言之，我们的U^2^-Net的设计允许具有丰富的多尺度功能的深度体系结构以及相对较低的计算和内存成本。 此外，由于我们的U^2^-Net架构仅建立在我们的RSU上，而未使用任何经过图像分类的预训练主干，因此它灵活且易于适应不同的工作环境，而性能损失不大。 在本文中，我们通过使用不同的卷积核编号配置来提供U2-Net的两种实例：正常版本的U^2^-Net（176.3 MB）和相对较小的版本的U^2^-Net†（4.7 MB）。 <strong>表1</strong>的最后两行显示了详细的配置。</p>
+<ul>
+<li>表1：</li>
+</ul>
+<p>
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201214163548615.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201214163548615.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</p>
+<h3 id="33-监督策略">3.3 监督策略</h3>
+<p>        在培训过程中，我们使用类似于HED的深度监督策略。 在HED和DSS中已经证明了其有效性。 我们的训练损失定义为：
+$$\mathcal L = \sum_{m=1}^Mw_{side}^{(m)}l_{side}^{(m)}+w_{fuse}l_{fuse}$$
+        以图5为例，$l_{side}^{(m)}$是$S^{(m)}_{side}$的损失，而$l_{fuse}$是$S_{fuse}$的损失；$w_{side}^{(m)}$和$w_{fuse}$是每个损失项的权重。对于每一个项$l$，我们使用BCE来计算损失：
+$$l = -\sum_{(r,c)}^{(H,W)}[P_{G(r,c)}logP_{S(r,c)}+(1-P_{G(r,c)}log(1-P_{S(r,c)}))]$$
+        在这里，$(r,c)$是像素点的坐标，$(H,W)$是图像的高宽，$P_{G(r,c)}$表示像素的真实值，$P_{S(r,c)}$表示像素的预测值，训练的目的是尽可能的使得总损失$\mathcal L$最小。在测试过程中，我们选择融合输出$l_{fuse}$作为最终的显着性图。</p>
+<h2 id="4实验结果">4.实验结果</h2>
+<h3 id="41-数据集">4.1 数据集</h3>
+<ul>
+<li><strong>训练数据</strong>：我们在DUTS-TR上训练我们的网络，DUTS-TR是DUTS数据集的一部分。DUTS-TR总共包含10553张图像。 目前，它是最大的，最常用的用于显着目标检测的训练数据集，我们通过水平翻转来扩充该数据集，共获取21106个训练图像。</li>
+<li><strong>评估数据</strong>：六个常用的基准数据集用于评估我们的方法，包括：DUT-OMRON，DUTS-TE，HKU-IS，ECSSD，PASCAL-S，SOD。 DUT-OMRON包含5168个图像，其中大多数包含一个或两个结构复杂的前景对象。 DUTS数据集包括两部分：DUTS-TR和DUTS-TE。 如上所述，我们使用DUTS-TR进行培训。 因此，选择包含5019张图像的DUTS-TE作为我们的评估数据集之一.HKU-IS包含4447张具有多个前地面物体的图像.ECSSD包含1000张结构复杂的图像，其中许多包含大型前景物体.PASCAL-Scontains 850 具有复杂前景对象和杂乱背景的图像。SOD仅包含300个图像。 但这是非常具有挑战性的。 因为它最初是为图像分割而设计的，所以许多图像对比度较低或包含与图像边界重叠的复杂前景对象。</li>
+</ul>
+<h3 id="42-评估方法">4.2 评估方法</h3>
+<p>        深度显著目标检测的方法输出通常是概率图，其与输入图像具有相同的空间分辨率。 预测显著性图的每个像素的值都在0到1（或[0，255]）的范围内。gt通常是二进制掩码，其中每个像素为0或1（或0和255），其中0表示 背景像素和1表示前景显着对象像素。
+        为了全面评估那些相对于gt的概率图的质量，使用以下六种度量：（1）精度回归（PR）曲线，（2）最大F度量（$maxF_β$），（3） 绝对误差（MAE），（4）加权F度量（$F^w_β$），（5）结构度量（$S_m$），以及（6）约束的松弛F测度（$relaxF^b_β$）:</p>
+<ul>
+<li><strong>PR曲线</strong>：由很多对的精度-回归值组成的曲线，给定一个预测的显着性概率图，可通过将其阈值化的二进制掩码与gt进行比较来计算其精度和召回分数。 数据集的精度和召回率是通过对这些显着性图的精度和召回率取平均值来计算的。 通过将阈值从0调到1，我们可以获得数据集的一组平均精确-回归率对。</li>
+<li><strong>最大F度量（$maxF_β$）</strong>：$F_β$用来全面评估精确率和召回率：
+$$F_β=\frac{(1+β^2)\times{Precision}\times{Recall}}{β^2\times{Precision}+Recall}$$
+类似于之前的工作，我么将$β^2$设置为0.3，从而得到每个数据集的最大值$maxF_β$。</li>
+<li><strong>MAE</strong>：MAE是平均绝对误差，它表示预测的显著性图与gt之间的平均每像素差。它是这样定义的：
+$$MAE=\frac{1}{H\times{W}}\sum_{r=1}^H\sum_{c=1}^W|P(r,c)-G(r,c)|$$
+$P、G$是分别是像素预测值和gt，$(H,W)、（r,c）$是宽高和像素点的坐标。</li>
+<li><strong>加权F度量（$F^w_β$）</strong>：它被用作$maxF_β$的补充措施，以克服由<font color=red><strong>“内插缺陷，依赖缺陷和等重要性缺陷”</strong></font>引起的可能的不公平比较。 定义为:
+$$F^w_β=(1+β^2)\frac{{Precision^w}\cdot{Recall^w}}{β^2\cdot{Precision^w}+Recall^w}$$</li>
+<li><strong>结构度量（$S_m$）</strong>：$S-measure（S_m）$用于评估预测的非二进制显著图和gt的结构相似性。$S_m$被定义为区域感知$S_r$和对象感知$S_o$结构相似度的加权和：
+$$S=(1-α)S_r+αS_o$$
+$α$通常被设置为0.5。</li>
+<li><strong><font color=red><strong>约束的松弛F测度（$relaxF^b_β$）</strong></font></strong>：用于定量评估预测显著性图的边界质量。给定一个显着性概率图$P∈[0,1]$，通过简单阈值运算（阈值设置为0.5）获得其二进制掩码$P_{bw}$。 然后，进行$XOR（P_{bw}，P_{erd}）$操作以获得其一个像素宽的边界，其中$P_{erd}$表示$P_{bw}$的腐蚀二进制掩码。 以相同的方式获得gt的边界。 松弛边界$F-measure$ $relaxF^b_β$的计算类似于方程式:
+$$F_β=\frac{(1+β^2)\times{Precision}\times{Recall}}{β^2\times{Precision}+Recall}$$ 区别在于方程中使用的$relaxPrecision^b$和$relaxRecall^b$不同于$Precision$和$Recall$。 松弛边界精度（$relaxPrecision^b$）的定义是从gt的边界像素中拿出$p$个，求这些像素的预测的边界分数。 松散边界召回（$relaxRecall^b$）定义是从预测的边界像素中拿出$p$个，求这些像素的gt的边界分数。 公式即为：
+$$F_β=\frac{(1+β^2)\times{relaxPrecision^b}\times{relaxRecall^b}}{β^2\times{relaxPrecision^b}+relaxRecall^b}$$
+在先前的工作中，松弛参数$ρ$被设置为3。 在给定数据集的情况下，本文报告了所有预测的显著性图的平均$relaxF^b_β$。</li>
+</ul>
+<h3 id="43-实现细节">4.3 实现细节</h3>
+<p>        在训练的过程中，每张图片会被resize成$320\times320$，同时随机旋转然后再裁剪成$288\times288$。我们不再使用任何的骨干网络，因此，我们从头开始训练我们的网络，所有的卷积层都由Xavier初始化。损失的权重$w^{(m)}<em>{side}$和$w</em>{fuse}$都设置为1。使用Adam优化器，其超参数lr=1e-3，betas=(0.9, 0.999)，eps=1e-8，weight_decay=0。我们在不使用验证集的情况下训练网络直到损失收敛。大约在60万的iteration（batchsize为12）后，损失收敛，总共用时120个小时。在测试时，输入图片被resize为$320\times320$然后输入网络从而获得显著性图，预测后的显著性图为$320\times320$然后会重新resize成原始大小。两次resize都用的线性插值。网络使用的是pytorch0.4.0，训练和测试都在8核、16线程的PC上（AMD Ryzen 1800x3.5 GHz CPU (32GB RAM) 和 GTX 1080ti GPU (11GBmemory）。我们已经将代码开源。</p>
+<h3 id="44-ablation-study消融研究">4.4 Ablation Study（消融研究）</h3>
+<p>        为了验证我们的U^2^-Net的有效性，我们在以下三个方面进行了消融研究:<strong>i)基本块</strong>、<strong>ii)结构</strong>和<strong>iii)骨干</strong>。所有的消融研究都遵循相同的实现设置。</p>
+<h4 id="441-基本块上的消融研究">4.4.1 基本块上的消融研究</h4>
+<p>        在块消融时，目标是验证我们新设计的RSU的有效性。具体来说，我们固定了我们的U^2^-Net的外部编解码器结构，并用RSU块之外的其他常用块(包括普通卷积块(PLN)、类剩余块(RSE)、类密集块(DSE)、类切波块(INC)和金字塔池模块(PPM))替换了它，如<strong>图2</strong> (a)-(d)所示。详细的配置见<strong>表1</strong>。</p>
+<ul>
+<li><strong>图2</strong>：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201215104009710.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201215104009710.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</li>
+<li><strong>表一</strong>：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201215104036474.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201215104036474.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+        <strong>表2</strong>给出了烧蚀研究的定量结果。我们可以看到，基准U-Net的性能最差，而PLN U-Net、RES U-Net、DES U-Net、INCU-Net和PPM U-Net的性能优于基准U-Net。因为它们要么是较深的，要么是具有提取多尺度特征的能力。然而，他们的表现仍然不如我们的全尺寸的U2-Net和小版本的U2-Net†。特别是，在DUT-OMRON和ECSSD数据集上，我们的全尺寸的U^2^-net提升了$maxF_β$大约有3.3%和1.8%，与第二好的模型(在块消融研究中)相比，降低了$MAE$超过12.9%和21.4%。此外，我们的U^2^-net和U^2^-Net†在DUT-OMRON数据集相对于基线U-Net，增加了$maxF_β$ 9.8%和8.8%，减少了 $MAE$ 34.1%和27.0%，这是显著的改善。在ECSSD数据集上，虽然我们的U^2^-Net和U^2^-Net†的$maxF_β$改进(5.5%，4.7%)相对于基线U-Net略低于DUT-OMRON, $MAE$ 的改进更大(50.0%，38.0%)。因此，我们认为我们新设计的RSU在该突出目标检测任务中比其他的块更好。此外，我们的基于残余RSU的U^2^-Net架构没有显著的时间成本增加。</li>
+<li><strong>表2</strong>：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201215104217547.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201215104217547.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</li>
+</ul>
+<h4 id="442-结构上的消融研究">4.4.2 结构上的消融研究</h4>
+<p>        正如我们上面提到的，以前的方法通常使用cascaded的方式来堆叠多个类似的结构，以构建更具表达性的模型。该思想的一个直观的特点是，多个相似结构能够在减少过拟合的同时逐步改进结果。StackedHourglassNet和CU-Net是这类模型中的两个代表性模型。因此，我们采用了StackedHourglassNet和CU-Net来比较级联架构和嵌套架构之间的性能。如<strong>表2</strong>所示，我们的全尺寸模型U^2^-Net和小尺寸模型U^2^-Net†均优于这两种级联模型。值得注意的是，StackedHourglassNet和CU-Net都采用了改进的类u网模块作为它们的堆叠子模型。为了进一步证明我们的嵌套架构的有效性，我们还举例说明了一个基于朴素u块(NIV)的U^2^-Net的表现，而不是我们新提出的RSU。我们可以看到，NIV U^2^-Net仍然取得了比这两个级联模型更好的性能。此外，嵌套架构比级联架构更快。综上所述，我们的内嵌架构在精度和速度方面都比传统的内嵌架构取得了更好的性能。</p>
+<h4 id="443-骨干网络上的消融研究">4.4.3 骨干网络上的消融研究</h4>
+<p>        不同于以往突出的目标检测模块(如vgg、ResNet等)使用骨干作为编码器，我们新提出的U^2^-Net架构是无骨干的。为了验证自由骨干网的设计，我们进行了研究，用不同的骨干网:VGG16和ResNet50替换我们的全sizeU2-Net的编码器部分。实际上，我们对主干(VGG-16和ResNet-50)进行了调整，在它们的最后一个convolutionalstage之后增加了一个额外的stage，以实现与我们最初的U^2^-Net架构设计相同的接受域。如<strong>表2</strong>所示，使用骨干和RSU作为解码器的模型取得了比以前的实验更好的性能，并且与我们的小型U^2^-Net相比具有更好的性能。然而，他们仍然低于我们的全尺寸的U^2^-Net。因此，我们认为在SOD任务中，我们的无骨架设计比基于骨架的设计更有竞争力。</p>
+<h3 id="45-与sota进行对比">4.5 与SOTA进行对比</h3>
+<p>        我们比较了我们的模型(全尺寸的U^2^-Net, 176.3 MB和小尺寸的U^2^-Net†，4.7 MB)与20种SOTA的方法，包括基于AlexNet的模型：MDF;10个基于vgg模型：UCF,Amulet,NLDF,DSS,RAS,PAGRN,BMPM,PiCANet,MLMS,AFNet;一个基于DenseNet的模型：MSWS;一个基于ResNeXt的模型：R3Net;和7个基于ResNet的模型：CapSal、SRM DGRL, Pi-CANetR, CPD, PoolNet BASNet。为了公平比较，我们主要使用了作者提供的SOD结果。对于某些方法的某些数据集上缺失的结果，我们在建议的环境设置上用训练过的模型运行它们发布的代码。</p>
+<h4 id="451-定量比较">4.5.1 定量比较</h4>
+<ul>
+<li><strong>图6</strong>：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201215110534922.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201215110534922.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201215110546798.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201215110546798.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201215110618550.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201215110618550.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</li>
+</ul>
+<p>        <strong>图6</strong>展示了我们的模型(U2-Net, 176.3 MB和U2-Net†，4.7 MB)的PR曲线以及对这六个数据集的典型的最新方法。这些曲线与<strong>表3</strong>和<strong>表4</strong>一致，<strong>表3</strong>和<strong>表4</strong>展示了我们的U^2^-Net在DUT-OMRON、HKU-IS和ECSSD上的最新性能，以及在其他数据集上的竞争性性能。<strong>表3</strong>和<strong>表4</strong>比较了我们提出的方法的五个(六个包括模型大小)评价指标和模型大小。正如我们所看到的，我们的U^2^-Net在数据集DUT-OMRON、HKU-IS和ecssd上几乎在所有五个评估指标上都达到了最好的性能。在DUTS-TE数据集上，我们的U^2^-Net实现了第二好的总体性能，略低于PoolNet。在PASCAL-S上，我们的U^2^-Net的性能略逊于AFNet、CPD和PoolNet。值得注意的是，在边界质量评价指标$relaxF^b_β$方法方面，U^2^-net达到了第二好的性能。在SOD上，PoolNet的性能最好，而在总体性能方面，我们的U^2^-Net是第二好的。
+        我们的U^2^-Net†只有4.7 MB，这是目前在突出目标检测领域最小的模型。与其他模型相比，少得多的参数，它仍然取得惊人的竞争性能。虽然它的性能不如我们的全尺寸的U^2^-Net，但它的小尺寸将有助于它在许多计算和内存受限的环境中的应用。</p>
+<ul>
+<li><strong>表3</strong>：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201215111255133.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201215111255133.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</li>
+<li><strong>表4</strong>：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201215111316213.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201215111316213.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</li>
+</ul>
+<h4 id="451-定性比较">4.5.1 定性比较</h4>
+<p>        为了直观地理解我们的模型的前景表现，我们在<strong>图7</strong>中说明了我们的模型的样本结果和其他几个最先进的方法。正如我们所看到的，我们的U^2^-Net和U^2^-Net†能够处理不同类型的目标，并产生准确的显著的目标检测结果。</p>
+<ul>
+<li><strong>图7</strong>：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20201215111438588.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20201215111438588.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+        <strong>图7</strong>的第1行和第2行显示了大小对象的结果。正如我们可以观察到的，我们的U^2^-Net和U^2^-Net†能够产生大、小物体上的精确结果。其他模型要么容易错过小目标，要么产生精度不高的大目标。第3行显示了目标触摸图像边界的结果。我们的U^2^-Net正确地划分了所有区域。尽管U^2^-Net†错误地节的底部右眼，它仍然比其他模型好得多。第4行展示了模型在分割由大的和薄的结构组成的目标时的性能。正如我们所看到的，除了AFNet之外，大多数其他模型都能很好地提取出大的区域，但却缺少明智的薄结构。在第5行中，一棵树的背景是相对干净的蓝天， 它看起来很简单，但它实际上是十分具有挑战性的，因为目标数目的复杂形状。正如我们所看到的，我们的模型可以很好地分割树干和树枝，而其他的模型在分割复杂的树枝区域时失败了。与第五行相比，第六行的长椅更加复杂，这是因为其中空的结构。我们的U^2^-Net产生了接近完美的结果。虽然在U^2^-Net†的预测图的右下角是不完善的，但它在这一目标上的总体表现比其他模型要好得多。此外，与PoolNet、CPD、PiCANetR和AFNet等模型相比，我们的模型结果更加均匀，灰色区域更少。第7行显示，我们的模型可以产生比gt更精细的结果。标记这些小孔在第7幅图像费时费力，所以在标注过程中，这些重复的精细结构往往被忽略。从这些不完美的标签推断正确的结果是具有挑战性的。但我们的模型在分割这些精细结构方面显示出了良好的能力，这要归功于精心设计的架构，可以提取和集成高分辨率的局部信息和低分辨率的全局信息。第8行和第9行显示了我们的模型在处理背景杂乱和前景外观复杂的目标时的强大能力。第10行显示了我们的模型能够在捕获检测到的目标细节的同时分割多个目标(参见每个帆船的两个分支的间隙区域)。总之，我们的全尺寸模型和小尺寸模型都能够处理各种各样的sc -narios，并产生高精度的显著目标检测结果。</li>
+</ul>
+<h2 id="5总结">5.总结</h2>
+<p>        在本文中，我们提出了一种新的深度网络:U^2^-Net，用于显著目标检测。我们的U^2^-Net的主要架构是一个两层嵌套的u结构。嵌套的u型结构与我们新设计的RSU块，使网络从浅层和深层捕获更丰富的局部和全局信息。与那些建立在现有骨干上的SOD模型相比，我们的U^2^-Net完全建立在所提议的RSU上，这使得它可以根据目标环境的约束从开始训练并配置成不同的模型大小。在本文中，我们提供了一个全尺寸的U^2^-Net (176.3 MB, 30 FPS)和一个较小尺寸的U^2^-Net†(4.7 MB, 40 FPS)。在6个公共突出目标检测数据集的实验结果表明，相对于其他20个最先进的方法在定性和定量措施，两种模型取得了非常有竞争力的性能。
+虽然我们的模型取得了与其他最先进的方法竞争的结果，但更快和更小的模型需要计算和内存有限的设备，如移动电话，机器人等。在不久的将来，我们将研究不同的技术和架构来进一步提高速度和减小模型的尺寸。此外，需要更大的多样化显著目标数据集来训练更精确和鲁棒的模型。</p>
+
+
+
+      </main>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/grpcio">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Google Groups" aria-label="Google Groups">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://groups.google.com/g/grpc-io">
+      <i class="fab fa-google"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Gitter" aria-label="Gitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://gitter.im/grpc/grpc">
+      <i class="fab fa-gitter"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/grpc">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 gRPC Authors
+          
+        </small>
+        
+        
+      </div>
+    </div>
+    <div class="row text-center text-white small">
+      <div class="col-12 text-center py-2 order-sm-2">
+        <a href="https://www.linuxfoundation.org/terms" target="_blank" rel="noopener">Terms</a> |
+        <a href="https://www.linuxfoundation.org/privacy" target="_blank" rel="noopener">Privacy</a> |
+        <a href="https://www.linuxfoundation.org/trademark-usage" target="_blank" rel="noopener">Trademarks</a> |
+        <a href="https://github.com/grpc/grpc.io/blob/main/LICENSE" target="_blank" rel="noopener">License</a> |
+        <a href="/about/">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.d862e8117d34e02dff1772aeeb47caf7ed851d0f8a3a5345f7a32ccfb2f6b87f.js" integrity="sha256-2GLoEX004C3/F3Ku60fK9&#43;2FHQ&#43;KOlNF96Msz7L2uH8=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

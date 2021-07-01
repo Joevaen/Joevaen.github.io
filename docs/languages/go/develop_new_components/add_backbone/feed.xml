@@ -1,0 +1,84 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – 添加新的backbone</title>
+    <link>https://Joevaen.github.io/docs/languages/go/develop_new_components/add_backbone/</link>
+    <description>Recent content in 添加新的backbone on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/languages/go/develop_new_components/add_backbone/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 1.定义一个新的骨架</title>
+      <link>https://Joevaen.github.io/docs/languages/go/develop_new_components/add_backbone/define/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/go/develop_new_components/add_backbone/define/</guid>
+      <description>
+        
+        
+        &lt;p&gt;新建一个文件 &lt;code&gt;mmdet/models/backbones/mobilenet.py&lt;/code&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#0cf;font-weight:bold&#34;&gt;torch.nn&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;as&lt;/span&gt; &lt;span style=&#34;color:#0cf;font-weight:bold&#34;&gt;nn&lt;/span&gt;
+
+&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#0cf;font-weight:bold&#34;&gt;..builder&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;import&lt;/span&gt; BACKBONES
+
+
+&lt;span style=&#34;color:#99f&#34;&gt;@BACKBONES.register_module&lt;/span&gt;()
+&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#0a8;font-weight:bold&#34;&gt;MobileNet&lt;/span&gt;(nn&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;Module):
+
+    &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;def&lt;/span&gt; __init__(self, arg1, arg2):
+        &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;pass&lt;/span&gt;
+
+    &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#c0f&#34;&gt;forward&lt;/span&gt;(self, x):  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# should return a tuple&lt;/span&gt;
+        &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;pass&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 2.导入模块</title>
+      <link>https://Joevaen.github.io/docs/languages/go/develop_new_components/add_backbone/import/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/go/develop_new_components/add_backbone/import/</guid>
+      <description>
+        
+        
+        &lt;p&gt;你可以添加下面这行代码到 &lt;code&gt;mmdet/models/backbones/__init__.py&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#0cf;font-weight:bold&#34;&gt;.mobilenet&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;import&lt;/span&gt; MobileNet
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;也可以添加下面代码到配置文件，从而避免修改原始代码。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;custom_imports &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+    imports&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;[&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;mmdet.models.backbones.mobilenet&amp;#39;&lt;/span&gt;],
+    allow_failed_imports&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;False)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 3.在你的配置文件中使用骨架</title>
+      <link>https://Joevaen.github.io/docs/languages/go/develop_new_components/add_backbone/use_in_config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/go/develop_new_components/add_backbone/use_in_config/</guid>
+      <description>
+        
+        
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;model &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+    &lt;span style=&#34;color:#555&#34;&gt;...&lt;/span&gt;
+    backbone&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+        &lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;MobileNet&amp;#39;&lt;/span&gt;,
+        arg1&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;xxx,
+        arg2&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;xxx),
+    &lt;span style=&#34;color:#555&#34;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,33 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – 使用MMCV中实现的hooks</title>
+    <link>https://Joevaen.github.io/docs/languages/java/hooks/self_implemented/</link>
+    <description>Recent content in 使用MMCV中实现的hooks on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/languages/java/hooks/self_implemented/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 4.例子NumClassCheckHook</title>
+      <link>https://Joevaen.github.io/docs/languages/java/hooks/self_implemented/define/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/java/hooks/self_implemented/define/</guid>
+      <description>
+        
+        
+        &lt;p&gt;我们实现了一个名为 &lt;a href=&#34;https://github.com/open-mmlab/mmdetection/blob/master/mmdet/datasets/utils.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;NumClassCheckHook&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;的自定义hook，来检查head中的&lt;code&gt;num_classes&lt;/code&gt;是否匹配&lt;code&gt;dataset&lt;/code&gt;中的&lt;code&gt;CLASSES&lt;/code&gt;的长度。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;custom_hooks &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(&lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;NumClassCheckHook&amp;#39;&lt;/span&gt;)]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

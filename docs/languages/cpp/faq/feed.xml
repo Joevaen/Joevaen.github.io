@@ -1,0 +1,136 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – 常见问题</title>
+    <link>https://Joevaen.github.io/docs/languages/cpp/faq/</link>
+    <description>Recent content in 常见问题 on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/languages/cpp/faq/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 忘记基本配置文件中的一些字段</title>
+      <link>https://Joevaen.github.io/docs/languages/cpp/faq/faq1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/cpp/faq/faq1/</guid>
+      <description>
+        
+        
+        &lt;p&gt;有时，你可能会设置 &lt;code&gt;_delete_=True&lt;/code&gt; 来忽略基本配置文件中的字段，你需要到(mmcv)[https://mmcv.readthedocs.io/en/latest/utils.html#inherit-from-base-config-with-ignored-fields]查看一些简单的说明。&lt;/p&gt;
+&lt;p&gt;比如，在MMDetection中, 通过下面的配置文件修改Mask R-CNN的骨架。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;model &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+    &lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;MaskRCNN&amp;#39;&lt;/span&gt;,
+    pretrained&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;torchvision://resnet50&amp;#39;&lt;/span&gt;,
+    backbone&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+        &lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;ResNet&amp;#39;&lt;/span&gt;,
+        depth&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;50&lt;/span&gt;,
+        num_stages&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;4&lt;/span&gt;,
+        out_indices&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;(&lt;span style=&#34;color:#f60&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;3&lt;/span&gt;),
+        frozen_stages&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;,
+        norm_cfg&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(&lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;BN&amp;#39;&lt;/span&gt;, requires_grad&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;True),
+        norm_eval&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;True,
+        style&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;pytorch&amp;#39;&lt;/span&gt;),
+    neck&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(&lt;span style=&#34;color:#555&#34;&gt;...&lt;/span&gt;),
+    rpn_head&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(&lt;span style=&#34;color:#555&#34;&gt;...&lt;/span&gt;),
+    roi_head&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(&lt;span style=&#34;color:#555&#34;&gt;...&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;ResNet&lt;/code&gt; 和 &lt;code&gt;HRNet&lt;/code&gt; 使用不同的关键词去构建。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;_base_ &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;../mask_rcnn/mask_rcnn_r50_fpn_1x_coco.py&amp;#39;&lt;/span&gt;
+model &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+    pretrained&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;open-mmlab://msra/hrnetv2_w32&amp;#39;&lt;/span&gt;,
+    backbone&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+        _delete_&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;True,
+        &lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;HRNet&amp;#39;&lt;/span&gt;,
+        extra&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+            stage1&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+                num_modules&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;,
+                num_branches&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;,
+                block&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;BOTTLENECK&amp;#39;&lt;/span&gt;,
+                num_blocks&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;(&lt;span style=&#34;color:#f60&#34;&gt;4&lt;/span&gt;, ),
+                num_channels&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;(&lt;span style=&#34;color:#f60&#34;&gt;64&lt;/span&gt;, )),
+            stage2&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+                num_modules&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;,
+                num_branches&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;2&lt;/span&gt;,
+                block&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;BASIC&amp;#39;&lt;/span&gt;,
+                num_blocks&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;(&lt;span style=&#34;color:#f60&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;4&lt;/span&gt;),
+                num_channels&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;(&lt;span style=&#34;color:#f60&#34;&gt;32&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;64&lt;/span&gt;)),
+            stage3&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+                num_modules&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;4&lt;/span&gt;,
+                num_branches&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;3&lt;/span&gt;,
+                block&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;BASIC&amp;#39;&lt;/span&gt;,
+                num_blocks&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;(&lt;span style=&#34;color:#f60&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;4&lt;/span&gt;),
+                num_channels&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;(&lt;span style=&#34;color:#f60&#34;&gt;32&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;64&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;128&lt;/span&gt;)),
+            stage4&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+                num_modules&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;3&lt;/span&gt;,
+                num_branches&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;4&lt;/span&gt;,
+                block&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;BASIC&amp;#39;&lt;/span&gt;,
+                num_blocks&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;(&lt;span style=&#34;color:#f60&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;4&lt;/span&gt;),
+                num_channels&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;(&lt;span style=&#34;color:#f60&#34;&gt;32&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;64&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;128&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;256&lt;/span&gt;)))),
+    neck&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(&lt;span style=&#34;color:#555&#34;&gt;...&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;_delete_=True&lt;/code&gt; 会把 &lt;code&gt;backbone&lt;/code&gt; 中所有旧的键用新的键代替。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 在配置文件中使用中间变量</title>
+      <link>https://Joevaen.github.io/docs/languages/cpp/faq/faq2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/cpp/faq/faq2/</guid>
+      <description>
+        
+        
+        &lt;p&gt;有些中间变量可能会在配置文件中进行使用, 比如datasets中的 &lt;code&gt;train_pipeline&lt;/code&gt;/&lt;code&gt;test_pipeline&lt;/code&gt; 。
+在子配置文件中修改中间变量并没有什么价值, 使用者需要再次将中间变量传递到相应的字段。
+比如, 我们想用多个scale策略来训练 Mask R-CNN。 &lt;code&gt;train_pipeline&lt;/code&gt;/&lt;code&gt;test_pipeline&lt;/code&gt; 就会使我们要修改的中间变量。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;_base_ &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;./mask_rcnn_r50_fpn_1x_coco.py&amp;#39;&lt;/span&gt;
+img_norm_cfg &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+    mean&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;[&lt;span style=&#34;color:#f60&#34;&gt;123.675&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;116.28&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;103.53&lt;/span&gt;], std&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;[&lt;span style=&#34;color:#f60&#34;&gt;58.395&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;57.12&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;57.375&lt;/span&gt;], to_rgb&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;True)
+train_pipeline &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; [
+    &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(&lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;LoadImageFromFile&amp;#39;&lt;/span&gt;),
+    &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(&lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;LoadAnnotations&amp;#39;&lt;/span&gt;, with_bbox&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;True, with_mask&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;True),
+    &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+        &lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;Resize&amp;#39;&lt;/span&gt;,
+        img_scale&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;[(&lt;span style=&#34;color:#f60&#34;&gt;1333&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;640&lt;/span&gt;), (&lt;span style=&#34;color:#f60&#34;&gt;1333&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;672&lt;/span&gt;), (&lt;span style=&#34;color:#f60&#34;&gt;1333&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;704&lt;/span&gt;), (&lt;span style=&#34;color:#f60&#34;&gt;1333&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;736&lt;/span&gt;),
+                   (&lt;span style=&#34;color:#f60&#34;&gt;1333&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;768&lt;/span&gt;), (&lt;span style=&#34;color:#f60&#34;&gt;1333&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;800&lt;/span&gt;)],
+        multiscale_mode&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#34;value&amp;#34;&lt;/span&gt;,
+        keep_ratio&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;True),
+    &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(&lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;RandomFlip&amp;#39;&lt;/span&gt;, flip_ratio&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;0.5&lt;/span&gt;),
+    &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(&lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;Normalize&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#555&#34;&gt;**&lt;/span&gt;img_norm_cfg),
+    &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(&lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;Pad&amp;#39;&lt;/span&gt;, size_divisor&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;32&lt;/span&gt;),
+    &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(&lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;DefaultFormatBundle&amp;#39;&lt;/span&gt;),
+    &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(&lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;Collect&amp;#39;&lt;/span&gt;, keys&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;[&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;img&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;gt_bboxes&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;gt_labels&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;gt_masks&amp;#39;&lt;/span&gt;]),
+]
+test_pipeline &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; [
+    &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(&lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;LoadImageFromFile&amp;#39;&lt;/span&gt;),
+    &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+        &lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;MultiScaleFlipAug&amp;#39;&lt;/span&gt;,
+        img_scale&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;(&lt;span style=&#34;color:#f60&#34;&gt;1333&lt;/span&gt;, &lt;span style=&#34;color:#f60&#34;&gt;800&lt;/span&gt;),
+        flip&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;False,
+        transforms&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;[
+            &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(&lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;Resize&amp;#39;&lt;/span&gt;, keep_ratio&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;True),
+            &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(&lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;RandomFlip&amp;#39;&lt;/span&gt;),
+            &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(&lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;Normalize&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#555&#34;&gt;**&lt;/span&gt;img_norm_cfg),
+            &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(&lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;Pad&amp;#39;&lt;/span&gt;, size_divisor&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;32&lt;/span&gt;),
+            &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(&lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;ImageToTensor&amp;#39;&lt;/span&gt;, keys&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;[&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;img&amp;#39;&lt;/span&gt;]),
+            &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(&lt;span style=&#34;color:#366&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;Collect&amp;#39;&lt;/span&gt;, keys&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;[&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;img&amp;#39;&lt;/span&gt;]),
+        ])
+]
+data &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+    train&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(pipeline&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;train_pipeline),
+    val&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(pipeline&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;test_pipeline),
+    test&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(pipeline&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;test_pipeline))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;首先定义新的 &lt;code&gt;train_pipeline&lt;/code&gt;/&lt;code&gt;test_pipeline&lt;/code&gt; 并把他们传到 &lt;code&gt;data&lt;/code&gt;。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

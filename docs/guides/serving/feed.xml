@@ -1,0 +1,117 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – 模型服务</title>
+    <link>https://Joevaen.github.io/docs/guides/serving/</link>
+    <description>Recent content in 模型服务 on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/guides/serving/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 1.将MMDetection模型转换到TorchServe</title>
+      <link>https://Joevaen.github.io/docs/guides/serving/convert/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/guides/serving/convert/</guid>
+      <description>
+        
+        
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;python tools/deployment/mmdet2torchserve.py &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;CONFIG_FILE&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;CHECKPOINT_FILE&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;--output-folder &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;MODEL_STORE&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;--model-name &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;MODEL_NAME&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;*&lt;strong&gt;Note&lt;/strong&gt;: ${MODEL_STORE} needs to be an absolute path to a folder.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 2.创建docker镜像</title>
+      <link>https://Joevaen.github.io/docs/guides/serving/build/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/guides/serving/build/</guid>
+      <description>
+        
+        
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;docker build -t mmdet-serve:latest docker/serve/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 3.运行</title>
+      <link>https://Joevaen.github.io/docs/guides/serving/run/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/guides/serving/run/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Check the official docs for &lt;a href=&#34;https://github.com/pytorch/serve/blob/master/docker/README.md#running-torchserve-in-a-production-docker-environment&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;running TorchServe with docker&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In order to run in GPU, you need to install &lt;a href=&#34;https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;nvidia-docker&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;. You can omit the &lt;code&gt;--gpus&lt;/code&gt; argument in order to run in CPU.&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;docker run --rm &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;--cpus &lt;span style=&#34;color:#f60&#34;&gt;8&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;--gpus &lt;span style=&#34;color:#033&#34;&gt;device&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;-p8080:8080 -p8081:8081 -p8082:8082 &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;--mount &lt;span style=&#34;color:#033&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;bind,source&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;$MODEL_STORE&lt;/span&gt;,target&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;/home/model-server/model-store &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;mmdet-serve:latest
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/pytorch/serve/blob/072f5d088cce9bb64b2a18af065886c9b01b317b/docs/rest_api.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Read the docs&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; about the Inference (8080), Management (8081) and Metrics (8082) APis&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 4.测试部署</title>
+      <link>https://Joevaen.github.io/docs/guides/serving/test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/guides/serving/test/</guid>
+      <description>
+        
+        
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;curl -O curl -O https://raw.githubusercontent.com/pytorch/serve/master/docs/images/3dogs.jpg
+curl http://127.0.0.1:8080/predictions/&lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;MODEL_NAME&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; -T 3dogs.jpg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You should obtain a respose similar to:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;[
+  {
+    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;dog&amp;#34;&lt;/span&gt;: [
+      &lt;span style=&#34;color:#f60&#34;&gt;402.9117736816406&lt;/span&gt;,
+      &lt;span style=&#34;color:#f60&#34;&gt;124.19664001464844&lt;/span&gt;,
+      &lt;span style=&#34;color:#f60&#34;&gt;571.7910766601562&lt;/span&gt;,
+      &lt;span style=&#34;color:#f60&#34;&gt;292.6463623046875&lt;/span&gt;
+    ],
+    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;score&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#f60&#34;&gt;0.9561963081359863&lt;/span&gt;
+  },
+  {
+    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;dog&amp;#34;&lt;/span&gt;: [
+      &lt;span style=&#34;color:#f60&#34;&gt;293.90057373046875&lt;/span&gt;,
+      &lt;span style=&#34;color:#f60&#34;&gt;196.2908477783203&lt;/span&gt;,
+      &lt;span style=&#34;color:#f60&#34;&gt;417.4869079589844&lt;/span&gt;,
+      &lt;span style=&#34;color:#f60&#34;&gt;286.2522277832031&lt;/span&gt;
+    ],
+    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;score&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#f60&#34;&gt;0.9179860353469849&lt;/span&gt;
+  },
+  {
+    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;dog&amp;#34;&lt;/span&gt;: [
+      &lt;span style=&#34;color:#f60&#34;&gt;202.178466796875&lt;/span&gt;,
+      &lt;span style=&#34;color:#f60&#34;&gt;86.3709487915039&lt;/span&gt;,
+      &lt;span style=&#34;color:#f60&#34;&gt;311.9863586425781&lt;/span&gt;,
+      &lt;span style=&#34;color:#f60&#34;&gt;276.28411865234375&lt;/span&gt;
+    ],
+    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;score&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#f60&#34;&gt;0.8933767080307007&lt;/span&gt;
+  }
+]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

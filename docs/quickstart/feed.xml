@@ -1,0 +1,57 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – 快速开始</title>
+    <link>https://Joevaen.github.io/docs/quickstart/</link>
+    <description>Recent content in 快速开始 on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/quickstart/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 使用现有模型和标准数据集的推理和训练</title>
+      <link>https://Joevaen.github.io/docs/quickstart/infer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/quickstart/infer/</guid>
+      <description>
+        
+        
+        &lt;p&gt;MMDetection提供了很多可以使用的模型 &lt;a href=&#34;https://mmdetection.readthedocs.io/en/latest/model_zoo.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Model Zoo&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;), 同时支持多种标准数据集, 包括 Pascal VOC, COCO, CityScapes, LVIS等等。这个笔记会向你展示如何在存在的模型和标准数据集上进行一些普通的任务，包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用存在的模型在给定图片上进行推理。&lt;/li&gt;
+&lt;li&gt;在标准数据集上对现有模型进行测试。&lt;/li&gt;
+&lt;li&gt;在标准数据集上训练预训练模型。&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 用自定义数据集训练</title>
+      <link>https://Joevaen.github.io/docs/quickstart/train/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/quickstart/train/</guid>
+      <description>
+        
+        
+        &lt;p&gt;In this note, you will know how to inference, test, and train predefined models with customized datasets. We use the &lt;a href=&#34;https://github.com/matterport/Mask_RCNN/tree/master/samples/balloon&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;balloon dataset&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; as an example to describe the whole process.&lt;/p&gt;
+&lt;p&gt;The basic steps are as below:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Prepare the customized dataset&lt;/li&gt;
+&lt;li&gt;Prepare a config&lt;/li&gt;
+&lt;li&gt;Train, test, inference models on the customized dataset.&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

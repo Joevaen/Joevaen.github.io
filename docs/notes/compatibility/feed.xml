@@ -1,0 +1,66 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – MMDetection 2.x的兼容性</title>
+    <link>https://Joevaen.github.io/docs/notes/compatibility/</link>
+    <description>Recent content in MMDetection 2.x的兼容性 on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/notes/compatibility/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: MMDetection 2.12.0</title>
+      <link>https://Joevaen.github.io/docs/notes/compatibility/mmdetection2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/notes/compatibility/mmdetection2/</guid>
+      <description>
+        
+        
+        &lt;p&gt;MMDetection is going through big refactoring for more general and convenient usages during the releases from v2.12.0 to v2.15.0 (maybe longer).
+In v2.12.0 MMDetection inevitably brings some BC-breakings, including the MMCV dependency, model initialization, model registry, and mask AP evaluation.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: MMDetection 1.x的兼容性</title>
+      <link>https://Joevaen.github.io/docs/notes/compatibility/mmdetection1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/notes/compatibility/mmdetection1/</guid>
+      <description>
+        
+        
+        &lt;p&gt;MMDetection 2.0 goes through a big refactoring and addresses many legacy issues. It is not compatible with the 1.x version, i.e., running inference with the same model weights in these two versions will produce different results. Thus, MMDetection 2.0 re-benchmarks all the models and provides their links and logs in the model zoo.&lt;/p&gt;
+&lt;p&gt;The major differences are in four folds: coordinate system, codebase conventions, training hyperparameters, and modular design.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: pycocotools兼容性</title>
+      <link>https://Joevaen.github.io/docs/notes/compatibility/pycocotools/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/notes/compatibility/pycocotools/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;code&gt;mmpycocotools&lt;/code&gt; is the OpenMMlab&amp;rsquo;s folk of official &lt;code&gt;pycocotools&lt;/code&gt;, which works for both MMDetection and Detectron2.
+Before &lt;a href=&#34;https://github.com/open-mmlab/mmdetection/pull/4939&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PR 4939&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, since &lt;code&gt;pycocotools&lt;/code&gt; and &lt;code&gt;mmpycocotool&lt;/code&gt; have the same package name, if users already installed &lt;code&gt;pyccocotools&lt;/code&gt; (installed Detectron2 first under the same environment), then the setup of MMDetection will skip installing &lt;code&gt;mmpycocotool&lt;/code&gt;. Thus MMDetection fails due to the missing &lt;code&gt;mmpycocotools&lt;/code&gt;.
+If MMDetection is installed before Detectron2, they could work under the same environment.
+&lt;a href=&#34;https://github.com/open-mmlab/mmdetection/pull/4939&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PR 4939&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; deprecates mmpycocotools in favor of official pycocotools.
+Users may install MMDetection and Detectron2 under the same environment after &lt;a href=&#34;https://github.com/open-mmlab/mmdetection/pull/4939&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PR 4939&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, no matter what the installation order is.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

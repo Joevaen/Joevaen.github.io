@@ -17,512 +17,83 @@
     
     
     <item>
-      <title>Blog: The future of gRPC in C# belongs to grpc-dotnet</title>
-      <link>https://Joevaen.github.io/blog/grpc-csharp-future/</link>
-      <pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate>
+      <title>Blog: youtube-dl</title>
+      <link>https://Joevaen.github.io/blog/tools/youtube-dl/</link>
+      <pubDate>Sun, 06 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://Joevaen.github.io/blog/grpc-csharp-future/</guid>
+      <guid>https://Joevaen.github.io/blog/tools/youtube-dl/</guid>
       <description>
-        TL;DR grpc-dotnet (the Grpc.Net.Client and Grpc.AspNetCore.Server nuget packages) is now the recommended gRPC implementation for .NET/C#. The original gRPC C# implementation (the Grpc.Core nuget package) will enter maintenance mode and won&amp;rsquo;t be getting any new features and will only receive important bug fixes and security fixes going forward. The ultimate plan is to phase out Grpc.Core completely at some point in the future. This announcement describes the reasons why we have decided to do so and lays out the plan in more detail.
+        youtube-dl - download videos from youtube.com or other video platforms
+ 安装 DESCRIPTION 设置 CONFIGURATION OUTPUT TEMPLATE FORMAT SELECTION VIDEO SELECTION FAQ DEVELOPER INSTRUCTIONS EMBEDDING YOUTUBE-DL BUGS COPYRIGHT  安装 To install it right away for all UNIX users (Linux, macOS, etc.), type:
+sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl sudo chmod a+rx /usr/local/bin/youtube-dl  If you do not have curl, you can alternatively use a recent wget:
       </description>
     </item>
     
     <item>
-      <title>Blog: Analyzing gRPC messages using Wireshark</title>
-      <link>https://Joevaen.github.io/blog/wireshark/</link>
-      <pubDate>Wed, 03 Feb 2021 00:00:00 +0000</pubDate>
+      <title>Blog: 选一个难得热爱，继续热爱下去</title>
+      <link>https://Joevaen.github.io/blog/causeries/suns_1/</link>
+      <pubDate>Sat, 05 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://Joevaen.github.io/blog/wireshark/</guid>
+      <guid>https://Joevaen.github.io/blog/causeries/suns_1/</guid>
       <description>
-        Wireshark is an open source network protocol analyzer that can be used for protocol development, network troubleshooting, and education. Wireshark lets you analyze gRPC messages that are transferred over the network, and learn about the binary format of these messages.
-In this post, you&amp;rsquo;ll learn how to configure and use the Wireshark gRPC dissector and the Protocol Buffers (Protobuf) dissector, which are protocol-specific components that allow you to analyze gRPC messages with Wireshark.
+        2018年，已经觉得nba无法让我提起任何兴趣的我，抱着我就要看看哈登有多牛b的心态跟随保罗来到火箭队。哈登的后撤步让我彻底打消了对他的古板看法，之前在我眼里，被视为球队基石的哈登并不能让我产生任何共鸣，对比赛的态度远远不是我那个时代看到的球员态度，我觉得厮杀搏斗的nba更好看更让人热血喷张。但在我在看完哈登一个赛季的比赛之后，是真切的觉得，其得分效率简直可以用恐怖形容，异于常人的无差别单打能力以及人球结合能力，确实叹为观止。我想，兴许保罗退役了，可以看这个哥们打球。
+可是我发现我做不到，从保罗腿筋退赛到现在，我没有看过任何一场哈登的比赛，我发现，我一切看球的原因，都是因为那个我看了14年球的蜂王船王。
+由于疫情原因使得19-20赛季索然无味，在雷霆的保罗，我也只是看了和火箭的季后赛，兴许是还沉浸在面对勇士的失利之中，或者说还沉浸在对阵发带帮的被翻盘中，我对35岁的保罗，已不抱任何奢望，只是想以后想看球的时候还能看到他的身影，也还算满足。
+20-21赛季，我在新的工作单位逐渐稳定下来，作为一个调参喝茶的不在互联网行业的程序员，我有了更多时间在白天看球听球。太阳后半段的比赛看了很多，从只认识布克艾顿到妈妈永远爱的乔宝忠宝。我发现，这是我看球以来，保罗待过的最舒服的球队。
+我慢慢开始重拾之前看nba的快乐，似乎在这支太阳 ，每个人的目的不是我要追求多大的合同，而是我要成为怎样的人，我要如何快乐的比赛，这个相当年轻的球队，此次参加季后赛的主力，基本都在25岁以下，他们在一起的快乐就是一群热爱篮球的兄弟伙在一起的快乐，很简单，但是却有很强大的凝聚力。
+在这个年级我开始发现，其实nba的比赛并不一定是为了一个比赛结束的哨声，这群太阳队的年轻球员就是一群很热爱的篮球的小伙子。可能是因为主力有几个都是新秀合同，他们还是尚未被铜臭味熏陶的大男孩。
+你看那个又高又壮的中锋，一脸凶神恶煞，感觉长的像个40岁大汉，但其实他是个舞王，而且说的最多的话不是爱德华兹那样的狂言，也不表现的如恩比德般大摇大摆，他说他最想做的事情是成为内线防守大闸，从赛季初反向掩护为持球人吸引包夹，到现在随处可见和保罗的配合，艾顿的谦逊态度让他受益良多，假如说这个赛季前的艾顿不被人看好有可能是个水货，那么这赛季迄今为止的艾顿，已经是联盟及格线以上的防守大闸，优秀的吃饼人，不错的挡拆者。我不愿意将这个功劳归结于保罗，艾顿所得到的一切成长，仰赖于他自身的态度和付出的努力。
+你看那个大长胳膊、老咧着大嘴笑的蜘蛛人，太阳球迷都叫他大桥。那是cp3口中的儿子，据说是一个段子大王。要我说，大桥是一个你很难不喜欢的球员，首先是那治愈系的笑，是一种男的女的看了都舒服的笑，这也就是为什么桥宝的男妈妈最多，确实，大桥的阳光性格可能是他身上难得的优秀品质，而这种品质的衍生物，就是冷静、自信和热情。大桥的动态和静态天赋，应当都是相当优秀的，除了力量和并不优异的身高，其臂展、弹跳、速度、横移、防守智商均在联盟优秀水准。我很期待这个球员的未来，可能不会是一个矮一点的杜兰特，但会是一个更好的、好的多的布里奇斯。
+你看那个歪把子。。。很多人都说为什么佩恩突然猛起来了。我想说的是，没有突然的变猛，只有不断的努力。布克、大桥一直是太阳球迷的宠儿，但是佩恩真的是把每场比赛当最后一场打，真正用努力赢得太阳球迷的尊重。每一场比赛都不知疲倦的奔跑，投进一个三分，面如冰霜，立马回防。被别人碾压打进一个，也面不改色的快速反击。不断和队友交流，不断去努力学习阅读比赛，看见今天那个不看人传球了吗？现在的佩恩已经自信到如此程度，他并没有因为在保罗身边而担心自己黯淡无光，而是去努力学习和获取营养，季后赛来了，舞台也就来了。毫无疑问，这样的佩恩值得一份大合同，但我更希望的是，拿到大合同的佩恩仍然保持这个赛季的态度，无论去了哪里，都做现在这个自己。
+老四我就不说了，看了一个赛季的比赛下来，我仍然保持之前的态度——布克是当前联盟最像科比的球员，尤其是精神意志领域。老四在以后增强结合球、背打能力，同时增强阅读比赛保持冷静的能力，超级巨星并不是没有可能。哈登的季后赛表现确实和人们对他的期望大相径庭，但是就这几场看来，布克确实更像一个属于季后赛的球员。
+论坛的年轻人依然很多，我记得自己最早用虎扑是在2010年，当时桌面上放着作业，书下用诺基亚看文字直播。湖人确实是流量大户，而勒布朗也是自古以来争议巨大的球星。所以难免现在会有很多因为湖人输球无比沮丧的球迷。
+但是说真的，如果你现在是15岁，你也终会有一天面临自己喜欢的球星即将退役的事实，到那时你会觉得nba越来越无趣。而你越来越大，会发现你的人生中如果乐趣在不断减少，那将会是件很可怕的事情。
+放平心态，在15岁时，好好看比赛，好好去球场上挥洒汗水，好好生活。在你25岁时，也许你喜欢的球星已经在走下坡路，也许追星路上有巨大遗憾，但生活是生活，篮球是篮球，选一个让你开心的球队，关注他们，为他们开心呐喊，守住这份最纯粹的热爱。
+保持热爱，才是篮球的之于人生的终极意义。
       </description>
     </item>
     
     <item>
-      <title>Blog: Interceptors in gRPC-Web</title>
-      <link>https://Joevaen.github.io/blog/grpc-web-interceptor/</link>
-      <pubDate>Thu, 18 Jun 2020 00:00:00 +0000</pubDate>
+      <title>Blog: 23日11时58分，wocao、头皮发麻和泪水</title>
+      <link>https://Joevaen.github.io/blog/causeries/suns_2/</link>
+      <pubDate>Wed, 30 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://Joevaen.github.io/blog/grpc-web-interceptor/</guid>
+      <guid>https://Joevaen.github.io/blog/causeries/suns_2/</guid>
       <description>
-        We&amp;rsquo;re pleased to announce support for interceptors in gRPC-web as of release 1.1.0. While the current design is based on gRPC client interceptors available from other gRPC languages, it also includes gRPC-web specific features that should make interceptors easy to adopt and use alongside modern web frameworks.
-Introduction Similar to other gRPC languages, gRPC-web supports unary and server-streaming interceptors. For each kind of interceptor, we&amp;rsquo;ve defined an interface containing a single intercept() method:
+        11时50分，我关掉手机的屏幕，按了电梯准备下楼回家吃饭，因为公司离家近的原因，我通常会打个曹操专车用一下五折优惠券，花5块钱和8分钟回家吃个饭再睡会午觉，好继续保持精力敲代码。可这次我没有打车，骑了辆蓝色的共享单车。
+天气有点阴沉也有点闷，此刻我的心情可以说的上糟糕，弱智裁判把我搞的特别恶心，领先五分的优势被反超一分，亲眼看着自己认为绝对被高估的球星投进那记中投让我已经完全没有了胃口。“0.9s还打个毛，输了就输了吧，保罗不在布克确实太容易失误了，只要下场回来，就算在洛杉矶的主场也能赢，可恶的关键时刻，可耻的裁判、肮脏的联盟，还有，为什么赛场上会有一只满场飞奔的疯狗？”——在五分钟的时间内，我已经做好了基本的心理建设，我已经习惯性的放弃了这样的比赛和时刻，我知道，按照我的经验，没有保罗，最后时刻的队友往往不值得托付。
+前面是个十字路口，心想这比赛应该结束了，看看比分吧，103快船: 104太阳。
+什么？？？？？？
+过了红绿灯我停在路边，仔细看了下文字直播的内容，艾顿？？空接？？绝杀？？
+“wocao！！！”
+“wocao！！！”
+“wocao！！！”
+我骑上车子，肾上腺素飙升引发的头皮发麻感，已经侵袭全身，32度的气温我居然感觉有点冷。
+随后便是不知多少句的庞若无人的“wocao”，我能感觉到路人看sb一样看我的眼神，都26岁的人了，竟如此失智到不知被什么未知的东西控制了，着了魔一般的骑着车子，路边的曼妙少女亦或是少妇的身形，在这五分钟的行程中，难得的没有擒获我的双眸。
+感觉眼睛被什么东西占据了。。。有点酸胀，好像也有点湿润。
+我是一个很感性的人，但是13年的球龄之内，我从未为篮球流过眼泪。
+太复杂了。
+可能是作为一个炮密期待了太久的东西，终于收获了成果，就好像小时候终于得到了爷爷承诺只有考第一才能得到遥控车；
+可能是太阳球员带给我的绝不认输的坚韧，玩玩全全摧毁我内心防线的坚韧；
+也可能是佩恩、艾顿这场体现的统治力带给我的震撼；
+亦或是“ball never lies”的超现实感；
+。。。
+我无法尽述，但我很难平静，甚至我码字的这一刻，仍心潮澎湃。
+我似乎闻到了一点奥布莱恩杯的味道，从未梦寐、不敢奢望的味道。坚韧、顽强、努力、执着。。。这好像是所有冠军球队都有的味道。只有一次西决的保罗、刷分的布克、水货状元艾顿、cba放逐的佩恩。。。这是两个月前大众认为的他们，而现在，乃至一个月之后，这支球队，会让人铭记、佩服，乃至恐惧。
+Rally the Valley！
+Suns in four!
       </description>
     </item>
     
     <item>
-      <title>Blog: Announcing gRPC-JS 1.0</title>
-      <link>https://Joevaen.github.io/blog/grpc-js-1.0/</link>
-      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
+      <title>Blog: spotify-downloader</title>
+      <link>https://Joevaen.github.io/blog/tools/spotify-downloader/</link>
+      <pubDate>Sat, 05 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://Joevaen.github.io/blog/grpc-js-1.0/</guid>
+      <guid>https://Joevaen.github.io/blog/tools/spotify-downloader/</guid>
       <description>
-        We are excited to announce the release of version 1.0 of gRPC-JS (@grpc/grpc-js), a pure-TypeScript reimplementation of the original Node gRPC library, grpc.
-Features gRPC-JS supports the following features, which should cover most use cases:
- Clients Automatic reconnection Servers Streaming Metadata Partial compression support: clients can decompress response messages Pick first and round robin load balancing policies Client Interceptors Connection Keepalives HTTP Connect support (proxies)  Should I use @grpc/grpc-js or grpc?
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: Kotlin, meet gRPC</title>
-      <link>https://Joevaen.github.io/blog/kotlin-meet-grpc/</link>
-      <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/kotlin-meet-grpc/</guid>
-      <description>
-        As developers work to modernize applications, they need foundational tools that are simple and scalable. gRPC is a high-performance, open-source, universal RPC framework originally developed at Google that developers are adopting in tremendous numbers, helping them connect services more easily and reliably. Paired with Kotlin, the second most popular JVM-based programming language in the world, developers can build everything from mobile apps to cloud microservices. To help, we&amp;rsquo;ve open-sourced gRPC Kotlin for the JVM, allowing you to use gRPC with your Kotlin projects.
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: gRPC comes to Cloud Run</title>
-      <link>https://Joevaen.github.io/blog/grpc-cloud-run/</link>
-      <pubDate>Tue, 17 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/grpc-cloud-run/</guid>
-      <description>
-        &lt;p&gt;&lt;a href=&#34;https://cloud.google.com/run&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloud Run&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; is a serverless platform offered by Google Cloud that lets you run
-stateless server containers in a fully managed environment. Most Cloud Run apps
-use HTTP JSON REST to serve requests, but since September 2019, apps can also
-use unary gRPC services!&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: Improvements to gRPC&#39;s CMake Build System</title>
-      <link>https://Joevaen.github.io/blog/cmake-improvements/</link>
-      <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/cmake-improvements/</guid>
-      <description>
-        For the past few months, Kitware Inc. has been working with the gRPC team to improve gRPC’s CMake support. The goal of the effort was to modernize gRPC’s CMake build with the most current features and techniques CMake has to offer. This has improved the user experience for gRPC developers choosing to use gRPC’s CMake as a build system. During the effort the CMake build was looked at as a whole, and CMake related issues in GitHub were explored and resolved.
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: .NET Core ❤ gRPC</title>
-      <link>https://Joevaen.github.io/blog/grpc-on-dotnetcore/</link>
-      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/grpc-on-dotnetcore/</guid>
-      <description>
-        The .NET team at Microsoft has been working in close collaboration with the gRPC team since November 2018 on a new fully managed implementation of gRPC for .NET Core.
-We&amp;rsquo;re pleased to announce that grpc-dotnet is now available with .NET Core 3.0 today!
-How to get it? grpc-dotnet packages have just been released to NuGet.org and are already available for use in your projects. These packages also require the latest .
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: Dear gRPC</title>
-      <link>https://Joevaen.github.io/blog/hello-pancakes/</link>
-      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/hello-pancakes/</guid>
-      <description>
-        Dear gRPC,
-We messed up. We are so sorry that we missed your birthday this year. Last year we celebrated with cake and fanfare, but this year we dropped the ball. Please don&amp;rsquo;t think that we love you any less.
-You&amp;rsquo;re 4 now and that&amp;rsquo;s a big milestone! You&amp;rsquo;re part of so much amazing technology at companies like Salesforce, Netflix, Spotify, Fanatics, and of course, Google. In fact just this week the biggest API Google has went production-ready with gRPC.
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: The state of gRPC in the browser</title>
-      <link>https://Joevaen.github.io/blog/state-of-grpc-web/</link>
-      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/state-of-grpc-web/</guid>
-      <description>
-        &lt;p&gt;gRPC 1.0 was released in August 2016 and has since grown to become one of the
-premier technical solutions for application communications. It has been adopted
-by startups, enterprise companies, and open source projects worldwide.
-Its support for polyglot environments, focus on performance, type safety, and
-developer productivity has transformed the way developers design their
-architectures.&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: Visualizing gRPC Language Stacks</title>
-      <link>https://Joevaen.github.io/blog/grpc-stacks/</link>
-      <pubDate>Tue, 11 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/grpc-stacks/</guid>
-      <description>
-        &lt;p&gt;Here is a high level overview of the gRPC Stacks.  Each of the &lt;strong&gt;10&lt;/strong&gt; default languages supported by gRPC has multiple layers, allowing you to customize what pieces you want in your application.&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: gRPC-Web is Generally Available</title>
-      <link>https://Joevaen.github.io/blog/grpc-web-ga/</link>
-      <pubDate>Tue, 23 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/grpc-web-ga/</guid>
-      <description>
-        &lt;p&gt;We are excited to announce the GA release of
-&lt;a href=&#34;https://www.npmjs.com/package/grpc-web&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gRPC-Web&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, a JavaScript client library
-that enables web apps to communicate directly with gRPC backend services,
-without requiring an HTTP server to act as an intermediary. &amp;ldquo;GA&amp;rdquo; means that
-gRPC-Web is now Generally Available and stable and qualified for production use.&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: A short introduction to Channelz</title>
-      <link>https://Joevaen.github.io/blog/a-short-introduction-to-channelz/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/a-short-introduction-to-channelz/</guid>
-      <description>
-        &lt;p&gt;Channelz is a tool that provides comprehensive runtime info about connections at
-different levels in gRPC. It is designed to help debug live programs, which may
-be suffering from network, performance, configuration issues, etc. The
-&lt;a href=&#34;https://github.com/grpc/proposal/blob/master/A14-channelz.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gRFC&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; provides a
-detailed explanation of channelz design and is the canonical reference for all
-channelz implementations across languages. The purpose of this blog is to
-familiarize readers with channelz service and how to use it for debugging
-issues. The context of this post is set in
-&lt;a href=&#34;https://github.com/grpc/grpc-go&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gRPC-Go&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, but the overall idea should be
-applicable across languages. At the time of writing, channelz is available for
-&lt;a href=&#34;https://github.com/grpc/grpc-go&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gRPC-Go&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; and
-&lt;a href=&#34;https://github.com/grpc/grpc-java&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gRPC-Java&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;. Support for
-&lt;a href=&#34;https://github.com/grpc/grpc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;C++&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; and wrapped languages is coming soon.&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: gRPC on HTTP/2 Engineering a Robust, High-performance Protocol</title>
-      <link>https://Joevaen.github.io/blog/grpc-on-http2/</link>
-      <pubDate>Mon, 20 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/grpc-on-http2/</guid>
-      <description>
-        &lt;p&gt;In a &lt;a href=&#34;https://www.cncf.io/blog/2018/07/03/http-2-smarter-at-scale/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;previous article&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, we explored how HTTP/2 dramatically increases network efficiency and enables real-time communication by providing a framework for long-lived connections. In this article, we’ll look at how gRPC builds on HTTP/2’s long-lived connections to create a performant, robust platform for inter-service communication. We will explore the relationship between gRPC and HTTP/2, how gRPC manages HTTP/2 connections, and how gRPC uses HTTP/2 to keep connections alive, healthy, and utilized.&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: gRPC &#43; JSON</title>
-      <link>https://Joevaen.github.io/blog/grpc-with-json/</link>
-      <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/grpc-with-json/</guid>
-      <description>
-        &lt;p&gt;So you&amp;rsquo;ve bought into this whole RPC thing and want to try it out, but aren&amp;rsquo;t quite sure about Protocol Buffers.  Your existing code encodes your own objects, or perhaps you have code that needs a particular encoding.  What to do?&lt;/p&gt;
-&lt;p&gt;Fortunately, gRPC is encoding agnostic!  You can still get a lot of the benefits of gRPC without using Protobuf.  In this post we&amp;rsquo;ll go through how to make gRPC work with other encodings and types.  Let&amp;rsquo;s try using JSON.&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: Take the gRPC Survey!</title>
-      <link>https://Joevaen.github.io/blog/take-the-grpc-survey/</link>
-      <pubDate>Tue, 14 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/take-the-grpc-survey/</guid>
-      <description>
-        &lt;h2 id=&#34;the-grpc-project-wants-your-feedback&#34;&gt;The gRPC Project wants your feedback!&lt;/h2&gt;
-&lt;p&gt;The gRPC project is looking for feedback to improve the gRPC experience. To do this, we are running a &lt;a href=&#34;http://bit.ly/gRPC18survey&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gRPC user survey&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;. We invite you to participate and provide input that will help us better plan and prioritize.&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: Gracefully clean up in gRPC JUnit tests</title>
-      <link>https://Joevaen.github.io/blog/graceful-cleanup-junit-tests/</link>
-      <pubDate>Tue, 26 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/graceful-cleanup-junit-tests/</guid>
-      <description>
-        &lt;p&gt;It is best practice to always clean up gRPC resources such as client channels, servers, and previously attached Contexts whenever they are no longer needed.&lt;/p&gt;
-&lt;p&gt;This is even true for JUnit tests, because otherwise leaked resources may not only linger in your machine forever, but also interfere with subsequent tests. A not-so-bad case is that subsequent tests can&amp;rsquo;t pass because of a leaked resource from the previous test. The worst case is that some subsequent tests pass that wouldn&amp;rsquo;t have passed at all if the previously passed test had not leaked a resource.&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: gRPC Meets .NET SDK And Visual Studio: Automatic Codegen On Build</title>
-      <link>https://Joevaen.github.io/blog/grpc-dotnet-build/</link>
-      <pubDate>Tue, 26 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/grpc-dotnet-build/</guid>
-      <description>
-        &lt;p&gt;As part of Microsoft&amp;rsquo;s move towards its cross-platform .NET offering, they have
-greatly simplified the project file format, and allowed a tight integration of
-third-party code generators with .NET projects. We are listening, and now proud
-to introduce integrated compilation of Protocol Buffer and gRPC service
-&lt;code&gt;.proto&lt;/code&gt; files in .NET C# projects starting with the version 1.17 of the
-Grpc.Tools NuGet package, now available from Nuget.org.&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: gRPC ❤ Kotlin</title>
-      <link>https://Joevaen.github.io/blog/kotlin-gradle-projects/</link>
-      <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/kotlin-gradle-projects/</guid>
-      <description>
-        Did you know that gRPC Java now has out of box support for Kotlin projects built with Gradle? Kotlin is a modern, statically typed language developed by JetBrains that targets the JVM and Android. It is generally easy for Kotlin programs to interoperate with existing Java libraries. To improve this experience further, we have added support to the protobuf-gradle-plugin so that the generated Java libraries are automatically picked up by Kotlin.
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: So You Want to Optimize gRPC - Part 2</title>
-      <link>https://Joevaen.github.io/blog/optimizing-grpc-part-2/</link>
-      <pubDate>Mon, 16 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/optimizing-grpc-part-2/</guid>
-      <description>
-        &lt;p&gt;How fast is gRPC?  Pretty fast if you understand how modern clients and servers are built.  In
-&lt;a href=&#34;https://Joevaen.github.io/blog/optimizing-grpc-part-1/&#34;&gt;part 1&lt;/a&gt;, I showed how to get an easy &lt;strong&gt;60%&lt;/strong&gt; improvement.  In this
-post I show how to get a &lt;strong&gt;10000%&lt;/strong&gt; improvement.&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: So You Want to Optimize gRPC - Part 1</title>
-      <link>https://Joevaen.github.io/blog/optimizing-grpc-part-1/</link>
-      <pubDate>Tue, 06 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/optimizing-grpc-part-1/</guid>
-      <description>
-        &lt;p&gt;A common question with gRPC is how to make it fast.  The gRPC library offers users access to high
-performance RPCs, but it isn&amp;rsquo;t always clear how to achieve this.  Because this question is common
-enough I thought I would try to show my thought process when tuning programs.&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: gRPC and Deadlines</title>
-      <link>https://Joevaen.github.io/blog/deadlines/</link>
-      <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/deadlines/</guid>
-      <description>
-        &lt;p&gt;&lt;strong&gt;TL;DR: Always set a deadline&lt;/strong&gt;. This post explains why we recommend being deliberate about setting deadlines, with useful code snippets to show you how.&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: gRPC-Go Engineering Practices</title>
-      <link>https://Joevaen.github.io/blog/grpc-go-engineering-practices/</link>
-      <pubDate>Mon, 22 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/grpc-go-engineering-practices/</guid>
-      <description>
-        &lt;p&gt;It&amp;rsquo;s the start of the new year, and almost the end of my first full year on the
-gRPC-Go project, so I&amp;rsquo;d like to take this opportunity to provide an update on
-the state of gRPC-Go development and give some visibility into how we manage the
-project.  For me, personally, this is the first open source project to which
-I&amp;rsquo;ve meaningfully contributed, so this year has been a learning experience for
-me.  Over this year, the team has made constant improvements to our work habits
-and communication.  I still see room for improvement, but I believe we are in a
-considerably better place than we were a year ago.&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: The gRPC Meetup Kit</title>
-      <link>https://Joevaen.github.io/blog/meetup-kit/</link>
-      <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/meetup-kit/</guid>
-      <description>
-        If you have ever wanted to run an event around gRPC, but didn&amp;rsquo;t know where to start, or weren&amp;rsquo;t sure what content is available - we have released the gRPC Meetup Kit!
-The meetup kit includes a 15 minute presentation on the basic concepts of gRPC, with accompanying slides and video for either reference or playback, as well as a 45-minute codelab that takes you through the basics of gRPC in Node.
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: gRPC-Go performance Improvements</title>
-      <link>https://Joevaen.github.io/blog/grpc-go-perf-improvements/</link>
-      <pubDate>Tue, 22 Aug 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/grpc-go-perf-improvements/</guid>
-      <description>
-        &lt;p&gt;For past few months we&amp;rsquo;ve been working on improving gRPC-Go performance. This includes improving network utilization, optimizing CPU usage and memory allocations. Most of our recent effort has been focused around revamping gRPC-Go flow control. After several optimizations and new features we&amp;rsquo;ve been able to improve quite significantly, especially on high-latency networks. We expect users that are working with high-latency networks and large messages to see an order of magnitude performance gain.
-Benchmark results at the end.&lt;/p&gt;
-&lt;p&gt;This blog summarizes the work we have done so far (in chronological order) to improve performance and lays out our near-future plans.&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: 2017-08-17 Community Meeting Update</title>
-      <link>https://Joevaen.github.io/blog/community-meeting-update/</link>
-      <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/community-meeting-update/</guid>
-      <description>
-        &lt;p&gt;&lt;strong&gt;Next Community Meeting:&lt;/strong&gt; Thursday, August 31, 2017 11am Pacific Time (US and Canada)&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: Announcing out-of-the-box support for gRPC in the Flatbuffers serialization library</title>
-      <link>https://Joevaen.github.io/blog/grpc-flatbuffers/</link>
-      <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/grpc-flatbuffers/</guid>
-      <description>
-        &lt;p&gt;The recent release of Flatbuffers &lt;a href=&#34;https://github.com/google/flatbuffers/releases&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;version 1.7&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; introduced truly zero-copy support for gRPC out of the box.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://google.github.io/flatbuffers/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Flatbuffers&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; is a serialization library that allows you to access serialized data without first unpacking it or allocating any
-additional data structures. It was originally designed for games and other resource constrained applications, but is now finding more general use, both by teams within Google and in other companies such as Netflix and Facebook.&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: gRPC Load Balancing</title>
-      <link>https://Joevaen.github.io/blog/grpc-load-balancing/</link>
-      <pubDate>Thu, 15 Jun 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/grpc-load-balancing/</guid>
-      <description>
-        &lt;p&gt;This post describes various load balancing scenarios seen when deploying gRPC. If you use &lt;a href=&#34;https://Joevaen.github.io/&#34;&gt;gRPC&lt;/a&gt; with multiple backends, this document is for you.&lt;/p&gt;
-&lt;p&gt;A large scale gRPC deployment typically has a number of identical back-end instances, and a number of clients. Each server has a certain capacity. Load balancing is used for distributing the load from clients optimally across available servers.&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: gRPC in Helm</title>
-      <link>https://Joevaen.github.io/blog/helm-grpc/</link>
-      <pubDate>Mon, 15 May 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/helm-grpc/</guid>
-      <description>
-        &lt;p&gt;Helm is the package manager for Kubernetes. Helm provides its users with a customizable mechanism for
-managing distributed applications and controlling their deployment.&lt;/p&gt;
-&lt;p&gt;I have the good fortune to be a member of the phenomenal open-source Kubernetes Helm community serving as
-a core contributor. My first day working with the Helm team was spent prototyping the architecture for
-the next generation of Helm. By the end of that day, we had procured the preliminary RPC protocol data model
-used to enable communication between Helm and its in-cluster server component, Tiller.&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: Migration to Google Cloud Platform — gRPC &amp; grpc-gateway</title>
-      <link>https://Joevaen.github.io/blog/yikyak/</link>
-      <pubDate>Wed, 12 Apr 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/yikyak/</guid>
-      <description>
-        &lt;p&gt;In our previous blog &lt;a href=&#34;https://medium.com/yik-yak-eng/migration-to-google-cloud-platform-overview-9b5e5c17c368&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;post&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; we gave an overview of our migration to Google Cloud Platform from Amazon Web Services. In this post we will drill down into the role that &lt;a href=&#34;https://Joevaen.github.io/&#34;&gt;gRPC&lt;/a&gt; and &lt;a href=&#34;https://github.com/grpc-ecosystem/grpc-gateway&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;grpc-gateway&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; played in that migration and share some lessons which we picked up along the way.&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: Building gRPC services with bazel and rules_protobuf</title>
-      <link>https://Joevaen.github.io/blog/bazel-rules-protobuf/</link>
-      <pubDate>Thu, 13 Oct 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/bazel-rules-protobuf/</guid>
-      <description>
-        &lt;p&gt;&lt;a href=&#34;https://Joevaen.github.io/&#34;&gt;gRPC&lt;/a&gt; makes it easier to build high-performance
-microservices by providing generated service entrypoints in a variety
-of different languages.  &lt;a href=&#34;https://bazel.io&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Bazel&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; complements these
-efforts with a capable and fast polyglot build environment.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/pubref/rules_protobuf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;rules_protobuf&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; extends
-bazel and makes it easier develop gRPC services.&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: gRPC at VSCO</title>
-      <link>https://Joevaen.github.io/blog/vsco/</link>
-      <pubDate>Tue, 06 Sep 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/vsco/</guid>
-      <description>
-        &lt;p&gt;Our guest post today comes from Robert Sayre and Melinda Lu of VSCO.&lt;/p&gt;
-&lt;p&gt;Founded in 2011, &lt;a href=&#34;https://vsco.co&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSCO&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; is a community for expression—empowering people to create, discover and connect through images and words. VSCO is in the process of migrating their stack to gRPC.&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: Why we have decided to move our APIs to gRPC</title>
-      <link>https://Joevaen.github.io/blog/vendasta/</link>
-      <pubDate>Mon, 29 Aug 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/vendasta/</guid>
-      <description>
-        Vendasta started out 8 years ago as a point solution provider of products for small business. From the beginning we partnered with media companies and agencies who have armies of salespeople and existing relationships with those businesses to sell our software. It is estimated that over 30 million small businesses exist in the United States alone, so scalability of our SaaS solution was considered one of our top concerns from the beginning and it was the reason we started with Google App Engine and Datastore.
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: gRPC Project is now 1.0 and ready for production deployments</title>
-      <link>https://Joevaen.github.io/blog/ga-announcement/</link>
-      <pubDate>Tue, 23 Aug 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/ga-announcement/</guid>
-      <description>
-        Today, the gRPC project has reached a significant milestone with its 1.0 release. Languages moving to 1.0 include C++, Java, Go, Node, Ruby, Python and C# across Linux, Windows, and Mac. Objective-C and Android Java support on iOS and Android is also moving to 1.0. The 1.0 release means that the core protocol and API surface are now stable with measured performance, stress tested and developers can rely on these APIs and deploy in production, they will follow semantic versioning from here.
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: Mobile Benchmarks</title>
-      <link>https://Joevaen.github.io/blog/mobile-benchmarks/</link>
-      <pubDate>Tue, 26 Jul 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/mobile-benchmarks/</guid>
-      <description>
-        &lt;p&gt;As gRPC has become a better and faster RPC framework, we&amp;rsquo;ve consistently gotten the question, &amp;ldquo;How &lt;em&gt;much&lt;/em&gt; faster is gRPC?&amp;rdquo; We already have comprehensive server-side benchmarks, but we don&amp;rsquo;t have mobile benchmarks. Benchmarking a client is a bit different than benchmarking a server. We care more about things such as latency and request size and less about things like queries per second (QPS) and number of concurrent threads. Thus we built an Android app in order to quantify these factors and provide solid numbers behind them.&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: gRPC with REST and Open APIs</title>
-      <link>https://Joevaen.github.io/blog/coreos/</link>
-      <pubDate>Mon, 09 May 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/coreos/</guid>
-      <description>
-        &lt;p&gt;Our guest post today comes from Brandon Phillips of &lt;a href=&#34;https://coreos.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CoreOS&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;. CoreOS builds open source projects and products for Linux Containers. Their flagship product for consensus and discovery &lt;a href=&#34;https://coreos.com/etcd/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;etcd&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; and their container engine &lt;a href=&#34;https://coreos.com/rkt/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;rkt&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; are early adopters of gRPC.&lt;/p&gt;
-&lt;p&gt;One of the key reasons CoreOS chose gRPC is because it uses HTTP/2, enabling applications to present both a HTTP 1.1 REST/JSON API and an efficient gRPC interface on a single TCP port (available for Go). This provides developers with compatibility with the REST web ecosystem, while advancing a new, high-efficiency RPC protocol. With the recent release of Go 1.6, Go ships with a stable &lt;code&gt;net/http2&lt;/code&gt; package by default.&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: gRPC - now with easy installation</title>
-      <link>https://Joevaen.github.io/blog/installation/</link>
-      <pubDate>Mon, 04 Apr 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/installation/</guid>
-      <description>
-        &lt;p&gt;Today we are happy to provide an update that significantly simplifies the getting started experience for gRPC.&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: Google Cloud PubSub - with the power of gRPC!</title>
-      <link>https://Joevaen.github.io/blog/pubsub/</link>
-      <pubDate>Thu, 24 Mar 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/pubsub/</guid>
-      <description>
-        &lt;p&gt;&lt;a href=&#34;https://cloud.google.com/pubsub/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Google Cloud PubSub&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; is Google&amp;rsquo;s scalable real-time messaging service that lets users send and receive messages between independent applications. It&amp;rsquo;s an important part of Google Cloud Platform&amp;rsquo;s big data offering, and is used by customers worldwide to build their own robust, global services. However, until now, the only way to use the Cloud PubSub API was via JSON over HTTP. That&amp;rsquo;s all changed with the release of &lt;a href=&#34;https://cloud.google.com/blog/big-data/2016/03/announcing-grpc-alpha-for-google-cloud-pubsub&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PubSub gRPC alpha&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;. Now &lt;strong&gt;users can access PubSub via gRPC&lt;/strong&gt; and benefit from all the advantages it brings.&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: gRPC releases Beta, opening door for use in production environments</title>
-      <link>https://Joevaen.github.io/blog/beta-release/</link>
-      <pubDate>Mon, 26 Oct 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/beta-release/</guid>
-      <description>
-        The gRPC team is excited to announce the immediate availability of gRPC Beta. This release marks an important point in API stability and going forward most API changes are expected to be additive in nature. This milestone opens the door for gRPC use in production environments.
-We’re also taking a big step forward in improving the installation process. Over the past few weeks we’ve rolled out gRPC packages to Debian Stable/Backports.
-      </description>
-    </item>
-    
-    <item>
-      <title>Blog: gRPC Motivation and Design Principles</title>
-      <link>https://Joevaen.github.io/blog/principles/</link>
-      <pubDate>Tue, 08 Sep 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://Joevaen.github.io/blog/principles/</guid>
-      <description>
-        Motivation Google has been using a single general-purpose RPC infrastructure called Stubby to connect the large number of microservices running within and across our data centers for over a decade. Our internal systems have long embraced the microservice architecture gaining popularity today. Having a uniform, cross-platform RPC infrastructure has allowed for the rollout of fleet-wide improvements in efficiency, security, reliability and behavioral analysis critical to supporting the incredible growth seen in that period.
+        spotDL  The fastest, easiest, and most accurate command-line music downloader
+ What spotDL does  Downloads music from YouTube as an MP3 file Applies basic metadata gathered from Spotify such as:  Track Name Track Number Album Album Cover Genre and more!    Redesigned spotDL is being redesigned! This means we are currently not accepting new feature requests. You can talk to us on our Discord if there is anything further.
       </description>
     </item>
     

@@ -1,0 +1,110 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – 怎样把模型从Pytorch转到ONNX</title>
+    <link>https://Joevaen.github.io/docs/languages/objective-c/convert/</link>
+    <description>Recent content in 怎样把模型从Pytorch转到ONNX on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/languages/objective-c/convert/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 前提</title>
+      <link>https://Joevaen.github.io/docs/languages/objective-c/convert/pre/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/objective-c/convert/pre/</guid>
+      <description>
+        
+        
+        &lt;ol&gt;
+&lt;li&gt;先根据上述指南进行MMCV和MMDetection的安装。&lt;/li&gt;
+&lt;li&gt;安装onnx和onnxruntime&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;pip install onnx onnxruntime
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 用法</title>
+      <link>https://Joevaen.github.io/docs/languages/objective-c/convert/usage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/objective-c/convert/usage/</guid>
+      <description>
+        
+        
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;python tools/deployment/pytorch2onnx.py &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;CONFIG_FILE&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;CHECKPOINT_FILE&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --output-file &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;OUTPUT_FILE&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --input-img &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;INPUT_IMAGE_PATH&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --shape &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;IMAGE_SHAPE&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --mean &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;IMAGE_MEAN&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --std &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;IMAGE_STD&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --dataset &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;DATASET_NAME&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --test-img &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;TEST_IMAGE_PATH&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --opset-version &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;OPSET_VERSION&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --cfg-options &lt;span style=&#34;color:#a00&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#033&#34;&gt;CFG_OPTIONS&lt;/span&gt;&lt;span style=&#34;color:#a00&#34;&gt;}&lt;/span&gt;
+    --dynamic-export &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --show &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --verify &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --simplify &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 参数解释</title>
+      <link>https://Joevaen.github.io/docs/languages/objective-c/convert/arg/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/languages/objective-c/convert/arg/</guid>
+      <description>
+        
+        
+        &lt;ul&gt;
+&lt;li&gt;&lt;code&gt;config&lt;/code&gt; : The path of a model config file.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;checkpoint&lt;/code&gt; : The path of a model checkpoint file.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--output-file&lt;/code&gt;: The path of output ONNX model. If not specified, it will be set to &lt;code&gt;tmp.onnx&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--input-img&lt;/code&gt;: The path of an input image for tracing and conversion. By default, it will be set to &lt;code&gt;tests/data/color.jpg&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--shape&lt;/code&gt;: The height and width of input tensor to the model. If not specified, it will be set to &lt;code&gt;800 1216&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--mean&lt;/code&gt; : Three mean values for the input image. If not specified, it will be set to &lt;code&gt;123.675 116.28 103.53&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--std&lt;/code&gt; : Three std values for the input image. If not specified, it will be set to &lt;code&gt;58.395 57.12 57.375&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--dataset&lt;/code&gt; : The dataset name for the input model. If not specified, it will be set to &lt;code&gt;coco&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--test-img&lt;/code&gt; : The path of an image to verify the exported ONNX model. By default, it will be set to &lt;code&gt;None&lt;/code&gt;, meaning it will use &lt;code&gt;--input-img&lt;/code&gt; for verification.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--opset-version&lt;/code&gt; : The opset version of ONNX. If not specified, it will be set to &lt;code&gt;11&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--dynamic-export&lt;/code&gt;: Determines whether to export ONNX model with dynamic input and output shapes. If not specified, it will be set to &lt;code&gt;False&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--show&lt;/code&gt;: Determines whether to print the architecture of the exported model and whether to show detection outputs when &lt;code&gt;--verify&lt;/code&gt; is set to &lt;code&gt;True&lt;/code&gt;. If not specified, it will be set to &lt;code&gt;False&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--verify&lt;/code&gt;: Determines whether to verify the correctness of an exported model. If not specified, it will be set to &lt;code&gt;False&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--simplify&lt;/code&gt;: Determines whether to simplify the exported ONNX model. If not specified, it will be set to &lt;code&gt;False&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--cfg-options&lt;/code&gt;: Override some settings in the used config file, the key-value pair in &lt;code&gt;xxx=yyy&lt;/code&gt; format will be merged into config file.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;python tools/deployment/pytorch2onnx.py &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    configs/yolo/yolov3_d53_mstrain-608_273e_coco.py &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    checkpoints/yolo/yolov3_d53_mstrain-608_273e_coco.pth &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --output-file checkpoints/yolo/yolov3_d53_mstrain-608_273e_coco.onnx &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --input-img demo/demo.jpg &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --test-img tests/data/color.jpg &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --shape &lt;span style=&#34;color:#f60&#34;&gt;608&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;608&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --mean &lt;span style=&#34;color:#f60&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --std &lt;span style=&#34;color:#f60&#34;&gt;255&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;255&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;255&lt;/span&gt; &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --show &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --verify &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --dynamic-export &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;    --cfg-options &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;&lt;/span&gt;      model.test_cfg.deploy_nms_pre&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;-1 &lt;span style=&#34;color:#c30;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

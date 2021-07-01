@@ -1,0 +1,199 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC – 准备自定义数据集</title>
+    <link>https://Joevaen.github.io/docs/quickstart/train/prepare_data/</link>
+    <description>Recent content in 准备自定义数据集 on gRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/docs/quickstart/train/prepare_data/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: COCO标签格式</title>
+      <link>https://Joevaen.github.io/docs/quickstart/train/prepare_data/api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/docs/quickstart/train/prepare_data/api/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The necessary keys of COCO format for instance segmentation is as below, for the complete details, please refer &lt;a href=&#34;https://cocodataset.org/#format-data&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;{
+    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;images&amp;#34;&lt;/span&gt;: [&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;image&lt;/span&gt;],
+    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;annotations&amp;#34;&lt;/span&gt;: [&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;annotation&lt;/span&gt;],
+    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;categories&amp;#34;&lt;/span&gt;: [&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;category&lt;/span&gt;]
+}
+
+
+&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;image&lt;/span&gt; &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;=&lt;/span&gt; {
+    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;int&lt;/span&gt;,
+    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;width&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;int&lt;/span&gt;,
+    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;height&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;int&lt;/span&gt;,
+    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;file_name&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;str&lt;/span&gt;,
+}
+
+&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;annotation&lt;/span&gt; &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;=&lt;/span&gt; {
+    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;int&lt;/span&gt;,
+    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;image_id&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;int&lt;/span&gt;,
+    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;category_id&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;int&lt;/span&gt;,
+    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;segmentation&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;RLE&lt;/span&gt; &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;or&lt;/span&gt; [&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;polygon&lt;/span&gt;],
+    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;area&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;float&lt;/span&gt;,
+    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;bbox&amp;#34;&lt;/span&gt;: [&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;x&lt;/span&gt;,&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;y&lt;/span&gt;,&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;width&lt;/span&gt;,&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;height&lt;/span&gt;],
+    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;iscrowd&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#f60&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;or&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;,
+}
+
+&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;categories&lt;/span&gt; &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;=&lt;/span&gt; [{
+    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;int&lt;/span&gt;,
+    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;str&lt;/span&gt;,
+    &lt;span style=&#34;color:#309;font-weight:bold&#34;&gt;&amp;#34;supercategory&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;str&lt;/span&gt;,
+}]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Assume we use the balloon dataset.
+After downloading the data, we need to implement a function to convert the annotation format into the COCO format. Then we can use implemented COCODataset to load the data and perform training and evaluation.&lt;/p&gt;
+&lt;p&gt;If you take a look at the dataset, you will find the dataset format is as below:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;{&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&amp;#39;base64_img_data&amp;#39;:&lt;/span&gt; &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&amp;#39;&amp;#39;,&lt;/span&gt;
+ &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&amp;#39;file_attributes&amp;#39;:&lt;/span&gt; &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;{&lt;/span&gt;}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;,&lt;/span&gt;
+ &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&amp;#39;filename&amp;#39;:&lt;/span&gt; &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;34020010494&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;_e&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;5&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;cb&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;88e1&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;_k.jpg&amp;#39;,&lt;/span&gt;
+ &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&amp;#39;fileref&amp;#39;:&lt;/span&gt; &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&amp;#39;&amp;#39;,&lt;/span&gt;
+ &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&amp;#39;regions&amp;#39;:&lt;/span&gt; {&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&amp;#39;0&amp;#39;:&lt;/span&gt; &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;{&amp;#39;region_attributes&amp;#39;:&lt;/span&gt; &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;{&lt;/span&gt;}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;,&lt;/span&gt;
+   &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&amp;#39;shape_attributes&amp;#39;:&lt;/span&gt; {&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&amp;#39;all_points_x&amp;#39;:&lt;/span&gt; &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;[1020,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1000,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;994,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1003,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1023,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1050,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1089,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1134,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1190,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1265,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1321,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1361,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1403,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1428,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1442,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1445,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1441,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1427,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1400,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1361,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1316,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1269,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1228,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1198,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1207,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1210,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1190,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1177,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1172,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1174,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1170,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1153,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1127,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1104,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1061,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1032,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1020],&lt;/span&gt;
+    &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&amp;#39;all_points_y&amp;#39;:&lt;/span&gt; &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;[963,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;899,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;841,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;787,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;738,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;700,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;663,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;638,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;621,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;619,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;643,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;672,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;720,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;765,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;800,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;860,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;896,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;942,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;990,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1035,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1079,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1112,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1129,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1134,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1144,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1153,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1166,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1166,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1150,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1136,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1129,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1122,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1112,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1084,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;1037,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;989,&lt;/span&gt;
+     &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;963],&lt;/span&gt;
+    &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&amp;#39;name&amp;#39;:&lt;/span&gt; &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&amp;#39;polygon&amp;#39;&lt;/span&gt;}&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;}},&lt;/span&gt;
+ &lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;&amp;#39;size&amp;#39;:&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;1115004&lt;/span&gt;&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The annotation is a JSON file where each key indicates an image&amp;rsquo;s all annotations.
+The code to convert the balloon dataset into coco format is as below.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#0cf;font-weight:bold&#34;&gt;os.path&lt;/span&gt; &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;as&lt;/span&gt; &lt;span style=&#34;color:#0cf;font-weight:bold&#34;&gt;osp&lt;/span&gt;
+
+&lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#c0f&#34;&gt;convert_balloon_to_coco&lt;/span&gt;(ann_file, out_file, image_prefix):
+    data_infos &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; mmcv&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;load(ann_file)
+
+    annotations &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; []
+    images &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; []
+    obj_count &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;0&lt;/span&gt;
+    &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;for&lt;/span&gt; idx, v &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;enumerate&lt;/span&gt;(mmcv&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;track_iter_progress(data_infos&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;values())):
+        filename &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; v[&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;filename&amp;#39;&lt;/span&gt;]
+        img_path &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; osp&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;join(image_prefix, filename)
+        height, width &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; mmcv&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;imread(img_path)&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;shape[:&lt;span style=&#34;color:#f60&#34;&gt;2&lt;/span&gt;]
+
+        images&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;append(&lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+            &lt;span style=&#34;color:#366&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;idx,
+            file_name&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;filename,
+            height&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;height,
+            width&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;width))
+
+        bboxes &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; []
+        labels &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; []
+        masks &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; []
+        &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;for&lt;/span&gt; _, obj &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;in&lt;/span&gt; v[&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;regions&amp;#39;&lt;/span&gt;]&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;items():
+            &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;assert&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;not&lt;/span&gt; obj[&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;region_attributes&amp;#39;&lt;/span&gt;]
+            obj &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; obj[&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;shape_attributes&amp;#39;&lt;/span&gt;]
+            px &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; obj[&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;all_points_x&amp;#39;&lt;/span&gt;]
+            py &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; obj[&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;all_points_y&amp;#39;&lt;/span&gt;]
+            poly &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; [(x &lt;span style=&#34;color:#555&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;0.5&lt;/span&gt;, y &lt;span style=&#34;color:#555&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;0.5&lt;/span&gt;) &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;for&lt;/span&gt; x, y &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;zip&lt;/span&gt;(px, py)]
+            poly &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; [p &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;for&lt;/span&gt; x &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;in&lt;/span&gt; poly &lt;span style=&#34;color:#069;font-weight:bold&#34;&gt;for&lt;/span&gt; p &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;in&lt;/span&gt; x]
+
+            x_min, y_min, x_max, y_max &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; (
+                &lt;span style=&#34;color:#366&#34;&gt;min&lt;/span&gt;(px), &lt;span style=&#34;color:#366&#34;&gt;min&lt;/span&gt;(py), &lt;span style=&#34;color:#366&#34;&gt;max&lt;/span&gt;(px), &lt;span style=&#34;color:#366&#34;&gt;max&lt;/span&gt;(py))
+
+
+            data_anno &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+                image_id&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;idx,
+                &lt;span style=&#34;color:#366&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;obj_count,
+                category_id&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;0&lt;/span&gt;,
+                bbox&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;[x_min, y_min, x_max &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt; x_min, y_max &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt; y_min],
+                area&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;(x_max &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt; x_min) &lt;span style=&#34;color:#555&#34;&gt;*&lt;/span&gt; (y_max &lt;span style=&#34;color:#555&#34;&gt;-&lt;/span&gt; y_min),
+                segmentation&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;[poly],
+                iscrowd&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f60&#34;&gt;0&lt;/span&gt;)
+            annotations&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;append(data_anno)
+            obj_count &lt;span style=&#34;color:#555&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#f60&#34;&gt;1&lt;/span&gt;
+
+    coco_format_json &lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#366&#34;&gt;dict&lt;/span&gt;(
+        images&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;images,
+        annotations&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;annotations,
+        categories&lt;span style=&#34;color:#555&#34;&gt;=&lt;/span&gt;[{&lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;:&lt;span style=&#34;color:#f60&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;balloon&amp;#39;&lt;/span&gt;}])
+    mmcv&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;dump(coco_format_json, out_file)
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Using the function above, users can successfully convert the annotation file into json format, then we can use &lt;code&gt;CocoDataset&lt;/code&gt; to train and evaluate the model.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

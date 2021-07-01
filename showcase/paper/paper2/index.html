@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.82.1" />
+
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-512x512.png" sizes="512x512">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/site.webmanifest">
+<title>从植入粒子后的CT图像自动定位植入的粒子 | gRPC</title>
+<meta property="og:title" content="从植入粒子后的CT图像自动定位植入的粒子" />
+<meta property="og:description" content="从植入粒子后的CT图像自动定位植入的粒子       Contents   1.介绍 2. 方法和材料  2.1 算法描述 2.2 基于强度的CT阈值分割 2.3 几何区域分割 2.4 几何区域连通 2.5 确定种子位置和方向   3.结果  3.1 最佳阈值确定 3.2 使用体模进行算法测试 3.3 使用实际的植入后CT图像进行算法测试 3.4 算法可移植性测试 3.5 植入后剂量   4.讨论  4.1 算法的可移植性 4.2 CT层厚上的选择建议   总结        讲在前面  一.Pre-MICCAI是我为了进一步了解MICCAI某些相当有意义论文的发展历史而采取的一种追根溯源的方法，在这个系列中我会将这篇论文所提到的之前的论文进行一定的了解，便于更深层次的学习和了解整个算法要解决哪些之前的问题，同时借鉴前人的思想来丰富自己的知识库； 二.我设计了几种字体颜色用于更加醒目地表现关键的思想和主题：  红色表示尚未理解透彻的一些概念 蓝色表示对原来的理解做的一些修改或补充 绿色表示此处需要参考的论文其他部分 橙色表示本文的重要关键字 我会用删除线将自己曾经不到位的理解进行删除 es》)   三、本文基于论文**《A Deep Regression Model for Seed Localizationin Prostate Brachytherapy》**  摘要 本文介绍了一种从一系列植入后CT图像中自动定位植入种子的方法。对接受前列腺近距离放射治疗的患者进行了植入后CT研究。 在每个CT切片中使用二进制阈值对明亮的区域进行分割，并收集这些区域的几何信息。 通过在每个切片中进行基于几何的过滤，将较大的区域（可能包含两个相连的种子）分成较小的区域。 使用基于几何学的连接搜索算法对每个区域切片进行纵向切片，分析沿纵向的区域连通性，从而将连通区域组合为一个对象。 将每个对象的加权质心作为这些位置。 该方法在含种子的前列腺幻象上进行了良好的测试，并通过患者的CT研究进行了统计分析。统计分析表明，该方法可以实现99％以上的检测率，并且定位准确，速度快。 对于在CT上定位植入的种子，它是可靠且方便的，可用于辅助前列腺近距离放射治疗的植入后剂量测定。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Joevaen.github.io/showcase/paper/paper2/" /><meta property="article:section" content="showcase" />
+
+<meta property="og:site_name" content="gRPC" />
+
+<meta itemprop="name" content="从植入粒子后的CT图像自动定位植入的粒子">
+<meta itemprop="description" content="从植入粒子后的CT图像自动定位植入的粒子       Contents   1.介绍 2. 方法和材料  2.1 算法描述 2.2 基于强度的CT阈值分割 2.3 几何区域分割 2.4 几何区域连通 2.5 确定种子位置和方向   3.结果  3.1 最佳阈值确定 3.2 使用体模进行算法测试 3.3 使用实际的植入后CT图像进行算法测试 3.4 算法可移植性测试 3.5 植入后剂量   4.讨论  4.1 算法的可移植性 4.2 CT层厚上的选择建议   总结        讲在前面  一.Pre-MICCAI是我为了进一步了解MICCAI某些相当有意义论文的发展历史而采取的一种追根溯源的方法，在这个系列中我会将这篇论文所提到的之前的论文进行一定的了解，便于更深层次的学习和了解整个算法要解决哪些之前的问题，同时借鉴前人的思想来丰富自己的知识库； 二.我设计了几种字体颜色用于更加醒目地表现关键的思想和主题：  红色表示尚未理解透彻的一些概念 蓝色表示对原来的理解做的一些修改或补充 绿色表示此处需要参考的论文其他部分 橙色表示本文的重要关键字 我会用删除线将自己曾经不到位的理解进行删除 es》)   三、本文基于论文**《A Deep Regression Model for Seed Localizationin Prostate Brachytherapy》**  摘要 本文介绍了一种从一系列植入后CT图像中自动定位植入种子的方法。对接受前列腺近距离放射治疗的患者进行了植入后CT研究。 在每个CT切片中使用二进制阈值对明亮的区域进行分割，并收集这些区域的几何信息。 通过在每个切片中进行基于几何的过滤，将较大的区域（可能包含两个相连的种子）分成较小的区域。 使用基于几何学的连接搜索算法对每个区域切片进行纵向切片，分析沿纵向的区域连通性，从而将连通区域组合为一个对象。 将每个对象的加权质心作为这些位置。 该方法在含种子的前列腺幻象上进行了良好的测试，并通过患者的CT研究进行了统计分析。统计分析表明，该方法可以实现99％以上的检测率，并且定位准确，速度快。 对于在CT上定位植入的种子，它是可靠且方便的，可用于辅助前列腺近距离放射治疗的植入后剂量测定。">
+
+<meta itemprop="wordCount" content="316">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="从植入粒子后的CT图像自动定位植入的粒子"/>
+<meta name="twitter:description" content="从植入粒子后的CT图像自动定位植入的粒子       Contents   1.介绍 2. 方法和材料  2.1 算法描述 2.2 基于强度的CT阈值分割 2.3 几何区域分割 2.4 几何区域连通 2.5 确定种子位置和方向   3.结果  3.1 最佳阈值确定 3.2 使用体模进行算法测试 3.3 使用实际的植入后CT图像进行算法测试 3.4 算法可移植性测试 3.5 植入后剂量   4.讨论  4.1 算法的可移植性 4.2 CT层厚上的选择建议   总结        讲在前面  一.Pre-MICCAI是我为了进一步了解MICCAI某些相当有意义论文的发展历史而采取的一种追根溯源的方法，在这个系列中我会将这篇论文所提到的之前的论文进行一定的了解，便于更深层次的学习和了解整个算法要解决哪些之前的问题，同时借鉴前人的思想来丰富自己的知识库； 二.我设计了几种字体颜色用于更加醒目地表现关键的思想和主题：  红色表示尚未理解透彻的一些概念 蓝色表示对原来的理解做的一些修改或补充 绿色表示此处需要参考的论文其他部分 橙色表示本文的重要关键字 我会用删除线将自己曾经不到位的理解进行删除 es》)   三、本文基于论文**《A Deep Regression Model for Seed Localizationin Prostate Brachytherapy》**  摘要 本文介绍了一种从一系列植入后CT图像中自动定位植入种子的方法。对接受前列腺近距离放射治疗的患者进行了植入后CT研究。 在每个CT切片中使用二进制阈值对明亮的区域进行分割，并收集这些区域的几何信息。 通过在每个切片中进行基于几何的过滤，将较大的区域（可能包含两个相连的种子）分成较小的区域。 使用基于几何学的连接搜索算法对每个区域切片进行纵向切片，分析沿纵向的区域连通性，从而将连通区域组合为一个对象。 将每个对象的加权质心作为这些位置。 该方法在含种子的前列腺幻象上进行了良好的测试，并通过患者的CT研究进行了统计分析。统计分析表明，该方法可以实现99％以上的检测率，并且定位准确，速度快。 对于在CT上定位植入的种子，它是可靠且方便的，可用于辅助前列腺近距离放射治疗的植入后剂量测定。"/>
+
+
+
+<link rel="preload" href="/css/style.min.e3cf82e558200e98b09736f835e12b188dca1353aad6649d3429c72923031431.css" as="style">
+<link href="/css/style.min.e3cf82e558200e98b09736f835e12b188dca1353aad6649d3429c72923031431.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163836834-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-163836834-2');
+  gtag('config', 'UA-60127042-1');
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="canonical" href="https://Joevaen.github.io/showcase/paper/paper2/">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@grpcio">
+<meta name="twitter:creator" content="@grpcio">
+<meta name="twitter:image" content="https://Joevaen.github.io/img/logos/grpc-icon-color.png">
+<meta name="twitter:image:alt" content="gRPC color logo">
+
+<meta property="og:url" content="https://Joevaen.github.io/showcase/paper/paper2/">
+<meta property="og:title" content="从植入粒子后的CT图像自动定位植入的粒子">
+<meta property="og:description" content="A high-performance, open source universal RPC framework">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="gRPC">
+<meta property="og:image" content="https://Joevaen.github.io/img/logos/grpc-icon-color.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="gRPC color logo">
+<meta property="og:locale" content="en_US">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-512x512.png" sizes="512x512">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/site.webmanifest">
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark  td-navbar-cover flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="672pt" height="436pt" viewBox="0 0 672 436"><g transform="translate(0.000000,436.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M3066 3659c-376-41-707-264-894-602-35-63-50-101-45-113 4-12 3-15-5-10s-10 1-5-10c5-13 9-11 23 15 9 18 19 29 22 25 4-3 4 3 1 15-4 14-1 21 9 21 8 0 27 23 42 51 119 218 360 416 607 499 96 33 250 60 337 60 551 0 1009-390 1097-933 48-296-20-597-193-847-24-36-35-56-23-46 35 32 24 2-23-61-49-64-119-128-220-198-36-26-66-49-66-51 0-10 123 74 187 128 63 53 173 174 182 201 2 7 9 19 16 27s36 58 63 110c198 373 185 786-35 1159-25 42-60 95-79 118-42 51-45 68-4 22 68-76 190-285 190-326 0-7 5-12 11-10 6 1 14-4 17-12 2-8 0-11-5-8-6 4-8-4-5-19 3-18 7-22 12-13 6 8 12-2 19-29 6-23 15-59 21-80 31-121 29-332-5-516-9-44-13-81-11-83s16 47 31 109c26 106 27 122 22 268-4 119-12 179-32 260-56 225-191 440-375 598-70 59-261 182-284 182-6 0 25-21 69-47 44-25 105-65 135-89 62-48 149-134 135-134-6 0-32 23-60 51-67 67-224 171-325 215-78 34-249 83-294 85-21 0-21 1-1 9 15 7 8 9-30 10-27 0-72 2-1e2 4-27 2-86 0-129-5z"/><path d="M36e2 3580c8-5 20-10 25-10 6 0 3 5-5 10s-19 10-25 10c-5 0-3-5 5-10z"/><path d="M3519 3276c-69-18-136-62-211-138-191-194-325-488-288-630 12-45 45-88 67-88 18 0 16 19-2 27-24 9-45 57-45 103 0 121 141 397 271 531 111 115 241 189 303 173 1e2-25 76-265-64-626l-40-105-58-13c-79-17-211-65-309-110-197-92-359-233-429-375-35-71-39-87-39-154 0-65 4-83 28-123 61-104 188-133 299-70 70 41 176 152 251 265 67 102 188 333 243 464 37 89 39 92 79 102 43 11 84 36 74 45-3 3-24-2-47-11s-45-14-48-11 15 63 41 133c126 349 145 579 49 615-33 13-68 12-125-4zm-29-794c0-4-47-102-104-218-197-398-362-594-5e2-594-68 0-124 44-151 119-85 243 203 545 645 675 93 27 110 30 110 18z"/><path d="M2081 2794c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M4291 2784c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M2071 2754c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M4302 2740c0-14 2-19 5-12 2 6 2 18 0 25-3 6-5 1-5-13z"/><path d="M2061 2714c0-11 3-14 6-6 3 7 2 16-1 19-3 4-6-2-5-13z"/><path d="M2052 2660c0-14 2-19 5-12 2 6 2 18 0 25-3 6-5 1-5-13z"/><path d="M2043 2585c0-22 2-30 4-17 2 12 2 30 0 40-3 9-5-1-4-23z"/><path d="M4252 2018c-15-37-19-55-11-63 7-7 8-4 3 9-6 15-4 17 6 11 9-5 11-4 6 3-4 7-3 12 3 12s7 7 4 17c-5 12-3 14 8 8 8-4 11-5 7 0-4 4-4 13 2 19 5 7 5 17 1 24s-15-8-29-40z"/><path d="M4205 1919c-3-4 2-6 10-5 21 3 28 13 10 13-9 0-18-4-20-8z"/><path d="M4024 1668l-19-23 23 19c12 11 22 21 22 23 0 8-8 2-26-19z"/><path d="M4015 1628l-40-43 43 40c39 36 47 45 39 45-2 0-21-19-42-42z"/><path d="M3969 1613c-13-16-12-17 4-4s21 21 13 21c-2 0-10-8-17-17z"/><path d="M3919 1543c-13-16-12-17 4-4 9 7 17 15 17 17 0 8-8 3-21-13z"/><path d="M3705 1428c-11-6-23-15-26-20-3-6-9-9-13-9-19 3-27 0-22-7 7-12-61-35-75-26-8 5-9 3-4-6 6-10 3-12-13-8-14 4-20 2-15-5 4-6-2-8-15-5-12 4-20 2-17-2 3-5 0-10-7-13-7-2-2-2 12 0 39 7 179 63 194 78 7 8 16 12 18 10 3-3 5 2 5 10s-1 15-1 15c-1 0-10-6-21-12z"/><path d="M3448 1313c7-3 16-2 19 1 4 3-2 6-13 5-11 0-14-3-6-6z"/><path d="M3355 13e2c-27-7-27-8-5-8 14 0 39 4 55 8 27 7 27 8 5 8-14 0-38-4-55-8z"/><path d="M3263 1283c9-2 25-2 35 0 9 3 1 5-18 5s-27-2-17-5z"/><path d="M1810 981c0-75-4-103-15-115-17-17-20-66-4-66 6 0 24 13 40 29 29 29 29 31 29 140v111h-25c-25 0-25 0-25-99z"/><path d="M2211 1062c-51-25-73-61-74-120-1-70 33-116 101-137 36-10 28 31-13 69-26 25-35 42-35 66s9 41 35 66c19 18 35 42 35 53 0 25-5 26-49 3z"/><path d="M2290 1060c0-12 16-36 35-54 26-25 35-42 35-66s-9-41-35-66c-41-38-49-79-12-69 66 20 99 65 99 135s-33 115-99 135c-19 5-23 2-23-15z"/><path d="M2692 1053l3-28h1e2 1e2l3 28 3 27h-106-106l3-27z"/><path d="M3150 1068c0-7 23-70 52-140 48-119 53-128 78-128s30 9 78 130c29 72 52 135 52 141s-12 9-27 7c-23-2-31-13-51-63-13-33-31-76-39-95l-14-35-25 59c-13 33-24 63-24 67s15 9 33 11c27 2 32 7 32 28 0 24-3 25-72 28-55 2-73 0-73-10z"/><path d="M3724 1003c-43-93-48-128-19-128 15 0 28 17 50 63l30 62 25-62c14-35 27-66 28-70 2-5-35-8-82-8-76 0-86-2-1e2-22-8-12-13-25-10-30 7-11 261-10 268 1 3 5-19 67-49 137-48 114-57 129-80 132s-29-4-61-75z"/><path d="M4187 1073c-4-3-7-14-7-24 0-25 28-31 125-27 79 3 80 3 83 31l3 27h-99c-54 0-102-3-105-7z"/><path d="M4670 1068c0-7 43-71 96-141 77-105 99-128 117-125 21 3 22 7 25 141l3 138-28-3c-28-3-28-4-33-86l-5-83-62 85c-50 69-68 86-88 86-14 0-25-6-25-12z"/><path d="M2694 955c-14-37 2-45 89-45 88 0 114 11 101 44-9 23-182 24-190 1z"/><path d="M4184 955c-3-8-3-22 0-30 5-13 22-15 98-13 92 3 93 3 93 28s-1 25-93 28c-76 2-93 0-98-13z"/><path d="M1675 890c-10-16 4-48 32-70 32-25 40-25 48 0 13 40-60 103-80 70z"/><path d="M4670 850c0-47 2-50 25-50s25 3 25 50-2 50-25 50-25-3-25-50z"/><path d="M2694 845c-3-8-3-22 0-30 5-13 23-15 103-13 97 3 98 3 98 28s-1 25-98 28c-80 2-98 0-103-13z"/><path d="M4184 845c-15-38 1-45 106-45h101l-3 28-3 27-98 3c-80 2-98 0-103-13z"/></g></svg></span><span class="text-uppercase font-weight-bold">gRPC</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/about/" ><span>nnUNet</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/" ><span>MMDetection</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/showcase/" ><span>论文</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/blog/" ><span>Blog</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/community/" ><span>C&#43;&#43;</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-default td-outer">
+      
+      <main role="main" class="td-main">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="td-cover-block-0" class="row td-cover-block td-cover-block--height-sm js-td-cover td-overlay td-overlay--dark -bg-primary">
+  <div class="container td-overlay__inner">
+    <div class="row">
+      <div class="col-12">
+        <div class="text-center">
+          
+          
+          <div class="pt-3 lead">
+            
+                <div class="text-left">
+  <h1 class="display-1 mb-5">从植入粒子后的CT图像自动定位植入的粒子</h1></div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<div class="container l-container--padded">
+<div class="row">
+
+
+
+
+  
+    <div class="d-lg-none col-12">
+      <div class="td-toc td-toc--inline">
+  
+      
+        <a id="td-content__toc-link" class="collapsed" href="#td-content__toc" data-toggle="collapse" aria-controls="td-page-toc" aria-expanded="false" aria-label="Toggle toc navigation">
+          <span class="lead">Contents<i class="fas fa-chevron-right ml-2"></i></span>
+        </a>
+        <div id="td-content__toc" class="collapse">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1介绍">1.介绍</a></li>
+    <li><a href="#2-方法和材料">2. 方法和材料</a>
+      <ul>
+        <li><a href="#21-算法描述">2.1 算法描述</a></li>
+        <li><a href="#22-基于强度的ct阈值分割">2.2 基于强度的CT阈值分割</a></li>
+        <li><a href="#23-几何区域分割">2.3 几何区域分割</a></li>
+        <li><a href="#24-几何区域连通">2.4 几何区域连通</a></li>
+        <li><a href="#25-确定种子位置和方向">2.5 确定种子位置和方向</a></li>
+      </ul>
+    </li>
+    <li><a href="#3结果">3.结果</a>
+      <ul>
+        <li><a href="#31-最佳阈值确定">3.1 最佳阈值确定</a></li>
+        <li><a href="#32-使用体模进行算法测试">3.2 使用体模进行算法测试</a></li>
+        <li><a href="#33-使用实际的植入后ct图像进行算法测试">3.3 使用实际的植入后CT图像进行算法测试</a></li>
+        <li><a href="#34-算法可移植性测试">3.4 算法可移植性测试</a></li>
+        <li><a href="#35-植入后剂量">3.5 植入后剂量</a></li>
+      </ul>
+    </li>
+    <li><a href="#4讨论">4.讨论</a>
+      <ul>
+        <li><a href="#41-算法的可移植性">4.1 算法的可移植性</a></li>
+        <li><a href="#42-ct层厚上的选择建议">4.2 CT层厚上的选择建议</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+        </div>
+        <button id="td-content__toc-link-expanded" href="#td-content__toc" class="btn btn-small ml-1 my-2 py-0 px-3" data-toggle="collapse" aria-controls="td-docs-toc" aria-expanded="true" aria-label="Toggle toc navigation">
+        </button>
+      
+    </div>
+  </div>
+
+</div>
+<div class="row">
+<div class="col-12 col-lg-8">
+<h1 id="讲在前面">讲在前面</h1>
+<ul>
+<li>一.<font color=red><strong>Pre-MICCAI</strong></font>是我为了进一步了解MICCAI某些相当有意义论文的发展历史而采取的一种追根溯源的方法，在这个系列中我会将这篇论文所提到的之前的论文进行一定的了解，便于更深层次的学习和了解整个算法要解决哪些之前的问题，同时借鉴前人的思想来丰富自己的知识库；</li>
+<li>二.我设计了几种字体颜色用于更加醒目地表现关键的思想和主题：
+<ul>
+<li><strong><font color=red>红色表示尚未理解透彻的一些概念</font></strong></li>
+<li><strong><font color=blue>蓝色表示对原来的理解做的一些修改或补充</font></strong></li>
+<li><strong><font color=green>绿色表示此处需要参考的论文其他部分</font></strong></li>
+<li><strong><font color=orange>橙色表示本文的重要关键字</font></strong></li>
+<li><strong><del>我会用删除线将自己曾经不到位的理解进行删除</del></strong> es》)</li>
+</ul>
+</li>
+<li>三、本文基于论文**《A Deep Regression Model for Seed Localizationin Prostate Brachytherapy》**</li>
+</ul>
+<h1 id="摘要">摘要</h1>
+<p>本文介绍了一种从一系列植入后CT图像中自动定位植入种子的方法。对接受前列腺近距离放射治疗的患者进行了植入后CT研究。 在每个CT切片中使用二进制阈值对明亮的区域进行分割，并收集这些区域的几何信息。 通过在每个切片中进行基于几何的过滤，将较大的区域（可能包含两个相连的种子）分成较小的区域。 使用基于几何学的连接搜索算法对每个区域切片进行纵向切片，分析沿纵向的区域连通性，从而将连通区域组合为一个对象。 将每个对象的加权质心作为这些位置。 该方法在含种子的前列腺幻象上进行了良好的测试，并通过患者的CT研究进行了统计分析。统计分析表明，该方法可以实现99％以上的检测率，并且定位准确，速度快。 对于在CT上定位植入的种子，它是可靠且方便的，可用于辅助前列腺近距离放射治疗的植入后剂量测定。</p>
+<h1 id="论文内容">论文内容</h1>
+<h2 id="1介绍">1.介绍</h2>
+<p>经直肠超声（TRUS）引导的永久性近距离放射治疗植入物已被越来越多地用作前列腺癌的治疗选择，其中$I^{125}$或者$Pd^{103}$放射性种子被永久植入前列腺中。 始终使用最佳的预计划来指导粒子植入过程，旨在将规定的剂量覆盖范围提供给前列腺和备用尿道和直肠。 但是，由于植入过程中的一些技术问题，例如前列腺运动和浮肿，针头放置和粒子下沉，实际的种子位置将与预先计划的位置不同。 因此，植入后剂量测定是验证实际剂量覆盖范围和评估植入物质量的重要步骤。
+在最近的一份报告中，美国近距离放射治疗协会（ABS）建议对所有接受永久性前列腺近距离放射治疗的患者进行植入后剂量测定，原因如下：</p>
+<ul>
+<li>（a）记录前列腺和正常邻近组织在植入物的整个生命周期内的实际剂量;</li>
+<li>（b）通过使用补充的外部束照射或其他粒子植入来纠正由于前列腺剂量不足引起的可能的治疗失败;</li>
+<li>（c）帮助刚刚开始进行永久性粒子植入的医师评估和修改其植入技术，并帮助经验丰富的医师完善和完善该程序；</li>
+<li>（d）用于将来的结果分析，例如比较各个机构的治疗结果，并用作预期的多机构临床试验的质量保证工具（质控）。</li>
+</ul>
+<p>通过定位粒子位置，已采用几种方法确定植入后剂量。 这些包括使用两到三张胶片，使用计算机断层摄影（CT）图像以及使用MRI图像。 目前，基于可用性，成本以及对前列腺以及粒子成像的能力，ABS推荐使用基于CT的剂量测定法。
+大多数基于CT的粒子定位方法会首先确定连续2D切片上的种子位置。 由于种子通常会暴露在多个相邻的切片上（取决于成像厚度），因此此过程往往会比患者体内的种子数量识别出更多的种子位置。 因此，使用迭代过程将初始位置的数量减少到种子的确切数量。 Brinkmann和Kline（1998）和Liet等人（2001）分别报告了自动种子定位的方法。 他们的方法基于数​​据聚类技术，该技术通过对CT图像中分离的斑点进行分组来确定种子位置。 由于这些方法仅取决于亮点的大小，因此检测结果将极大地依赖于CT研究的设置参数和阈值。随着CT切片厚度的增加，每个种子的像素数变得更加取决于粒子轴向平面的相对方向；另一个重要因素是，由于粒子丢失（例如，通过外部迁移或排出种子），在成像时前列腺中的粒子数量可能不等于植入的数量。 这两个因素会使使用这些方法识别单个粒子变得困难，尤其是当轴向分辨率降低时。
+在本文中，我们描述了一种基于几何的识别方法，该方法可自动确定粒子中心的三维（3D）坐标并将其位置记录在植入种子后前列腺的CT研究中的患者解剖结构中。 这种方法并不是强制性找到预期的植入种子数量，因此，可以解释粒子丢失的影响。 分割的粒子位置可以被转移到治疗计划中以计算剂量分布。 在足够高的切片分辨率下（例如1.5毫米或1毫米切片厚度），该算法可以提取粒子的3D方向进行各向异性计算，从而比点源方法更精确地进行剂量测定。 已对包含粒子的前列腺体模以及来自患者的CT进行了测试。</p>
+<h2 id="2-方法和材料">2. 方法和材料</h2>
+<h3 id="21-算法描述">2.1 算法描述</h3>
+<p><strong>图一：</strong>
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20210113093458307.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20210113093458307.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</p>
+<p><strong>图1</strong>显示了该算法的流程图，该算法以C++程序实现。 CT图像以DICOM 3.0格式导入到程序中。 经过<strong>二进制阈值</strong>处理后，程序会在每个CT切片中的明亮区域上收集相关的几何信息（例如大小，位置）。 初始的基于几何的过滤算法将大区域（可能包含连接的粒子）分割为单个较小的区域。 每个区域的描述（例如位置，大小，质心，长轴和短轴）都输出到多维矩阵中。 下面的基于几何的连接搜索算法逐一搜索从顶部切片到底部切片的每个区域，并根据几个标准确定连续切片上的连接区域是否属于一个粒子体积，每个最终连接体积均被视为一个粒子且加权质心被计算为种子位置。 如果粒子由两个或多个区域组成，则可以确定粒子方向。根据CT图像的像素间距和得到的粒子位置，将坐标从像素单位转换为厘米单位，以进行随后的剂量计算。 该算法包括三个关键步骤：图像分割，基于几何的初始过滤和基于几何的连接搜索。 我们将在本节的其余部分讨论这些步骤。</p>
+<h3 id="22-基于强度的ct阈值分割">2.2 基于强度的CT阈值分割</h3>
+<p>本研究中使用的CT图像具有512×512像素，像素值介于0和4095之间，0为黑色，而4095为白色。 尽管像素值不在以0表示水而-1000表示空气的Hounsfield单位（HU）中，但是可以将它们视为与Hounsfield单位的线性偏移。
+在我们的研究中，为了选择用于分割每个CT图像中放射性粒子的最佳值，我们首先对38个CT图像集进行了统计分析。 对于每种设置，首先选择一个感兴趣的区域（ROI）以覆盖前列腺区域（在我们的程序中，可以通过将鼠标拖到CT图像上来快速定义矩形ROI），然后使用低阈值（1500）进行分割 从背景组织中剔除出较高价值的像素。 然后根据像素连接性将这些像素聚类到一些分离的对象。 对于每个对象，记录其最大值和大小。 放射性粒子具有较高的最大值和较小的尺寸，而骨骼和钙化物具有较低的最大值和较大的尺寸（如<strong>图2</strong>所示）。 在通过CT图像观察确认骨骼和钙化的检测之后，记录每种情况下的钙化物数目，钙化物的最大像素值和骨骼的最大像素值。 本文描述的自动算法中使用的阈值大于从该统计研究中获得的骨骼和钙化物的最大值。（<font color=blue>也就是说，仅仅统计38个CT的骨骼和钙化物来确定手动分割的阈值，在这个阈值之上过滤掉钙化物，怎么感觉这么草率呢？</font>）
+<strong>图2：</strong>
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20210113095135545.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20210113095135545.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</p>
+<h3 id="23-几何区域分割">2.3 几何区域分割</h3>
+<p>上一步在每个CT切片中创建了许多分段区域。 这一步将设置一个截断尺寸，以区分单个种子与CT平面内的重叠种子对。 截断尺寸通过以下方法自动确定：
+在阈值化之后，每个分割的区域具有大小，即，大于阈值的像素数。 由于大多数区域仅包含一个种子，因此它们的大小相似。几个区域的大小可能几乎翻倍，因为它们包含两个相连的种子区域。 将整个CT图像集中所有分割区域的大小收集为数据数组，并进行统计分析。 <font color=red>将平均值加此数据数组标准差的三倍设置为截断大小</font>。 大于此大小的区域被视为两个相连的粒子区域，因此从阵列中删除。 重新计算了新阵列的截断大小，并且再次消除了大于该大小的区域。 重复此过程，直到没有任何区域的大小大于当前的截断尺寸为止，该截断尺寸因此被设置为最终截断尺寸。
+对于比截断尺寸大的区域，基于几何的分割算法（<strong>图3</strong>）被分成了两部分。 首先，通过在区域边界中搜索最大距离来找到区域的长轴。 然后计算该区域的质心，并将质心投影到长轴上，将长轴分为两部分。 计算这两个部分的各个质心，并将它们投影到长轴上作为起点和终点。 沿着长轴，从起点到终点搜索，找到了垂直距离最短的位置。 该位置用作分割点，从该分割点创建了两个子区域。
+<strong>图3：</strong>
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20210113100748121.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20210113100748121.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</p>
+<h3 id="24-几何区域连通">2.4 几何区域连通</h3>
+<p>在此步骤中，如果满足多个规则，则将可能属于一个粒子体积的多个连续切片中的粒子区域连接起来。 该算法从头到尾连续搜索每个区域，并将每个区域分配为<code>起始</code>粒子区域或<code>后续</code>粒子区域。 第一个CT切片中的所有区域都被视为<code>起始</code>粒子区域。 对于每个后续切片中的每个区域，该算法首先检查它是否连接到上一个切片中的任何粒子区域。 计算了从该粒子区域到先前切片中所有粒子区域的横向距离。 然后选择距离最小的种子区域。如果这两个粒子区域具有连接的体素，则将应用<code>最大粒子体积</code>标准。
+<code>最大粒子体积</code>标准意味着，如果添加此粒子区域使粒子量的总大小超过<code>最大粒子体积</code>，则该粒子区域将被分配为新的<code>起始</code>种子区域； 否则，它是<code>后续</code>粒子区域。 根据所植入粒子的数量 $N$ 自适应地确定<code>最大粒子体积</code>，具体实现方法如下：</p>
+<ul>
+<li>首先，确定<code>平均粒子体积</code>：为所有种子区域的总大小除以 $N$ ；</li>
+<li>然后，两倍的<code>平均粒子体积</code>作为初始的<code>最大粒子体积</code> ,总共的待侦测粒子数目也会被确定。 因为<code>平均粒子体积</code>足够大，大到可以连接物理上分离的粒子，因此检测到的粒子总数$N1$小于预期的粒子数$N$。这些检测到的粒子的体积按降序计算和排序。 设$M ＝ N-N1$。 选择第 $M$ 个粒子体积作为最终的<code>最大粒子体积</code>，然后将再次执行连接算法。</li>
+</ul>
+<p>如果<code>后续</code>粒子区域位于<code>起始</code>粒子区域的第三（或更多）切片上，则<code>直线规则</code>也将适用。 这意味着，如果该区域的质心在粒子区域的直线上，它将连接到粒子上； 否则，它将被分配为新的<code>起始</code>种子区域。</p>
+<h3 id="25-确定种子位置和方向">2.5 确定种子位置和方向</h3>
+<p>最后一步是确定每个粒子的3D位置和方向（如果仅在一个切片上出现了，则无法确定方向）。 对于显示在两个或更多CT切片上的粒子，使用面积加权方法确定3D坐标，方法如下：
+$$
+x=\frac{\sum^N_{i=1}x_iA_i}{\sum^N_{i=1}A_i},
+y=\frac{\sum^N_{i=1}y_iA_i}{\sum^N_{i=1}A_i},
+z=\frac{\sum^N_{i=1}z_iA_i}{\sum^N_{i=1}A_i}
+$$</p>
+<ul>
+<li>$N$是所有包含粒子的切片数目；</li>
+<li>$(x_i,y_i,z_i)$是第$i$个切片上粒子的坐标；</li>
+<li>$A_i$是第$i$个切片上的粒子的面积；</li>
+<li>$(x,y,z)$是结果：面积加权坐标。</li>
+</ul>
+<p>粒子的方向通过计算$(x,y,z)$得到的$\alpha$和$\beta$来表示：
+$$
+\alpha=\frac{x_N-x_1}{(N-1)\Delta},
+\beta=\frac{y_N-y_1}{(N-1)\Delta}
+$$</p>
+<ul>
+<li>$\Delta$是CT的厚度。</li>
+</ul>
+<h2 id="3结果">3.结果</h2>
+<h3 id="31-最佳阈值确定">3.1 最佳阈值确定</h3>
+<p>在我们研究的38个前列腺患者CT中，在19个病例上发现了41处钙化物，这些钙化物的最大HU值在1232到2338之间，骨骼的最大HU值在1870到2322之间。这表明，2338可能是最好的过滤掉钙化物和骨骼的阈值。但是考虑到算法向其他数据的迁移，我们将阈值设置为2400。</p>
+<h3 id="32-使用体模进行算法测试">3.2 使用体模进行算法测试</h3>
+<p>在植入了56个假粒子的前列腺体模上测试了这种自动粒子定位方法。 体模的尺寸为5.0×4.5×4.0 cm^3^（长×宽×高），直径为1cm的尿道嵌入模型中。 假粒子的直径为0.8毫米，长度为4.5毫米。模型的ACT切片如<strong>图4</strong>（a）所示。 这项研究评估了该算法在种子定位中的准确性及其分离位置紧密的种子的能力。更近似的模仿实际植入物，在不同角度引入某些针头，以验证算法能够以随机方向准确定位种子。 使一些粒子彼此接触以形成多个粒子的交叉。 在使用1.5毫米厚度的连续切片获取的CT数据集上测试了自动方法。 正交膜定位技术是由一名观察员执行的。 观察者获悉图像中包含的种子总数，将种子坐标与自动化方法的结果进行比较，最大，最小和平均差异分别为2.72 mm，0.17 mm和1.63 mm。 据报道，约11％的种子位置超过2 mm。 识别出的种子的3D坐标被投影到CT扫描之前获取的AP和侧面侦察视图上。 <strong>图4</strong>（b）和（c）显示了CT检测结果与实际X射线侦察图像之间的匹配：
+<strong>图四：</strong>
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20210113114748586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20210113114748586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</p>
+<h3 id="33-使用实际的植入后ct图像进行算法测试">3.3 使用实际的植入后CT图像进行算法测试</h3>
+<p>使用来自两名患者的影像学研究，使用CT和正交膜技术通过自动方法确定了粒子坐标。 对植入了86125粒子的患者1进行了1毫米和3毫米厚度的连续CT图像扫描。 <strong>图5</strong>显示了该患者CT检测到的粒子位置与X射线胶片之间的比较。 植入了69103$Pd$粒子的患者2仅在3毫米厚的CT图像中进行了扫描。 在CT扫描的同一天为每位患者获取AP和横向正交胶片。 将所得的粒子坐标与相应3D位置之间的最大，最小和平均差异的自动方法的结果进行比较（<strong>表1</strong>）。 对于CT厚度为1 mm的患者1，所有种子均被识别，并且85个种子具有3D方向（其中78％记录在三个相邻的切片上）。剩余的一颗种子仅记录在一个切片上，因此无法确定其方向。
+<strong>图5：</strong>(a)是将CT检测的结果和X光进行覆盖的AP显示；(b)是侧面显示
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20210113115132923.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20210113115132923.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+<strong>表一：</strong>
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20210113115535772.png" alt="在这里插入图片描述" id="20210113115535772" data-toggle="modal" data-target="#modal-20210113115535772"/>
+
+  <div class="modal" id="modal-20210113115535772">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20210113115535772.png" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</p>
+<h3 id="34-算法可移植性测试">3.4 算法可移植性测试</h3>
+<p>为了测试该算法在不同临床情况下的可移植性，使用四种不同类型的种子（$^{103}Pd$ TheraSeed，$^{103}Pd$ PdGold，$^{125}I$ 6711和$^{125} I$ IoGold），三种不同的CT切片厚度（1 mm，3 mm和5 mm）和两种不同的FOV（ 16厘米和36厘米）。 所有测试用例均获得满意的结果。 该算法针对不同情况自动确定不同的参数。 例如，TheraSeed，PdGold和IoGold种子的截断尺寸通常在16 cm FOV下为27–32像素，对于3 mm切片厚度在36 cm FOV下为7-11像素，对于16 cm FOV为17–18像素。 切片厚度为5 mm，而对于3 mm切片厚度，碘6711种子的截断尺寸在16 cm FOV下为45–58像素，在36 cm FOV下为9–13像素。 <strong>表2</strong>列出了20个测试案例的种子类型，CT切片厚度，FOV，算法确定的参数以及植入和检测到的粒子数量。（<font color=blue>由此也可以看出一个问题，对于不同性质的数据，算法内部的参数都需要人工调整，这里的问题在于，论文没有进行横向的对比，没有在控制住其他变量只改变病例的情况下做测试。</font>）
+<strong>表二：</strong>
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20210113134534660.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20210113134534660.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+
+使用Pentium 4 2.4 GHz计算机的平均处理速度为1秒。 与手动操作相比，这节省了大量时间。</p>
+<h3 id="35-植入后剂量">3.5 植入后剂量</h3>
+<p>我们将这种自动粒子定位算法应用于近距离放疗后的28个病例。 这些包括18个$^{103}Pd$ 植入物和101个$^{25}I$植入物。 所有病例都以3毫米的切片厚度扫描。 根据每个CT图像序列的前列腺边界的手动轮廓线，计算每个患者的植入后体积和剂量体积直方图（DVH）。<strong>表3</strong>列出了研究结果。 在该表中，植入前的体积是从超声研究中获得的。 经验丰富的观察员对每个病例​​进行目视检查，以确认粒子的正确性。 最后一行给出统计总结，包括植入粒子总数（2634）和已鉴定种子（2610），<strong>平均鉴定率</strong>99.1±1.0％（平均值±标准差），<strong>平均体积增加</strong>1.25±0.26（平均值±标准差） ）和<strong>平均D90 / Rx剂量</strong>1.08±0.18（平均值±标准偏差）。 在此，D90是前列腺体积的90％所接受的剂量，Rx剂量是前列腺的规定剂量。 <strong>D90 / Rx剂量</strong>之比是反映植入后剂量测定中植入质量的重要因素，这是美国医学物理学会（AAPM）第64号任务组的建议。$^{125 }I$的D90 / Rx剂量（1.23）高于$^{103}Pd$（1.00）。 这可能是由于$^{103}Pd$病例的体积增加较高（1.33比1.10）和$^{103}Pd$来源的剂量衰减更快。
+一名经验丰富的观察员根据人工粒子定位对2例（$I-125$病例编号为10，$Pd-103$病例编号为18）进行了植入后剂量测定.D90的值分别为201和94。 这两种情况下的粒子自动定位结果均在1％的范围内。这表明，自动粒子定位方法与植入后剂量计算的专家手动定位相当。 粒子定位差异（与正交X射线胶片定位技术相比，平均差异为3 mm）没有转化为明显的剂量学差异。
+表三：
+
+
+<figure class="text-center">
+  <img class="modal-trigger" src="https://img-blog.csdnimg.cn/20210113140309424.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" id="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" data-toggle="modal" data-target="#modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70"/>
+
+  <div class="modal" id="modal-watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-body">
+        <img src="https://img-blog.csdnimg.cn/20210113140309424.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjA2MTYzNg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"/>
+      </div>
+  </div>
+</figure>
+</p>
+<h2 id="4讨论">4.讨论</h2>
+<h3 id="41-算法的可移植性">4.1 算法的可移植性</h3>
+<p>该算法应该相对容易在其他诊所中实施，因为它与粒子的类型和CT扫描参数无关。
+在本研究中，通过实验确定了用于将粒子区域分割出前列腺组织，钙化和耻骨弓骨的阈值。 在本研究中，发现2400的像素值足够高，可以消除那些属于所有测试用例的钙化和骨骼像素。 搜索属于非粒子区域的最大像素值的方法是该程序的一项独立功能，因此可以很容易地在其他诊所中实施以找到其最佳阈值。
+该算法中使用的两个关键参数是来自CT，而不是来自外部输入。 分割双粒子区域的截断面积被计算为平均值加上单粒子区域大小分布的标准偏差的三倍。 测试结果表明，这是一个合理的选择，并使算法与粒子类型和FOV无关。 确定体素数量的<code>最大粒子体积</code>是基于知识的自适应过程，因为最初植入的粒子数是前提条件。 由于此输入可能不是CT上存在的确切种子数，因此不会强制算法匹配此输入数，因此本地化粒子的最终数可能会有小的差异。 该参数的自动确定使该算法与粒子类型，FOV和CT切片厚度无关。</p>
+<h3 id="42-ct层厚上的选择建议">4.2 CT层厚上的选择建议</h3>
+<p>在该算法中，较小的CT切片厚度（1毫米）将提高粒子定位的准确性，因为将加权的质心位置计算为这些质心。 <strong>表1</strong>体现了使用1mm CT切片厚度比使用3mmCT导致更高的精度。此外，在较小的CT切片厚度中，更多的种子将具有取向信息，因为粒子将出现在两个或更多个切片上。 研究发现，使用1毫米CT切片时，可以3D方向计算98％以上的粒子，而使用3毫米CT切片时可以减少到67％的种子，但是在常规情况下使用1毫米CT可能会被禁止（由于成本和时间的临床实践）。
+另一方面，使用1 mm和3 mm CT（平均差0.2 mm）的结果之间的一致性表明，当不需要粒子方向信息时，使用3 mm CT是一个很好的折衷方案。 布林克曼还研究了5毫米CT切片，发现在1毫米和5毫米CT中匹配坐标之间的距离大于2.0毫米。 我们的研究表明3 mm CT是常规临床实践中的合理选择。</p>
+<h2 id="总结">总结</h2>
+<p>本文从植入后的CT图像中描述了一种自动粒子定位算法，该算法与先前发布的方法之间的主要区别在于该算法依赖于3D粒子分布上的几何和强度信息，因此在处理粒子重叠和计算方向方面可能更准确。 对于那些仍处于选定阈值连接状态的粒子区域，该算法使用粒子大小标准来拆分连接的粒子区域，而不是像以前的方法那样将组合对象的质心坐标分配给每个连接的粒子区域。
+该算法已使用20个病例进行了测试，其中有四种不同种子类型、三种不同CT切片厚度和两种不同FOV的病例。结果对于所有情况都是令人满意的，因此表明该算法与这些变量无关。 在Pentium III 600 MHz处理器计算机上，典型CT序列的处理速度为4 s，在Pentium 4 2.4GHz处理器计算机上为1s。</p>
+
+
+
+      </main>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/grpcio">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Google Groups" aria-label="Google Groups">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://groups.google.com/g/grpc-io">
+      <i class="fab fa-google"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Gitter" aria-label="Gitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://gitter.im/grpc/grpc">
+      <i class="fab fa-gitter"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/grpc">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 gRPC Authors
+          
+        </small>
+        
+        
+      </div>
+    </div>
+    <div class="row text-center text-white small">
+      <div class="col-12 text-center py-2 order-sm-2">
+        <a href="https://www.linuxfoundation.org/terms" target="_blank" rel="noopener">Terms</a> |
+        <a href="https://www.linuxfoundation.org/privacy" target="_blank" rel="noopener">Privacy</a> |
+        <a href="https://www.linuxfoundation.org/trademark-usage" target="_blank" rel="noopener">Trademarks</a> |
+        <a href="https://github.com/grpc/grpc.io/blob/main/LICENSE" target="_blank" rel="noopener">License</a> |
+        <a href="/about/">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.d862e8117d34e02dff1772aeeb47caf7ed851d0f8a3a5345f7a32ccfb2f6b87f.js" integrity="sha256-2GLoEX004C3/F3Ku60fK9&#43;2FHQ&#43;KOlNF96Msz7L2uH8=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>
