@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>gRPC – 模型服务</title>
+    <title>Joevaen – 模型服务</title>
     <link>https://Joevaen.github.io/docs/guides/serving/</link>
-    <description>Recent content in 模型服务 on gRPC</description>
+    <description>Recent content in 模型服务 on Joevaen</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
