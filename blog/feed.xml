@@ -1380,5 +1380,94 @@ python3 -m pipx ensurepath
       </description>
     </item>
     
+    <item>
+      <title>Blog: Reflection</title>
+      <link>https://Joevaen.github.io/blog/reflection/</link>
+      <pubDate>Mon, 05 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/blog/reflection/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;现在的能力&#34;&gt;现在的能力&lt;/h2&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li&gt;基础知识能力
+&lt;ul&gt;
+&lt;li&gt;微积分、代数、概率基础，可快速复习某知识点；&lt;/li&gt;
+&lt;li&gt;机器学习概念熟悉；&lt;/li&gt;
+&lt;li&gt;稳定的python编程能力；&lt;/li&gt;
+&lt;li&gt;深度学习知识积累充足；&lt;/li&gt;
+&lt;li&gt;传统图像处理库opencv、skimage十分熟悉；&lt;/li&gt;
+&lt;li&gt;越来越纯熟的英文能力；&lt;/li&gt;
+&lt;li&gt;一知半解的C++编程能力；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;工作相关能力
+&lt;ul&gt;
+&lt;li&gt;熟悉junior级别算法工程师的工作方式和模式；&lt;/li&gt;
+&lt;li&gt;熟悉mmdetection框架，并将官方文档翻译为中文版本；&lt;/li&gt;
+&lt;li&gt;最熟悉的莫过于语义分割任务，其次是目标识别、姿态识别等；&lt;/li&gt;
+&lt;li&gt;极强的解决工作中困难的能力；&lt;/li&gt;
+&lt;li&gt;ubuntu为日常开发系统；&lt;/li&gt;
+&lt;li&gt;熟练使用git及github网站资源；&lt;/li&gt;
+&lt;li&gt;熟练使用markdown、sejda、xmind等编辑器；&lt;/li&gt;
+&lt;li&gt;用python轻松实现功能，熟悉各种python包；&lt;/li&gt;
+&lt;li&gt;快速阅读、理解、复现前沿论文；&lt;/li&gt;
+&lt;li&gt;熟悉TRT、cupy等各种加速技能；&lt;/li&gt;
+&lt;li&gt;优秀的语言组织和领导力；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;个人发展能力
+&lt;ul&gt;
+&lt;li&gt;有自己的方法论，无论是工作还是生活；&lt;/li&gt;
+&lt;li&gt;有自己的技术圈子，圈子中大多数人都从事算法相关工作；&lt;/li&gt;
+&lt;li&gt;有自己的工作模式，重要的是不断壮大的解决问题的思维；&lt;/li&gt;
+&lt;li&gt;有自己的领导者计划和思维；&lt;/li&gt;
+&lt;li&gt;极致地享受出现问题然后解决问题的过程；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;知识泛化能力
+&lt;ul&gt;
+&lt;li&gt;熟悉各种小工具，油猴脚本、github开源工具包解决现实问题；&lt;/li&gt;
+&lt;li&gt;熟悉hugo框架，构建了自己的博客网站，也因此对css等前端技术有了解；&lt;/li&gt;
+&lt;li&gt;熟悉golang，自学过golang的爬虫；&lt;/li&gt;
+&lt;li&gt;熟悉emby，因此构建了自己的家庭媒体库；&lt;/li&gt;
+&lt;li&gt;熟悉nlp的任务及解决，了解allennlp框架；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;不足的能力&#34;&gt;不足的能力&lt;/h2&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li&gt;基础方面
+&lt;ul&gt;
+&lt;li&gt;机器学习了解深度不够，应用太少锻炼不出算法嗅觉；&lt;/li&gt;
+&lt;li&gt;python的多线程等高阶技能缺乏实际应用；&lt;/li&gt;
+&lt;li&gt;深度学习的学习深度欠缺，没有空间和时间进行深层次的挖掘；&lt;/li&gt;
+&lt;li&gt;C++经验匮乏，语言基础了解不足；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;工作方面
+&lt;ul&gt;
+&lt;li&gt;有带领团队的想法和计划，但缺乏经验；&lt;/li&gt;
+&lt;li&gt;工作大多数时间做算法的测试、移植和应用，未对模型做更多的改进；&lt;/li&gt;
+&lt;li&gt;在工作技能的主次排序方面和需要如何精进哪些技术方面，缺乏经验和指引；&lt;/li&gt;
+&lt;li&gt;没有与相同领域的高手或者大神进行过交流，基本是单打独斗的解决存在的问题；&lt;/li&gt;
+&lt;li&gt;适当的加班使人向上；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;我想要具备的能力&#34;&gt;我想要具备的能力&lt;/h2&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;1.深入学习C++，从Codebeauty学习开始，新手教程进程（0/19）；&lt;/li&gt;
+&lt;li&gt;2.机器学习的方法深入学习和理解，学习吴恩达 （0/112）&lt;/li&gt;
+&lt;li&gt;3.将nlp的牛津视频学习完，可以从概念角度了解nlp（1/14）；&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
   </channel>
 </rss>

@@ -1,0 +1,252 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Joevaen – NLP学习旅程</title>
+    <link>https://Joevaen.github.io/nlps/</link>
+    <description>Recent content in NLP学习旅程 on Joevaen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/nlps/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Nlps: lecture1a</title>
+      <link>https://Joevaen.github.io/nlps/lecture/lecture1a/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/nlps/lecture/lecture1a/</guid>
+      <description>
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+&lt;section id=&#34;td-cover-block-0&#34; class=&#34;row td-cover-block td-cover-block--height-sm js-td-cover td-overlay td-overlay--dark -bg-primary&#34;&gt;
+  &lt;div class=&#34;container td-overlay__inner&#34;&gt;
+    &lt;div class=&#34;row&#34;&gt;
+      &lt;div class=&#34;col-12&#34;&gt;
+        &lt;div class=&#34;text-center&#34;&gt;
+          
+          
+          &lt;div class=&#34;pt-3 lead&#34;&gt;
+            
+                &lt;div class=&#34;text-left&#34;&gt;
+  &lt;h1 class=&#34;display-1 mb-5&#34;&gt;lecture1a&lt;/h1&gt;&lt;/div&gt;
+
+            
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+&lt;/section&gt;
+
+&lt;div class=&#34;container l-container--padded&#34;&gt;
+&lt;div class=&#34;row&#34;&gt;
+
+
+
+
+  
+    &lt;div class=&#34;d-lg-none col-12&#34;&gt;
+      &lt;div class=&#34;td-toc td-toc--inline&#34;&gt;
+  
+      
+        &lt;a id=&#34;td-content__toc-link&#34; class=&#34;collapsed&#34; href=&#34;#td-content__toc&#34; data-toggle=&#34;collapse&#34; aria-controls=&#34;td-page-toc&#34; aria-expanded=&#34;false&#34; aria-label=&#34;Toggle toc navigation&#34;&gt;
+          &lt;span class=&#34;lead&#34;&gt;Contents&lt;i class=&#34;fas fa-chevron-right ml-2&#34;&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;div id=&#34;td-content__toc&#34; class=&#34;collapse&#34;&gt;
+          &lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#一为什么开这门课&#34;&gt;一、为什么开这门课?&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#二课程信息&#34;&gt;二、课程信息&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#1教科书&#34;&gt;1.教科书&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#三课程日期&#34;&gt;三、课程日期&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#四预备知识&#34;&gt;四、预备知识&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#1数学&#34;&gt;1.数学&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#2机器学习&#34;&gt;2.机器学习&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#3编程&#34;&gt;3.编程&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+        &lt;/div&gt;
+        &lt;button id=&#34;td-content__toc-link-expanded&#34; href=&#34;#td-content__toc&#34; class=&#34;btn btn-small ml-1 my-2 py-0 px-3&#34; data-toggle=&#34;collapse&#34; aria-controls=&#34;td-docs-toc&#34; aria-expanded=&#34;true&#34; aria-label=&#34;Toggle toc navigation&#34;&gt;
+        &lt;/button&gt;
+      
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class=&#34;row&#34;&gt;
+&lt;div class=&#34;col-12 col-lg-8&#34;&gt;
+&lt;h1 id=&#34;deep-learning-for-natural-language-processing&#34;&gt;Deep Learning for Natural Language Processing&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;一为什么开这门课&#34;&gt;一、为什么开这门课?&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;人工智能是当前最有趣的领域之一, 而语言也是令人惊叹的。&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h2 id=&#34;二课程信息&#34;&gt;二、课程信息&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;1教科书&#34;&gt;1.教科书&lt;/h3&gt;
+&lt;hr&gt;
+&lt;p&gt;没有特定的教科书&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;比较好的参考是:
+Goodfellow, Bengio, and Courville,
+Deep Learning. &lt;a href=&#34;www.deeplearningbook.org&#34;&gt;www.deeplearningbook.org&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;机器学习背景的书籍:
+《Machine Learning: A Probabilistic Perspective Bishop》 
+《Pattern Recognition and Machine Learning》&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h2 id=&#34;三课程日期&#34;&gt;三、课程日期&lt;/h2&gt;
+&lt;hr&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;第一周&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1.介绍、2.词汇语义&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;第二周&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;没有讲座&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;第三周&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;3.RNNs、4.语言模型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;第四周&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;5.文本分类、6.RNNs和GPU&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;第五周&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;7&amp;amp;8.序列转换&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;第六周&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;9&amp;amp;10.说话&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;第七周&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;11.问题回答、12.记忆&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;第八周&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;13.语言学结构、14.总结&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h2 id=&#34;四预备知识&#34;&gt;四、预备知识&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;1数学&#34;&gt;1.数学&lt;/h3&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;代数&lt;/li&gt;
+&lt;li&gt;微积分&lt;/li&gt;
+&lt;li&gt;概率学&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2机器学习&#34;&gt;2.机器学习&lt;/h3&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;评估机器学习模型（训练、验证、测试及交叉验证）&lt;/li&gt;
+&lt;li&gt;过拟合、泛化、归一化&lt;/li&gt;
+&lt;li&gt;优化（对象函数、随机梯度下降）&lt;/li&gt;
+&lt;li&gt;线性回归、分类、神经网络（普通的非线性、反向传播）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;3编程&#34;&gt;3.编程&lt;/h3&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;tensorflow&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(train/validation/test split, cross validation etc.),&lt;/p&gt;
+&lt;p&gt;• overﬁtting, generalisation, and regularisation,&lt;/p&gt;
+&lt;p&gt;• optimisation&lt;/p&gt;
+&lt;p&gt;(objective functions, stochastic gradient descent),&lt;/p&gt;
+&lt;p&gt;• linear regression and classiﬁcation, neural networks&lt;/p&gt;
+&lt;p&gt;(common non-linearities, backpropagations etc.).&lt;/p&gt;
+&lt;p&gt;Programming&lt;/p&gt;
+&lt;p&gt;Knowledge of, or ability to learn quickly, a NN toolkit&lt;/p&gt;
+&lt;p&gt;(e.g. Torch, TensorFlow, Theano, DyNet etc.)&lt;/p&gt;
+&lt;p&gt;What this course is, and is not, about&lt;/p&gt;
+&lt;p&gt;This course will survey the use of Deep Learning techniques for a&lt;/p&gt;
+&lt;p&gt;range of Natural Language Processing applications.&lt;/p&gt;
+&lt;p&gt;This is not a general course on NLP. There is a lot more to&lt;/p&gt;
+&lt;p&gt;language and computational linguistics, and many interesting&lt;/p&gt;
+&lt;p&gt;paradigms beyond deep learning, than we will cover.&lt;/p&gt;
+&lt;p&gt;Language Understanding&lt;/p&gt;
+&lt;p&gt;CNN article:&lt;/p&gt;
+&lt;p&gt;Document The BBC producer allegedly struck by&lt;/p&gt;
+&lt;p&gt;Jeremy Clarkson will not press charges&lt;/p&gt;
+&lt;p&gt;against the “Top Gear” host, his lawyer&lt;/p&gt;
+&lt;p&gt;said Friday. Clarkson, who hosted one of&lt;/p&gt;
+&lt;p&gt;the most-watched television shows in the&lt;/p&gt;
+&lt;p&gt;world, was dropped by the BBC Wednesday&lt;/p&gt;
+&lt;p&gt;after an internal investigation by the&lt;/p&gt;
+&lt;p&gt;British broadcaster found he had subjected&lt;/p&gt;
+&lt;p&gt;producer Oisin Tymon “to an unprovoked&lt;/p&gt;
+&lt;p&gt;physical and verbal attack.” . . .&lt;/p&gt;
+&lt;p&gt;Query Who does the article say will not press&lt;/p&gt;
+&lt;p&gt;charges against Jeremy Clarkson?&lt;/p&gt;
+&lt;p&gt;Answer Oisin Tymon&lt;/p&gt;
+&lt;p&gt;Speech Processing and Machine Translation&lt;/p&gt;
+&lt;p&gt;Speech Recognition (ASR)&lt;/p&gt;
+&lt;p&gt;Les chiens aiment les os&lt;/p&gt;
+&lt;p&gt;Machine Translation (MT)&lt;/p&gt;
+&lt;p&gt;Dogs love bones&lt;/p&gt;
+&lt;p&gt;Text to Speech (TTS)&lt;/p&gt;
+&lt;p&gt;Image Understanding&lt;/p&gt;
+&lt;p&gt;What is the man holding?&lt;/p&gt;
+&lt;p&gt;Does it appear to be raining?&lt;/p&gt;
+&lt;p&gt;Does this man have 20/20 vision?&lt;/p&gt;
+&lt;p&gt;Agrawal et al., VQA: Visual Question Answering, ICCV 2015.&lt;/p&gt;
+&lt;p&gt;Linguistic Structure&lt;/p&gt;
+&lt;p&gt;Sense&lt;/p&gt;
+&lt;p&gt;I saw her duck&lt;/p&gt;
+&lt;p&gt;Idioms&lt;/p&gt;
+&lt;p&gt;He kicked a goal&lt;/p&gt;
+&lt;p&gt;He kicked the ball&lt;/p&gt;
+&lt;p&gt;He caught the ball&lt;/p&gt;
+&lt;p&gt;He kicked the bucket&lt;/p&gt;
+&lt;p&gt;Reference&lt;/p&gt;
+&lt;p&gt;The ball did not ﬁt in the box because it was too&lt;/p&gt;
+&lt;p&gt;[big/small].&lt;/p&gt;
+&lt;p&gt;etc.&lt;/p&gt;
+&lt;p&gt;Next lecture, Wang Ling:&lt;/p&gt;
+&lt;p&gt;Deep Neural Networks Are Our Friends&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

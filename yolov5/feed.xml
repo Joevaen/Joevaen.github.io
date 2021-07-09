@@ -1,0 +1,303 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Joevaen – Yolo测试</title>
+    <link>https://Joevaen.github.io/yolov5/</link>
+    <description>Recent content in Yolo测试 on Joevaen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="https://Joevaen.github.io/yolov5/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Yolov5: 我的测试</title>
+      <link>https://Joevaen.github.io/yolov5/custom/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/yolov5/custom/</guid>
+      <description>
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+&lt;section id=&#34;td-cover-block-0&#34; class=&#34;row td-cover-block td-cover-block--height-sm js-td-cover td-overlay td-overlay--dark -bg-primary&#34;&gt;
+  &lt;div class=&#34;container td-overlay__inner&#34;&gt;
+    &lt;div class=&#34;row&#34;&gt;
+      &lt;div class=&#34;col-12&#34;&gt;
+        &lt;div class=&#34;text-center&#34;&gt;
+          
+          
+          &lt;div class=&#34;pt-3 lead&#34;&gt;
+            
+                &lt;div class=&#34;text-left&#34;&gt;
+  &lt;h1 class=&#34;display-1 mb-5&#34;&gt;我的测试&lt;/h1&gt;&lt;h3 class=&#34;font-weight-light&#34;&gt;记录实践过程和遇到的问题。&lt;/h3&gt;
+  &lt;/div&gt;
+
+            
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+&lt;/section&gt;
+
+&lt;div class=&#34;container l-container--padded&#34;&gt;
+&lt;div class=&#34;row&#34;&gt;
+
+
+
+
+  
+    &lt;div class=&#34;d-lg-none col-12&#34;&gt;
+      &lt;div class=&#34;td-toc td-toc--inline&#34;&gt;
+  
+      
+        &lt;a id=&#34;td-content__toc-link&#34; class=&#34;collapsed&#34; href=&#34;#td-content__toc&#34; data-toggle=&#34;collapse&#34; aria-controls=&#34;td-page-toc&#34; aria-expanded=&#34;false&#34; aria-label=&#34;Toggle toc navigation&#34;&gt;
+          &lt;span class=&#34;lead&#34;&gt;Contents&lt;i class=&#34;fas fa-chevron-right ml-2&#34;&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;div id=&#34;td-content__toc&#34; class=&#34;collapse&#34;&gt;
+          &lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#1创建datasetyaml文件&#34;&gt;1.创建dataset.yaml文件&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#2创建标签文件&#34;&gt;2.创建标签文件&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#3规划路径&#34;&gt;3.规划路径&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#4选择模型&#34;&gt;4.选择模型&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#5训练&#34;&gt;5.训练&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#权重和偏移量显示&#34;&gt;权重和偏移量显示&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#本地显示&#34;&gt;本地显示&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+        &lt;/div&gt;
+        &lt;button id=&#34;td-content__toc-link-expanded&#34; href=&#34;#td-content__toc&#34; class=&#34;btn btn-small ml-1 my-2 py-0 px-3&#34; data-toggle=&#34;collapse&#34; aria-controls=&#34;td-docs-toc&#34; aria-expanded=&#34;true&#34; aria-label=&#34;Toggle toc navigation&#34;&gt;
+        &lt;/button&gt;
+      
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class=&#34;row-100&#34;&gt;
+&lt;div class=&#34;col-50 col-lg-8&#34;&gt;
+&lt;p&gt;这个教程会向你展示怎么使用yolov5训练你的自定义数据&lt;/p&gt;
+&lt;h1 id=&#34;准备工作&#34;&gt;准备工作&lt;/h1&gt;
+&lt;hr&gt;
+&lt;p&gt;克隆这个仓库，下载教程的数据集，然后安装
+&lt;a href=&#34;https://github.com/ultralytics/yolov5/blob/master/requirements.txt&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;requirements.txt&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;
+, 包括 &lt;strong&gt;Python&amp;gt;=3.8&lt;/strong&gt; 和 &lt;strong&gt;PyTorch&amp;gt;=1.7&lt;/strong&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git clone https://github.com/ultralytics/yolov5  # clone repo
+$ cd yolov5
+$ pip install -r requirements.txt  # install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;训练自定义数据&#34;&gt;训练自定义数据&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;1创建datasetyaml文件&#34;&gt;1.创建dataset.yaml文件&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.kaggle.com/ultralytics/coco128&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;COCO128&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;是COCO数据集的train2017中的前128张图片。这些相同的128张图像用于训练和验证，以验证我们的训练管道是否能够过拟合。下面所显示出的 data/coco128.yaml是
+配置文件的路径，配置了以下几个参数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据集的根路径和训练/验证/测试集的路径（或者指向数据集路径的文件）&lt;/li&gt;
+&lt;li&gt;类别数目&lt;/li&gt;
+&lt;li&gt;一个保存类别名的列表&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]&lt;/span&gt;
+path: &lt;span style=&#34;color:#555&#34;&gt;../&lt;/span&gt;datasets&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;coco128  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# dataset root dir&lt;/span&gt;
+train: images&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;train2017  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# train images (relative to &amp;#39;path&amp;#39;) 128 images&lt;/span&gt;
+val: images&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;train2017  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# val images (relative to &amp;#39;path&amp;#39;) 128 images&lt;/span&gt;
+test:  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# test images (optional)&lt;/span&gt;
+
+&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# Classes&lt;/span&gt;
+nc: &lt;span style=&#34;color:#f60&#34;&gt;80&lt;/span&gt;  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# number of classes&lt;/span&gt;
+names: [ &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;person&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;bicycle&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;car&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;motorcycle&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;airplane&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;bus&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;train&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;truck&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;boat&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;traffic light&amp;#39;&lt;/span&gt;,
+         &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;fire hydrant&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;stop sign&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;parking meter&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;bench&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;bird&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;cat&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;dog&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;horse&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;sheep&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;cow&amp;#39;&lt;/span&gt;,
+         &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;elephant&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;bear&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;zebra&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;giraffe&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;backpack&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;umbrella&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;handbag&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;tie&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;suitcase&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;frisbee&amp;#39;&lt;/span&gt;,
+         &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;skis&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;snowboard&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;sports ball&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;kite&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;baseball bat&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;baseball glove&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;skateboard&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;surfboard&amp;#39;&lt;/span&gt;,
+         &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;tennis racket&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;bottle&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;wine glass&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;cup&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;fork&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;knife&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;spoon&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;bowl&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;banana&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;apple&amp;#39;&lt;/span&gt;,
+         &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;sandwich&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;orange&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;broccoli&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;carrot&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;hot dog&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;pizza&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;donut&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;cake&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;chair&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;couch&amp;#39;&lt;/span&gt;,
+         &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;potted plant&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;bed&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;dining table&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;toilet&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;tv&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;laptop&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;mouse&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;remote&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;keyboard&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;cell phone&amp;#39;&lt;/span&gt;,
+         &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;microwave&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;oven&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;toaster&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;sink&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;refrigerator&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;book&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;clock&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;vase&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;scissors&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;teddy bear&amp;#39;&lt;/span&gt;,
+         &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;hair drier&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;toothbrush&amp;#39;&lt;/span&gt; ]  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# class names&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2创建标签文件&#34;&gt;2.创建标签文件&lt;/h2&gt;
+&lt;p&gt;使用CVAT或者makesense.ai来标注图片，并导出为YOLO格式，一般每张图片的标签是一个.txt文件（如果图像中没有标注的对象，那么将不会生成.txt文件）。.txt文件有格式如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;每个对象是一行&lt;/li&gt;
+&lt;li&gt;每行为&lt;code&gt;类别、x中点、y中点、宽、高&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;方框的坐标必须是归一化以后的xywh(从0到1)，如果box是像素级别描述的，要用x中点除以图像宽度、宽度除以图像宽度，y上一样。&lt;/li&gt;
+&lt;li&gt;类别要从0开始&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img src=&#34;https://user-images.githubusercontent.com/26833433/91506361-c7965000-e886-11ea-8291-c72b98c25eec.jpg&#34; width=&#34;100%&#34; height=&#34;15%&#34;&gt;
+&lt;p&gt;上图的标签文件包含了2个人和1个领带：
+&lt;img src=&#34;https://user-images.githubusercontent.com/26833433/112467037-d2568c00-8d66-11eb-8796-55402ac0d62f.png&#34; width=&#34;100%&#34; height=&#34;25%&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;3规划路径&#34;&gt;3.规划路径&lt;/h2&gt;
+&lt;p&gt;根据下面这个例子来规划你训练集和验证集的路径，在这个例子中，我们假设&lt;code&gt;/coco128&lt;/code&gt;是&lt;code&gt;yolov5&lt;/code&gt;旁边的一个文件夹，
+YOLOv5会自动为每个图片定位标签，通过将每个图片路径中的&lt;code&gt;/images/&lt;/code&gt;用&lt;code&gt;/labels/&lt;/code&gt;代替。例如：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;dataset&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;images&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;im0&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;jpg  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# image&lt;/span&gt;
+dataset&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;labels&lt;span style=&#34;color:#555&#34;&gt;/&lt;/span&gt;im0&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;txt  &lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# label&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/26833433/112467887-e18a0980-8d67-11eb-93af-6505620ff8aa.png&#34; width=&#34;100%&#34; height=&#34;25%&#34;&gt;
+&lt;h2 id=&#34;4选择模型&#34;&gt;4.选择模型&lt;/h2&gt;
+&lt;p&gt;选择一个预训练模型进行训练，这里我们选择&lt;a href=&#34;https://github.com/ultralytics/yolov5/blob/master/models/yolov5s.yaml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;YOLOv5s&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;, 它是最轻量级的模型。可以返回之前README看一下所有模型的对比。
+&lt;img src=&#34;https://github.com/ultralytics/yolov5/releases/download/v1.0/model_comparison.png&#34; width=&#34;80%&#34; height=&#34;25%&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;5训练&#34;&gt;5.训练&lt;/h2&gt;
+&lt;p&gt;要在COCO128上训练模型，要确定数据集、batchsize、图片尺寸和指定的预训练模型&lt;code&gt;--weight yolov5s.pt&lt;/code&gt;（建议）,或者用
+&lt;code&gt;--weights &#39;&#39; --cfg yolov5s.yaml&lt;/code&gt;来随机初始化权重（不建议）。预训练模型会自动下载。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#09f;font-style:italic&#34;&gt;# Train YOLOv5s on COCO128 for 5 epochs&lt;/span&gt;
+&lt;span style=&#34;color:#a00;background-color:#faa&#34;&gt;$&lt;/span&gt; python train&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;py &lt;span style=&#34;color:#555&#34;&gt;--&lt;/span&gt;img &lt;span style=&#34;color:#f60&#34;&gt;640&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;--&lt;/span&gt;batch &lt;span style=&#34;color:#f60&#34;&gt;16&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;--&lt;/span&gt;epochs &lt;span style=&#34;color:#f60&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;--&lt;/span&gt;data coco128&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;yaml &lt;span style=&#34;color:#555&#34;&gt;--&lt;/span&gt;weights yolov5s&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;pt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;训练的结果会按照迭代的次数保存在&lt;code&gt;runs/train/&lt;/code&gt;，保存格式为&lt;code&gt;runs/train/exp2&lt;/code&gt;、&lt;code&gt;runs/train/exp3&lt;/code&gt;等等。&lt;/p&gt;
+&lt;h1 id=&#34;可视化&#34;&gt;可视化&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;权重和偏移量显示&#34;&gt;权重和偏移量显示&lt;/h2&gt;
+&lt;p&gt;现在可以进行实时的可视化，需要安装&lt;code&gt;wandb&lt;/code&gt;，然后正常训练。
+&lt;code&gt;$ pip install wandb&lt;/code&gt;
+训练期间可以在&lt;a href=&#34;https://wandb.ai/site?utm_campaign=repo_yolo_traintutorial&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://wandb.ai&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;看到实时的更新。&lt;/p&gt;
+&lt;h2 id=&#34;本地显示&#34;&gt;本地显示&lt;/h2&gt;
+&lt;p&gt;浏览训练和测试图片，以观测马赛克、标签、预测和增强的影响。Mosaic Dataloader在训练中使用，
+是作者在yolov4中提出的。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Yolov5: 获取最好的训练结果</title>
+      <link>https://Joevaen.github.io/yolov5/tips/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/yolov5/tips/</guid>
+      <description>
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+&lt;section id=&#34;td-cover-block-0&#34; class=&#34;row td-cover-block td-cover-block--height-sm js-td-cover td-overlay td-overlay--dark -bg-primary&#34;&gt;
+  &lt;div class=&#34;container td-overlay__inner&#34;&gt;
+    &lt;div class=&#34;row&#34;&gt;
+      &lt;div class=&#34;col-12&#34;&gt;
+        &lt;div class=&#34;text-center&#34;&gt;
+          
+          
+          &lt;div class=&#34;pt-3 lead&#34;&gt;
+            
+                &lt;div class=&#34;text-left&#34;&gt;
+  &lt;h1 class=&#34;display-1 mb-5&#34;&gt;获取最好的训练结果&lt;/h1&gt;&lt;h3 class=&#34;font-weight-light&#34;&gt;记录实践过程和遇到的问题。&lt;/h3&gt;
+  &lt;/div&gt;
+
+            
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+&lt;/section&gt;
+
+&lt;div class=&#34;container l-container--padded&#34;&gt;
+&lt;div class=&#34;row&#34;&gt;
+
+
+
+
+  
+    &lt;div class=&#34;d-lg-none col-12&#34;&gt;
+      &lt;div class=&#34;td-toc td-toc--inline&#34;&gt;
+  
+      
+        &lt;a id=&#34;td-content__toc-link&#34; class=&#34;collapsed&#34; href=&#34;#td-content__toc&#34; data-toggle=&#34;collapse&#34; aria-controls=&#34;td-page-toc&#34; aria-expanded=&#34;false&#34; aria-label=&#34;Toggle toc navigation&#34;&gt;
+          &lt;span class=&#34;lead&#34;&gt;Contents&lt;i class=&#34;fas fa-chevron-right ml-2&#34;&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;div id=&#34;td-content__toc&#34; class=&#34;collapse&#34;&gt;
+          &lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#数据集&#34;&gt;数据集&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#模型选择&#34;&gt;模型选择&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#训练设置&#34;&gt;训练设置&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#更多&#34;&gt;更多&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+        &lt;/div&gt;
+        &lt;button id=&#34;td-content__toc-link-expanded&#34; href=&#34;#td-content__toc&#34; class=&#34;btn btn-small ml-1 my-2 py-0 px-3&#34; data-toggle=&#34;collapse&#34; aria-controls=&#34;td-docs-toc&#34; aria-expanded=&#34;true&#34; aria-label=&#34;Toggle toc navigation&#34;&gt;
+        &lt;/button&gt;
+      
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class=&#34;row-100&#34;&gt;
+&lt;div class=&#34;col-50 col-lg-8&#34;&gt;
+&lt;h1 id=&#34;这个教程会向你展示怎么使用yolov5训练出最好的模型&#34;&gt;这个教程会向你展示怎么使用yolov5训练出最好的模型。&lt;/h1&gt;
+&lt;hr&gt;
+&lt;p&gt;大多数情况下，你不需要修改什么参数就可以获得好的模型，只要你的数据集充分并且标注优质。如果一开始你
+没有得到一个好的结果，那么需要进行一些修改的步骤，但是我们建议第一次训练用默认的参数设置。这帮助你建立一个性能的
+基准线和需要改进的地方。
+如果对训练结果有问题并希望我们的回复，我们希望你提供尽可能多的信息，包括训练损失、验证损失、P、R、mAP，PR曲线、混合矩阵、训练的马赛克、测试的结果和图像的标签。这些都在你的&lt;code&gt;project/name&lt;/code&gt;路径下，通常是&lt;code&gt;yolov5/runs/train/exp&lt;/code&gt;。
+我们已经给出了完整训练出好的模型结果的指导。&lt;/p&gt;
+&lt;h2 id=&#34;数据集&#34;&gt;数据集&lt;/h2&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;每个类别图片数目: &amp;gt;=1500&lt;/li&gt;
+&lt;li&gt;每个类别的实例的数目: &amp;gt;=10000&lt;/li&gt;
+&lt;li&gt;图像多样性: 必须具有各种背景上的差异，对于自然图片，建议要有一天的不同时段、不同季节、不同天气、不同光照、不同角度、不同的来源等等。&lt;/li&gt;
+&lt;li&gt;标签一致性：任何图片中的实例都需要被标注，仅有部分标注是不行的。&lt;/li&gt;
+&lt;li&gt;标签准确度：标签一定要和每个对象特别接近，对象和它的bbox之间最好不要有空隙，每个对象都应该有对应的标签。&lt;/li&gt;
+&lt;li&gt;背景图片：背景图片是要加入到数据集中来减小FP的不包含对象的图片，我们建议选择0-10%的背景图片来减小FP，COCO数据集中包含有1000张背景图，大约占到总数的1%。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img src=&#34;https://Joevaen.github.io/yolov5/tips.png&#34; width=&#34;100%&#34; height=&#34;25%&#34;&gt;
+&lt;h2 id=&#34;模型选择&#34;&gt;模型选择&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;YOLOv5x 和 YOLOv5x6的模型更大，但是也会产生更好的效果，同时他也需要更多的参数和更大的显存，时间耗费也更长。所以，移动端的部署我们建议用YOLOv5s/m，云端部署建议用YOLOv5l/x。下面是模型的各种比较：
+&lt;img src=&#34;https://Joevaen.github.io/yolov5/model_comparison.png&#34; width=&#34;100%&#34; height=&#34;25%&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;从预训练权重开始训练：建议先使用小一点的数据集（比如：VOC、VisDrone等），添加&lt;code&gt;--weights&lt;/code&gt;传入权重文件，模型会自动下载。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;python train&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;py &lt;span style=&#34;color:#555&#34;&gt;--&lt;/span&gt;data custom&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;yaml &lt;span style=&#34;color:#555&#34;&gt;--&lt;/span&gt;weights yolov5s&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;pt
+                                             yolov5m&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;pt
+                                             yolov5l&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;pt
+                                             yolov5x&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;pt
+                                             custom_pretrained&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;pt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;从头开始训练：建议使用大型数据集（比如： COCO, Objects365, OIv6），传入一个模型结构的yaml文件，同时一个空的权重参数&lt;code&gt;--weights &#39;&#39;&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;python train&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;py &lt;span style=&#34;color:#555&#34;&gt;--&lt;/span&gt;data custom&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;yaml &lt;span style=&#34;color:#555&#34;&gt;--&lt;/span&gt;weights &lt;span style=&#34;color:#c30&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;--&lt;/span&gt;cfg yolov5s&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;yaml
+                                                      yolov5m&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;yaml
+                                                      yolov5l&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;yaml
+                                                      yolov5x&lt;span style=&#34;color:#555&#34;&gt;.&lt;/span&gt;yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;训练设置&#34;&gt;训练设置&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;在修改参数之前先用默认的参数进行训练，如果你需要修改参数，那么需要在&lt;code&gt;train.py&lt;/code&gt;中找到所有需要修改的参数。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Epochs：先训练300轮，如果过拟合了要减少轮数，如果300轮之后仍然没有过拟合，继续再训练至600轮，甚至1200轮；&lt;/li&gt;
+&lt;li&gt;图片尺寸：COCO数据的训练图片大小为640，尽管数据集中有许多的小的物体，但是也可以从高像素的图片中获益。如果自定义数据集中有许多的小物体，那么有一些高像素的图片也可以提升性能。推理测试的图片最好和训练图片的尺寸一样。&lt;/li&gt;
+&lt;li&gt;Batchsize：使用硬件允许的最大值，小的bs可能会产生差的bn数据。&lt;/li&gt;
+&lt;li&gt;超参数：默认的超参数在&lt;code&gt;hyp.scratch.yaml&lt;/code&gt;中，还是先用默认超参数进行训练，增加超参数会减少和延迟过拟合现象，获得更好的mAP。更多的超参数优化方法可以看下面的&lt;code&gt;Hyperparameter Evolution Tutorial&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;更多&#34;&gt;更多&lt;/h2&gt;
+&lt;p&gt;如果需要更多调节神经网络的信息，可以到&lt;a href=&#34;http://karpathy.github.io/2019/04/25/recipe/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;这个网站&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt;进行浏览学习机器学习相关知识。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -2846,5 +2846,106 @@ $$&lt;/li&gt;
       </description>
     </item>
     
+    <item>
+      <title>Showcase: BERT：用于语言理解的深度双向变换器的预训练</title>
+      <link>https://Joevaen.github.io/showcase/paper/paper9/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Joevaen.github.io/showcase/paper/paper9/</guid>
+      <description>
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+&lt;section id=&#34;td-cover-block-0&#34; class=&#34;row td-cover-block td-cover-block--height-sm js-td-cover td-overlay td-overlay--dark -bg-primary&#34;&gt;
+  &lt;div class=&#34;container td-overlay__inner&#34;&gt;
+    &lt;div class=&#34;row&#34;&gt;
+      &lt;div class=&#34;col-12&#34;&gt;
+        &lt;div class=&#34;text-center&#34;&gt;
+          
+          
+          &lt;div class=&#34;pt-3 lead&#34;&gt;
+            
+                &lt;div class=&#34;text-left&#34;&gt;
+  &lt;h1 class=&#34;display-1 mb-5&#34;&gt;BERT：用于语言理解的深度双向变换器的预训练&lt;/h1&gt;&lt;/div&gt;
+
+            
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+&lt;/section&gt;
+
+&lt;div class=&#34;container l-container--padded&#34;&gt;
+&lt;div class=&#34;row&#34;&gt;
+
+
+
+
+  
+    &lt;div class=&#34;d-lg-none col-12&#34;&gt;
+      &lt;div class=&#34;td-toc td-toc--inline&#34;&gt;
+  
+      
+        &lt;a id=&#34;td-content__toc-link&#34; class=&#34;collapsed&#34; href=&#34;#td-content__toc&#34; data-toggle=&#34;collapse&#34; aria-controls=&#34;td-page-toc&#34; aria-expanded=&#34;false&#34; aria-label=&#34;Toggle toc navigation&#34;&gt;
+          &lt;span class=&#34;lead&#34;&gt;Contents&lt;i class=&#34;fas fa-chevron-right ml-2&#34;&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;div id=&#34;td-content__toc&#34; class=&#34;collapse&#34;&gt;
+          &lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#1介绍&#34;&gt;1.介绍&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+        &lt;/div&gt;
+        &lt;button id=&#34;td-content__toc-link-expanded&#34; href=&#34;#td-content__toc&#34; class=&#34;btn btn-small ml-1 my-2 py-0 px-3&#34; data-toggle=&#34;collapse&#34; aria-controls=&#34;td-docs-toc&#34; aria-expanded=&#34;true&#34; aria-label=&#34;Toggle toc navigation&#34;&gt;
+        &lt;/button&gt;
+      
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class=&#34;row&#34;&gt;
+&lt;div class=&#34;col-12 col-lg-8&#34;&gt;
+&lt;p&gt;@[TOC](《BERT: Pre-training of Deep Bidirectional Transformers forLanguage Understanding》)&lt;/p&gt;
+&lt;h1 id=&#34;讲在前面&#34;&gt;讲在前面&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;一.&lt;font color=red&gt;&lt;strong&gt;对NLP的试水&lt;/strong&gt;&lt;/font&gt;；&lt;/li&gt;
+&lt;li&gt;二.我设计了几种字体颜色用于更加醒目地表现关键的思想和主题：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=red&gt;红色表示尚未理解透彻的一些概念&lt;/font&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=blue&gt;蓝色表示对原来的理解做的一些修改或补充&lt;/font&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=green&gt;绿色表示此处需要参考的论文其他部分&lt;/font&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;font color=orange&gt;橙色表示本文的重要关键字&lt;/font&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;del&gt;我会用删除线将自己曾经不到位的理解进行删除&lt;/del&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;摘要&#34;&gt;摘要&lt;/h1&gt;
+&lt;hr&gt;
+&lt;p&gt;在此我们提出了一种新的语言模型BERT（BidirectionalEncoderRepresentations  fromTransformers），不同于最近的一些模型（《Matthew  Peters,  Mark  Neumann,  Mohit  Iyyer,  MattGardner, Christopher Clark, Kenton Lee, and LukeZettlemoyer. 2018a.  》和《Alec Radford, Karthik Narasimhan, Tim Salimans, andIlya  Sutskever.  2018.   Improving  language  under-standing with unsupervised learning.  Technical re-port, OpenAI》），BERT设计用来通过在未标注文本的所有层上进行正向的和反向的深度双向表达的预训练。结果，只要在预训练的BERT模型上机上一个额外的输出层，就能得到SOTA级别的模型，而且适用于很多任务，比如问题回答和语言推理，不需要进行大量（&lt;strong&gt;substantial&lt;/strong&gt;）的针对特定任务的修改。
+BERT的概念（&lt;strong&gt;conceptually&lt;/strong&gt;）很简单，同时在经验上很强大。在11个NLP任务上都获得了SOTA，通过将GLUE的结果提升到80.5%（总共提升7.7%），把MultiNLI 的精度提升到86.7%（总共提升4.6%），把SQuAD v1.1 question answer-ing  Test  F1的结果提升到93.2%（总共提升1.5%），把 SQuAD v2.0 Test F1 提升到
+83.1%（总共提升5.1%）。&lt;/p&gt;
+&lt;h1 id=&#34;论文内容&#34;&gt;论文内容&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;1介绍&#34;&gt;1.介绍&lt;/h2&gt;
+&lt;p&gt;语言模型的预训练已经被证明对于提升很多NLP任务是有效的（《Andrew M Dai and Quoc V Le. 2015. Semi-supervisedsequence learning》、《Matthew  Peters,  Mark  Neumann,  Mohit  Iyyer,  MattGardner, Christopher Clark, Kenton Lee, and LukeZettlemoyer. 2018a.  Deep contextualized word rep-resentations. InNAACL》、《Jeremy Howard and Sebastian Ruder. 2018.  Universallanguage model fine-tuning for text classification》）。包括语言推理这样的语句水平的任务（《Samuel R. Bowman, Gabor Angeli, Christopher Potts,and Christopher D. Manning. 2015.  A large anno-tated corpus for learning natural language inference.》和《Adina Williams,  Nikita Nangia,  and Samuel R Bow-man.  2018.A  broad-coverage  challenge  corpusfor  sentence  understanding  through  inference》）、全面分析句句之间关系的解释任务（《William B Dolan and Chris Brockett. 2005.  Automati-cally constructing a corpus of sentential paraphrases.》）和类似于命名实体识别和问题回答等符号（&lt;strong&gt;token&lt;/strong&gt;）水平的任务，模型用于产生细粒度的结果（《Erik   F   Tjong   Kim   Sang   and   Fien   De   Meulder.2003.   Introduction  to  the  conll-2003  shared  task:Language-independent named entity recognition》、《Pranav Rajpurkar, Jian Zhang, Konstantin Lopyrev, andPercy Liang. 2016.  Squad:  100,000+ questions formachine comprehension of text. 》）。
+也有两个线程的策略将预训练的语言模型表达应用到两个下游任务：基于特征和微调。基于特征：比如ELMo（Matthew  Peters,  Mark  Neumann,  Mohit  Iyyer,  MattGardner, Christopher Clark, Kenton Lee, and LukeZettlemoyer. 2018a.）使用特定任务的结构，包括将预训练的表达作为另外的特征添加进去；微调：比如GPT（《Alec Radford, Karthik Narasimhan, Tim Salimans, andIlya  Sutskever.  2018.   Improving  language  under-standing with unsupervised learning.  Technical re-port, OpenAI》），介绍了最小化特定任务的参数，通过简单的微调预训练参数来训练下游任务。这两个任务共享预训练进程中的功能，即使用单向语言模型来学习通用语言表达。
+我们认为目前的技术限制了预训练表示的力量，特别是对于微调方法。主要的限制是标准的语言模型是单向的，这限制了用于预训练的结构的选择。比如，OpenAI的GPT，作者使用了从左到右的结构，这样transformer（《Ashish  Vaswani,  Noam  Shazeer,  Niki  Parmar,  JakobUszkoreit,  Llion  Jones,  Aidan  N  Gomez,  LukaszKaiser, and Illia Polosukhin. 2017. 》）的注意力机制就只能链接当前符号的前面的符号，这种限制对于语句层面的任务是次优的，当把微调应用在问题回答这种符号层面的任务上时就是有害的，这种任务的双向合并是很重要的。
+在这篇论文中，我们通过BERT提升了微调的方法。&lt;/p&gt;
+
+      </description>
+    </item>
+    
   </channel>
 </rss>
