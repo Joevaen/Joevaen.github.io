@@ -20,12 +20,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Joevaen.github.io/docs/notes/pytorch/" /><meta property="article:section" content="docs" />
 
-<meta property="og:site_name" content="Joevaen" />
+<meta property="article:modified_time" content="2021-07-13T15:31:45&#43;08:00" /><meta property="og:site_name" content="Joevaen" />
 
 <meta itemprop="name" content="Pytorch / CUDA环境">
 <meta itemprop="description" content="&ldquo;RTX 30 series card fails when building MMCV or MMDet&rdquo;
  Temporary work-around: do MMCV_WITH_OPS=1 MMCV_CUDA_ARGS=&#39;-gencode=arch=compute_80,code=sm_80&#39; pip install -e .. The common issue is nvcc fatal : Unsupported gpu architecture &#39;compute_86&#39;. This means that the compiler should optimize for sm_86, i.e., nvidia 30 series card, but such optimizations have not been supported by CUDA toolkit 11.0. This work-around modifies the compile flag by adding MMCV_CUDA_ARGS=&#39;-gencode=arch=compute_80,code=sm_80&#39;, which tells nvcc to optimize for sm_80, i.">
-
+<meta itemprop="dateModified" content="2021-07-13T15:31:45&#43;08:00" />
 <meta itemprop="wordCount" content="554">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Pytorch / CUDA环境"/>
@@ -3694,7 +3694,7 @@ You need to manually install Cython first and then run command <code>pip install
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 1, 0001
+	<div class="text-muted mt-5 pt-3 border-top">Last modified July 13, 2021: <a  href="https://github.com/Joevaen/example/commit/6e5fc88b0a96492c0cffa1fc7f685f089e3d52f1">1 (6e5fc88)</a>
 </div>
 </div>
 

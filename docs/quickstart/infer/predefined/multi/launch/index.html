@@ -21,13 +21,13 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 PORT=29500 ./tools/dist_train.sh ${CONFIG_FILE} 4 C
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Joevaen.github.io/docs/quickstart/infer/predefined/multi/launch/" /><meta property="article:section" content="docs" />
 
-<meta property="og:site_name" content="Joevaen" />
+<meta property="article:modified_time" content="2021-07-13T15:31:45&#43;08:00" /><meta property="og:site_name" content="Joevaen" />
 
 <meta itemprop="name" content="同时启动多个作业">
 <meta itemprop="description" content="If you would like to launch multiple jobs on a single machine, e.g., 2 jobs of 4-GPU training on a machine with 8 GPUs, you need to specify different ports (29500 by default) for each job to avoid communication conflict.
 If you use dist_train.sh to launch training jobs, you can set the port in commands.
 CUDA_VISIBLE_DEVICES=0,1,2,3 PORT=29500 ./tools/dist_train.sh ${CONFIG_FILE} 4 CUDA_VISIBLE_DEVICES=4,5,6,7 PORT=29501 ./tools/dist_train.sh ${CONFIG_FILE} 4 ">
-
+<meta itemprop="dateModified" content="2021-07-13T15:31:45&#43;08:00" />
 <meta itemprop="wordCount" content="65">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="同时启动多个作业"/>
@@ -3682,7 +3682,7 @@ you need to specify different ports (29500 by default) for each job to avoid com
 </code></pre></div>
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 1, 0001
+	<div class="text-muted mt-5 pt-3 border-top">Last modified July 13, 2021: <a  href="https://github.com/Joevaen/example/commit/6e5fc88b0a96492c0cffa1fc7f685f089e3d52f1">1 (6e5fc88)</a>
 </div>
 </div>
 

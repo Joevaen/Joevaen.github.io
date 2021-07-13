@@ -22,14 +22,14 @@ python tools/model_converters/publish_model.py work_dirs/faster_rcnn/latest.pth 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Joevaen.github.io/docs/guides/model_conversion/publish/" /><meta property="article:section" content="docs" />
 
-<meta property="og:site_name" content="Joevaen" />
+<meta property="article:modified_time" content="2021-07-13T15:31:45&#43;08:00" /><meta property="og:site_name" content="Joevaen" />
 
 <meta itemprop="name" content="准备出版的模型">
 <meta itemprop="description" content="tools/model_converters/publish_model.py helps users to prepare their model for publishing.
 Before you upload a model to AWS, you may want to
  convert model weights to CPU tensors delete the optimizer states and compute the hash of the checkpoint file and append the hash id to the filename.  python tools/model_converters/publish_model.py ${INPUT_FILENAME} ${OUTPUT_FILENAME} E.g.,
 python tools/model_converters/publish_model.py work_dirs/faster_rcnn/latest.pth faster_rcnn_r50_fpn_1x_20190801.pth The final output filename will be faster_rcnn_r50_fpn_1x_20190801-{hash id}.pth.">
-
+<meta itemprop="dateModified" content="2021-07-13T15:31:45&#43;08:00" />
 <meta itemprop="wordCount" content="63">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="准备出版的模型"/>
@@ -3664,7 +3664,7 @@ filename.</li>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 1, 0001
+	<div class="text-muted mt-5 pt-3 border-top">Last modified July 13, 2021: <a  href="https://github.com/Joevaen/example/commit/6e5fc88b0a96492c0cffa1fc7f685f089e3d52f1">1 (6e5fc88)</a>
 </div>
 </div>
 

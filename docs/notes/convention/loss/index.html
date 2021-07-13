@@ -21,13 +21,13 @@ class BBoxHead(nn.Module): ... def loss(self, ...): losses = dict() # classifica
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Joevaen.github.io/docs/notes/convention/loss/" /><meta property="article:section" content="docs" />
 
-<meta property="og:site_name" content="Joevaen" />
+<meta property="article:modified_time" content="2021-07-13T15:31:45&#43;08:00" /><meta property="og:site_name" content="Joevaen" />
 
 <meta itemprop="name" content="损失">
 <meta itemprop="description" content="In MMDetection, a dict containing losses and metrics will be returned by model(**data).
 For example, in bbox head,
 class BBoxHead(nn.Module): ... def loss(self, ...): losses = dict() # classification loss losses[&#39;loss_cls&#39;] = self.loss_cls(...) # classification accuracy losses[&#39;acc&#39;] = accuracy(...) # bbox regression loss losses[&#39;loss_bbox&#39;] = self.loss_bbox(...) return losses bbox_head.loss() will be called during model forward. The returned dict contains &#39;loss_bbox&#39;, &#39;loss_cls&#39;, &#39;acc&#39; . Only &#39;loss_bbox&#39;, &#39;loss_cls&#39; will be used during back propagation, &#39;acc&#39; will only be used as a metric to monitor training process.">
-
+<meta itemprop="dateModified" content="2021-07-13T15:31:45&#43;08:00" />
 <meta itemprop="wordCount" content="104">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="损失"/>
@@ -3668,7 +3668,7 @@ This behavior could be changed by modifying <code>BaseDetector.train_step()</cod
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 1, 0001
+	<div class="text-muted mt-5 pt-3 border-top">Last modified July 13, 2021: <a  href="https://github.com/Joevaen/example/commit/6e5fc88b0a96492c0cffa1fc7f685f089e3d52f1">1 (6e5fc88)</a>
 </div>
 </div>
 

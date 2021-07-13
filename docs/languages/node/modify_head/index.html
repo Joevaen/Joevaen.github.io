@@ -20,12 +20,12 @@ model = dict( pretrained=None, roi_head=dict( bbox_head=dict( type=&#39;Shared2F
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Joevaen.github.io/docs/languages/node/modify_head/" /><meta property="article:section" content="docs" />
 
-<meta property="og:site_name" content="Joevaen" />
+<meta property="article:modified_time" content="2021-07-13T15:31:45&#43;08:00" /><meta property="og:site_name" content="Joevaen" />
 
 <meta itemprop="name" content="修改head">
 <meta itemprop="description" content="新的配置文件需要根据数据集的类别数目修改head，通过在roi_head中修改num_classes，预训练模型的权重会黑再次使用，除了最后的预测的head。
 model = dict( pretrained=None, roi_head=dict( bbox_head=dict( type=&#39;Shared2FCBBoxHead&#39;, in_channels=256, fc_out_channels=1024, roi_feat_size=7, num_classes=8, bbox_coder=dict( type=&#39;DeltaXYWHBBoxCoder&#39;, target_means=[0., 0., 0., 0.], target_stds=[0.1, 0.1, 0.2, 0.2]), reg_class_agnostic=False, loss_cls=dict( type=&#39;CrossEntropyLoss&#39;, use_sigmoid=False, loss_weight=1.0), loss_bbox=dict(type=&#39;SmoothL1Loss&#39;, beta=1.0, loss_weight=1.0)), mask_head=dict( type=&#39;FCNMaskHead&#39;, num_convs=4, in_channels=256, conv_out_channels=256, num_classes=8, loss_mask=dict( type=&#39;CrossEntropyLoss&#39;, use_mask=True, loss_weight=1.0)))) ">
-
+<meta itemprop="dateModified" content="2021-07-13T15:31:45&#43;08:00" />
 <meta itemprop="wordCount" content="40">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="修改head"/>
@@ -3672,7 +3672,7 @@ model = dict( pretrained=None, roi_head=dict( bbox_head=dict( type=&#39;Shared2F
 </code></pre></div>
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 1, 0001
+	<div class="text-muted mt-5 pt-3 border-top">Last modified July 13, 2021: <a  href="https://github.com/Joevaen/example/commit/6e5fc88b0a96492c0cffa1fc7f685f089e3d52f1">1 (6e5fc88)</a>
 </div>
 </div>
 

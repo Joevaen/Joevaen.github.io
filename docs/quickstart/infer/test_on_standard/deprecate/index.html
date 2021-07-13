@@ -20,12 +20,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Joevaen.github.io/docs/quickstart/infer/test_on_standard/deprecate/" /><meta property="article:section" content="docs" />
 
-<meta property="og:site_name" content="Joevaen" />
+<meta property="article:modified_time" content="2021-07-13T15:31:45&#43;08:00" /><meta property="og:site_name" content="Joevaen" />
 
 <meta itemprop="name" content="弃用ImageToTensor">
 <meta itemprop="description" content="In test mode, ImageToTensor pipeline is deprecated, it&rsquo;s replaced by DefaultFormatBundle that recommended to manually replace it in the test data pipeline in your config file. examples:
 # use ImageToTensor (deprecated) pipelines = [ dict(type=&#39;LoadImageFromFile&#39;), dict( type=&#39;MultiScaleFlipAug&#39;, img_scale=(1333, 800), flip=False, transforms=[ dict(type=&#39;Resize&#39;, keep_ratio=True), dict(type=&#39;RandomFlip&#39;), dict(type=&#39;Normalize&#39;, mean=[0, 0, 0], std=[1, 1, 1]), dict(type=&#39;Pad&#39;, size_divisor=32), dict(type=&#39;ImageToTensor&#39;, keys=[&#39;img&#39;]), dict(type=&#39;Collect&#39;, keys=[&#39;img&#39;]), ]) ] # manually replace ImageToTensor to DefaultFormatBundle (recommended) pipelines = [ dict(type=&#39;LoadImageFromFile&#39;), dict( type=&#39;MultiScaleFlipAug&#39;, img_scale=(1333, 800), flip=False, transforms=[ dict(type=&#39;Resize&#39;, keep_ratio=True), dict(type=&#39;RandomFlip&#39;), dict(type=&#39;Normalize&#39;, mean=[0, 0, 0], std=[1, 1, 1]), dict(type=&#39;Pad&#39;, size_divisor=32), dict(type=&#39;DefaultFormatBundle&#39;), dict(type=&#39;Collect&#39;, keys=[&#39;img&#39;]), ]) ] ">
-
+<meta itemprop="dateModified" content="2021-07-13T15:31:45&#43;08:00" />
 <meta itemprop="wordCount" content="93">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="弃用ImageToTensor"/>
@@ -3694,7 +3694,7 @@ pipelines <span style="color:#555">=</span> [
 </code></pre></div>
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 1, 0001
+	<div class="text-muted mt-5 pt-3 border-top">Last modified July 13, 2021: <a  href="https://github.com/Joevaen/example/commit/6e5fc88b0a96492c0cffa1fc7f685f089e3d52f1">1 (6e5fc88)</a>
 </div>
 </div>
 

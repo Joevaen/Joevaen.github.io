@@ -19,11 +19,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Joevaen.github.io/showcase/paper/paper2/" /><meta property="article:section" content="showcase" />
 
-<meta property="og:site_name" content="Joevaen" />
+<meta property="article:modified_time" content="2021-07-13T15:31:45&#43;08:00" /><meta property="og:site_name" content="Joevaen" />
 
 <meta itemprop="name" content="从植入粒子后的CT图像自动定位植入的粒子">
 <meta itemprop="description" content="从植入粒子后的CT图像自动定位植入的粒子       Contents   1.介绍 2. 方法和材料  2.1 算法描述 2.2 基于强度的CT阈值分割 2.3 几何区域分割 2.4 几何区域连通 2.5 确定种子位置和方向   3.结果  3.1 最佳阈值确定 3.2 使用体模进行算法测试 3.3 使用实际的植入后CT图像进行算法测试 3.4 算法可移植性测试 3.5 植入后剂量   4.讨论  4.1 算法的可移植性 4.2 CT层厚上的选择建议   总结        讲在前面  一.Pre-MICCAI是我为了进一步了解MICCAI某些相当有意义论文的发展历史而采取的一种追根溯源的方法，在这个系列中我会将这篇论文所提到的之前的论文进行一定的了解，便于更深层次的学习和了解整个算法要解决哪些之前的问题，同时借鉴前人的思想来丰富自己的知识库； 二.我设计了几种字体颜色用于更加醒目地表现关键的思想和主题：  红色表示尚未理解透彻的一些概念 蓝色表示对原来的理解做的一些修改或补充 绿色表示此处需要参考的论文其他部分 橙色表示本文的重要关键字 我会用删除线将自己曾经不到位的理解进行删除 es》)   三、本文基于论文**《A Deep Regression Model for Seed Localizationin Prostate Brachytherapy》**  摘要 本文介绍了一种从一系列植入后CT图像中自动定位植入种子的方法。对接受前列腺近距离放射治疗的患者进行了植入后CT研究。 在每个CT切片中使用二进制阈值对明亮的区域进行分割，并收集这些区域的几何信息。 通过在每个切片中进行基于几何的过滤，将较大的区域（可能包含两个相连的种子）分成较小的区域。 使用基于几何学的连接搜索算法对每个区域切片进行纵向切片，分析沿纵向的区域连通性，从而将连通区域组合为一个对象。 将每个对象的加权质心作为这些位置。 该方法在含种子的前列腺幻象上进行了良好的测试，并通过患者的CT研究进行了统计分析。统计分析表明，该方法可以实现99％以上的检测率，并且定位准确，速度快。 对于在CT上定位植入的种子，它是可靠且方便的，可用于辅助前列腺近距离放射治疗的植入后剂量测定。">
-
+<meta itemprop="dateModified" content="2021-07-13T15:31:45&#43;08:00" />
 <meta itemprop="wordCount" content="316">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="从植入粒子后的CT图像自动定位植入的粒子"/>

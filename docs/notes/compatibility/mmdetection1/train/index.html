@@ -21,13 +21,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Joevaen.github.io/docs/notes/compatibility/mmdetection1/train/" /><meta property="article:section" content="docs" />
 
-<meta property="og:site_name" content="Joevaen" />
+<meta property="article:modified_time" content="2021-07-13T15:31:45&#43;08:00" /><meta property="og:site_name" content="Joevaen" />
 
 <meta itemprop="name" content="训练超参数">
 <meta itemprop="description" content="The change in training hyperparameters does not affect model-level compatibility but slightly improves the performance. The major ones are:
   The number of proposals after nms is changed from 2000 to 1000 by setting nms_post=1000 and max_num=1000. This slightly improves both mask AP and bbox AP by ~0.2% absolute.
   The default box regression losses for Mask R-CNN, Faster R-CNN and RetinaNet are changed from smooth L1 Loss to L1 loss.">
-
+<meta itemprop="dateModified" content="2021-07-13T15:31:45&#43;08:00" />
 <meta itemprop="wordCount" content="209">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="训练超参数"/>
@@ -3683,7 +3683,7 @@ This slightly improves both mask AP and bbox AP by ~0.2% absolute.</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 1, 0001
+	<div class="text-muted mt-5 pt-3 border-top">Last modified July 13, 2021: <a  href="https://github.com/Joevaen/example/commit/6e5fc88b0a96492c0cffa1fc7f685f089e3d52f1">1 (6e5fc88)</a>
 </div>
 </div>
 

@@ -20,12 +20,12 @@ model = dict( type=&#39;MaskRCNN&#39;, # 侦测器的名字 pretrained= &#39;tor
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Joevaen.github.io/docs/languages/cpp/api/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2020-12-16T23:13:50-08:00" /><meta property="og:site_name" content="Joevaen" />
+<meta property="article:modified_time" content="2021-07-13T15:31:45&#43;08:00" /><meta property="og:site_name" content="Joevaen" />
 
 <meta itemprop="name" content="用Mask R-CNN进行举例说明">
 <meta itemprop="description" content="为了帮助用户在现代检测系统中具有完整配置和模块的基本概念，我们使用Reset50和FPN对Mask R-CNN配置进行简要评论。有关每个模块的更详细用法和相应的替代方案，请参阅API文档。
 model = dict( type=&#39;MaskRCNN&#39;, # 侦测器的名字 pretrained= &#39;torchvision://resnet50&#39;, # 加载的ImageNet预训练骨架 backbone=dict( # 骨架配置文件 type=&#39;ResNet&#39;, # 骨架类型, 到 https://github.com/open-mmlab/mmdetection/blob/master/mmdet/models/backbones/resnet.py#L288 了解更多细节。 depth=50, # 骨架的深度, 对于ResNet来说，一般是50或101。 num_stages=4, # 骨架的stage的数目。 out_indices=(0, 1, 2, 3), # 每个stage输出的特征图的索引。 frozen_stages=1, # 第一个stage的权重会被冻结。 norm_cfg=dict( # normalization layers的配置文件。 type=&#39;BN&#39;, # norm layer的类型, 通常是BN或者GN。 requires_grad=True), # 在BN层中是否训练gamma和beta。 norm_eval=True, # 是否冻结BN的统计数据。 style=&#39;pytorch&#39;), # 骨架的类型, &#39;pytorch&#39; 意味折3x3卷积步长为2, &#39;caffe&#39; 意味着1x1卷积步长为2。 neck=dict( type=&#39;FPN&#39;, # The neck of detector is FPN. We also support &#39;NASFPN&#39;, &#39;PAFPN&#39;, etc.">
-<meta itemprop="dateModified" content="2020-12-16T23:13:50-08:00" />
+<meta itemprop="dateModified" content="2021-07-13T15:31:45&#43;08:00" />
 <meta itemprop="wordCount" content="2494">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="用Mask R-CNN进行举例说明"/>
@@ -3965,7 +3965,7 @@ work_dir <span style="color:#555">=</span> <span style="color:#c30">&#39;work_di
 </code></pre></div>
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified December 16, 2020: <a  href="https://github.com/Joevaen/example/commit/fe231325fb4971ea7423f37762133feb73db978b">Implement the Docsy theme (#561) (fe23132)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified July 13, 2021: <a  href="https://github.com/Joevaen/example/commit/6e5fc88b0a96492c0cffa1fc7f685f089e3d52f1">1 (6e5fc88)</a>
 </div>
 </div>
 

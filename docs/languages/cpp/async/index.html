@@ -21,13 +21,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Joevaen.github.io/docs/languages/cpp/async/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2021-01-28T16:21:49-05:00" /><meta property="og:site_name" content="Joevaen" />
+<meta property="article:modified_time" content="2021-07-13T15:31:45&#43;08:00" /><meta property="og:site_name" content="Joevaen" />
 
 <meta itemprop="name" content="配置文件命名风格">
 <meta itemprop="description" content="我们按照以下方式命名配置文件。 建议使用者使用同样的风格。
 {model}_[model setting]_{backbone}_{neck}_[norm setting]_[misc]_[gpu x batch_per_gpu]_{schedule}_{dataset} {xxx} 是必要的字段而 [yyy] 是可以选择的字段。
  {model}: 例如 faster_rcnn, mask_rcnn这样的模型类型。 [model setting]: 指定一些模型的设置, 比如 htc 的 without_semantic , reppoints 的 moment 等等。 {backbone}: 网络骨架类型， 比如 r50 (ResNet-50), x101 (ResNeXt-101)。 {neck}: neck类型， 比如 fpn, pafpn, nasfpn, c4。 [norm_setting]: bn (Batch Normalization) 是默认使用的，除非指定其他选项, 比如： gn (Group Normalization), syncbn (Synchronized Batch Normalization)。 gn-head/gn-neck 表明GN仅在 head/neck 应用, 而 gn-all 意味着 GN 应用在整个模型上, 比如： backbone, neck, head。 [misc]: 模型中各种各样的设置和插件, 比如： dconv, gcb, attention, albu, mstrain。 [gpu x batch_per_gpu]: GPU的数目和每个GPU的样本数, 默认使用8x2。 {schedule}: 训练的日历, 选项分别有 1x, 2x, 20e等等。 1x 和 2x 意味着 12 epochs 和 24 epochs。 20e 应用在级联模型中, 表示 20 epochs。 对于 1x/2x 来说, 初始学习率会在8/16 epoch和11/22 epoch时衰减10倍，对于20e，在第16和第19 epoch衰减10倍。 {dataset}: 数据集，比如： coco, cityscapes, voc_0712, wider_face。  ">
-<meta itemprop="dateModified" content="2021-01-28T16:21:49-05:00" />
+<meta itemprop="dateModified" content="2021-07-13T15:31:45&#43;08:00" />
 <meta itemprop="wordCount" content="113">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="配置文件命名风格"/>
@@ -3667,7 +3667,7 @@
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 28, 2021: <a  href="https://github.com/Joevaen/example/commit/05fc7bf4713032f4e30079da7ef9a395700e8a1f">C&#43;&#43; async tutorial: fix link to basics, switch to using relref (#616) (05fc7bf)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified July 13, 2021: <a  href="https://github.com/Joevaen/example/commit/6e5fc88b0a96492c0cffa1fc7f685f089e3d52f1">1 (6e5fc88)</a>
 </div>
 </div>
 

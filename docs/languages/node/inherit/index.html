@@ -20,12 +20,12 @@ _base_ = [ &#39;../_base_/models/mask_rcnn_r50_fpn.py&#39;, &#39;../_base_/datas
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Joevaen.github.io/docs/languages/node/inherit/" /><meta property="article:section" content="docs" />
 
-<meta property="og:site_name" content="Joevaen" />
+<meta property="article:modified_time" content="2021-07-13T15:31:45&#43;08:00" /><meta property="og:site_name" content="Joevaen" />
 
 <meta itemprop="name" content="继承基本配置">
 <meta itemprop="description" content="为了减小写整个配置文件的压力和出错的风险，MMDetection V2.0 支持从多个存在的配置的文件中进行继承操作。如果想微调一个Mask RCNN模型，新的配置文件需要继承_base_/models/mask_rcnn_r50_fpn.py，从而构建一个模型的基本结构。如果要使用Cityscapes Dataset，新的配置文件也能简单继承 _base_/datasets/cityscapes_instance.py。如果要进行一些runtime设置，比如说training schedule，新的配置文件需要去继承_base_/default_runtime.py。这个配置文件在configs路径下，使用者也可以写一个完整的内容，而不用去继承。
 _base_ = [ &#39;../_base_/models/mask_rcnn_r50_fpn.py&#39;, &#39;../_base_/datasets/cityscapes_instance.py&#39;, &#39;../_base_/default_runtime.py&#39; ] ">
-
+<meta itemprop="dateModified" content="2021-07-13T15:31:45&#43;08:00" />
 <meta itemprop="wordCount" content="14">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="继承基本配置"/>
@@ -3651,7 +3651,7 @@ _base_ = [ &#39;../_base_/models/mask_rcnn_r50_fpn.py&#39;, &#39;../_base_/datas
 </code></pre></div>
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 1, 0001
+	<div class="text-muted mt-5 pt-3 border-top">Last modified July 13, 2021: <a  href="https://github.com/Joevaen/example/commit/6e5fc88b0a96492c0cffa1fc7f685f089e3d52f1">1 (6e5fc88)</a>
 </div>
 </div>
 

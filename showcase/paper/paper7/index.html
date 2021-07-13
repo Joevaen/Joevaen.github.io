@@ -21,13 +21,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Joevaen.github.io/showcase/paper/paper7/" /><meta property="article:section" content="showcase" />
 
-<meta property="og:site_name" content="Joevaen" />
+<meta property="article:modified_time" content="2021-07-13T15:31:45&#43;08:00" /><meta property="og:site_name" content="Joevaen" />
 
 <meta itemprop="name" content="HRNet用于视觉识别的深度高分辨率表示学习">
 <meta itemprop="description" content="HRNet用于视觉识别的深度高分辨率表示学习       Contents   低分辨率表示学习 高分辨率表示恢复 高分辨率表示保持 多尺度混合 我们的方法   3.1 并行多分辨率卷积 3.2 重复的多分辨率融合        讲在前面  一.学习该算法的目的：在u2net上进行针道的尝试之后，发现分割的算法无法解决针道问题，能呈现一定的分割效果，但因为针在体内的位置不确定，性状、像素值也并不像之前设想的那么具有可识别度，故希望利用从feature map上回归点的特征点的方法解决这个棘手的问题； 二.我设计了几种字体颜色用于更加醒目地表现关键的思想和主题：  红色表示尚未理解透彻的一些概念 蓝色表示对原来的理解做的一些修改或补充 绿色表示此处需要参考的论文其他部分 橙色表示本文的重要关键字 紫色表示后续更新的内容 我会用删除线将自己曾经不到位的理解进行删除   三.CVPR2019 的 HRNet 在我之前的工作中具有十分重要的作用，在长期的图像分割任务中，并没有太多时间思考这个模型及类似点回归模型在医学图像中的应用。从这篇博客开始，我将会持续探讨，此类点回归模型在医学图像中介入体识别中的作用。  一、摘要 深度卷积网络在许多机器视觉领域已经取得了SOTA级别的效果，比如图像分类、目标检测、语义分割、人体姿态识别等等。原因就是与手工制作的特征相比，深度学习具有更强大的提取特征的能力。 最近的大多数分类网络，比如AlexNet、VGGNet、GoogleNet、ResNet等等，都遵从着LeNet-5的设计原则，这个原则就如 （图一） 所描述的：
  (a) 从高分辨率到低分辨率逐渐减小特征图的尺寸，最终从低分辨率的特征图中得到分类的结果； 图一：      高分辨率表达主要用于一些对位置敏感的任务，比如语义分割、人体姿态识别和目标检测。先前的SOTA方法主要采用的是高分辨率恢复的方法，将低分辨率图中的分类结果提升为高分辨率，如图一的(b)中描述的，比如Hourglass、SegNet、DeconvNet、U-Net、SimpleBaseline和编解码模式。另外，膨胀卷积用于移除一些下采样层，从而产生一些中级像素的特征图。 我们提出了一个新的网络结构，名为 High-ResolutionNet (HRNet)，能够在整个过程中保持高分辨率的特征图。我们从一个高分辨率的卷积流程开始，一个个地把由高到低的卷积流加入进去，然后平行连接多个流。最终的网络包含了几个（论文中是4个）图二所表示出的stage，第n个stage包含了对应与n像素级的n个流。我们通过在并行流之间交换信息来进行重复的多分辨率融合。
  图二：      HRNet的高分辨率表达不仅仅在语义上具有很好的性能，在空间上也具备一定的精准度。这主要来自两个方面：">
-
+<meta itemprop="dateModified" content="2021-07-13T15:31:45&#43;08:00" />
 <meta itemprop="wordCount" content="148">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="HRNet用于视觉识别的深度高分辨率表示学习"/>

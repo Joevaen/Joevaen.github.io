@@ -20,12 +20,12 @@ class ATSSHead(AnchorHead): ... def get_targets(self, anchor_list, valid_flag_li
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Joevaen.github.io/docs/languages/kotlin/weighting/" /><meta property="article:section" content="docs" />
 
-<meta property="og:site_name" content="Joevaen" />
+<meta property="article:modified_time" content="2021-07-13T15:31:45&#43;08:00" /><meta property="og:site_name" content="Joevaen" />
 
 <meta itemprop="name" content="加权损失（步骤2）">
 <meta itemprop="description" content="加权损失意味着重新element-wisely对损失进行加权。 更具体地说，我们将损失张量乘以具有相同形状的权重张量。 结果，损失的不同entries就会以不同的方式进行缩放，因此叫做element-wisely。 损失的权重和模型的不同高度相关，但是总体来说有两种损失权重， label_weights 用于分类权重， bbox_weights 用于bbox回归。 你能在对应的head中的get_target方法中找到。现在用ATSSHead举个例子, 继承了 AnchorHead而且重写 get_targets 的方法。
 class ATSSHead(AnchorHead): ... def get_targets(self, anchor_list, valid_flag_list, gt_bboxes_list, img_metas, gt_bboxes_ignore_list=None, gt_labels_list=None, label_channels=1, unmap_outputs=True): ">
-
+<meta itemprop="dateModified" content="2021-07-13T15:31:45&#43;08:00" />
 <meta itemprop="wordCount" content="26">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="加权损失（步骤2）"/>
@@ -3661,7 +3661,7 @@ class ATSSHead(AnchorHead): ... def get_targets(self, anchor_list, valid_flag_li
 </code></pre>
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 1, 0001
+	<div class="text-muted mt-5 pt-3 border-top">Last modified July 13, 2021: <a  href="https://github.com/Joevaen/example/commit/6e5fc88b0a96492c0cffa1fc7f685f089e3d52f1">1 (6e5fc88)</a>
 </div>
 </div>
 

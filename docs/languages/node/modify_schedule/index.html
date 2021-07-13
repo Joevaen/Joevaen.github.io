@@ -20,12 +20,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Joevaen.github.io/docs/languages/node/modify_schedule/" /><meta property="article:section" content="docs" />
 
-<meta property="og:site_name" content="Joevaen" />
+<meta property="article:modified_time" content="2021-07-13T15:31:45&#43;08:00" /><meta property="og:site_name" content="Joevaen" />
 
 <meta itemprop="name" content="修改训练schedule">
 <meta itemprop="description" content="微调的超参数依默认的schedule不同而不同，通常它要求更小的学习率和更少的训练轮次。
 # optimizer # lr is set for a batch size of 8 optimizer = dict(type=&#39;SGD&#39;, lr=0.01, momentum=0.9, weight_decay=0.0001) optimizer_config = dict(grad_clip=None) # learning policy lr_config = dict( policy=&#39;step&#39;, warmup=&#39;linear&#39;, warmup_iters=500, warmup_ratio=0.001, # [7] yields higher performance than [6] step=[7]) total_epochs = 8 # actual epoch = 8 * 8 = 64 log_config = dict(interval=100) ">
-
+<meta itemprop="dateModified" content="2021-07-13T15:31:45&#43;08:00" />
 <meta itemprop="wordCount" content="55">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="修改训练schedule"/>
@@ -3661,7 +3661,7 @@ log_config <span style="color:#555">=</span> <span style="color:#366">dict</span
 </code></pre></div>
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 1, 0001
+	<div class="text-muted mt-5 pt-3 border-top">Last modified July 13, 2021: <a  href="https://github.com/Joevaen/example/commit/6e5fc88b0a96492c0cffa1fc7f685f089e3d52f1">1 (6e5fc88)</a>
 </div>
 </div>
 

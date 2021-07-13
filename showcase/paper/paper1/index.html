@@ -20,12 +20,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Joevaen.github.io/showcase/paper/paper1/" /><meta property="article:section" content="showcase" />
 
-<meta property="og:site_name" content="Joevaen" />
+<meta property="article:modified_time" content="2021-07-13T15:31:45&#43;08:00" /><meta property="og:site_name" content="Joevaen" />
 
 <meta itemprop="name" content="前列腺近距离放射治疗中，检测粒子在CT中的3D位置和方向">
 <meta itemprop="description" content="前列腺近距离放射治疗中，检测粒子在CT中的3D位置和方向       Contents   1.介绍 2.材料 3.方法  3.A 使用连接对象分割进行粒子定位 3.B 使用PCA来进行方向估计 3.C 使用聚类方法对union-seed进行分离   4.结果  4.A 实验设置 4.B 体模实验 4.C 病例实验   5.总结        @[TOC](《Automatic 3D seed location and orientation in CT images for prostate brachytherapy》)
 讲在前面  一.Pre-MICCAI是我为了进一步了解MICCAI某些相当有意义论文的发展历史而采取的一种追根溯源的方法，在这个系列中我会将这篇论文所提到的之前的论文进行一定的了解，便于更深层次的学习和了解整个算法要解决哪些之前的问题，同时借鉴前人的思想来丰富自己的知识库； 二.我设计了几种字体颜色用于更加醒目地表现关键的思想和主题：  红色表示尚未理解透彻的一些概念 蓝色表示对原来的理解做的一些修改或补充 绿色表示此处需要参考的论文其他部分 橙色表示本文的重要关键字 我会用删除线将自己曾经不到位的理解进行删除   三、本文基于论文《A Deep Regression Model for Seed Localizationin Prostate Brachytherapy》  摘要 在前列腺近距离治疗中，对每个植入的粒子的3D姿势信息的分析是剂量计算和质量评估的关键问题之一。 本文介绍了一种用于前列腺粒子的分离、定位和3D方向估计的自动图像处理解决方案。 该解决方案将对CT图像中的一组候选粒子的初始检测（使用阈值和连接成分方法）与使用主成分分析（PCA）的方向估计结合在一起。 这项工作的主要创意是能够根据先验强度和体积信息对检测到的物体进行分类，并使用改进的k均值方法将种子分组。 在体模和患者的CT图像上进行了实验，目的是在检测性能和计算时间方面将建议的解决方案与手动分割或其他先前的工作进行比较。">
-
+<meta itemprop="dateModified" content="2021-07-13T15:31:45&#43;08:00" />
 <meta itemprop="wordCount" content="378">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="前列腺近距离放射治疗中，检测粒子在CT中的3D位置和方向"/>
